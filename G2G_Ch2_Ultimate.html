@@ -39,7 +39,7 @@ body.party-mode .beat-title h1 {
   z-index: 1000; transition: width 0.1s linear;
 }
 .chapter-nav {
-  position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+  position: fixed; top: 50%; right: 20px; transform: translateY((50%));
   z-index: 100; display: flex; flex-direction: column; gap: 8px;
 }
 .chapter-nav .dot {
@@ -391,20 +391,20 @@ body.party-mode .beat-title h1 {
 <tr><th>Line Item</th><th>Eddie's Clinic</th><th>Subtrax</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>Revenue</strong></td><td class="num">£480,000</td><td class="num">£5,300,000</td></tr>
-<tr><td>Cost of Goods Sold</td><td class="num">£230,000</td><td class="num">£1,540,000</td></tr>
-<tr class="row-highlight"><td><strong>Gross Profit</strong></td><td class="num">£250,000</td><td class="num">£3,760,000</td></tr>
+<tr><td><strong>Revenue</strong></td><td class="num">£250,000</td><td class="num">£5,300,000</td></tr>
+<tr><td>Cost of Goods Sold</td><td class="num">£120,000</td><td class="num">£1,540,000</td></tr>
+<tr class="row-highlight"><td><strong>Gross Profit</strong></td><td class="num">£130,000</td><td class="num">£3,760,000</td></tr>
 <tr><td><strong>Gross Margin %</strong></td><td class="num">52%</td><td class="num">71%</td></tr>
 <tr><td colspan="3" style="height: 8px;"></td></tr>
-<tr><td>Sales & Marketing</td><td class="num">£8,000</td><td class="num">£1,800,000</td></tr>
-<tr><td>Personnel (excluding COGS)</td><td class="num">£150,000</td><td class="num">£850,000</td></tr>
-<tr><td>Operations & Rent</td><td class="num">£44,000</td><td class="num">£400,000</td></tr>
-<tr class="row-highlight"><td><strong>Operating Expenses</strong></td><td class="num">£202,000</td><td class="num">£3,050,000</td></tr>
+<tr><td>Sales & Marketing</td><td class="num">£5,000</td><td class="num">£1,800,000</td></tr>
+<tr><td>Personnel (excluding COGS)</td><td class="num">£40,000</td><td class="num">£850,000</td></tr>
+<tr><td>Operations & Rent</td><td class="num">£10,000</td><td class="num">£400,000</td></tr>
+<tr class="row-highlight"><td><strong>Operating Expenses</strong></td><td class="num">£55,000</td><td class="num">£3,050,000</td></tr>
 <tr><td colspan="3" style="height: 8px;"></td></tr>
-<tr class="row-highlight"><td><strong>EBITDA</strong></td><td class="num">£48,000</td><td class="num">£710,000</td></tr>
-<tr><td>D&A</td><td class="num">£1,000</td><td class="num">£40,000</td></tr>
-<tr class="row-highlight"><td><strong>Net Profit</strong></td><td class="num">£47,000</td><td class="num">(£910,000)</td></tr>
-<tr><td><strong>Net Margin %</strong></td><td class="num">10%</td><td class="num">(17%)</td></tr>
+<tr class="row-highlight"><td><strong>EBITDA</strong></td><td class="num">£75,000</td><td class="num">£710,000</td></tr>
+<tr><td>D&A</td><td class="num">£10,000</td><td class="num">£40,000</td></tr>
+<tr class="row-highlight"><td><strong>Net Profit</strong></td><td class="num">£48,000</td><td class="num">(£910,000)</td></tr>
+<tr><td><strong>Net Margin %</strong></td><td class="num">19%</td><td class="num">(17%)</td></tr>
 </tbody>
 </table>
 <div class="card-body">
@@ -460,7 +460,7 @@ body.party-mode .beat-title h1 {
 <div class="comparison">
 <div class="company">
 <div class="company-name">Königshof</div>
-<div class="company-stat"><span class="label">Founded</span><span class="value">1897</span></div>
+<div class="company-stat"><span class="label">Founded</span><span class="value">1905</span></div>
 <div class="company-stat"><span class="label">FY24 Revenue</span><span class="value">€99.6m</span></div>
 <div class="company-stat"><span class="label">Units</span><span class="value">300</span></div>
 <div class="company-stat"><span class="label">ASP</span><span class="value">€332k</span></div>
@@ -473,13 +473,13 @@ body.party-mode .beat-title h1 {
 </div>
 <div class="company">
 <div class="company-name">Subtrax</div>
-<div class="company-stat"><span class="label">Founded</span><span class="value">2019</span></div>
+<div class="company-stat"><span class="label">Founded</span><span class="value">2020</span></div>
 <div class="company-stat"><span class="label">FY24 Revenue</span><span class="value">£5.3m</span></div>
 <div class="company-stat"><span class="label">Customers</span><span class="value">272</span></div>
 <div class="company-stat"><span class="label">ASP</span><span class="value">£19.5k</span></div>
 <div class="company-stat"><span class="label">Gross Margin</span><span class="value">71%</span></div>
-<div class="company-stat"><span class="label">EBITDA</span><span class="value">-£0.87m (-16%)</span></div>
-<div class="company-stat"><span class="label">Net Loss</span><span class="value">-£0.91m (-17%)</span></div>
+<div class="company-stat"><span class="label">EBITDA</span><span class="value">(£0.87m) (16%)</span></div>
+<div class="company-stat"><span class="label">Net Loss</span><span class="value">(£0.91m) (17%)</span></div>
 <div class="company-stat"><span class="label">Churn</span><span class="value">12%</span></div>
 <div class="company-stat"><span class="label">CAC</span><span class="value">£19k</span></div>
 <div class="company-stat"><span class="label">LTV:CAC</span><span class="value">2.2x</span></div>
@@ -507,7 +507,7 @@ body.party-mode .beat-title h1 {
 </div>
 <div class="lingo-item">
 <div class="lingo-term">COGS</div>
-<div class="lingo-def">Cost to produce the thing. For Königshof, €214k per harvester × 300 = €64.2m. For Subtrax, £5,670 per customer/year.</div>
+<div class="lingo-def">Includes materials, labour, factory overhead, and D&A directly tied to production. Königshof total COGS: €93.8m. Subtrax COGS: £1.54m.</div>
 </div>
 <div class="lingo-item">
 <div class="lingo-term">Gross Profit</div>
@@ -519,19 +519,19 @@ body.party-mode .beat-title h1 {
 </div>
 <div class="lingo-item">
 <div class="lingo-term">EBITDA</div>
-<div class="lingo-def">Gross Profit - OpEx. Operating cash profit before financing. PE obsesses over this. Königshof: €15.9m. Subtrax: -£0.87m.</div>
+<div class="lingo-def">Gross Profit - OpEx. Operating cash profit before financing. PE obsesses over this. Königshof: €15.9m. Subtrax: (£0.87m).</div>
 </div>
 <div class="lingo-item">
 <div class="lingo-term">EBIT</div>
-<div class="lingo-def">EBITDA minus D&A. Operating profit. Königshof: €5.8m. Subtrax: -£0.91m.</div>
+<div class="lingo-def">EBITDA minus D&A. Operating profit. Königshof: €5.8m. Subtrax: (£0.91m).</div>
 </div>
 <div class="lingo-item">
 <div class="lingo-term">Net Profit</div>
-<div class="lingo-def">EBIT minus interest and taxes. Bottom line. Königshof: €3.5m. Subtrax: -£0.91m.</div>
+<div class="lingo-def">EBIT minus interest and taxes. Bottom line. Königshof: €3.5m. Subtrax: (£0.91m).</div>
 </div>
 <div class="lingo-item">
 <div class="lingo-term">Contribution Margin</div>
-<div class="lingo-def">Revenue - Variable Costs (not fixed). Königshof: €332k - €214k = €118k (35.5%). Subtrax: £19.5k - £5.67k = £13.83k (71%).</div>
+<div class="lingo-def">Revenue - Variable Costs per unit/customer. Königshof: €332k - €214k = €118k (36% margin). Subtrax: £19.5k - £5.63k = £13.87k (71% margin).</div>
 </div>
 <div class="lingo-item">
 <div class="lingo-term">Variable Costs</div>
@@ -638,64 +638,25 @@ body.party-mode .beat-title h1 {
 </div>
 <div class="lingo-item">
 <div class="lingo-term">3. Concentration</div>
-<div class="lingo-def"><strong>Königshof:</strong> Top 10 = 20–25% revenue. Losing one = 3–4pp loss. <strong>Subtrax:</strong> 272 customers, each ~0.4%. Losing one = 0.37% loss. Lower concentration = more durable.</div>
-</div>
-<div class="lingo-item">
-<div class="lingo-term">4. Defensibility</div>
-<div class="lingo-def"><strong>Königshof:</strong> Moderate. Switching costs moderate. <strong>Subtrax:</strong> High. Built workflows, trained staff, integrated systems. Switching is painful. This defensibility = 12% churn (much lower than horizontal SaaS).</div>
-</div>
-<div class="lingo-item">
-<div class="lingo-term">5. Expansion</div>
-<div class="lingo-def"><strong>Königshof:</strong> Limited. Customer buys one model, rarely expands to others. <strong>Subtrax:</strong> High. Each customer can expand seats, add modules, expand to locations. NRR >100% possible (each cohort expands 15%+).</div>
-</div>
-</div>
-<div class="card-body">
-<p style="margin-top: 20px;"><strong>Quality Score:</strong> Königshof = 2/5 (one-time, moderate on others). Subtrax = 5/5 (recurring, long, low concentration, high defensibility, expansion). Quality gap explains why SaaS trades at higher multiples despite being unprofitable.</p>
-</div>
-</section>
-
-<!-- DIVIDER 2: COST STRUCTURE -->
-<section class="beat beat-divider" data-section="4">
-<div class="beat-inner">
-<div class="divider-num">02 — Cost Structure</div>
-<div class="divider-title">Variable, Fixed, and Everything Between</div>
-</div>
-</section>
-
-<!-- BEAT 18: NARRATOR - PE VS ACCOUNTANT -->
-<section class="beat beat-narrator" data-section="4">
-<div class="beat-inner">
-<div class="narrator-text">
-<p>An accountant classifies costs as COGS (direct) or OpEx (indirect). A PE investor classifies costs as variable (scales with volume), fixed (doesn't), or semi-variable (scales in chunks). This difference determines the sensitivity of profit to revenue changes, which determines everything about business risk and value.</p>
-</div>
-</section>
-
-<!-- BEAT 19: KÖNIGSHOF VARIABLE COSTS -->
-<section class="beat beat-card" data-section="4">
-<div class="beat-inner">
-<div class="card-label">Unit Economics</div>
-<div class="card-title">Königshof: What It Costs to Make One Harvester</div>
-<table class="card-table">
-<thead>
-<tr><th>Component</th><th>Cost (€k)</th><th>Notes</th></tr>
-</thead>
-<tbody>
-<tr><td colspan="3" style="background: var(--surface-2); color: var(--accent); font-weight: 600; padding: 10px;">MATERIALS</td></tr>
-<tr><td>Steel (frame, chassis)</td><td class="num">€62k</td><td>Commodity</td></tr>
-<tr><td>Hydraulics (pump, hoses)</td><td class="num">€34k</td><td>Bosch Rexroth</td></tr>
-<tr><td>Electrical (harnesses, motors, PLC)</td><td class="num">€28k</td><td>Control systems</td></tr>
-<tr><td>Cab (seating, instruments)</td><td class="num">€24k</td><td>Sourced</td></tr>
-<tr><td>Paint, adhesive, fasteners</td><td class="num">€14k</td><td>Consumables</td></tr>
-<tr class="row-highlight"><td><strong>Total Materials</strong></td><td class="num"><strong>€162k</strong></td><td></td></tr>
-<tr><td colspan="3" style="background: var(--surface-2); color: var(--accent); font-weight: 600; padding: 10px;">LABOUR (Variable)</td></tr>
-<tr><td>Welders</td><td class="num">€18k</td><td>Per unit</td></tr>
-<tr><td>Assembly technicians</td><td class="num">€16k</td><td>Per unit</td></tr>
-<tr><td>Painters</td><td class="num">€9k</td><td>Per unit</td></tr>
-<tr><td>Logistics & packaging</td><td class="num">€6k</td><td>Per unit</td></tr>
-<tr><td>Quality inspection</td><td class="num">€3k</td><td>Per unit</td></tr>
-<tr class="row-highlight"><td><strong>Total Labour</strong></td><td class="num"><strong>€52k</strong></td><td></td></tr>
-<tr class="row-highlight"><td><strong>Total Variable/Unit</strong></td><td class="num"><strong>€214k</strong></td><td><strong>35.5% contribution</strong></td></tr>
-</tbody>
+<tr class="row-highlight"><td><strong>Revenue</strong></td><td class="num"><strong>5.30</strong></td><td class="num"><strong>100%</strong></td><td>272 customers @ £19.5k ASP</td></tr>
+<tr><td colspan="4" style="height: 10px;"></td></tr>
+<tr><td>Customer Success Managers</td><td class="num">(0.94)</td><td class="num">18%</td><td>CSM team, onboarding, renewals</td></tr>
+<tr><td>Customer Support</td><td class="num">(0.17)</td><td class="num">3%</td><td>Tier 1 support team</td></tr>
+<tr><td>Hosting & Infrastructure</td><td class="num">(0.42)</td><td class="num">8%</td><td>AWS, CDN, payment processing</td></tr>
+<tr class="row-highlight"><td><strong>Total COGS</strong></td><td class="num"><strong>(1.54)</strong></td><td class="num"><strong>29%</strong></td><td></td></tr>
+<tr class="row-highlight"><td><strong>Gross Profit</strong></td><td class="num"><strong>3.76</strong></td><td class="num"><strong>71%</strong></td><td>Excellent product economics</td></tr>
+<tr><td colspan="4" style="height: 10px;"></td></tr>
+<tr><td>Sales & Marketing</td><td class="num">(1.55)</td><td class="num">29%</td><td>Acquire 60 new customers/year @ £19k CAC</td></tr>
+<tr><td>General & Administrative</td><td class="num">(3.08)</td><td class="num">58%</td><td>Engineering, operations, finance, rent, legal</td></tr>
+<tr class="row-highlight"><td><strong>Total OpEx</strong></td><td class="num"><strong>(4.63)</strong></td><td class="num"><strong>87%</strong></td><td>Fixed cost base plus discretionary growth spend</td></tr>
+<tr class="row-highlight"><td><strong>EBITDA</strong></td><td class="num"><strong>(0.87)</strong></td><td class="num"><strong>(16%)</strong></td><td>Operating loss due to growth investment</td></tr>
+<tr><td colspan="4" style="height: 10px;"></td></tr>
+<tr><td>Depreciation & amortisation</td><td class="num">(0.04)</td><td class="num">1%</td><td>Capitalized software</td></tr>
+<tr class="row-highlight"><td><strong>EBIT</strong></td><td class="num"><strong>(0.91)</strong></td><td class="num"><strong>(17%)</strong></td><td>Operating loss</td></tr>
+<tr><td colspan="4" style="height: 10px;"></td></tr>
+<tr><td>Interest</td><td class="num">0.00</td><td class="num">0%</td><td>No debt</td></tr>
+<tr><td>Tax</td><td class="num">0.00</td><td class="num">0%</td><td>No tax on operating loss</td></tr>
+<tr class="row-highlight"><td><strong>Net Income</strong></td><td class="num"><strong>(0.91)</strong></td><td class="num"><strong>(17%)</strong></td><td>The 71% gross margin flows to growth, not profit—yet</td></tr>
 </table>
 <div class="card-body">
 <p style="margin-top: 20px;"><strong>Key insight:</strong> Every harvester contributes €118k (€332k ASP - €214k variable). At 300 units/year, contribution is €35.4m. This covers €26m in fixed costs and profit. If volume drops to 220, contribution falls to €26m and profit = zero. Below 220 = loss. This is why Schilling's 15% volume assumption matters so much. High operating leverage means small volume errors become big profit errors.</p>
@@ -798,9 +759,9 @@ body.party-mode .beat-title h1 {
 
 <p><strong>Stage 2: Gross Profit (Revenue - COGS)</strong><br>The contribution available to cover sales, marketing, admin, and profit. Königshof: €31.8m (32% margin). Subtrax: £3.76m (71% margin). High gross margin doesn't guarantee high net margin—it depends on how you spend on OpEx.</p>
 
-<p><strong>Stage 3: EBITDA (Gross - Operating Expenses)</strong><br>Operating profit before financing and accounting entries. This is closest to true operational cash profit. Königshof: €15.9m (16% of revenue, healthy). Subtrax: -£0.87m (-16%, investment phase). EBITDA is where PE investors start their analysis.</p>
+<p><strong>Stage 3: EBITDA (Gross - Operating Expenses)</strong><br>Operating profit before financing and accounting entries. This is closest to true operational cash profit. Königshof: €15.9m (16% of revenue, healthy). Subtrax: (£0.87m) ((16%), investment phase). EBITDA is where PE investors start their analysis.</p>
 
-<p><strong>Stage 4: Net Income (EBITDA - D&A - Interest - Tax)</strong><br>Bottom line. What actually accrues to shareholders. Königshof: €3.5m (4% net margin). Subtrax: -£0.91m (loss). Net profit reflects not just operations but financing and accounting choices. PE focuses on EBITDA for valuation, not net.</p>
+<p><strong>Stage 4: Net Income (EBITDA - D&A - Interest - Tax)</strong><br>Bottom line. What actually accrues to shareholders. Königshof: €3.5m (4% net margin). Subtrax: (£0.91m) (loss). Net profit reflects not just operations but financing and accounting choices. PE focuses on EBITDA for valuation, not net.</p>
 </div>
 </section>
 
@@ -816,31 +777,23 @@ body.party-mode .beat-title h1 {
 <tbody>
 <tr class="row-highlight"><td><strong>Revenue</strong></td><td class="num"><strong>99.6</strong></td><td class="num"><strong>100%</strong></td><td>300 units @ €332k ASP</td></tr>
 <tr><td colspan="4" style="height: 10px;"></td></tr>
-<tr><td>Raw materials</td><td class="num">(48.6)</td><td class="num">49%</td><td>Steel, hydraulics, electrical, cabs</td></tr>
-<tr><td>Direct labour</td><td class="num">(15.6)</td><td class="num">16%</td><td>Welders, assemblers, painters</td></tr>
-<tr><td>Logistics & shipping</td><td class="num">(1.8)</td><td class="num">2%</td><td>Internal and external</td></tr>
-<tr class="row-highlight"><td><strong>COGS</strong></td><td class="num"><strong>(66.0)</strong></td><td class="num"><strong>66%</strong></td><td></td></tr>
-<tr class="row-highlight"><td><strong>Gross Profit</strong></td><td class="num"><strong>33.6</strong></td><td class="num"><strong>34%</strong></td><td>Slight variance from our €31.8m baseline (rounding)</td></tr>
-<tr><td colspan="4" style="height: 10px;"></td></tr>
-<tr><td>Sales & marketing</td><td class="num">(2.8)</td><td class="num">3%</td><td>Salesforce, trade shows, marketing</td></tr>
-<tr><td>Factory overhead</td><td class="num">(15.4)</td><td class="num">15%</td><td>Depreciation, rent, facilities, supervisors</td></tr>
-<tr><td>Corporate overhead</td><td class="num">(6.2)</td><td class="num">6%</td><td>Finance, HR, legal, IT, CEO</td></tr>
-<tr><td>R&D & product</td><td class="num">(1.6)</td><td class="num">2%</td><td>Engineering, design, testing</td></tr>
-<tr class="row-highlight"><td><strong>Operating Expenses</strong></td><td class="num"><strong>(26.0)</strong></td><td class="num"><strong>26%</strong></td><td></td></tr>
-<tr class="row-highlight"><td><strong>EBITDA</strong></td><td class="num"><strong>7.6</strong></td><td class="num"><strong>8%</strong></td><td><span style="color: var(--red);">Wait—this is lower than our €15.9m baseline</span></td></tr>
+<tr><td>Materials & components</td><td class="num">(48.6)</td><td class="num">49%</td><td>Steel, hydraulics, electrical, cabs</td></tr>
+<tr><td>Direct labour</td><td class="num">(15.7)</td><td class="num">16%</td><td>Welders, assemblers, painters</td></tr>
+<tr><td>Indirect labour & factory overhead</td><td class="num">(9.3)</td><td class="num">9%</td><td>Supervisors, maintenance, utilities</td></tr>
+<tr><td>Sales, G&A & other operating</td><td class="num">(10.1)</td><td class="num">10%</td><td>Sales, admin, R&D, insurance</td></tr>
+<tr class="row-highlight"><td><strong>Total operating costs (excl. D&A)</strong></td><td class="num"><strong>(83.7)</strong></td><td class="num"><strong>84%</strong></td><td></td></tr>
+<tr class="row-highlight"><td><strong>EBITDA</strong></td><td class="num"><strong>15.9</strong></td><td class="num"><strong>16%</strong></td><td>Operating cash profit before financing</td></tr>
 <tr><td colspan="4" style="height: 10px;"></td></tr>
 <tr><td>Depreciation & amortisation</td><td class="num">(10.1)</td><td class="num">10%</td><td>Factory equipment, software</td></tr>
-<tr class="row-highlight"><td><strong>EBIT (Operating Profit)</strong></td><td class="num"><strong>(2.5)</strong></td><td class="num"><strong">-3%</strong></td><td><span style="color: var(--red);">Loss from operations(!)</span></td></tr>
+<tr class="row-highlight"><td><strong>EBIT</strong></td><td class="num"><strong>5.8</strong></td><td class="num"><strong>6%</strong></td><td>Operating profit</td></tr>
 <tr><td colspan="4" style="height: 10px;"></td></tr>
-<tr><td>Interest income/(expense)</td><td class="num">0.8</td><td class="num">1%</td><td>Interest on €40m cash</td></tr>
-<tr><td>Other income</td><td class="num">2.0</td><td class="num">2%</td><td>Equipment sales, warranty recoveries</td></tr>
-<tr class="row-highlight"><td><strong>Profit Before Tax</strong></td><td class="num"><strong>0.3</strong></td><td class="num"><strong">0.3%</strong></td><td></td></tr>
-<tr><td>Taxes</td><td class="num">(1.5)</td><td class="num">2%</td><td>German corporate tax</td></tr>
-<tr class="row-highlight"><td><strong>Net Income</strong></td><td class="num"><strong>(1.2)</strong></td><td class="num"><strong">-1%</strong></td><td><span style="color: var(--red);">Net loss</span></td></tr>
+<tr><td>Interest expense, net</td><td class="num">(0.8)</td><td class="num">1%</td><td>Less interest income on €40m cash</td></tr>
+<tr><td>Tax</td><td class="num">(1.5)</td><td class="num">2%</td><td>German corporate tax</td></tr>
+<tr class="row-highlight"><td><strong>Net Income</strong></td><td class="num"><strong>3.5</strong></td><td class="num"><strong">(1%)</strong></td><td>From €99.6m at the top, €83.7m runs the business</td></tr>
 </tbody>
 </table>
 <div class="card-body">
-<p style="margin-top: 20px;"><strong>Wait—the numbers don't match.</strong> In my earlier analysis I said Königshof made €3.5m net profit and EBITDA was €15.9m. But this walkthrough shows a loss. The difference is <strong>Adjusted EBITDA vs Reported EBITDA</strong>. Reported EBITDA (€7.6m) is what the company actually generated. Adjusted EBITDA (€15.9m) adds back one-time charges: €6.0m in legal costs from a lawsuit (FY23), severance of €1.2m, and other adjustments that PE investors consider non-recurring. <strong>This is the critical distinction we'll cover in the Adjustments section.</strong></p>
+<p style="margin-top: 20px;"><strong>Note on adjusted vs reported:</strong> The figures above are the <em>adjusted</em> P&amp;L, stripping out one-off items (FY23 legal settlement, FY24 CEO replacement costs). The <em>reported</em> EBIT was lower &mdash; €4.8m in FY23 and €5.8m in FY24 &mdash; because those one-offs hit the accounts. The Adjustments section below explains the difference and why PE investors care about it.</p>
 </div>
 </section>
 
@@ -877,12 +830,12 @@ body.party-mode .beat-title h1 {
 <tr><td>Interest</td><td class="num">0.00</td><td class="num">0%</td><td>No debt, minimal interest income</td></tr>
 <tr><td>Stock option expense (non-cash)</td><td class="num">(0.37)</td><td class="num">7%</td><td>Founder & early employee options vesting</td></tr>
 <tr class="row-highlight"><td><strong>Profit Before Tax</strong></td><td class="num"><strong">0.00</strong></td><td class="num"><strong">0%</strong></td><td></td></tr>
-<tr><td>Taxes</td><td class="num">0.00</td><td class="num">0%</td><td>No tax on zero profit</td></tr>
+<tr><td>Tax</td><td class="num">0.00</td><td class="num">0%</td><td>No tax on zero profit</td></tr>
 <tr class="row-highlight"><td><strong>Net Income</strong></td><td class="num"><strong">0.00</strong></td><td class="num"><strong">0%</strong></td><td><span style="color: var(--accent);">Wait—now matching £0.91m loss?</span></td></tr>
 </tbody>
 </table>
 <div class="card-body">
-<p style="margin-top: 20px;"><strong>Wait—the numbers still don't match the -£0.9m loss I cited earlier.</strong> The issue: I'm oversimplifying FY24 financials. The truth is complex. Some sources show Subtrax profitable at EBITDA level (operating cash positive) but loss-making at net income due to stock option expense (a non-cash charge from employee incentive plans). Other sources show EBITDA negative due to aggressive sales spend. The exact number depends on how you classify discretionary marketing spend (is it operating expense or growth investment?) and whether you count one-time items.</p>
+<p style="margin-top: 20px;"><strong>Wait—the numbers still don't match the (£0.9m) loss I cited earlier.</strong> The issue: I'm oversimplifying FY24 financials. The truth is complex. Some sources show Subtrax profitable at EBITDA level (operating cash positive) but loss-making at net income due to stock option expense (a non-cash charge from employee incentive plans). Other sources show EBITDA negative due to aggressive sales spend. The exact number depends on how you classify discretionary marketing spend (is it operating expense or growth investment?) and whether you count one-time items.</p>
 
 <p><strong>For this chapter's purposes: The key insight is this—Subtrax has the unit economics to be profitable (£13.87k contribution per customer), but is choosing to spend aggressively on growth to acquire customers faster. That choice is visible as a loss. This is not a broken business; it's a business investing in scale.</strong></p>
 </div>
@@ -907,7 +860,7 @@ body.party-mode .beat-title h1 {
 <div class="card-label">Framework</div>
 <div class="card-title">Why PE Investors Obsess Over EBITDA, Not Net Income</div>
 <div class="card-body">
-<p><strong>Net Income:</strong> Bottom line. Reflects operations, financing, accounting choices, and taxes. For Königshof, €3.5m. For Subtrax, -£0.9m (or maybe £0, depending on how you count stock options). Net income tells you how much cash went to shareholders historically. But it is not predictive of future cash flow for three reasons:</p>
+<p><strong>Net Income:</strong> Bottom line. Reflects operations, financing, accounting choices, and taxes. For Königshof, €3.5m. For Subtrax, (£0.9m) (or maybe £0, depending on how you count stock options). Net income tells you how much cash went to shareholders historically. But it is not predictive of future cash flow for three reasons:</p>
 
 <p><strong>1. Financing is a choice, not a business fundamental.</strong> A company financed with debt has lower net income due to interest. The same company financed with equity has zero interest and higher net income. But the underlying business is identical. EBITDA strips out financing, so you're comparing apples to apples.</p>
 
@@ -915,7 +868,7 @@ body.party-mode .beat-title h1 {
 
 <p><strong>3. Taxes are complex and variable.</strong> A company with losses has zero taxes today but tax benefits in the future (carryforwards). A profitable company has taxes today. EBITDA strips out taxes entirely, letting you see operational power independent of tax structure.</p>
 
-<p><strong>Result: PE investors value companies on EBITDA multiples, not net income multiples.</strong> Königshof's €15.9m adjusted EBITDA at 8x multiple = €127.2m enterprise value. That's almost entirely independent of the company's €3.5m net income or financing structure. The net income is useful for understanding historical cash flow to shareholders, but EBITDA is what drives enterprise value.</p>
+<p><strong>Result: PE investors value companies on EBITDA multiples, not net income multiples.</strong> Königshof's €15.9m adjusted EBIT at 8x multiple = €127.2m enterprise value. That's almost entirely independent of the company's €3.5m net income or financing structure. The net income is useful for understanding historical cash flow to shareholders, but EBITDA is what drives enterprise value.</p>
 </div>
 </section>
 
@@ -1016,7 +969,7 @@ body.party-mode .beat-title h1 {
 </div>
 <div class="lingo-item">
 <div class="lingo-term">Red: Persistent Costs Disguised as One-Offs</div>
-<div class="lingo-def"><strong>Examples:</strong> "Restructuring charges" every year (not one-time, it's ongoing restructuring). Regular product write-offs. Recurring bad debt provisions. Customer contract terminations that keep happening. <strong>Why dangerous:</strong> These are recurring costs that management is trying to hide. Adding them back inflates adjusted EBITDA. <strong>Rule of thumb:</strong> If it happened last year and the year before, it's red. Don't add it back.</div>
+<div class="lingo-def"><strong>Examples:</strong> "Restructuring charges" every year (not one-time, it's ongoing restructuring). Regular product write-offs. Recurring bad debt provisions. Customer contract terminations that keep happening. <strong>Why dangerous:</strong> These are recurring costs that management is trying to hide. Adding them back inflates adjusted EBIT. <strong>Rule of thumb:</strong> If it happened last year and the year before, it's red. Don't add it back.</div>
 </div>
 </div>
 </section>
@@ -1025,24 +978,24 @@ body.party-mode .beat-title h1 {
 <section class="beat beat-card" data-section="6">
 <div class="beat-inner">
 <div class="card-label">Case Study</div>
-<div class="card-title">Königshof: Reported vs Adjusted EBITDA (FY22-FY24)</div>
+<div class="card-title">Königshof: Reported vs Adjusted EBIT (FY22-FY24)</div>
 <table class="card-table">
 <thead>
-<tr><th>FY</th><th>Reported EBITDA</th><th>Adjustments</th><th>Type</th><th>Adjusted EBITDA</th></tr>
+<tr><th>FY</th><th>Reported EBIT</th><th>Adjustments</th><th>Type</th><th>Adjusted EBIT</th></tr>
 </thead>
 <tbody>
-<tr><td>FY22</td><td class="num">€7.6m</td><td class="num">+€6.2m</td><td>Green</td><td class="num">€13.8m</td></tr>
+<tr><td>FY22</td><td class="num">€13.8m</td><td class="num">&mdash;</td><td>&mdash;</td><td class="num">€13.8m</td></tr>
 <tr><td colspan="5" style="background: var(--surface-2); padding: 8px; font-size: 12px;">FY22: €6.2m legal costs from supplier contract dispute (fully settled).</td></tr>
 <tr><td>FY23</td><td class="num">€4.8m</td><td class="num">+€6.0m</td><td>Green</td><td class="num">€10.8m</td></tr>
 <tr><td colspan="5" style="background: var(--surface-2); padding: 8px; font-size: 12px;">FY23: €6.0m legal costs from major patent lawsuit (settled, unlikely to recur). Also included €1.5m severance from restructuring (factory optimization).</td></tr>
-<tr><td>FY24</td><td class="num">€7.6m</td><td class="num">+€8.3m</td><td>Mix</td><td class="num">€15.9m</td></tr>
+<tr><td>FY24</td><td class="num">€5.8m</td><td class="num">+€2.5m</td><td>Amber</td><td class="num">€8.3m</td></tr>
 <tr><td colspan="5" style="background: var(--surface-2); padding: 8px; font-size: 12px;">FY24: €6.0m from FY23 legal (continuing into FY24 due to appeal, reconsider if it's "one-time"). €1.2m severance from management restructuring. €1.1m write-off of obsolete parts inventory (result of FY23 demand shock). €0.5m CEO retirement bonus (documented).</td></tr>
 </tbody>
 </table>
 <div class="card-body">
-<p><strong>The danger:</strong> Königshof's adjusted EBITDA looks stable (€13.8m → €10.8m → €15.9m). But the underlying business is more fragile. The legal costs (€6m+ across two years) suggest operational risks (patent exposure). The severance (€1.5m + €1.2m) suggests ongoing restructuring, not a one-time event. The inventory write-off (€1.1m) is a consequence of poor demand forecasting in FY23, which is operational, not one-time.</p>
+<p><strong>The danger:</strong> Königshof's adjusted EBIT looks stable (€13.8m → €10.8m → €15.9m). But the underlying business is more fragile. The legal costs (€6m+ across two years) suggest operational risks (patent exposure). The severance (€1.5m + €1.2m) suggests ongoing restructuring, not a one-time event. The inventory write-off (€1.1m) is a consequence of poor demand forecasting in FY23, which is operational, not one-time.</p>
 
-<p>A disciplined PE investor would be conservative: Report adjusted EBITDA at €15.9m but flag that €2–3m of this is questionable (the recurrence of legal costs, the ongoing restructuring). Then model downside scenarios where those costs persist.</p>
+<p>A disciplined PE investor would be conservative: Report adjusted EBIT at €15.9m but flag that €2–3m of this is questionable (the recurrence of legal costs, the ongoing restructuring). Then model downside scenarios where those costs persist.</p>
 
 <p><strong>What Haircut would do:</strong> Walk through each adjustment with Wilhelm. Ask: "What's the probability this legal cost happens again? 5%? 20%?" Then apply a probability weight to each adjustment. Adjusted EBITDA becomes a range (€13.5m–€15.9m), not a point estimate. This is how PE handles adjustment risk.</p>
 </div>
@@ -1086,30 +1039,32 @@ body.party-mode .beat-title h1 {
 <div class="card-label">Deep Dive</div>
 <div class="card-title">Königshof Operating Leverage: The Full Calculation</div>
 <div class="card-body">
-<p><strong>Base Case FY24 (Actual)</strong></p>
+<p><strong>Base Case FY24 (Adjusted)</strong></p>
 <p>Revenue: €99.6m | Volume: 300 units | ASP: €332k</p>
-<p>COGS: €66m (€214k/unit × 300) | Gross Profit: €33.6m | Fixed Costs: €26.0m | EBITDA: €7.6m</p>
+<p>Variable costs: (€64.3m) (€214k/unit &times; 300) | Contribution: €35.3m (35%) | All other costs (semi-variable + fixed + SG&amp;A): (€19.4m) | D&amp;A: (€10.1m)</p>
+<p><strong>Adjusted EBITDA: €15.9m (16%) | Adjusted EBIT: €5.8m (6%)</strong></p>
 
-<p><strong>Scenario 1: +9% Revenue (via volume)</strong></p>
-<p>What if Königshof sells 327 units (300 × 1.09) instead of 300?</p>
-<p>Revenue: €108.6m (327 × €332k) | COGS: €70.0m (327 × €214k) | Gross Profit: €38.6m</p>
-<p>Fixed Costs: €26.0m (unchanged, still within one-factory capacity)</p>
-<p>EBITDA: €12.6m</p>
-<p>EBIT increase: €12.6m - €7.6m = €5.0m = +66% (!))</p>
-<p>DOL: 66% ÷ 9% = 7.3x (higher than average because we're close to breakeven)</p>
+<p><strong>Scenario 1: +10% Revenue (via volume, price unchanged)</strong></p>
+<p>30 additional harvesters at €332k = €10.0m additional revenue</p>
+<p>Variable cost of 30 units: 30 &times; €214k = (€6.4m)</p>
+<p>Incremental contribution: €3.6m &mdash; flows almost entirely to EBIT because fixed costs do not change</p>
+<p>New EBIT: €5.8m + €3.6m = <strong>€9.4m</strong></p>
+<p>EBIT change: +€3.6m = <strong>+62%</strong> on a 10% revenue increase</p>
+<p><strong>DOL: 62% &divide; 10% = 6.2x</strong></p>
+<p>Reverse: a 10% revenue <em>decline</em> (30 fewer harvesters) removes €3.6m of contribution. EBIT falls from €5.8m to €2.2m &mdash; a <strong>62% decline</strong>.</p>
 
-<p><strong>Scenario 2: -5% Price Cut, +15% Volume (Schilling's Proposal)</strong></p>
-<p>New ASP: €315k (€332k × 0.95) | New volume: 345 units (300 × 1.15)</p>
-<p>Revenue: €108.7m (345 × €315k) | COGS: €73.8m (345 × €214k) | Gross Profit: €34.9m</p>
-<p>Fixed Costs: €26.0m | EBITDA: €8.9m</p>
-<p>EBIT increase: €8.9m - €7.6m = €1.3m = +17%</p>
-<p><strong>Result: Schilling's proposal increases revenue 9% but only increases EBIT 17%. Compare to Scenario 1 (same revenue increase, no price cut) which increases EBIT 66%.</strong></p>
+<p><strong>Scenario 2: Schilling's Proposal (5% price cut, 15% volume gain)</strong></p>
+<p>New ASP: €332k &times; 0.95 = €315k | New volume: 300 &times; 1.15 = 345 units</p>
+<p>New revenue: 345 &times; €315k = €108.7m (+9.1%)</p>
+<p>Step 1 &mdash; Extra contribution from 45 new units: 45 &times; (€315k &minus; €214k) = 45 &times; €101k = <strong>+€4.5m</strong></p>
+<p>Step 2 &mdash; Lost margin on existing 300 units from price cut: 300 &times; (€332k &minus; €315k) = 300 &times; €17k = <strong>(€5.0m)</strong></p>
+<p>Step 3 &mdash; Net contribution change: +€4.5m &minus; €5.0m = <strong>(€0.5m)</strong></p>
+<p>New EBIT: €5.8m &minus; €0.5m = <strong>€5.3m</strong> &mdash; EBIT falls despite 9% higher revenue</p>
+<p><strong>Revenue went up. Factories got busier. EBIT went down.</strong></p>
 
-<p><strong>The Problem:</strong> Schilling's assumption of 15% volume gain at 5% price cut is not supported by data. Historical elasticity suggests only ~12% gain. So actual revenue is €108.2m (not €108.7m), gross profit is €34.5m (not €34.9m), and EBIT is €8.5m (vs €8.9m estimated). Still up from €7.6m, but the upside is smaller.</p>
+<p><strong>Why it fails:</strong> The volume gain on 45 new units does not compensate for the margin erosion on 300 existing units. Each new unit contributes €101k (at the reduced price). But each existing unit loses €17k. You need 45 &times; €101k = €4.5m to exceed 300 &times; €17k = €5.0m. It does not. The break-even elasticity for a 5% price cut is roughly 17% volume gain &mdash; Schilling assumed 15%, which is below the threshold.</p>
 
-<p><strong>What if elasticity is even lower (10% volume gain)?</strong> Revenue: €107.4m | Gross Profit: €34.2m | EBITDA: €8.2m (barely higher than base). The price cut destroys margin with minimal volume benefit.</p>
-
-<p><strong>Wilhelm's insight:</strong> "You need to know elasticity. A 10% price cut that drives only 12% volume is profitable. A 10% price cut that drives only 8% volume is a loss. Your spreadsheet assumes 15%. But you're competing on reliability and service, not price. Elasticity is probably 10%, max. At 10%, the cut barely moves the needle and we lose brand equity. Not worth it."</p>
+<p><strong>Wilhelm was right.</strong> Not because of tradition. Because the arithmetic does not support a 5% price cut unless volume response exceeds 17% &mdash; and for a premium, differentiated manufacturer with loyal co-operative customers, that elasticity is unlikely.</p>
 </div>
 </section>
 
@@ -1140,8 +1095,8 @@ body.party-mode .beat-title h1 {
 <div class="output-row"><span class="output-label">Base Revenue:</span><span class="output-value">€99.6m</span></div>
 <div class="output-row"><span class="output-label">New Revenue:</span><span class="output-value">€99.6m</span></div>
 <div class="output-row"><span class="output-label">Revenue Change:</span><span class="output-value">€0m (0%)</span></div>
-<div class="output-row"><span class="output-label">Base EBIT:</span><span class="output-value">€7.6m</span></div>
-<div class="output-row"><span class="output-label">New EBIT:</span><span class="output-value">€7.6m</span></div>
+<div class="output-row"><span class="output-label">Base EBIT:</span><span class="output-value">€5.8m</span></div>
+<div class="output-row"><span class="output-label">New EBIT:</span><span class="output-value">€5.8m</span></div>
 <div class="output-row"><span class="output-label">EBIT Change:</span><span class="output-value">€0m (0%)</span></div>
 <div class="output-row"><span class="output-label">Implied DOL:</span><span class="output-value">—</span></div>
 </div>
@@ -1187,7 +1142,7 @@ body.party-mode .beat-title h1 {
 <p>7. New breakeven: 257 units</p>
 <p>8. If Schilling is right (15% volume gain): 345 units > 257, still profitable</p>
 <p>9. If Schilling is wrong (only 10% volume gain): 330 units > 257, still profitable</p>
-<p>10. But even at 345 units, EBIT only rises from €7.6m to €8.5m (+12%), vs €0m to €5m (+66%) if volume rose 15% WITHOUT the price cut.</p>
+<p>10. But even at 345 units, EBIT falls from €5.8m to €5.3m. Schilling's plan destroys (€0.5m) of value. Volume gains do not compensate for margin erosion on the base.</p>
 
 <p>So the price cut only makes sense if elasticity is provably >15%, and you have no brand damage. Wilhelm doesn't believe either assumption. He's right."</p>
 
@@ -1222,7 +1177,7 @@ body.party-mode .beat-title h1 {
 
 <p><strong>Layer 4 (Operating Leverage):</strong> Königshof has 5.5x DOL. Small revenue changes drive big profit changes. This makes the business fragile when you're near breakeven. Subtrax has lower DOL because it's at loss—there's less leverage. But as Subtrax scales and fixed costs are amortized, DOL will rise. At 500 customers (£10.6m revenue, £3.76m gross profit at 71% margin, £1.65m fixed costs), Subtrax would have EBITDA of £5.11m (48% margin). That's extreme DOL on the upside.</p>
 
-<p><strong>The Summary:</strong> Königshof's profit (€3.5m) comes from a 32% gross margin on stable, mature volume. It's a harvester, not a machine. Subtrax's loss (-£0.9m) comes from a 71% gross margin being invested entirely into growth, because the unit economics support it. In 3–4 years, if Subtrax reaches 500 customers and reduces growth spend, it will have £5m+ EBITDA. Königshof will still have £3.5m. Subtrax will be worth more, despite being worth less today.</p>
+<p><strong>The Summary:</strong> Königshof's profit (€3.5m) comes from a 32% gross margin on stable, mature volume. It's a harvester, not a machine. Subtrax's loss ((£0.9m)) comes from a 71% gross margin being invested entirely into growth, because the unit economics support it. In 3–4 years, if Subtrax reaches 500 customers and reduces growth spend, it will have £5m+ EBITDA. Königshof will still have £3.5m. Subtrax will be worth more, despite being worth less today.</p>
 </div>
 </section>
 
@@ -1264,7 +1219,7 @@ body.party-mode .beat-title h1 {
 
 <p>Revenue: €99.6m. Not a drunk woman. Harvesters. Real machines with real customers.</p>
 
-<p>EBITDA: €7.6m reported, €15.9m adjusted. The adjusted number is what you'd make without the legal costs and severance. But the legal costs are recent, and the severance suggests ongoing restructuring. What if they recur? What if adjusted EBITDA is really only €12m?</p>
+<p>EBIT: €5.8m reported, €8.3m adjusted (adding back the €2.5m CEO replacement). EBITDA: €15.9m adjusted. The adjusted figures strip out one-offs. But the legal costs recurred across FY22-23, and the severance suggests ongoing restructuring. What if adjusted EBIT is closer to €7m than €8.3m?</p>
 
 <p>At 8x multiple (reasonable for industrial manufacturing), that's €96–127m in enterprise value. With €40m cash and zero debt, the equity is worth €136–167m. It's a reasonable valuation. But the downside is real: a 20% volume miss and EBIT goes negative.</p>
 
@@ -1304,7 +1259,7 @@ body.party-mode .beat-title h1 {
 <div class="footer-text">
 <strong>From Greenhorn to Gold(wo)man</strong><br>
 Chapter 2 — Buy Low, Sell High: The Income Statement Mastery<br><br>
-© 2026 G2G Advisory Limited, registered England & Wales No. 14832916<br>
+© 2026 G2G Advisory Limited, registered England & Wales No. 16909015<br>
 <a href="https://g2gadvisory.co.uk">www.g2gadvisory.co.uk</a>
 </div>
 <div class="footer-disclaimer">
@@ -1422,32 +1377,37 @@ function updateDOL() {
   const königVal = parseInt(königSlider.value);
   const subVal = parseInt(subSlider.value);
 
-  // Königshof: Base EBIT €7.6m, at 5.5x DOL
+  // Königshof: Revenue €99.6m, Variable costs €64.3m (64.6%), Fixed costs €19.4m, Base EBIT €5.8m
+  // Formula: EBIT = (Revenue × (1 + growth%)) - (Variable costs × (1 + growth%)) - Fixed costs - D&A
+  const königVariableRatio = 0.646; // €64.3m / €99.6m
+  const königFixedCosts = 19.4;
+  const königDA = 10.1;
   const königRevenue = 99.6 * (1 + königVal/100);
-  const königEBIT = Math.max(-26, 7.6 + (99.6 * königVal/100) * 0.55);
+  const königVariableCosts = königRevenue * königVariableRatio;
+  const königEBIT = königRevenue - königVariableCosts - königFixedCosts - königDA;
 
-  // Subtrax: Base EBIT ~£0, at lower leverage
+  // Subtrax: Base EBIT (£0.91m) loss, contribution margin 71%
   const subRevenue = 5.3 * (1 + subVal/100);
-  const subEBIT = 0.37 * (1 + subVal/100);
+  const subEBIT = -0.91 * (1 + subVal/100);
 
   document.getElementById('output-könig').innerHTML = `
     <div class="output-row"><span class="output-label">Base Revenue:</span><span class="output-value">€99.6m</span></div>
     <div class="output-row"><span class="output-label">New Revenue:</span><span class="output-value">€${königRevenue.toFixed(1)}m</span></div>
     <div class="output-row"><span class="output-label">Revenue Change:</span><span class="output-value">€${(königRevenue - 99.6).toFixed(1)}m (${königVal}%)</span></div>
-    <div class="output-row"><span class="output-label">Base EBIT:</span><span class="output-value">€7.6m</span></div>
+    <div class="output-row"><span class="output-label">Base EBIT:</span><span class="output-value">€5.8m</span></div>
     <div class="output-row"><span class="output-label">New EBIT:</span><span class="output-value">€${königEBIT.toFixed(1)}m</span></div>
-    <div class="output-row"><span class="output-label">EBIT Change:</span><span class="output-value">€${(königEBIT - 7.6).toFixed(1)}m (${königVal ? ((königEBIT/7.6 - 1)*100).toFixed(0) : 0}%)</span></div>
-    <div class="output-row"><span class="output-label">Implied DOL:</span><span class="output-value">${königVal ? ((königEBIT/7.6 - 1)*100 / königVal).toFixed(1) + 'x' : '—'}</span></div>
+    <div class="output-row"><span class="output-label">EBIT Change:</span><span class="output-value">€${(königEBIT - 5.8).toFixed(1)}m (${königVal ? ((königEBIT/5.8 - 1)*100).toFixed(0) : 0}%)</span></div>
+    <div class="output-row"><span class="output-label">Implied DOL:</span><span class="output-value">${königVal ? ((königEBIT/5.8 - 1)*100 / königVal).toFixed(1) + 'x' : '—'}</span></div>
   `;
 
   document.getElementById('output-sub').innerHTML = `
     <div class="output-row"><span class="output-label">Base Revenue:</span><span class="output-value">£5.3m</span></div>
     <div class="output-row"><span class="output-label">New Revenue:</span><span class="output-value">£${subRevenue.toFixed(1)}m</span></div>
     <div class="output-row"><span class="output-label">Revenue Change:</span><span class="output-value">£${(subRevenue - 5.3).toFixed(1)}m (${subVal}%)</span></div>
-    <div class="output-row"><span class="output-label">Base EBIT:</span><span class="output-value">£0.37m</span></div>
+    <div class="output-row"><span class="output-label">Base EBIT:</span><span class="output-value">(£0.91m)</span></div>
     <div class="output-row"><span class="output-label">New EBIT:</span><span class="output-value">£${subEBIT.toFixed(2)}m</span></div>
-    <div class="output-row"><span class="output-label">EBIT Change:</span><span class="output-value">£${(subEBIT - 0.37).toFixed(2)}m (${subVal ? ((subEBIT/0.37 - 1)*100).toFixed(0) : 0}%)</span></div>
-    <div class="output-row"><span class="output-label">Implied DOL:</span><span class="output-value">${subVal ? ((subEBIT/0.37 - 1)*100 / subVal).toFixed(1) + 'x' : '—'}</span></div>
+    <div class="output-row"><span class="output-label">EBIT Change:</span><span class="output-value">£${(subEBIT - (-0.91)).toFixed(2)}m (${subVal ? ((subEBIT/(-0.91) - 1)*100).toFixed(0) : 0}%)</span></div>
+    <div class="output-row"><span class="output-label">Implied DOL:</span><span class="output-value">${subVal ? ((subEBIT/(-0.91) - 1)*100 / subVal).toFixed(1) + 'x' : '—'}</span></div>
   `;
 
   königSlider.nextElementSibling.textContent = königVal + '%';
