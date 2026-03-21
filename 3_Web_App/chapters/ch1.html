@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0a0c">
+<link rel="manifest" href="../manifest.json">
+<title>G2G Chapter 1 — All Gold(wo)men Were Once Greenhorns</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0c; --surface: #131318; --surface-2: #1a1a22; --border: #2a2a35;
+  --text: #e8e4df; --text-muted: #8a8590; --text-dim: #5a5560;
+  --accent: #b07ce8; --accent-dim: #7a55b0; --accent-bright: #d4a0ff;
+  --green: #4a9e6e; --red: #c45c4a; --blue: #5a8fc4; --purple: #8a3cc4;
+  --brand-purple: #6b2fa0; --brand-magenta: #d946ef;
+  --font-serif: 'EB Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { height: 100%; overflow: hidden; }
+body {
+  height: 100%;
+  width: 100%;
+  background: var(--bg);
+  background-image: radial-gradient(circle, rgba(107,47,160,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: var(--text);
+  font-family: var(--font-serif);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+body.party-mode .beat-title h1 {
+  background: linear-gradient(45deg, #ff006e, #ffbe0b, #8338ec, #3a86ff, #fb5607);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: rainbow-shift 3s infinite;
+}
+@keyframes rainbow-shift { 0%, 100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(360deg); } }
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  background: linear-gradient(90deg, var(--brand-purple), var(--brand-magenta));
+  z-index: 1000; transition: width 0.1s linear;
+}
+.chapter-nav {
+  position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+  z-index: 100; display: flex; flex-direction: column; gap: 8px;
+}
+.chapter-nav .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--border); cursor: pointer; transition: all 0.3s;
+}
+.chapter-nav .dot.active {
+  background: var(--accent); box-shadow: 0 0 8px rgba(176,124,232,0.4);
+}
+.chapter-nav .dot:hover { background: var(--accent-dim); }
+@media (max-width: 768px) { .chapter-nav { display: none; } }
+.beat { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; display: flex; align-items: center; justify-content: center; padding: 60px 24px; opacity: 1; transform: translateY(0); transition: opacity 0.3s, transform 0.35s ease-in-out; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.beat.visible { opacity: 1; transform: translateY(0); }
+.beat-inner { max-width: 680px; width: 100%; }
+.beat-title {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 40px 24px;
+  background: radial-gradient(ellipse at center, #1a1028 0%, var(--bg) 70%);
+  position: relative; overflow: hidden;
+}
+.beat-title canvas { position: absolute; top: 0; left: 0; z-index: 0; }
+.beat-title .beat-inner { position: relative; z-index: 10; }
+.beat-title .series-name {
+  font-family: var(--font-sans); font-size: 11px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--accent-dim); margin-bottom: 40px;
+}
+.beat-title .g2g-logo {
+  width: 60px; height: 60px; margin-bottom: 30px; opacity: 0.8;
+}
+.beat-title h1 {
+  font-family: var(--font-serif); font-size: clamp(42px, 7vw, 72px);
+  font-weight: 700; line-height: 1.1; color: var(--text);
+  margin-bottom: 16px; position: relative;
+}
+.beat-title h1.glitch::before, .beat-title h1.glitch::after {
+  content: attr(data-text); position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; opacity: 0.8;
+}
+.beat-title h1.glitch::before {
+  color: var(--brand-purple); clip-path: inset(40% 0 30% 0);
+  animation: glitch-anim 3s infinite linear alternate-reverse; z-index: -1;
+}
+.beat-title h1.glitch::after {
+  color: var(--brand-magenta); clip-path: inset(60% 0 10% 0);
+  animation: glitch-anim2 2.5s infinite linear alternate-reverse; z-index: -1;
+}
+@keyframes glitch-anim {
+  0% { transform: translate(0); } 20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -1px); } 60% { transform: translate(-1px, 1px); }
+  80% { transform: translate(1px, -2px); } 100% { transform: translate(0); }
+}
+@keyframes glitch-anim2 {
+  0% { transform: translate(0); } 20% { transform: translate(2px, -2px); }
+  40% { transform: translate(-2px, 1px); } 60% { transform: translate(1px, -1px); }
+  80% { transform: translate(-1px, 2px); } 100% { transform: translate(0); }
+}
+.beat-title .subtitle {
+  font-family: var(--font-serif); font-size: clamp(20px, 3vw, 28px);
+  font-weight: 400; font-style: italic; color: var(--accent);
+  margin-bottom: 60px;
+}
+.beat-title .chapter-num {
+  font-family: var(--font-mono); font-size: 13px; color: var(--text-dim);
+  letter-spacing: 2px;
+}
+.beat-scene .beat-inner { padding: 0; }
+.scene-location {
+  font-family: var(--font-sans); font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent-dim); margin-bottom: 24px;
+  padding-left: 2px;
+}
+.scene-text {
+  font-family: var(--font-serif); font-size: clamp(18px, 2.2vw, 21px);
+  line-height: 1.8; color: var(--text);
+}
+.scene-text p { margin-bottom: 20px; }
+.scene-text p:last-child { margin-bottom: 0; }
+.dialogue { margin: 24px 0; padding-left: 0; }
+.dialogue .speaker {
+  font-family: var(--font-sans); font-weight: 600; font-size: 12px;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 6px; display: block;
+}
+.dialogue .line {
+  font-family: var(--font-serif); font-size: clamp(18px, 2.2vw, 21px);
+  line-height: 1.7; color: var(--text); margin-bottom: 20px; font-style: italic;
+}
+.beat-card .beat-inner {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 40px; max-width: 760px;
+}
+.card-label {
+  font-family: var(--font-sans); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.card-label::before { content: ''; display: block; width: 16px; height: 1px; background: var(--accent); }
+.card-title {
+  font-family: var(--font-sans); font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700; color: var(--text); margin-bottom: 24px; line-height: 1.3;
+}
+.card-body {
+  font-family: var(--font-serif); font-size: 17px; line-height: 1.8;
+  color: var(--text-muted);
+}
+.card-body p { margin-bottom: 16px; }
+.card-body p:last-child { margin-bottom: 0; }
+.card-body strong { color: var(--text); font-weight: 600; }
+.character-card {
+  background: linear-gradient(135deg, rgba(176,124,232,0.08), rgba(217,70,239,0.08));
+  border: 1px solid var(--accent-dim);
+  border-radius: 12px; padding: 24px; margin: 20px 0;
+  transition: all 0.3s ease;
+  position: relative; overflow: hidden;
+}
+.character-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(176,124,232,0.15);
+}
+.character-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: linear-gradient(180deg, var(--brand-purple), var(--brand-magenta));
+}
+.character-card-header {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.char-icon {
+  width: 36px; height: 36px; border-radius: 50%; display: inline-flex;
+  align-items: center; justify-content: center; font-family: var(--font-sans);
+  font-size: 14px; font-weight: 700; color: white; flex-shrink: 0;
+}
+.char-icon.le-pitch { background: linear-gradient(135deg, #2d1b69, #6b2fa0); }
+.char-icon.trace { background: linear-gradient(135deg, #1b4d69, #2d8cc4); }
+.char-icon.haircut { background: linear-gradient(135deg, #4d1b1b, #c45c4a); }
+.char-icon.wilhelm { background: linear-gradient(135deg, #1b4d2d, #4a9e6e); }
+.char-icon.magda { background: linear-gradient(135deg, #69451b, #c4982d); }
+.character-name {
+  font-family: var(--font-sans); font-size: 13px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--accent);
+}
+.character-title {
+  font-family: var(--font-sans); font-size: 12px; color: var(--text-dim);
+}
+.character-stat {
+  display: flex; justify-content: space-between; margin-bottom: 8px;
+  font-size: 14px;
+}
+.character-stat .label { color: var(--text-dim); font-family: var(--font-sans); }
+.character-stat .value { color: var(--text); font-family: var(--font-mono); font-weight: 600; }
+.character-secret {
+  margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--accent-dim);
+  font-family: var(--font-serif); font-size: 14px; color: var(--text-muted);
+  font-style: italic;
+  opacity: 0; transition: opacity 0.4s ease;
+}
+.character-card:hover .character-secret {
+  opacity: 1;
+}
+.beat-takeaway .beat-inner { max-width: 600px; text-align: center; padding: 20px 40px; }
+.takeaway-text {
+  font-family: var(--font-serif); font-size: clamp(22px, 3vw, 30px);
+  font-weight: 600; line-height: 1.5; color: var(--text); font-style: italic;
+}
+.takeaway-text .highlight { color: var(--accent); font-style: normal; }
+.beat-equation .beat-inner { text-align: center; max-width: 600px; }
+.equation {
+  font-family: var(--font-mono); font-size: clamp(20px, 3vw, 32px);
+  color: var(--accent); letter-spacing: 2px; margin: 20px 0; font-weight: 500;
+}
+.equation-label {
+  font-family: var(--font-sans); font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px;
+}
+.equation-note {
+  font-family: var(--font-serif); font-size: 17px; color: var(--text-muted);
+  margin-top: 16px; font-style: italic;
+}
+.beat-narrator .beat-inner { max-width: 600px; }
+.narrator-text {
+  font-family: var(--font-serif); font-size: 18px; line-height: 1.8;
+  color: var(--text-muted); font-style: italic;
+}
+.narrator-text p { margin-bottom: 16px; }
+.beat-divider .beat-inner { text-align: center; }
+.divider-num {
+  font-family: var(--font-sans); font-size: 14px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+}
+.divider-title {
+  font-family: var(--font-serif); font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700; color: var(--text); line-height: 1.2;
+}
+.beat-hottake .beat-inner {
+  max-width: 640px; border: 2px solid var(--red); border-radius: 12px;
+  padding: 32px 40px; background: linear-gradient(135deg, rgba(196,92,74,0.08), transparent);
+}
+.hottake-text {
+  font-family: var(--font-sans); font-size: 16px; font-weight: 600;
+  line-height: 1.6; color: var(--text);
+}
+.persona-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 20px 0; }
+.persona-card {
+  background: var(--surface-2); border-left: 3px solid var(--accent);
+  padding: 20px; border-radius: 4px;
+}
+.persona-title {
+  font-family: var(--font-sans); font-size: 12px; font-weight: 700;
+  letter-spacing: 1px; color: var(--accent); text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.persona-quote {
+  font-family: var(--font-serif); font-size: 15px; color: var(--text-muted);
+  line-height: 1.6; font-style: italic;
+}
+.chapter-map { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 20px 0; }
+.chapter-item {
+  background: linear-gradient(135deg, rgba(176,124,232,0.06), transparent);
+  border: 1px solid var(--accent-dim);
+  padding: 16px; border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.chapter-item:hover {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(176,124,232,0.12), transparent);
+}
+.chapter-item-num {
+  font-family: var(--font-sans); font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent); font-weight: 700;
+}
+.chapter-item-title {
+  font-family: var(--font-sans); font-size: 15px; font-weight: 600;
+  color: var(--text); margin: 6px 0;
+}
+.chapter-item-desc {
+  font-family: var(--font-serif); font-size: 13px; color: var(--text-muted);
+  margin-bottom: 0;
+}
+.company-card {
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 24px; margin: 16px 0;
+}
+.company-header {
+  font-family: var(--font-sans); font-size: 14px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 16px;
+}
+.company-subtitle {
+  font-family: var(--font-serif); font-size: 14px; color: var(--text-muted);
+  margin-bottom: 16px; font-style: italic;
+}
+.company-stat {
+  display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px;
+}
+.company-stat .label { color: var(--text-dim); font-family: var(--font-sans); }
+.company-stat .value { color: var(--text); font-family: var(--font-mono); font-weight: 600; }
+.brand-footer {
+  padding: 60px 24px 40px; text-align: center; border-top: 1px solid var(--border);
+}
+.brand-footer .footer-logo { margin-bottom: 16px; opacity: 0.6; font-family: var(--font-sans); font-weight: 700; font-size: 12px; letter-spacing: 2px; color: var(--accent); }
+.brand-footer .footer-text {
+  font-family: var(--font-sans); font-size: 11px; color: var(--text-dim);
+  line-height: 1.8; max-width: 500px; margin: 0 auto;
+}
+.brand-footer .footer-text a { color: var(--accent-dim); text-decoration: none; }
+.brand-footer .footer-text a:hover { color: var(--accent); }
+.brand-footer .footer-disclaimer {
+  font-family: var(--font-sans); font-size: 9px; color: var(--text-dim);
+  opacity: 0.6; margin-top: 20px; line-height: 1.6; max-width: 600px;
+  margin-left: auto; margin-right: auto;
+}
+.next-chapter {
+  background: linear-gradient(135deg, rgba(176,124,232,0.12), transparent);
+  border: 1px solid var(--accent-dim);
+  padding: 32px 40px; border-radius: 12px; text-align: center;
+  margin: 40px 0;
+}
+.next-chapter-title {
+  font-family: var(--font-sans); font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+}
+.next-chapter-name {
+  font-family: var(--font-serif); font-size: 24px; font-weight: 700;
+  color: var(--text); margin-bottom: 12px;
+}
+.next-chapter-teaser {
+  font-family: var(--font-serif); font-size: 15px; color: var(--text-muted);
+  line-height: 1.6;
+}
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 20px -10px;
+  padding: 0 10px;
+}
+.table-scroll::-webkit-scrollbar { height: 4px; }
+.table-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+/* ===== TIKTOK MODE: MOBILE ===== */
+@media (max-width: 768px) {
+  html { }
+  body { overflow-x: hidden; }
+  .beat {
+    position: fixed; top: 0; left: 0; width: 100%;
+    min-height: 100vh; height: 100vh;
+    padding: 24px 16px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 40px; padding-bottom: 40px;
+  }
+  .beat-title, .beat-takeaway, .beat-equation, .beat-divider, .beat-hottake {
+    align-items: center;
+  }
+  .beat-inner { max-width: 100%; }
+  .beat-card .beat-inner { padding: 20px 14px; }
+  .card-table { font-size: 11px; }
+  .card-table th, .card-table td { padding: 8px 6px; }
+  .scene-text, .card-body { font-size: 15px; line-height: 1.7; }
+  .beat-title h1 { font-size: 28px; }
+  .comparison { grid-template-columns: 1fr; }
+  .two-column { grid-template-columns: 1fr; }
+  .lingo-def { font-size: 14px; }
+  .hottake-text { font-size: 14px; padding: 20px 16px; }
+  .beat-takeaway .beat-inner { padding: 20px 16px; }
+  .takeaway-text { font-size: 20px; }
+  .beat-narrator .beat-inner { max-width: 100%; }
+  .narrator-text { font-size: 15px; }
+  .persona-grid { grid-template-columns: 1fr; }
+  .chapter-map { grid-template-columns: 1fr; }
+  .beat-title::after {
+    content: '↑ swipe up';
+    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-sans); font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--text-dim);
+    animation: pulse-hint 2s ease-in-out infinite;
+  }
+  @keyframes pulse-hint {
+    0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+    50% { opacity: 0.8; transform: translateX(-50%) translateY(-6px); }
+  }
+  .progress-bar { height: 3px; }
+}
+
+/* Back button and beat counter — all screen sizes */
+.back-button {
+  position: fixed; top: 16px; left: 16px; z-index: 999;
+  background: rgba(107, 47, 160, 0.3);
+  border: 1px solid var(--accent-dim);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.back-button:hover {
+  background: rgba(107, 47, 160, 0.5);
+  border-color: var(--accent);
+}
+.beat-counter {
+  position: fixed; bottom: 20px; right: 20px; z-index: 999;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  background: rgba(107, 47, 160, 0.3);
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--accent-dim);
+}
+
+@media (max-width: 480px) {
+  .beat {
+    position: fixed; top: 0; left: 0; width: 100%;
+    padding: 40px 16px; height: 100vh;
+  }
+  .beat-inner { max-width: 100%; width: 100%; padding: 0 8px; }
+  .beat-title h1 { font-size: clamp(28px, 6vw, 42px); }
+  .beat-title .subtitle { font-size: clamp(16px, 3vw, 20px); }
+  .beat-title .chapter-num { font-size: 11px; }
+  .scene-text { font-size: clamp(16px, 2vw, 18px); line-height: 1.6; }
+  .dialogue .line { font-size: clamp(16px, 2vw, 18px); }
+  .card-title { font-size: clamp(18px, 2vw, 22px); }
+  .card-body { font-size: 15px; }
+  .narrator-text { font-size: 16px; }
+  .takeaway-text { font-size: clamp(18px, 2.5vw, 24px); }
+  .equation { font-size: clamp(18px, 2.5vw, 26px); }
+  .character-card { margin: 16px 0; padding: 16px; }
+  .beat-card .beat-inner { padding: 24px; max-width: 100%; }
+  .card-table { font-size: 10px; }
+  .beat-title h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<nav class="chapter-nav" id="chapterNav"></nav>
+<a href="../index.html" class="back-button">← Back</a>
+<div class="beat-counter" id="beatCounter"></div>
+
+
+<!-- BEAT 1: COLD OPEN TITLE -->
+<section class="beat beat-title" data-section="0">
+<canvas id="particleCanvas"></canvas>
+<div class="beat-inner">
+<svg class="g2g-logo" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g2gGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6b2fa0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d946ef;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <text x="60" y="75" font-family="Inter, sans-serif" font-size="48" font-weight="700" text-anchor="middle" fill="url(#g2gGradient)">G2G</text>
+</svg>
+<h1 class="glitch" data-text="All Gold(wo)men Were Once Greenhorns">All Gold(wo)men Were Once Greenhorns</h1>
+<div class="subtitle">A Series on Corporate Finance for Everyone</div>
+<div class="chapter-num">CHAPTER 1 OF 11 — WELCOME</div>
+</div>
+</section>
+
+<!-- BEAT 2: COLD OPEN SCENE — TRACE AT MIDNIGHT -->
+<section class="beat beat-scene" data-section="0">
+<div class="beat-inner">
+<div class="scene-location">Canary Wharf, London — 17th Floor, SBCI</div>
+<div class="scene-text">
+<p>23:47. Trace Flint, 23, sits alone on the 17th floor. The floor is hollow—empty seats, darkened screens, the faint whir of servers below. Her screen glows: Subtrax_Model_v44.xlsx. Four years of company financials. Line items stacked thirty-deep. The model was built by an intern two months in. The intern was smart. The intern went to Oxford. But the intern made a fundamental error in his cost forecasting.</p>
+
+<p>She scrolls through the detail tabs. There—in "Cost Structure Assumptions." Support costs: marked as "Fixed at £187k." She writes in her notebook: "Support scales with headcount. Headcount scales with customer count. If you double customers, you roughly double support tickets. You need more support staff. Cost is not fixed."</p>
+
+<p>She scrolls down to the summary. The intern's model shows: Revenue growing from £5.3m to £16.6m by FY28. EBITDA turns positive in year two—£4.2m, climbing to £9.8m by year three. Too smooth. Too neat. When you add customers, costs don't stay flat. The cost rises with headcount. You can't keep support costs flat while your customer base triples.</p>
+
+<p>She clicks into the assumptions and rewires the mechanics. Support costs as 5% of revenue instead of fixed. Host costs scaled more realistically. The new trajectory is radically different. Revenue still grows to £16.6m. But EBITDA: negative in year two (now -£1.1m instead of +£4.2m). The inflection point is delayed. By year four: £3.2m, not £9.8m.</p>
+
+<p>She makes a note in clean handwriting: "Numbers fixed. Cost structure corrected. EBITDA trajectory more realistic per actual cost scaling. — TF"</p>
+
+<p>She saves the file as "Subtrax_Model_v45_CORRECTED" and emails it to herself. She closes the lid and walks to the DLR. She thinks about the model. Tomorrow someone will take her corrected version and build a pitchbook. That pitchbook will form a valuation. That valuation will determine whether Subtrax gets funded or not. She doesn't know this yet. But her three-hour correction is now doing real work in the world.</p>
+</div>
+</section>
+
+<!-- BEAT 3: NARRATOR — THE PROMISE -->
+<section class="beat beat-narrator" data-section="1">
+<div class="beat-inner">
+<div class="narrator-text">
+<p>Investment banking looks intimidating. Not because the ideas are hard. Not because the maths is complex. It's intimidating because the explanations usually are.</p>
+
+<p>This series exists to fix that. You will learn corporate finance not through formulas or textbooks, but through stories. Five characters. Two companies. One story. By the end, you will understand finance well enough to walk into any meeting and hold your own.</p>
+</div>
+</section>
+
+<!-- BEAT 4: HOT TAKE — THE THESIS -->
+<section class="beat beat-hottake" data-section="1">
+<div class="beat-inner">
+<div class="hottake-text">Every Goldman once began as a greenhorn. The difference between them and you is not talent. It is exposure.</div>
+</div>
+</section>
+
+<!-- BEAT 5: NARRATOR — THE STRUCTURE -->
+<section class="beat beat-narrator" data-section="1">
+<div class="beat-inner">
+<div class="narrator-text">
+<p>Think of this series as a novel about numbers. Each chapter opens with a scene—a conflict, a problem, a decision point. The conflict illustrates a financial concept. By the end of the chapter, through the story of real people making real choices, you will understand not just the concept but why it matters.</p>
+
+<p>Read this on your own time. Fifteen to twenty minutes per chapter. If you get lost in the numbers, re-read the scene. The scene always explains the number. Finance is most useful when you can apply it to something you actually care about.</p>
+</div>
+</section>
+
+<!-- BEAT 6: DIVIDER — PART ONE: THE CAST -->
+<section class="beat beat-divider" data-section="2">
+<div class="beat-inner">
+<div class="divider-num">⁂ Part One</div>
+<div class="divider-title">Meet the Cast</div>
+</div>
+</section>
+
+<!-- BEAT 7: LE PITCH SCENE & CARD -->
+<section class="beat beat-scene" data-section="2">
+<div class="beat-inner">
+<div class="scene-location">Paris, France — Lapérouse Restaurant</div>
+<div class="scene-text">
+<p>Cold January night. Le Pitch steps out of the restaurant into the Parisian dark, collar up, cigarette curling smoke. Behind him: caviar, venison, a Burgundy so deep it seemed to hum. Tomorrow belongs to the bank. Tonight belongs to Puccini. He climbs the stairs of a flat between Place Vendôme and the Opéra and opens his notebook. A German manufacturer, family-owned. Interesting margin structure. He circles the EBITDA line and writes two words: "Projet Forge."</p>
+</div>
+</section>
+
+<section class="beat beat-card" data-section="2">
+<div class="beat-inner">
+<div class="character-card">
+<div class="character-card-header">
+<div class="char-icon le-pitch">LP</div>
+<div>
+<div class="character-name">Le Pitch</div>
+<div class="character-title">Jean-Baptiste Fournier, MD / SBCI (London) — Age 34</div>
+</div>
+</div>
+<div class="character-stat">
+<span class="label">Known for</span>
+<span class="value">Immaculate pitchbooks</span>
+</div>
+<div class="character-stat">
+<span class="label">Style</span>
+<span class="value">Hermès ties, South Kensington</span>
+</div>
+<div class="character-secret">He no longer does the heavy numbers himself. He focuses on "value-add" while the analyst bench delivers. Last week, a teaser landed on his desk. German manufacturer, family-owned. He circled the EBITDA line and wrote: "Projet Forge."</div>
+</div>
+</section>
+
+<!-- BEAT 8: TRACE SCENE & CARD -->
+<section class="beat beat-scene" data-section="2">
+<div class="beat-inner">
+<div class="scene-location">Lanarkshire, Scotland — University Years</div>
+<div class="scene-text">
+<p>First in her family to university. Glasgow, economics degree, quiet, top marks. She taught herself corporate finance using online courses and AI prompts. She found she had a head for business problems. Banking pays the rent more than policy. So she applied. SBCI offered her a spot as an analyst. First deal—pharmaceutical acquisition—she stayed late, learned the models, asked better questions. First-year bonus was the highest ever at the firm. Le Pitch noticed.</p>
+</div>
+</section>
+
+<section class="beat beat-card" data-section="2">
+<div class="beat-inner">
+<div class="character-card">
+<div class="character-card-header">
+<div class="char-icon trace">TF</div>
+<div>
+<div class="character-name">Trace</div>
+<div class="character-title">Tracy Flint, A2 Analyst / SBCI (London) — Age 23</div>
+</div>
+</div>
+<div class="character-stat">
+<span class="label">Background</span>
+<span class="value">First in family, north Scotland</span>
+</div>
+<div class="character-stat">
+<span class="label">Known for</span>
+<span class="value">Files so clean other juniors copy them</span>
+</div>
+<div class="character-secret">She tells herself she'll leave after the next bonus. But her brother just started college. Her parents' boiler still needs replacing. Tomorrow, Le Pitch will call her. "There is a German manufacturer," he will say. "I need an analyst on the ground. Würzburg. One month." She will say yes.</div>
+</div>
+</section>
+
+<!-- BEAT 9: HAIRCUT SCENE & CARD -->
+<section class="beat beat-scene" data-section="2">
+<div class="beat-inner">
+<div class="scene-location">The City, London — Skarn Capital</div>
+<div class="scene-text">
+<p>One lamp, one desk, one stack of papers. Haircut sits alone and flips through Königshof's financials like a surgeon examining X-rays. Strong year: 375 harvesters, double-digit EBITDA margins. Surface: stability. He digs deeper. Steel, parts, direct labour—gone the moment each machine rolls out. What's left is gross margin, then the costs that refuse to move. He scribbles. Königshof would need to lose nearly a third of sales before it actually bleeds. More solid than expected. But the numbers smell off. "This isn't engineering," he murmurs. "This is a slot machine... in green paint."</p>
+</div>
+</section>
+
+<section class="beat beat-card" data-section="2">
+<div class="beat-inner">
+<div class="character-card">
+<div class="character-card-header">
+<div class="char-icon haircut">KE</div>
+<div>
+<div class="character-name">Haircut</div>
+<div class="character-title">Kai Eisenberg, Principal / Skarn Capital (London) — Age 32</div>
+</div>
+</div>
+<div class="character-stat">
+<span class="label">Background</span>
+<span class="value">German origin, MIT economics</span>
+</div>
+<div class="character-stat">
+<span class="label">Known for</span>
+<span class="value">Trimming optimism</span>
+</div>
+<div class="character-secret">His emails run three words: "numbers don't reconcile walk me through." He loves industrial businesses that print cash. He updates his pipeline: "KM — Asset-heavy, owner conservative. Watch/Wait."</div>
+</div>
+</section>
+
+<!-- BEAT 10: WILHELM SCENE & CARD -->
+<section class="beat beat-scene" data-section="2">
+<div class="beat-inner">
+<div class="scene-location">Würzburg, Germany — Königshof Headquarters</div>
+<div class="scene-text">
+<p>Oak desk, fountain pen—the same one his grandfather held. Wilhelm composes a letter to his son in Frankfurt about the new grain harvester, the apprentices, the honour of fulfilling another order for a cooperative he'd known for forty years. A postscript invites his son and daughter home next month. He seals it with red wax. In the corner: Königshof's first ESG Audit. He opens a page, frowns, shuts it. He doesn't need modern platitudes. In the cast-iron stove, he sets the binder on the flames. The pages turn to ash.</p>
+</div>
+</section>
+
+<section class="beat beat-card" data-section="2">
+<div class="beat-inner">
+<div class="character-card">
+<div class="character-card-header">
+<div class="char-icon wilhelm">WL</div>
+<div>
+<div class="character-name">Wilhelm</div>
+<div class="character-title">Wilhelm Ludwig von Raunheim, CEO / Königshof Maschinen — Age 60</div>
+</div>
+</div>
+<div class="character-stat">
+<span class="label">Ownership</span>
+<span class="value">100% (family Stiftung)</span>
+</div>
+<div class="character-stat">
+<span class="label">Founded</span>
+<span class="value">1905 (third generation)</span>
+</div>
+<div class="character-stat">
+<span class="label">Cash reserve</span>
+<span class="value">€40m (liquidity = freedom)</span>
+</div>
+<div class="character-secret">He is proud about keeping the company independent. Last week, an eager banker emailed about "value creation opportunities." Wilhelm mailed it back by post, scrawling "Kein Interesse" in fountain pen. He does not know the banker listens to Puccini in Paris.</div>
+</div>
+</section>
+
+<!-- BEAT 11: MAGDA SCENE & CARD -->
+<section class="beat beat-scene" data-section="2">
+<div class="beat-inner">
+<div class="scene-location">Hackney, London — Subtrax</div>
+<div class="scene-text">
+<p>Two monitors glowing in the dark. Code window on the left—rewriting a billing function, optimising the query that converts invoice data to payment records. Dashboard on the right: customers added, invoices processed, revenue ticking up by the minute. Seats per customer rising, churn falling, revenue climbing past £10m run-rate. She closes the spreadsheet. The bankers say profitability could be a long way. She shrugs. That was never why she built it.</p>
+</div>
+</section>
+
+<section class="beat beat-card" data-section="2">
+<div class="beat-inner">
+<div class="character-card">
+<div class="character-card-header">
+<div class="char-icon magda">MK</div>
+<div>
+<div class="character-name">Magda</div>
+<div class="character-title">Magdalena Kowalska, Founder & CEO / Subtrax Ltd. — Age 34</div>
+</div>
+</div>
+<div class="character-stat">
+<span class="label">Origin</span>
+<span class="value">Rzeszów, Poland</span>
+</div>
+<div class="character-stat">
+<span class="label">Founded</span>
+<span class="value">2020 (by accident, originally a favour)</span>
+</div>
+<div class="character-stat">
+<span class="label">Ownership</span>
+<span class="value">73% (rest split among early employees)</span>
+</div>
+<div class="character-secret">She has declined all acquisition talks. Oracle, Salesforce, Stripe have sniffed around. But something needs to happen. She doesn't know yet that the something is already circling.</div>
+</div>
+</section>
+
+<!-- BEAT 12: DIVIDER — PART TWO: CHAPTER MAP -->
+<section class="beat beat-divider" data-section="3">
+<div class="beat-inner">
+<div class="divider-num">⁂ Part Two</div>
+<div class="divider-title">The Trail</div>
+</div>
+</section>
+
+<!-- BEAT 13: CHAPTER MAP -->
+<section class="beat beat-card" data-section="3">
+<div class="beat-inner">
+<div class="card-label">Eleven Chapters. Five Characters. Two Companies.</div>
+<div class="card-title">The Journey</div>
+<div class="chapter-map">
+<div class="chapter-item">
+<div class="chapter-item-num">1</div>
+<div class="chapter-item-title">Welcome</div>
+<div class="chapter-item-desc">Meet the five characters and two companies. The story begins.</div>
+</div>
+<div class="chapter-item">
+<div class="chapter-item-num">2</div>
+<div class="chapter-item-title">Profitability: Buy Low, Sell High</div>
+<div class="chapter-item-desc">Revenue, costs, and the gap between them.</div>
+</div>
+<div class="chapter-item">
+<div class="chapter-item-num">3</div>
+<div class="chapter-item-title">Solvency: Broke Is Bad</div>
+<div class="chapter-item-desc">Why profit and cash are not the same thing.</div>
+</div>
+<div class="chapter-item">
+<div class="chapter-item-num">4</div>
+<div class="chapter-item-title">Patterns: How to Cloudwash a Combine</div>
+<div class="chapter-item-desc">Why asset-heavy and asset-light businesses need different strategies.</div>
+</div>
+<div class="chapter-item">
+<div class="chapter-item-num">5</div>
+<div class="chapter-item-title">Projections: Forecasts Under Fire</div>
+<div class="chapter-item-desc">Building a model. Why all forecasts are wrong but some are useful.</div>
+</div>
+<div class="chapter-item">
+<div class="chapter-item-num">6</div>
+<div class="chapter-item-title">LBOs: Debt, Sweat, and Gears</div>
+<div class="chapter-item-desc">Leverage. Buying companies with borrowed money.</div>
+</div>
+<div class="chapter-item">
+<div class="chapter-item-num">7</div>
+<div class="chapter-item-title">Financing: Other People's Money</div>
+<div class="chapter-item-desc">Capital structure. Why rich people borrow.</div>
+</div>
+<div class="chapter-item">
+<div class="chapter-item-num">8</div>
+<div class="chapter-item-title">Valuation I: Building the Toolkit</div>
+<div class="chapter-item-desc">Three methods to determine what a business is worth.</div>
+</div>
+<div class="chapter-item">
+<div class="chapter-item-num">9</div>
+<div class="chapter-item-title">Valuation II: Judgment and Adjustments</div>
+<div class="chapter-item-desc">Why the spreadsheet is never final.</div>
+</div>
+<div class="chapter-item">
+<div class="chapter-item-num">10</div>
+<div class="chapter-item-title">M&A I: Strategy, Process, Players</div>
+<div class="chapter-item-desc">Why companies buy and sell. Who wins and why.</div>
+</div>
+<div class="chapter-item">
+<div class="chapter-item-num">11</div>
+<div class="chapter-item-title">M&A II: What Hits the Books</div>
+<div class="chapter-item-desc">From handshake to ledger. Where the deal meets the books.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BEAT 14: DIVIDER — MONEY NEVER SLEEPS -->
+<section class="beat beat-divider" data-section="4">
+<div class="beat-inner">
+<div class="divider-num">⁂ Part Three</div>
+<div class="divider-title">Money Never Sleeps</div>
+</div>
+</section>
+
+<!-- BEAT 15: NARRATOR — THE CLOSING FRAME -->
+<section class="beat beat-narrator" data-section="4">
+<div class="beat-inner">
+<div class="narrator-text">
+<p>Five characters. Two companies. One story beginning to unfold. This is where the first domino falls.</p>
+</div>
+</section>
+
+<!-- BEAT 16: SCENE — PARIS MIDNIGHT -->
+<section class="beat beat-scene" data-section="4">
+<div class="beat-inner">
+<div class="scene-location">Paris — 00:14 (Le Pitch's Apartment)</div>
+<div class="scene-text">
+<p>Le Pitch stands on the balcony with a glass of eau-de-vie. The sky above La Défense glows faintly orange. He has just finished a phone call with Haircut—casual, "checking in," but the message was clear: "Interessant?" Yes. Très interessant. He pulls his notebook and writes: "Projet Forge — KM — initiate dual-track. Le Pitch lead. Trace on the ground." He underlines "Trace." Tomorrow he will call her. Tonight, Puccini plays. La Bohème. The moment where Mimi and Rodolfo realize they are falling in love, and the orchestra swells, and you know everything is about to change. That is what the beginning of a deal feels like. Tomorrow belongs to the bank. Tonight belongs to this moment—the moment before everything accelerates.</p>
+</div>
+</section>
+
+<!-- BEAT 17: SCENE — LONDON MIDNIGHT -->
+<section class="beat beat-scene" data-section="4">
+<div class="beat-inner">
+<div class="scene-location">Canary Wharf — 00:47 (SBCI, 17th Floor)</div>
+<div class="scene-text">
+<p>Trace is packing her bag when Le Pitch's email pings: "Brilliant work on Subtrax. See me 7am before market open. Something new." The 17th floor is completely empty. She takes the DLR home alone. Yellow streetlamps blur past. She thinks about the model she corrected—the one with the wrong cost structure. The intern treated support costs as fixed. As if a doubled customer base required no more infrastructure. Costs don't stay flat. They scale. Growth isn't linear. It's a series of inflection points where old assumptions break. She pulls out her notebook and writes: "The numbers tell the story. The story tells where you go next." She closes the notebook. Tomorrow, Le Pitch will call her into his office. She will hesitate for half a second—thinking of her brother's exams—and then she will say yes.</p>
+</div>
+</section>
+
+<!-- BEAT 18: SCENE — THE CITY MIDNIGHT -->
+<section class="beat beat-scene" data-section="4">
+<div class="beat-inner">
+<div class="scene-location">The City, London — 00:52 (Skarn Capital)</div>
+<div class="scene-text">
+<p>Haircut sits alone, coffee cold on the desk. On the screen: "Projet Forge — KM Teasers." "KM Financials — Preliminary." "KM Valuation — First Pass." The numbers are clean but the business is not. Asset-heavy, cash-hungry for working capital, cyclical demand, owner in succession crisis. Entry multiple around 8x EBITDA of €10m = €80m enterprise value. If they can grow volume by 10%, EBITDA hits €12m. Exit multiple 10-11x = €120-132m. Equity gets €60-72m after debt. Return of 1-1.2x. Probably 15-18% IRR if volume stays stable. But volume won't stay stable. He opens a blank spreadsheet. "Base case: steady growth, 15-18% IRR." Then: "Downside case: volume -20%, need to refinance." He sits back. He is maybe 40% confident. Sixty percent is hope. Below, he writes: "The numbers don't lie. People do. Wilhelm is proud. Pride can be expensive."</p>
+</div>
+</section>
+
+<!-- BEAT 19: SCENE — WÜRZBURG MIDNIGHT -->
+<section class="beat beat-scene" data-section="4">
+<div class="beat-inner">
+<div class="scene-location">Würzburg — 00:08 (Wilhelm's Office, Königshof)</div>
+<div class="scene-text">
+<p>Wilhelm sits at his oak desk—his grandfather's desk. The sealed letter to Matthias waits in the postbox by the front gate. Red wax, fountain pen. An envelope arrives by courier at 23:47 from Skarn Capital, from Kai Eisenberg (the letter says to call him "Haircut," a detail that irritates Wilhelm). An offer to "discuss strategic options." Wilhelm reads the first page and sets it down. He pours a glass of schnapps from the bottle his father left him in 1987, now almost empty. The letter is polite, professional, and asks the question he has been avoiding for five years: What happens after me? He stands and walks to the window. Snow falls on the factory yard. The machines gleam even in darkness. He places his hand on the glass. It's cold. He thinks about his father. Who took the company through the oil crisis of the 70s. Who refused to cut the apprenticeship program. That was the lesson: loyalty is an investment. So Königshof never cuts. Which is why Königshof has always stayed independent. Which is why he keeps €40m in the bank. Tonight, he allows the question to sit. His hand stays on the cold glass. The snow continues to fall.</p>
+</div>
+</section>
+
+<!-- BEAT 20: SCENE — HACKNEY MIDNIGHT -->
+<section class="beat beat-scene" data-section="4">
+<div class="beat-inner">
+<div class="scene-location">Hackney — 01:15 (Subtrax Office, Then Magda's Flat)</div>
+<div class="scene-text">
+<p>Magda closes her laptop. The code commits with a soft ping. Three hours on one database query—800ms to 190ms. It's work no customer will notice. But it will matter. She locks up at 01:12 and takes the Overground home. The train is nearly empty. She reaches her flat and opens her laptop one more time. Revenue: £5.3m run rate. Climbing. Churn: 12%. Falling. The trajectory is mathematically clear: profitability in three years if growth continues, two if they tighten costs. Two things trouble her. One: she is tired. Building used to be pure creation. Now it's management. Metrics. Meetings. Four hours today on a budget meeting. Four hours. She wrote maybe fifty lines of code. Two: the inbound interest. Oracle last month. Salesforce the month before. Stripe wants a call next week. They're not desperate. They're patient. Tomorrow, around 10:30 AM, her phone will ring. A banker she doesn't know. The voice will be carefully polite: "Ms. Kowalska? This is James Chen from SBCI. Two companies, both at inflection points. One asset-heavy, one asset-light. Would you be open to a preliminary conversation?" She will say no. But she will ask for his number. And she will save it. And she will listen to his voicemail three times before deleting it.</p>
+</div>
+</section>
+
+<!-- BEAT 21: NARRATOR — THE THREADS -->
+<section class="beat beat-narrator" data-section="4">
+<div class="beat-inner">
+<div class="narrator-text">
+<p>Five characters. Five time zones. Five parallel decisions, each one linked by numbers on a spreadsheet.</p>
+
+<p>Trace fixed a model and didn't know it was the beginning. The corrected model will sit on Le Pitch's desk tomorrow morning. He will see her name in the subject line when Haircut calls about Königshof. Because that's how hiring works: you notice who does the work that nobody asked them to do.</p>
+
+<p>Le Pitch named a project and set the wheels in motion. "Projet Forge" will become the thread that weaves the entire series together. It will start as a teaser. It will become a pitchbook. It will become a deal. It will become real money changing hands and real consequences flowing into real lives. But it starts here, at 00:14 in Paris, with a man on a balcony writing two words: "Projet Forge."</p>
+
+<p>Haircut saw the shape of a deal and began the calculation. He is the rational actor. His downside scenarios will be more realistic than Le Pitch's upside scenarios. But his realism will meet Wilhelm's pride, and the collision will create the deal.</p>
+
+<p>Wilhelm received a letter and faced the question he'd avoided. He has something to lose. Once you know there is optionality, you have to choose. His hand stays on the cold glass. The snow continues to fall.</p>
+
+<p>Magda closed her laptop and felt the weight of scale. She will receive a call tomorrow from an investment banker. She will say no. But not definitively. By the time she is completely sure about what she wants, the decision will have been made for her by market forces.</p>
+
+<p>Deals circle. The storm builds. Five people making independent decisions that are all connected by the invisible threads of finance, capital, and incentive.</p>
+</div>
+</section>
+
+<!-- BEAT 22: HOT TAKE — THE CLOSING FRAME -->
+<section class="beat beat-hottake" data-section="4">
+<div class="beat-inner">
+<div class="hottake-text">Investment banking is not rocket science. It is understanding five people, two companies, and the numbers that connect them.</div>
+</div>
+</section>
+
+<!-- BEAT 23: TAKEAWAYS -->
+<section class="beat beat-takeaway" data-section="4">
+<div class="beat-inner">
+<div class="takeaway-text">Five characters. <span class="highlight">Five agendas.</span></div>
+</div>
+</section>
+
+<section class="beat beat-takeaway" data-section="4">
+<div class="beat-inner">
+<div class="takeaway-text">Some win. Some lose. <span class="highlight">All learn.</span></div>
+</div>
+</section>
+
+<section class="beat beat-takeaway" data-section="4">
+<div class="beat-inner">
+<div class="takeaway-text"><span class="highlight">Welcome to G2G.</span></div>
+</div>
+</section>
+
+<!-- BEAT 24: NEXT CHAPTER -->
+<section class="beat beat-card" data-section="4">
+<div class="beat-inner">
+<a href="ch2.html" style="text-decoration: none; color: inherit; display: block;">
+<div class="next-chapter">
+<div class="next-chapter-title">Next Chapter →</div>
+<div class="next-chapter-name">Buy Low, Sell High</div>
+<div class="next-chapter-teaser">Trace arrives in Würzburg. Wilhelm argues about pricing strategy. And the income statement reveals everything about profit, cost, and the gap between them.</div>
+</div>
+</a>
+</div>
+</section>
+
+<!-- BEAT 25: FOOTER -->
+<section class="brand-footer">
+<div class="footer-logo">G2G Advisory Limited</div>
+<div class="footer-text">
+<strong>From Greenhorn to Gold(wo)man</strong> is a series on corporate finance for everyone. Eleven chapters, five characters, two companies. No formulas to memorise. Just stories that stick.
+<br><br>
+Each chapter takes 15–20 minutes to read. Built for people who want to understand how deals work, how companies are valued, and why money matters.
+<br><br>
+By the end, you will be conversant in the language of finance. You will understand not just the concepts but the human incentives driving them.
+<br><br>
+<a href="https://g2gadvisory.co.uk">Visit G2G Advisory</a>
+</div>
+<div class="footer-disclaimer">
+This series is educational and illustrative. The characters and companies are fictional. This is not investment, tax, or financial advice. Please consult appropriate professionals before making financial decisions. © 2026 G2G Advisory Limited, Company No. 16909015, g2gadvisory.co.uk.
+</div>
+</section>
+
+<script>
+// Particle canvas for title beat
+(function() {
+  const canvas = document.getElementById('particleCanvas');
+  if (!canvas) return;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const ctx = canvas.getContext('2d');
+  const particles = Array.from({length: 40}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3,
+    r: Math.random() * 1.5 + 0.5,
+    o: Math.random() * 0.3 + 0.1
+  }));
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(176,124,232,${p.o})`;
+      ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+    });
+    particles.forEach((a, i) => {
+      particles.slice(i+1).forEach(b => {
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 120) {
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(176,124,232,${0.08 * (1 - dist/120)})`; ctx.stroke();
+        }
+      });
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+  window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+})();
+
+// Konami code easter egg
+let konamiCode = [];
+const konamiSequence = [38,38,40,40,37,39,37,39,66,65];
+document.addEventListener('keydown', e => {
+  konamiCode.push(e.keyCode);
+  konamiCode = konamiCode.slice(-10);
+  if (konamiCode.join(',') === konamiSequence.join(',')) {
+    document.body.classList.toggle('party-mode');
+  }
+});
+</script>
+
+<script>
+// PWA Swipe Engine
+let currentBeat = 0;
+let startY = 0;
+let isAnimating = false;
+const beats = document.querySelectorAll('.beat');
+const totalBeats = beats.length;
+
+function positionBeats() {
+  beats.forEach((beat, i) => {
+    if (i < currentBeat) {
+      beat.style.transform = 'translateY(-100vh)';
+      beat.style.opacity = '0';
+    } else if (i === currentBeat) {
+      beat.style.transform = 'translateY(0)';
+      beat.style.opacity = '1';
+    } else {
+      beat.style.transform = 'translateY(100vh)';
+      beat.style.opacity = '0';
+    }
+  });
+}
+
+function updateCounter() {
+  const counter = document.getElementById('beatCounter');
+  if (counter) {
+    counter.textContent = `${currentBeat + 1} / ${totalBeats}`;
+  }
+}
+
+function updateProgress() {
+  const progressBar = document.getElementById('progressBar');
+  if (progressBar) {
+    const pct = ((currentBeat + 1) / totalBeats) * 100;
+    progressBar.style.width = pct + '%';
+  }
+}
+
+function goTo(index) {
+  if (isAnimating || index < 0 || index >= totalBeats) return;
+  isAnimating = true;
+  const oldBeat = beats[currentBeat];
+  const newBeat = beats[index];
+  const direction = index > currentBeat ? -1 : 1;
+  
+  oldBeat.style.transform = `translateY(${direction * 100}vh)`;
+  oldBeat.style.opacity = '0';
+  newBeat.style.transform = 'translateY(0)';
+  newBeat.style.opacity = '1';
+  
+  currentBeat = index;
+  updateCounter();
+  updateProgress();
+  
+  setTimeout(() => { isAnimating = false; }, 350);
+}
+
+document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+document.addEventListener('touchend', e => {
+  const beat = beats[currentBeat];
+  const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+  const atTop = beat.scrollTop <= 5;
+  const diff = startY - e.changedTouches[0].clientY;
+  
+  if (diff > 50 && atBottom) goTo(currentBeat + 1);
+  if (diff < -50 && atTop) goTo(currentBeat - 1);
+}, { passive: true });
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowDown' || e.key === ' ') goTo(currentBeat + 1);
+  if (e.key === 'ArrowUp') goTo(currentBeat - 1);
+});
+
+// Initialize
+positionBeats();
+updateCounter();
+updateProgress();
+</script>
+</body>
+</html>
