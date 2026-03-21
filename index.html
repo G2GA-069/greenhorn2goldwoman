@@ -752,6 +752,24 @@
       box-shadow: 0 20px 60px rgba(176, 124, 232, 0.2);
     }
 
+    .chapter-card.coming-soon {
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .chapter-card.coming-soon::before {
+      display: none;
+    }
+
+    .chapter-card.coming-soon .chapter-num {
+      color: var(--text-dim);
+    }
+
+    .chapter-card:not(.coming-soon):hover {
+      box-shadow: 0 20px 60px rgba(176, 124, 232, 0.25), 0 0 30px rgba(217, 70, 239, 0.1);
+    }
+
     .chapter-inner {
       position: relative;
       z-index: 1;
@@ -1269,7 +1287,7 @@
         </a>
 
         <!-- Chapter 3 -->
-        <a href="chapters/ch3.html" class="chapter-card">
+        <a href="chapters/ch3.html" class="chapter-card coming-soon">
           <div class="chapter-inner">
             <div class="chapter-num">03</div>
             <div class="chapter-title">Solvency</div>
@@ -1288,7 +1306,7 @@
         </a>
 
         <!-- Chapter 4 -->
-        <a href="chapters/ch4.html" class="chapter-card">
+        <a href="chapters/ch4.html" class="chapter-card coming-soon">
           <div class="chapter-inner">
             <div class="chapter-num">04</div>
             <div class="chapter-title">Patterns</div>
@@ -1307,7 +1325,7 @@
         </a>
 
         <!-- Chapter 5 -->
-        <a href="chapters/ch5.html" class="chapter-card">
+        <a href="chapters/ch5.html" class="chapter-card coming-soon">
           <div class="chapter-inner">
             <div class="chapter-num">05</div>
             <div class="chapter-title">Projections</div>
@@ -1326,7 +1344,7 @@
         </a>
 
         <!-- Chapter 6 -->
-        <a href="chapters/ch6.html" class="chapter-card">
+        <a href="chapters/ch6.html" class="chapter-card coming-soon">
           <div class="chapter-inner">
             <div class="chapter-num">06</div>
             <div class="chapter-title">LBOs</div>
@@ -1345,7 +1363,7 @@
         </a>
 
         <!-- Chapter 7 -->
-        <a href="chapters/ch7.html" class="chapter-card">
+        <a href="chapters/ch7.html" class="chapter-card coming-soon">
           <div class="chapter-inner">
             <div class="chapter-num">07</div>
             <div class="chapter-title">Financing</div>
@@ -1364,7 +1382,7 @@
         </a>
 
         <!-- Chapter 8 -->
-        <a href="chapters/ch8.html" class="chapter-card">
+        <a href="chapters/ch8.html" class="chapter-card coming-soon">
           <div class="chapter-inner">
             <div class="chapter-num">08</div>
             <div class="chapter-title">Valuation I</div>
@@ -1383,7 +1401,7 @@
         </a>
 
         <!-- Chapter 9 -->
-        <a href="chapters/ch9.html" class="chapter-card">
+        <a href="chapters/ch9.html" class="chapter-card coming-soon">
           <div class="chapter-inner">
             <div class="chapter-num">09</div>
             <div class="chapter-title">Valuation II</div>
@@ -1402,7 +1420,7 @@
         </a>
 
         <!-- Chapter 10 -->
-        <a href="chapters/ch10.html" class="chapter-card">
+        <a href="chapters/ch10.html" class="chapter-card coming-soon">
           <div class="chapter-inner">
             <div class="chapter-num">10</div>
             <div class="chapter-title">M&A I</div>
@@ -1421,7 +1439,7 @@
         </a>
 
         <!-- Chapter 11 -->
-        <a href="chapters/ch11.html" class="chapter-card">
+        <a href="chapters/ch11.html" class="chapter-card coming-soon">
           <div class="chapter-inner">
             <div class="chapter-num">11</div>
             <div class="chapter-title">M&A II</div>

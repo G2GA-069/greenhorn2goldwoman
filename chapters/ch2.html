@@ -23,8 +23,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { height: 100%; overflow: hidden; }
 body {
-  height: 100%;
-  width: 100%;
+  height: 100%; width: 100%; overflow: hidden;
   background: var(--bg);
   background-image: radial-gradient(circle, rgba(107,47,160,0.06) 1px, transparent 1px);
   background-size: 40px 40px;
@@ -32,7 +31,6 @@ body {
   font-family: var(--font-serif);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
 }
 body.party-mode .beat-title h1 {
   background: linear-gradient(45deg, #ff006e, #ffbe0b, #8338ec, #3a86ff, #fb5607);
@@ -41,7 +39,7 @@ body.party-mode .beat-title h1 {
 }
 @keyframes rainbow-shift { 0%, 100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(360deg); } }
 .progress-bar {
-  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  position: fixed; top: 0; left: 0; height: 2px;
   background: linear-gradient(90deg, var(--brand-purple), var(--brand-magenta));
   z-index: 1000; transition: width 0.1s linear;
 }
@@ -58,8 +56,13 @@ body.party-mode .beat-title h1 {
 }
 .chapter-nav .dot:hover { background: var(--accent-dim); }
 @media (max-width: 768px) { .chapter-nav { display: none; } }
-.beat { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; display: flex; align-items: center; justify-content: center; padding: 60px 24px; opacity: 1; transform: translateY(0); transition: opacity 0.3s, transform 0.35s ease-in-out; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-.beat.visible { opacity: 1; transform: translateY(0); }
+.beat {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 60px 24px; opacity: 1; transform: translateY(0);
+  transition: opacity 0.3s, transform 0.35s ease-in-out;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+}
 .beat-inner { max-width: 680px; width: 100%; }
 .beat-title {
   min-height: 100vh; display: flex; flex-direction: column;
@@ -332,12 +335,37 @@ body.party-mode .beat-title h1 {
 .char-icon.haircut { background: linear-gradient(135deg, #4d1b1b, #c45c4a); }
 .char-icon.wilhelm { background: linear-gradient(135deg, #1b4d2d, #4a9e6e); }
 .char-icon.magda { background: linear-gradient(135deg, #69451b, #c4982d); }
+.back-button {
+  position: fixed; top: 16px; left: 16px; z-index: 999;
+  background: rgba(107, 47, 160, 0.3);
+  border: 1px solid var(--accent-dim);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.back-button:hover {
+  background: rgba(107, 47, 160, 0.5);
+  border-color: var(--accent);
+}
+.beat-counter {
+  position: fixed; bottom: 20px; right: 20px; z-index: 999;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  background: rgba(107, 47, 160, 0.3);
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--accent-dim);
+}
 
 /* Mobile responsiveness */
 /* ===== TIKTOK MODE: MOBILE ===== */
 @media (max-width: 768px) {
-  html { }
-  body { overflow-x: hidden; }
   .beat {
     position: fixed; top: 0; left: 0; width: 100%;
     min-height: 100vh; height: 100vh;
@@ -382,67 +410,38 @@ body.party-mode .beat-title h1 {
   .progress-bar { height: 3px; }
 }
 
-/* Back button and beat counter — all screen sizes */
-.back-button {
-  position: fixed; top: 16px; left: 16px; z-index: 999;
-  background: rgba(107, 47, 160, 0.3);
-  border: 1px solid var(--accent-dim);
-  color: var(--text);
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.back-button:hover {
-  background: rgba(107, 47, 160, 0.5);
-  border-color: var(--accent);
-}
-.beat-counter {
-  position: fixed; bottom: 20px; right: 20px; z-index: 999;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--accent);
-  background: rgba(107, 47, 160, 0.3);
-  padding: 6px 10px;
-  border-radius: 4px;
-  border: 1px solid var(--accent-dim);
-}
-
 @media (max-width: 480px) {
-  .beat {
-    position: fixed; top: 0; left: 0; width: 100%;
-    padding: 40px 16px; height: 100vh;
-  }
-  .beat-inner { max-width: 100%; width: 100%; padding: 0 8px; }
-  .beat-title h1 { font-size: clamp(28px, 6vw, 42px); }
-  .beat-title .subtitle { font-size: clamp(16px, 3vw, 20px); }
-  .beat-title .chapter-num { font-size: 11px; }
-  .scene-text { font-size: clamp(16px, 2vw, 18px); line-height: 1.6; }
-  .dialogue .line { font-size: clamp(16px, 2vw, 18px); }
-  .card-title { font-size: clamp(18px, 2vw, 22px); }
-  .card-body { font-size: 15px; }
-  .narrator-text { font-size: 16px; }
-  .takeaway-text { font-size: clamp(18px, 2.5vw, 24px); }
-  .equation { font-size: clamp(18px, 2.5vw, 26px); }
-  .character-card { margin: 16px 0; padding: 16px; }
-  .beat-card .beat-inner { padding: 24px; max-width: 100%; }
   .card-table { font-size: 10px; }
   .card-table th, .card-table td { padding: 6px 4px; }
   .beat-title h1 { font-size: 24px; }
+  .beat {
+    position: fixed; top: 0; left: 0; width: 100%;
+    padding: 20px 12px; padding-top: 32px;
+  }
 }
+
+.swipe-hint {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  z-index: 200; display: flex; flex-direction: column; align-items: center;
+  gap: 8px; opacity: 0; animation: swipe-hint-show 0.5s ease 1.5s forwards;
+  pointer-events: none;
+}
+.swipe-hint svg { width: 32px; height: 32px; animation: swipe-gesture 1.5s ease-in-out infinite; }
+.swipe-hint span { font-family: var(--font-sans); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); }
+@keyframes swipe-hint-show { to { opacity: 1; } }
+@keyframes swipe-gesture { 0%,100% { transform: translateY(0); opacity: 0.6; } 50% { transform: translateY(-20px); opacity: 1; } }
 
 </style>
 </head>
 <body>
 
 <div class="progress-bar" id="progressBar"></div>
-<nav class="chapter-nav" id="chapterNav"></nav>
 <a href="../index.html" class="back-button">← Back</a>
 <div class="beat-counter" id="beatCounter"></div>
-
+<div class="swipe-hint" id="swipeHint">
+<svg viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="1.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+<span>Swipe up</span>
+</div>
 
 <!-- BEAT 1: TITLE -->
 <section class="beat beat-title" data-section="0">
@@ -770,6 +769,42 @@ body.party-mode .beat-title h1 {
 <div class="lingo-term">3. Concentration</div>
 <div class="lingo-def"><strong>Königshof:</strong> Dominated by top 5 customers. Top customer is ~12% of revenue. Customer concentration risk means lumpy cash flow and negotiation pressure. <strong>Subtrax:</strong> Distributed across 272 customers, largest is ~3%. Low concentration means stable revenue, diversified risk.</div>
 </div>
+</div>
+</section>
+
+<!-- BEAT 26A: SUBTRAX FULL P&L -->
+<section class="beat beat-card" data-section="5">
+<div class="beat-inner">
+<div class="card-label">Case Study</div>
+<div class="card-title">Subtrax FY24 Full Income Statement: The P&L Breakdown</div>
+<div class="table-scroll"><table class="card-table">
+<thead>
+<tr><th>Line Item</th><th>Amount (£m)</th><th>% Revenue</th><th>Commentary</th></tr>
+</thead>
+<tbody>
+<tr class="row-highlight"><td><strong>Revenue</strong></td><td class="num"><strong>5.30</strong></td><td class="num"><strong>100%</strong></td><td>272 customers @ £19.5k ASP</td></tr>
+<tr><td colspan="4" style="height: 10px;"></td></tr>
+<tr><td>Customer Success Managers</td><td class="num">(0.94)</td><td class="num">18%</td><td>CSM team, onboarding, renewals</td></tr>
+<tr><td>Customer Support</td><td class="num">(0.17)</td><td class="num">3%</td><td>Tier 1 support team</td></tr>
+<tr><td>Hosting & Infrastructure</td><td class="num">(0.42)</td><td class="num">8%</td><td>AWS, CDN, payment processing</td></tr>
+<tr class="row-highlight"><td><strong>Total COGS</strong></td><td class="num"><strong>(1.54)</strong></td><td class="num"><strong>29%</strong></td><td></td></tr>
+<tr class="row-highlight"><td><strong>Gross Profit</strong></td><td class="num"><strong>3.76</strong></td><td class="num"><strong>71%</strong></td><td>Excellent product economics</td></tr>
+<tr><td colspan="4" style="height: 10px;"></td></tr>
+<tr><td>Sales & Marketing</td><td class="num">(1.55)</td><td class="num">29%</td><td>Acquire 60 new customers/year @ £19k CAC</td></tr>
+<tr><td>General & Administrative</td><td class="num">(3.08)</td><td class="num">58%</td><td>Engineering, operations, finance, rent, legal</td></tr>
+<tr class="row-highlight"><td><strong>Total OpEx</strong></td><td class="num"><strong>(4.63)</strong></td><td class="num"><strong>87%</strong></td><td>Fixed cost base plus discretionary growth spend</td></tr>
+<tr class="row-highlight"><td><strong>EBITDA</strong></td><td class="num"><strong>(0.87)</strong></td><td class="num"><strong>(16%)</strong></td><td>Operating loss due to growth investment</td></tr>
+<tr><td colspan="4" style="height: 10px;"></td></tr>
+<tr><td>Depreciation & amortisation</td><td class="num">(0.04)</td><td class="num">1%</td><td>Capitalized software</td></tr>
+<tr class="row-highlight"><td><strong>EBIT</strong></td><td class="num"><strong>(0.91)</strong></td><td class="num"><strong>(17%)</strong></td><td>Operating loss</td></tr>
+<tr><td colspan="4" style="height: 10px;"></td></tr>
+<tr><td>Interest</td><td class="num">0.00</td><td class="num">0%</td><td>No debt</td></tr>
+<tr><td>Tax</td><td class="num">0.00</td><td class="num">0%</td><td>No tax on operating loss</td></tr>
+<tr class="row-highlight"><td><strong>Net Income</strong></td><td class="num"><strong>(0.91)</strong></td><td class="num"><strong>(17%)</strong></td><td>The 71% gross margin flows to growth, not profit—yet</td></tr>
+</tbody>
+</table></div>
+<div class="card-body">
+<p style="margin-top: 20px;"><strong>Key insight:</strong> Subtrax's 71% gross margin is eaten by discretionary growth spend. The operating loss is a choice — cut S&M and the company is profitable tomorrow. The unit economics are sound; scale will fix the P&L.</p>
 </div>
 </section>
 
@@ -1352,7 +1387,7 @@ body.party-mode .beat-title h1 {
 </section>
 
 <!-- FOOTER -->
-<footer class="brand-footer">
+<footer class="beat brand-footer">
 <svg style="width: 40px; height: 40px; margin: 0 auto 16px;" viewBox="0 0 100 100">
 <defs>
 <linearGradient id="g2g-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1390,25 +1425,21 @@ Chapter 2 — Buy Low, Sell High: The Income Statement Mastery<br><br>
     r: Math.random() * 1.5 + 0.5,
     o: Math.random() * 0.3 + 0.1
   }));
+
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(177,124,232,${p.o})`;
-      ctx.fill();
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(176,124,232,${p.o})`; ctx.fill();
       p.x += p.vx; p.y += p.vy;
       if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
       if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
     });
     particles.forEach((a, i) => {
       particles.slice(i+1).forEach(b => {
-        const dx = a.x - b.x, dy = a.y - b.y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < 120) {
-          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(177,124,232,${0.08 * (1 - dist/120)})`; ctx.stroke();
-        }
+        const dx = a.x - b.x, dy = a.y - b.y, dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 120) { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(176,124,232,${0.08 * (1 - dist/120)})`; ctx.stroke(); }
       });
     });
     requestAnimationFrame(draw);
@@ -1416,6 +1447,14 @@ Chapter 2 — Buy Low, Sell High: The Income Statement Mastery<br><br>
   draw();
   window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
 })();
+
+// Konami code easter egg
+let konamiCode = [];
+const konamiSequence = [38,38,40,40,37,39,37,39,66,65];
+document.addEventListener('keydown', e => {
+  konamiCode.push(e.keyCode); konamiCode = konamiCode.slice(-10);
+  if (konamiCode.join(',') === konamiSequence.join(',')) document.body.classList.toggle('party-mode');
+});
 
 // DOL calculator
 document.querySelectorAll('.dol-königshof, .dol-subtrax').forEach(slider => {
@@ -1425,7 +1464,6 @@ document.querySelectorAll('.dol-königshof, .dol-subtrax').forEach(slider => {
 function updateDOL() {
   const königSlider = document.querySelector('.dol-königshof');
   const subSlider = document.querySelector('.dol-subtrax');
-  if (!königSlider || !subSlider) return;
   const königVal = parseInt(königSlider.value);
   const subVal = parseInt(subSlider.value);
 
@@ -1466,20 +1504,6 @@ function updateDOL() {
   königSlider.nextElementSibling.textContent = königVal + '%';
   subSlider.nextElementSibling.textContent = subVal + '%';
 }
-
-// Konami code easter egg
-let konamiCode = [];
-const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-document.addEventListener('keydown', e => {
-  konamiCode.push(e.keyCode);
-  konamiCode = konamiCode.slice(-10);
-  if (konamiCode.join(',') === konamiSequence.join(',')) {
-    document.body.classList.toggle('party-mode');
-  }
-});
-
-// Initialize DOL calculator
-updateDOL();
 </script>
 
 <script>
@@ -1493,72 +1517,109 @@ const totalBeats = beats.length;
 function positionBeats() {
   beats.forEach((beat, i) => {
     if (i < currentBeat) {
-      beat.style.transform = 'translateY(-100vh)';
-      beat.style.opacity = '0';
+      beat.style.transform = 'translateY(-100vh)'; beat.style.opacity = '0';
+      beat.style.pointerEvents = 'none'; beat.style.visibility = 'hidden';
     } else if (i === currentBeat) {
-      beat.style.transform = 'translateY(0)';
-      beat.style.opacity = '1';
+      beat.style.transform = 'translateY(0)'; beat.style.opacity = '1';
+      beat.style.pointerEvents = 'auto'; beat.style.visibility = 'visible';
     } else {
-      beat.style.transform = 'translateY(100vh)';
-      beat.style.opacity = '0';
+      beat.style.transform = 'translateY(100vh)'; beat.style.opacity = '0';
+      beat.style.pointerEvents = 'none'; beat.style.visibility = 'hidden';
     }
   });
 }
 
 function updateCounter() {
   const counter = document.getElementById('beatCounter');
-  if (counter) {
-    counter.textContent = `${currentBeat + 1} / ${totalBeats}`;
-  }
+  if (counter) counter.textContent = `${currentBeat + 1} / ${totalBeats}`;
 }
 
 function updateProgress() {
-  const progressBar = document.getElementById('progressBar');
-  if (progressBar) {
-    const pct = ((currentBeat + 1) / totalBeats) * 100;
-    progressBar.style.width = pct + '%';
-  }
+  const bar = document.getElementById('progressBar');
+  if (bar) bar.style.width = ((currentBeat + 1) / totalBeats * 100) + '%';
 }
 
 function goTo(index) {
   if (isAnimating || index < 0 || index >= totalBeats) return;
   isAnimating = true;
-  const oldBeat = beats[currentBeat];
-  const newBeat = beats[index];
+  // Dismiss swipe hint on first navigation
+  const hint = document.getElementById('swipeHint');
+  if (hint) { hint.style.opacity = '0'; setTimeout(() => hint.remove(), 500); try { localStorage.setItem('g2g-swipe-seen', '1'); } catch(e) {} }
   const direction = index > currentBeat ? -1 : 1;
-  
-  oldBeat.style.transform = `translateY(${direction * 100}vh)`;
-  oldBeat.style.opacity = '0';
-  newBeat.style.transform = 'translateY(0)';
-  newBeat.style.opacity = '1';
-  
+  beats[currentBeat].style.transform = `translateY(${direction * 100}vh)`;
+  beats[currentBeat].style.opacity = '0';
+  beats[currentBeat].style.pointerEvents = 'none';
+  beats[currentBeat].style.visibility = 'hidden';
+  beats[index].style.transform = 'translateY(0)';
+  beats[index].style.opacity = '1';
+  beats[index].style.pointerEvents = 'auto';
+  beats[index].style.visibility = 'visible';
   currentBeat = index;
   updateCounter();
   updateProgress();
-  
+  document.querySelectorAll('.chapter-nav .dot').forEach((d, di) => d.classList.toggle('active', di === currentBeat));
   setTimeout(() => { isAnimating = false; }, 350);
 }
 
+// Touch swipe
 document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
 document.addEventListener('touchend', e => {
   const beat = beats[currentBeat];
   const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
   const atTop = beat.scrollTop <= 5;
   const diff = startY - e.changedTouches[0].clientY;
-  
   if (diff > 50 && atBottom) goTo(currentBeat + 1);
   if (diff < -50 && atTop) goTo(currentBeat - 1);
 }, { passive: true });
 
+// Mouse wheel with trackpad accumulator
+let wheelAccum = 0;
+let wheelTimer = null;
+document.addEventListener('wheel', e => {
+  const beat = beats[currentBeat];
+  const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+  const atTop = beat.scrollTop <= 5;
+
+  wheelAccum += e.deltaY;
+  clearTimeout(wheelTimer);
+  wheelTimer = setTimeout(() => { wheelAccum = 0; }, 200);
+
+  if (wheelAccum > 50 && atBottom) { wheelAccum = 0; goTo(currentBeat + 1); }
+  if (wheelAccum < -50 && atTop) { wheelAccum = 0; goTo(currentBeat - 1); }
+}, { passive: true });
+
+// Keyboard navigation
 document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowDown' || e.key === ' ') goTo(currentBeat + 1);
-  if (e.key === 'ArrowUp') goTo(currentBeat - 1);
+  const beat = beats[currentBeat];
+  const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+  const atTop = beat.scrollTop <= 5;
+
+  if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key)) {
+    if (atBottom) { e.preventDefault(); goTo(currentBeat + 1); }
+  } else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) {
+    if (atTop) { e.preventDefault(); goTo(currentBeat - 1); }
+  } else if (e.key === ' ') {
+    e.preventDefault();
+    if (atBottom) goTo(currentBeat + 1);
+    else beat.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+  } else if (e.key === 'Home') {
+    e.preventDefault(); goTo(0);
+  } else if (e.key === 'End') {
+    e.preventDefault(); goTo(totalBeats - 1);
+  }
 });
+
+// Swipe hint — show once
+const swipeHint = document.getElementById('swipeHint');
+if (swipeHint) {
+  try { if (localStorage.getItem('g2g-swipe-seen')) swipeHint.remove(); } catch(e) {}
+}
 
 // Initialize
 positionBeats();
 updateCounter();
 updateProgress();
+updateDOL();
 </script>
 </body>
 </html>
