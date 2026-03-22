@@ -833,12 +833,46 @@
       font-weight: 500;
     }
 
+    .chapter-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .chapter-time {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .chapter-time svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.7;
+    }
+
     .chapter-footer {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       padding-top: 18px;
       border-top: 1px solid var(--border);
+      gap: 12px;
+    }
+
+    .chapter-footer > div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
     }
 
     .chapter-status {
@@ -1251,7 +1285,7 @@
         <!-- Chapter 1 -->
         <a href="chapters/ch1.html" class="chapter-card">
           <div class="chapter-inner">
-            <div class="chapter-num">01</div>
+            <div class="chapter-label">Chapter 1</div>
             <div class="chapter-title">Welcome</div>
             <div class="chapter-subtitle">All Gold(wo)men Were Once Greenhorns</div>
             <div class="chapter-desc">Meet the cast and understand why this story matters</div>
@@ -1261,7 +1295,16 @@
               <span class="chapter-tag">Context</span>
             </div>
             <div class="chapter-footer">
-              <span class="chapter-status live">Live</span>
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ~15 min
+                </span>
+              </div>
               <span class="chapter-arrow">Read →</span>
             </div>
           </div>
@@ -1270,7 +1313,7 @@
         <!-- Chapter 2 -->
         <a href="chapters/ch2.html" class="chapter-card">
           <div class="chapter-inner">
-            <div class="chapter-num">02</div>
+            <div class="chapter-label">Chapter 2</div>
             <div class="chapter-title">Profitability</div>
             <div class="chapter-subtitle">Buy Low, Sell High</div>
             <div class="chapter-desc">Master the income statement and understand how businesses make money</div>
@@ -1280,7 +1323,16 @@
               <span class="chapter-tag">Margins</span>
             </div>
             <div class="chapter-footer">
-              <span class="chapter-status live">Live</span>
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ~25 min
+                </span>
+              </div>
               <span class="chapter-arrow">Read →</span>
             </div>
           </div>
@@ -1289,7 +1341,7 @@
         <!-- Chapter 3 -->
         <a href="chapters/ch3.html" class="chapter-card">
           <div class="chapter-inner">
-            <div class="chapter-num">03</div>
+            <div class="chapter-label">Chapter 3</div>
             <div class="chapter-title">Solvency</div>
             <div class="chapter-subtitle">Broke Is Bad</div>
             <div class="chapter-desc">Cash flow, balance sheet, and working capital mastery</div>
@@ -1299,7 +1351,16 @@
               <span class="chapter-tag">Working Capital</span>
             </div>
             <div class="chapter-footer">
-              <span class="chapter-status live">Live</span>
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ~8 min
+                </span>
+              </div>
               <span class="chapter-arrow">Read →</span>
             </div>
           </div>
@@ -1308,7 +1369,7 @@
         <!-- Chapter 4 -->
         <a href="chapters/ch4.html" class="chapter-card">
           <div class="chapter-inner">
-            <div class="chapter-num">04</div>
+            <div class="chapter-label">Chapter 4</div>
             <div class="chapter-title">Patterns</div>
             <div class="chapter-subtitle">How to Cloudwash a Combine</div>
             <div class="chapter-desc">Business models, unit economics, and the metrics that matter</div>
@@ -1318,7 +1379,16 @@
               <span class="chapter-tag">KPIs</span>
             </div>
             <div class="chapter-footer">
-              <span class="chapter-status live">Live</span>
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ~12 min
+                </span>
+              </div>
               <span class="chapter-arrow">Read →</span>
             </div>
           </div>
@@ -1327,7 +1397,7 @@
         <!-- Chapter 5 -->
         <a href="chapters/ch5.html" class="chapter-card">
           <div class="chapter-inner">
-            <div class="chapter-num">05</div>
+            <div class="chapter-label">Chapter 5</div>
             <div class="chapter-title">Projections</div>
             <div class="chapter-subtitle">Forecasts Under Fire</div>
             <div class="chapter-desc">Financial modelling, driver trees, and scenario planning</div>
@@ -1337,7 +1407,16 @@
               <span class="chapter-tag">Drivers</span>
             </div>
             <div class="chapter-footer">
-              <span class="chapter-status live">Live</span>
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ~12 min
+                </span>
+              </div>
               <span class="chapter-arrow">Read →</span>
             </div>
           </div>
@@ -1346,7 +1425,7 @@
         <!-- Chapter 6 -->
         <a href="chapters/ch6.html" class="chapter-card">
           <div class="chapter-inner">
-            <div class="chapter-num">06</div>
+            <div class="chapter-label">Chapter 6</div>
             <div class="chapter-title">LBOs</div>
             <div class="chapter-subtitle">Debt, Sweat, and Gears</div>
             <div class="chapter-desc">Leveraged buyouts, IRR mechanics, and value creation</div>
@@ -1356,7 +1435,16 @@
               <span class="chapter-tag">IRR</span>
             </div>
             <div class="chapter-footer">
-              <span class="chapter-status live">Live</span>
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ~15 min
+                </span>
+              </div>
               <span class="chapter-arrow">Read →</span>
             </div>
           </div>
@@ -1365,7 +1453,7 @@
         <!-- Chapter 7 -->
         <a href="chapters/ch7.html" class="chapter-card">
           <div class="chapter-inner">
-            <div class="chapter-num">07</div>
+            <div class="chapter-label">Chapter 7</div>
             <div class="chapter-title">Financing</div>
             <div class="chapter-subtitle">Other People's Money</div>
             <div class="chapter-desc">Capital structure, WACC, and debt types explained</div>
@@ -1375,7 +1463,16 @@
               <span class="chapter-tag">Debt</span>
             </div>
             <div class="chapter-footer">
-              <span class="chapter-status live">Live</span>
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ~18 min
+                </span>
+              </div>
               <span class="chapter-arrow">Read →</span>
             </div>
           </div>
@@ -1384,7 +1481,7 @@
         <!-- Chapter 8 -->
         <a href="chapters/ch8.html" class="chapter-card">
           <div class="chapter-inner">
-            <div class="chapter-num">08</div>
+            <div class="chapter-label">Chapter 8</div>
             <div class="chapter-title">Valuation I</div>
             <div class="chapter-subtitle">Building the Toolkit</div>
             <div class="chapter-desc">Comps, DCF fundamentals, and precedent transactions</div>
@@ -1394,7 +1491,16 @@
               <span class="chapter-tag">DCF</span>
             </div>
             <div class="chapter-footer">
-              <span class="chapter-status live">Live</span>
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ~15 min
+                </span>
+              </div>
               <span class="chapter-arrow">Read →</span>
             </div>
           </div>
@@ -1403,7 +1509,7 @@
         <!-- Chapter 9 -->
         <a href="chapters/ch9.html" class="chapter-card">
           <div class="chapter-inner">
-            <div class="chapter-num">09</div>
+            <div class="chapter-label">Chapter 9</div>
             <div class="chapter-title">Valuation II</div>
             <div class="chapter-subtitle">Judgment and Adjustments</div>
             <div class="chapter-desc">Adjusted EBITDA, EV bridge, and the art of the valuation</div>
@@ -1413,7 +1519,16 @@
               <span class="chapter-tag">Adjustments</span>
             </div>
             <div class="chapter-footer">
-              <span class="chapter-status live">Live</span>
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ~20 min
+                </span>
+              </div>
               <span class="chapter-arrow">Read →</span>
             </div>
           </div>
@@ -1422,7 +1537,7 @@
         <!-- Chapter 10 -->
         <a href="chapters/ch10.html" class="chapter-card">
           <div class="chapter-inner">
-            <div class="chapter-num">10</div>
+            <div class="chapter-label">Chapter 10</div>
             <div class="chapter-title">M&A I</div>
             <div class="chapter-subtitle">Strategy, Process, Players</div>
             <div class="chapter-desc">Deal process, bidding mechanics, and exclusivity agreements</div>
@@ -1432,7 +1547,16 @@
               <span class="chapter-tag">Process</span>
             </div>
             <div class="chapter-footer">
-              <span class="chapter-status live">Live</span>
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ~12 min
+                </span>
+              </div>
               <span class="chapter-arrow">Read →</span>
             </div>
           </div>
@@ -1441,7 +1565,7 @@
         <!-- Chapter 11 -->
         <a href="chapters/ch11.html" class="chapter-card">
           <div class="chapter-inner">
-            <div class="chapter-num">11</div>
+            <div class="chapter-label">Chapter 11</div>
             <div class="chapter-title">M&A II</div>
             <div class="chapter-subtitle">What Hits the Books</div>
             <div class="chapter-desc">PPA, goodwill, consolidation, and accounting mechanics</div>
@@ -1451,7 +1575,16 @@
               <span class="chapter-tag">Accounting</span>
             </div>
             <div class="chapter-footer">
-              <span class="chapter-status live">Live</span>
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ~8 min
+                </span>
+              </div>
               <span class="chapter-arrow">Read →</span>
             </div>
           </div>

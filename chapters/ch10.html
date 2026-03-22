@@ -332,14 +332,15 @@ body.party-mode .beat-title h1 {
 .char-icon svg { width: 100%; height: 100%; display: block; }
 .back-button {
   position: fixed; top: max(12px, env(safe-area-inset-top, 12px)); left: 12px; z-index: 999;
-  background: rgba(10, 10, 12, 0.7);
+  background: rgba(10, 10, 12, 0.85);
   -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.08);
+  border-left: 2px solid var(--accent, #b07ce8);
   color: var(--text-muted);
-  padding: 6px 12px;
+  padding: 8px 16px;
   border-radius: 20px;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-decoration: none;
@@ -414,6 +415,23 @@ body.party-mode .beat-title h1 {
 .swipe-hint span { font-family: var(--font-sans); font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-dim); font-weight: 500; }
 @keyframes swipe-hint-show { to { opacity: 1; } }
 @keyframes swipe-gesture { 0%,100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-16px); opacity: 1; } }
+
+.resume-toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  z-index: 1000; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 24px; display: flex; align-items: center; gap: 16px;
+  font-family: var(--font-sans); font-size: 13px; color: var(--text);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  animation: toast-in 0.4s ease-out;
+}
+.resume-toast button {
+  padding: 6px 14px; border-radius: 6px; border: none; font-family: var(--font-sans);
+  font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;
+}
+.resume-toast .resume-btn { background: var(--brand-purple); color: white; }
+.resume-toast .skip-btn { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+@keyframes toast-in { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
 
 </style>
 </head>
@@ -816,6 +834,18 @@ body.party-mode .beat-title h1 {
 </div>
 </section>
 
+<!-- CHAPTER NAVIGATION -->
+<section class="beat beat-card" data-section="99">
+<div class="beat-inner" style="text-align: center; max-width: 500px;">
+<div style="font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: var(--accent); margin-bottom: 24px;">Chapter Navigation</div>
+<div style="display: flex; flex-direction: column; gap: 16px; align-items: center;">
+<a href="../index.html" style="font-family: var(--font-sans); font-size: 13px; color: var(--text-dim); text-decoration: none; letter-spacing: 1px;">← Return to Contents</a>
+<a href="ch9.html" style="font-family: var(--font-serif); font-size: 16px; color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(176,124,232,0.3); padding-bottom: 4px;">← Ch 9: Judgment and Adjustments</a>
+<a href="ch11.html" style="font-family: var(--font-serif); font-size: 16px; color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(176,124,232,0.3); padding-bottom: 4px;">Ch 11: What Hits the Books →</a>
+</div>
+</div>
+</section>
+
 <!-- FOOTER -->
 <footer class="beat brand-footer">
 <div class="beat-inner" style="text-align:center;">
@@ -935,6 +965,7 @@ function goTo(index) {
   beats[index].style.pointerEvents = 'auto';
   beats[index].style.visibility = 'visible';
   currentBeat = index;
+  saveProgress();
   updateCounter();
   updateProgress();
   document.querySelectorAll('.chapter-nav .dot').forEach((d, di) => d.classList.toggle('active', di === currentBeat));
@@ -999,6 +1030,27 @@ if (swipeHint) {
 positionBeats();
 updateCounter();
 updateProgress();
+// Progress tracking
+const CHAPTER_NUM = 10;
+function saveProgress() {
+  try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeat); } catch(e) {}
+}
+
+// Resume prompt on load
+(function() {
+  try {
+    const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+    if (saved && saved > 0 && saved < totalBeats) {
+      const toast = document.createElement('div');
+      toast.className = 'resume-toast';
+      toast.innerHTML = 'Resume from beat ' + (saved + 1) + '/' + totalBeats + '? ' +
+        '<button class="resume-btn" onclick="goTo(' + saved + '); this.parentElement.remove();">Resume</button>' +
+        '<button class="skip-btn" onclick="this.parentElement.remove();">Start Over</button>';
+      document.body.appendChild(toast);
+      setTimeout(() => { if (toast.parentElement) toast.remove(); }, 8000);
+    }
+  } catch(e) {}
+})();
 </script>
 
 </body>

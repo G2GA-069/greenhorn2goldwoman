@@ -45,8 +45,8 @@ body.party-mode .beat-title h1 {
 }
 .back-button {
   position: fixed; top: 20px; left: 20px; z-index: 200;
-  background: rgba(19,19,24,0.7); backdrop-filter: blur(10px);
-  border: 1px solid rgba(212,165,116,0.2); border-radius: 24px;
+  background: rgba(19,19,24,0.85); backdrop-filter: blur(10px);
+  border: 1px solid rgba(212,165,116,0.2); border-left: 2px solid var(--accent, #b07ce8); border-radius: 24px;
   color: var(--text); text-decoration: none; padding: 8px 16px;
   font-family: var(--font-sans); font-size: 13px; font-weight: 500;
   transition: all 0.3s;
@@ -296,6 +296,23 @@ body.party-mode .beat-title h1 {
   .beat-title h1 { font-size: 24px; }
   .beat { padding-left: 16px; padding-right: 16px; }
 }
+.resume-toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  z-index: 1000; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 24px; display: flex; align-items: center; gap: 16px;
+  font-family: var(--font-sans); font-size: 13px; color: var(--text);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  animation: toast-in 0.4s ease-out;
+}
+.resume-toast button {
+  padding: 6px 14px; border-radius: 6px; border: none; font-family: var(--font-sans);
+  font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;
+}
+.resume-toast .resume-btn { background: var(--brand-purple); color: white; }
+.resume-toast .skip-btn { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+@keyframes toast-in { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+
 </style>
 </head>
 <body>
@@ -801,6 +818,7 @@ body.party-mode .beat-title h1 {
 <div style="font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--gold); margin-bottom: 8px;">Chapter Navigation</div>
 <div style="font-family: var(--font-sans); font-size: 13px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase;">End of Chapter 8</div>
 </div>
+<a href="../index.html" style="font-family: var(--font-sans); font-size: 13px; color: var(--text-dim); text-decoration: none; letter-spacing: 1px; margin-bottom: 16px; display: block;">← Return to Contents</a>
 <div style="display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 48px; flex-wrap: wrap;">
 <a href="ch7.html" style="font-family: var(--font-serif); font-size: 16px; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.3); padding-bottom: 4px; transition: all 0.3s;">← Chapter 7: Other People's Money</a>
 <a href="../index.html" style="font-family: var(--font-sans); font-size: 12px; color: var(--text-dim); text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s;">Contents</a>
@@ -919,6 +937,7 @@ function goTo(index) {
   beats[index].style.pointerEvents = 'auto';
   beats[index].style.visibility = 'visible';
   currentBeat = index;
+  saveProgress();
   updateCounter();
   updateProgress();
   document.querySelectorAll('.chapter-nav .dot').forEach((d, di) => d.classList.toggle('active', di === currentBeat));
@@ -979,6 +998,28 @@ positionBeats();
 updateCounter();
 updateProgress();
 buildNav();
+
+// Progress tracking
+const CHAPTER_NUM = 8;
+function saveProgress() {
+  try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeat); } catch(e) {}
+}
+
+// Resume prompt on load
+(function() {
+  try {
+    const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+    if (saved && saved > 0 && saved < totalBeats) {
+      const toast = document.createElement('div');
+      toast.className = 'resume-toast';
+      toast.innerHTML = 'Resume from beat ' + (saved + 1) + '/' + totalBeats + '? ' +
+        '<button class="resume-btn" onclick="goTo(' + saved + '); this.parentElement.remove();">Resume</button>' +
+        '<button class="skip-btn" onclick="this.parentElement.remove();">Start Over</button>';
+      document.body.appendChild(toast);
+      setTimeout(() => { if (toast.parentElement) toast.remove(); }, 8000);
+    }
+  } catch(e) {}
+})();
 </script>
 </body>
 </html>

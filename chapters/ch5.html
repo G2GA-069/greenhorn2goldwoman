@@ -207,8 +207,9 @@ body.party-mode .beat-title h1 {
 .back-button {
   position: fixed; top: 20px; left: 20px; z-index: 200;
   background: var(--surface); border: 1px solid var(--border);
-  color: var(--accent); padding: 10px 16px; border-radius: 6px;
-  font-family: var(--font-sans); font-size: 12px; letter-spacing: 1px;
+  border-left: 2px solid var(--accent, #b07ce8);
+  color: var(--accent); padding: 8px 16px; border-radius: 6px;
+  font-family: var(--font-sans); font-size: 13px; letter-spacing: 1px;
   cursor: pointer; transition: all 0.2s;
   text-decoration: none; display: flex; align-items: center; gap: 8px;
 }
@@ -222,7 +223,7 @@ body.party-mode .beat-title h1 {
   .beat { padding: 52px 16px 60px; }
   .beat-card .beat-inner { padding: 30px 20px; }
   .beat-counter { font-size: 11px; }
-  .back-button { padding: 8px 12px; font-size: 11px; }
+  .back-button { padding: 8px 16px; font-size: 13px; }
 }
 footer {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
@@ -231,6 +232,23 @@ footer {
   font-family: var(--font-sans); font-size: 11px; color: var(--text-dim);
   letter-spacing: 1px;
 }
+.resume-toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  z-index: 1000; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 24px; display: flex; align-items: center; gap: 16px;
+  font-family: var(--font-sans); font-size: 13px; color: var(--text);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  animation: toast-in 0.4s ease-out;
+}
+.resume-toast button {
+  padding: 6px 14px; border-radius: 6px; border: none; font-family: var(--font-sans);
+  font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;
+}
+.resume-toast .resume-btn { background: var(--brand-purple); color: white; }
+.resume-toast .skip-btn { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+@keyframes toast-in { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+
 </style>
 </head>
 <body>
@@ -244,6 +262,7 @@ footer {
 <section class="beat" data-section="99" style="text-align:center;">
 <div class="beat-inner">
 
+<a href="../index.html" style="font-family: var(--font-sans); font-size: 13px; color: var(--text-dim); text-decoration: none; letter-spacing: 1px;">← Return to Contents</a>
 <div style="display: flex; justify-content: space-between; align-items: center; max-width: 500px; margin: 24px auto 0;">
 <a href="ch4.html" style="color: var(--accent); text-decoration: none; font-family: var(--font-sans); font-size: 13px; letter-spacing: 0.3px;">← Cloudwash a Combine</a>
 <a href="../index.html" style="color: var(--text-dim); text-decoration: none; font-family: var(--font-sans); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">Contents</a>
@@ -648,6 +667,7 @@ function showBeat(index) {
   updateProgressBar();
   updateBeatCounter();
   window.scrollTo(0, 0);
+  saveProgress();
 }
 
 function updateChapterNav() {
@@ -701,6 +721,28 @@ document.addEventListener('wheel', (e) => {
 
 // Initialize
 showBeat(0);
+
+// Progress tracking
+const CHAPTER_NUM = 5;
+function saveProgress() {
+  try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeatIndex); } catch(e) {}
+}
+
+// Resume prompt on load
+(function() {
+  try {
+    const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+    if (saved && saved > 0 && saved < totalBeats) {
+      const toast = document.createElement('div');
+      toast.className = 'resume-toast';
+      toast.innerHTML = 'Resume from beat ' + (saved + 1) + '/' + totalBeats + '? ' +
+        '<button class="resume-btn" onclick="showBeat(' + saved + '); this.parentElement.remove();">Resume</button>' +
+        '<button class="skip-btn" onclick="this.parentElement.remove();">Start Over</button>';
+      document.body.appendChild(toast);
+      setTimeout(() => { if (toast.parentElement) toast.remove(); }, 8000);
+    }
+  } catch(e) {}
+})();
 </script>
 
 </body>

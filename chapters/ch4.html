@@ -329,14 +329,15 @@ body.party-mode .beat-title h1 {
 .char-icon svg { width: 100%; height: 100%; display: block; }
 .back-button {
   position: fixed; top: max(12px, env(safe-area-inset-top, 12px)); left: 12px; z-index: 999;
-  background: rgba(10, 10, 12, 0.7);
+  background: rgba(10, 10, 12, 0.85);
   -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.08);
+  border-left: 2px solid var(--accent, #b07ce8);
   color: var(--text-muted);
-  padding: 6px 12px;
+  padding: 8px 16px;
   border-radius: 20px;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-decoration: none;
@@ -409,6 +410,23 @@ body.party-mode .beat-title h1 {
 .swipe-hint span { font-family: var(--font-sans); font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-dim); font-weight: 500; }
 @keyframes swipe-hint-show { to { opacity: 1; } }
 @keyframes swipe-gesture { 0%,100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-16px); opacity: 1; } }
+.resume-toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  z-index: 1000; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 24px; display: flex; align-items: center; gap: 16px;
+  font-family: var(--font-sans); font-size: 13px; color: var(--text);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  animation: toast-in 0.4s ease-out;
+}
+.resume-toast button {
+  padding: 6px 14px; border-radius: 6px; border: none; font-family: var(--font-sans);
+  font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;
+}
+.resume-toast .resume-btn { background: var(--brand-purple); color: white; }
+.resume-toast .skip-btn { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+@keyframes toast-in { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+
 </style>
 </head>
 <body>
@@ -750,6 +768,7 @@ body.party-mode .beat-title h1 {
 <section class="beat" data-section="99" style="text-align:center;">
 <div class="beat-inner">
 
+<a href="../index.html" style="font-family: var(--font-sans); font-size: 13px; color: var(--text-dim); text-decoration: none; letter-spacing: 1px;">← Return to Contents</a>
 <div style="display: flex; justify-content: space-between; align-items: center; max-width: 500px; margin: 24px auto 0;">
 <a href="ch3.html" style="color: var(--accent); text-decoration: none; font-family: var(--font-sans); font-size: 13px; letter-spacing: 0.3px;">← Broke Is Bad</a>
 <a href="../index.html" style="color: var(--text-dim); text-decoration: none; font-family: var(--font-sans); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">Contents</a>
@@ -839,6 +858,7 @@ function updateProgress() {
 function goToBeam(index) {
   if (index < 0 || index >= beats.length) return;
   currentBeat = index;
+  saveProgress();
   beats.forEach((b, i) => {
     b.style.opacity = i === currentBeat ? '1' : '0';
     b.style.pointerEvents = i === currentBeat ? 'auto' : 'none';
@@ -910,6 +930,28 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('keydown', (e) => {
   if (e.key === 'p') document.body.classList.toggle('party-mode');
 });
+
+// Progress tracking
+const CHAPTER_NUM = 4;
+function saveProgress() {
+  try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeam); } catch(e) {}
+}
+
+// Resume prompt on load
+(function() {
+  try {
+    const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+    if (saved && saved > 0 && saved < totalBeams) {
+      const toast = document.createElement('div');
+      toast.className = 'resume-toast';
+      toast.innerHTML = 'Resume from beat ' + (saved + 1) + '/' + totalBeams + '? ' +
+        '<button class="resume-btn" onclick="goToBeam(' + saved + '); this.parentElement.remove();">Resume</button>' +
+        '<button class="skip-btn" onclick="this.parentElement.remove();">Start Over</button>';
+      document.body.appendChild(toast);
+      setTimeout(() => { if (toast.parentElement) toast.remove(); }, 8000);
+    }
+  } catch(e) {}
+})();
 </script>
 
 </html>

@@ -357,6 +357,23 @@ body.party-mode .beat-title h1 {
   .beat-interactive .beat-inner { padding: 24px; }
   .bs-grid { grid-template-columns: 1fr; }
 }
+.resume-toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  z-index: 1000; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 24px; display: flex; align-items: center; gap: 16px;
+  font-family: var(--font-sans); font-size: 13px; color: var(--text);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  animation: toast-in 0.4s ease-out;
+}
+.resume-toast button {
+  padding: 6px 14px; border-radius: 6px; border: none; font-family: var(--font-sans);
+  font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;
+}
+.resume-toast .resume-btn { background: var(--brand-purple); color: white; }
+.resume-toast .skip-btn { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+@keyframes toast-in { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+
 </style>
 </head>
 <body>
@@ -364,7 +381,7 @@ body.party-mode .beat-title h1 {
 <div class="chapter-nav" id="chapterNav"></div>
 
 <!-- BEAT 1: TITLE -->
-<a href="../index.html" class="back-button" style="position:fixed;top:max(12px,env(safe-area-inset-top,12px));left:12px;z-index:999;background:rgba(10,10,12,0.7);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);color:#8a8590;padding:6px 12px;border-radius:20px;font-family:var(--font-sans);font-size:11px;font-weight:500;letter-spacing:0.5px;text-decoration:none;">← Back</a>
+<a href="../index.html" class="back-button" style="position:fixed;top:max(12px,env(safe-area-inset-top,12px));left:12px;z-index:999;background:rgba(10,10,12,0.85);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);border-left:2px solid var(--accent, #b07ce8);color:#8a8590;padding:8px 16px;border-radius:20px;font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:0.5px;text-decoration:none;">← Back</a>
 <section class="beat beat-title">
   <canvas id="particle-canvas"></canvas>
   <div class="beat-inner">
@@ -797,14 +814,14 @@ body.party-mode .beat-title h1 {
 
     <div class="finale-nav">
       <a href="../index.html" class="finale-nav-item">
-        <span>← Return to Series</span>
+        <span>← Return to Contents</span>
       </a>
     </div>
   </div>
 </section>
 
 <div class="footer-nav">
-  <a href="ch10.html" class="nav-link">← Strategy, Process, Players</a>
+  <a href="ch10.html" class="nav-link">← Ch 10: Strategy, Process, Players</a>
   <div class="nav-divider"></div>
   <span class="nav-link" style="cursor: default; color: var(--accent);">Series Complete</span>
 </div>
@@ -904,6 +921,7 @@ function goTo(index) {
   beats[index].style.pointerEvents = 'auto';
   beats[index].style.visibility = 'visible';
   currentBeat = index;
+  saveProgress();
   updateCounter();
   updateProgress();
   setTimeout(() => { isAnimating = false; }, 350);
@@ -961,6 +979,27 @@ document.addEventListener('keydown', e => {
 positionBeats();
 updateCounter();
 updateProgress();
+// Progress tracking
+const CHAPTER_NUM = 11;
+function saveProgress() {
+  try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeat); } catch(e) {}
+}
+
+// Resume prompt on load
+(function() {
+  try {
+    const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+    if (saved && saved > 0 && saved < totalBeats) {
+      const toast = document.createElement('div');
+      toast.className = 'resume-toast';
+      toast.innerHTML = 'Resume from beat ' + (saved + 1) + '/' + totalBeats + '? ' +
+        '<button class="resume-btn" onclick="goTo(' + saved + '); this.parentElement.remove();">Resume</button>' +
+        '<button class="skip-btn" onclick="this.parentElement.remove();">Start Over</button>';
+      document.body.appendChild(toast);
+      setTimeout(() => { if (toast.parentElement) toast.remove(); }, 8000);
+    }
+  } catch(e) {}
+})();
 </script>
 </body>
 </html>

@@ -347,14 +347,15 @@ body.party-mode .beat-title h1 {
 .table-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 .back-button {
   position: fixed; top: max(12px, env(safe-area-inset-top, 12px)); left: 12px; z-index: 999;
-  background: rgba(10, 10, 12, 0.7);
+  background: rgba(10, 10, 12, 0.85);
   -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.08);
+  border-left: 2px solid var(--accent, #b07ce8);
   color: var(--text-muted);
-  padding: 6px 12px;
+  padding: 8px 16px;
   border-radius: 20px;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-decoration: none;
@@ -469,6 +470,22 @@ body.party-mode .beat-title h1 {
 }
 @keyframes finale-fade-in { to { opacity: 1; } }
 @keyframes finale-line-grow { 0% { opacity: 0; width: 0; } 100% { opacity: 1; width: 60px; } }
+.resume-toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  z-index: 1000; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 24px; display: flex; align-items: center; gap: 16px;
+  font-family: var(--font-sans); font-size: 13px; color: var(--text);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  animation: toast-in 0.4s ease-out;
+}
+.resume-toast button {
+  padding: 6px 14px; border-radius: 6px; border: none; font-family: var(--font-sans);
+  font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;
+}
+.resume-toast .resume-btn { background: var(--brand-purple); color: white; }
+.resume-toast .skip-btn { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+@keyframes toast-in { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
 </style>
 </head>
 <body>
@@ -904,6 +921,11 @@ body.party-mode .beat-title h1 {
 <!-- BEAT 24: NEXT CHAPTER -->
 <section class="beat beat-card" data-section="4">
 <div class="beat-inner">
+<a href="../index.html" style="text-decoration: none; color: inherit; display: block;">
+<div class="return-to-contents">
+<div class="return-chapter-title">← Return to Contents</div>
+</div>
+</a>
 <a href="ch2.html" style="text-decoration: none; color: inherit; display: block;">
 <div class="next-chapter">
 <div class="next-chapter-title">Next Chapter →</div>
@@ -1054,6 +1076,7 @@ function goTo(index) {
   currentBeat = index;
   updateCounter();
   updateProgress();
+  saveProgress();
   // Update nav dots if they exist
   document.querySelectorAll('.chapter-nav .dot').forEach((d, di) => d.classList.toggle('active', di === currentBeat));
   // Dismiss swipe hint on first navigation
@@ -1120,6 +1143,28 @@ if (swipeHint) {
 positionBeats();
 updateCounter();
 updateProgress();
+
+// Progress tracking
+const CHAPTER_NUM = 1;
+function saveProgress() {
+  try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeat); } catch(e) {}
+}
+
+// Resume prompt on load
+(function() {
+  try {
+    const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+    if (saved && saved > 0 && saved < totalBeats) {
+      const toast = document.createElement('div');
+      toast.className = 'resume-toast';
+      toast.innerHTML = 'Resume from beat ' + (saved + 1) + '/' + totalBeats + '? ' +
+        '<button class="resume-btn" onclick="goTo(' + saved + '); this.parentElement.remove();">Resume</button>' +
+        '<button class="skip-btn" onclick="this.parentElement.remove();">Start Over</button>';
+      document.body.appendChild(toast);
+      setTimeout(() => { if (toast.parentElement) toast.remove(); }, 8000);
+    }
+  } catch(e) {}
+})();
 </script>
 
 </body>
