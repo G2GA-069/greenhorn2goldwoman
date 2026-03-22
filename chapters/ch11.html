@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0a0c">
+<link rel="manifest" href="../manifest.json">
+<title>G2G Chapter 11 — M&A II: What Hits the Books (Series Finale)</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0c; --surface: #131318; --surface-2: #1a1a22; --border: #2a2a35;
+  --text: #e8e4df; --text-muted: #8a8590; --text-dim: #5a5560;
+  --accent: #b07ce8; --accent-dim: #7a55b0; --accent-bright: #d4a0ff;
+  --green: #4a9e6e; --red: #c45c4a; --blue: #5a8fc4; --purple: #8a3cc4;
+  --brand-purple: #6b2fa0; --brand-magenta: #d946ef;
+  --font-serif: 'EB Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { height: 100%; overflow: hidden; }
+body {
+  height: 100%; width: 100%; overflow: hidden;
+  background: var(--bg);
+  background-image: radial-gradient(circle, rgba(107,47,160,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: var(--text);
+  font-family: var(--font-serif);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+body.party-mode .beat-title h1 {
+  background: linear-gradient(45deg, #ff006e, #ffbe0b, #8338ec, #3a86ff, #fb5607);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: rainbow-shift 3s infinite;
+}
+@keyframes rainbow-shift { 0%, 100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(360deg); } }
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: linear-gradient(90deg, var(--brand-purple), var(--brand-magenta));
+  z-index: 1000; transition: width 0.1s linear;
+}
+.chapter-nav {
+  position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+  z-index: 100; display: flex; flex-direction: column; gap: 8px;
+}
+.chapter-nav .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--border); cursor: pointer; transition: all 0.3s;
+}
+.chapter-nav .dot.active {
+  background: var(--accent); box-shadow: 0 0 8px rgba(138,60,196,0.4);
+}
+.chapter-nav .dot:hover { background: var(--accent-dim); }
+@media (max-width: 768px) { .chapter-nav { display: none; } }
+.beat {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 52px 24px 60px; opacity: 1; transform: translateY(0);
+  transition: opacity 0.3s, transform 0.35s ease-in-out;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+}
+.beat-inner { max-width: 680px; width: 100%; }
+.beat-title {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 40px 24px;
+  background: radial-gradient(ellipse at center, #1a0a28 0%, #0a0a0c 70%);
+  position: relative; overflow: hidden;
+}
+.beat-title canvas { position: absolute; top: 0; left: 0; z-index: 0; }
+.beat-title .beat-inner { position: relative; z-index: 10; }
+.beat-title .series-name {
+  font-family: var(--font-sans); font-size: 11px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--accent-dim); margin-bottom: 40px;
+}
+.beat-title h1 {
+  font-family: var(--font-serif); font-size: clamp(42px, 7vw, 72px);
+  font-weight: 700; line-height: 1.1; color: var(--text);
+  margin-bottom: 16px; position: relative;
+}
+.beat-title h1.glitch::before, .beat-title h1.glitch::after {
+  content: attr(data-text); position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; opacity: 0.8;
+}
+.beat-title h1.glitch::before {
+  color: var(--brand-purple); clip-path: inset(40% 0 30% 0);
+  animation: glitch-anim 3s infinite linear alternate-reverse; z-index: -1;
+}
+.beat-title h1.glitch::after {
+  color: var(--brand-magenta); clip-path: inset(60% 0 10% 0);
+  animation: glitch-anim2 2.5s infinite linear alternate-reverse; z-index: -1;
+}
+@keyframes glitch-anim {
+  0% { transform: translate(0); } 20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -1px); } 60% { transform: translate(-1px, 1px); }
+  80% { transform: translate(1px, -2px); } 100% { transform: translate(0); }
+}
+@keyframes glitch-anim2 {
+  0% { transform: translate(0); } 20% { transform: translate(2px, -2px); }
+  40% { transform: translate(-2px, 1px); } 60% { transform: translate(1px, -1px); }
+  80% { transform: translate(-1px, 2px); } 100% { transform: translate(0); }
+}
+.beat-title .subtitle {
+  font-family: var(--font-serif); font-size: clamp(20px, 3vw, 28px);
+  font-weight: 400; font-style: italic; color: var(--accent);
+  margin-bottom: 60px;
+}
+.beat-title .chapter-num {
+  font-family: var(--font-mono); font-size: 13px; color: var(--text-dim);
+  letter-spacing: 2px;
+}
+.beat-scene .beat-inner { padding: 0; }
+.scene-location {
+  font-family: var(--font-sans); font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent-dim); margin-bottom: 24px;
+  padding-left: 2px;
+}
+.scene-text {
+  font-family: var(--font-serif); font-size: clamp(18px, 2.2vw, 21px);
+  line-height: 1.8; color: var(--text);
+}
+.scene-text p { margin-bottom: 20px; }
+.scene-text p:last-child { margin-bottom: 0; }
+.scene-divider {
+  text-align: center; margin: 40px 0; color: var(--accent-dim); font-size: 24px;
+}
+.dialogue { margin: 24px 0; padding-left: 0; }
+.dialogue .speaker {
+  font-family: var(--font-sans); font-weight: 600; font-size: 12px;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 6px; display: block;
+}
+.dialogue .line {
+  font-family: var(--font-serif); font-size: clamp(18px, 2.2vw, 21px);
+  line-height: 1.7; color: var(--text); margin-bottom: 20px; font-style: italic;
+}
+.beat-card .beat-inner {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 40px; max-width: 760px;
+}
+.card-label {
+  font-family: var(--font-sans); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.card-label::before { content: ''; display: block; width: 16px; height: 1px; background: var(--accent); }
+.card-title {
+  font-family: var(--font-sans); font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700; color: var(--text); margin-bottom: 24px; line-height: 1.3;
+}
+.card-body {
+  font-family: var(--font-serif); font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.8; color: var(--text-muted);
+}
+.card-body p { margin-bottom: 16px; }
+.card-body p:last-child { margin-bottom: 0; }
+.card-body strong { color: var(--text); font-weight: 600; }
+.card-body em { font-style: italic; }
+.card-body ul { margin-left: 20px; }
+.card-body li { margin-bottom: 10px; }
+.table-scroll {
+  width: 100%; overflow-x: auto; margin: 24px 0; border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.card-table {
+  width: 100%; border-collapse: collapse; font-family: var(--font-mono);
+  font-size: 12px;
+}
+.card-table thead {
+  background: var(--surface-2); border-bottom: 1px solid var(--border);
+}
+.card-table th {
+  padding: 10px 12px; text-align: left; font-weight: 600;
+  color: var(--accent); letter-spacing: 0.5px;
+}
+.card-table td {
+  padding: 10px 12px; border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+.card-table tr:last-child td { border-bottom: none; }
+.row-highlight td { background: var(--surface-2); }
+.num { text-align: right; }
+.beat-takeaway .beat-inner {
+  background: transparent; border: none; padding: 0;
+  text-align: center;
+}
+.takeaway-text {
+  font-family: var(--font-serif); font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700; color: var(--accent); line-height: 1.4;
+  margin: 0;
+}
+.beat-narrator .beat-inner {
+  background: transparent; border: none; padding: 0;
+}
+.narrator-text {
+  font-family: var(--font-serif); font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.8; color: var(--text-muted); text-align: center;
+}
+.beat-hottake .beat-inner {
+  background: var(--surface); border: 2px solid var(--accent-dim);
+  border-radius: 12px; padding: 40px; max-width: 760px;
+  text-align: center;
+}
+.hottake-icon {
+  font-size: 48px; margin-bottom: 20px;
+}
+.hottake-text p {
+  font-family: var(--font-serif); font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.8; color: var(--text-muted); margin-bottom: 16px;
+}
+.hottake-text p:first-child { font-weight: 700; color: var(--text); font-size: 1.1em; }
+.hottake-text em { font-style: italic; color: var(--accent); }
+.ppa-chart {
+  margin: 24px 0; padding: 20px; background: var(--surface-2); border-radius: 8px;
+}
+.ppa-row {
+  display: flex; align-items: center; margin-bottom: 16px; gap: 12px;
+}
+.ppa-row:last-child { margin-bottom: 0; }
+.ppa-label {
+  font-family: var(--font-sans); font-size: 12px; color: var(--text);
+  min-width: 150px; font-weight: 500;
+}
+.ppa-bar {
+  flex: 1; height: 20px; background: var(--surface); border-radius: 4px;
+  overflow: hidden; border: 1px solid var(--border);
+}
+.ppa-bar-fill {
+  height: 100%; background: linear-gradient(90deg, var(--brand-purple), var(--brand-magenta));
+  transition: width 0.3s ease;
+}
+.ppa-value {
+  font-family: var(--font-mono); font-size: 12px; color: var(--accent);
+  min-width: 60px; text-align: right; font-weight: 600;
+}
+.beat-interactive .beat-inner {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 40px; max-width: 900px;
+}
+.interactive-container {
+  width: 100%;
+}
+.bs-grid {
+  display: grid; grid-template-columns: 1fr; gap: 20px;
+}
+.bs-title {
+  font-family: var(--font-sans); font-size: 12px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+  font-weight: 600;
+}
+.bs-column {
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 16px;
+}
+.bs-column h3 {
+  font-family: var(--font-sans); font-size: 13px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--text); margin-bottom: 12px;
+  font-weight: 600; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+.bs-row {
+  display: flex; justify-content: space-between; padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.bs-row.total {
+  background: var(--surface); font-weight: 600; color: var(--accent);
+  padding: 12px 0; border-radius: 4px; padding-left: 4px; padding-right: 4px;
+  border: none;
+}
+.bs-label {
+  font-family: var(--font-sans); font-size: 11px; color: var(--text-muted);
+  flex: 1;
+}
+.bs-value {
+  font-family: var(--font-mono); font-size: 11px; color: var(--text);
+  font-weight: 500; text-align: right; min-width: 70px;
+}
+.bs-value.animated {
+  animation: pulse-highlight 0.5s ease;
+}
+@keyframes pulse-highlight {
+  0%, 100% { color: var(--text); }
+  50% { color: var(--brand-magenta); }
+}
+.transformation-arrow {
+  font-size: 36px; color: var(--accent); font-weight: 700;
+}
+.animation-controls {
+  margin-top: 20px; padding: 16px; background: var(--surface-2);
+  border-radius: 8px; font-family: var(--font-serif); font-size: 14px;
+  color: var(--text-muted); line-height: 1.6;
+}
+.beat-finale {
+  background: linear-gradient(135deg, rgba(107,47,160,0.1) 0%, rgba(217,70,239,0.1) 100%);
+  position: relative; overflow: hidden;
+}
+.finale-glow {
+  position: absolute; width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(217,70,239,0.15) 0%, transparent 70%);
+  border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0;
+}
+.beat-finale .beat-inner {
+  position: relative; z-index: 10; text-align: center;
+}
+.finale-text {
+  font-family: var(--font-serif); font-size: clamp(24px, 3.5vw, 48px);
+  font-weight: 700; line-height: 1.4; margin-bottom: 40px;
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-magenta), var(--accent-bright));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.finale-subtitle {
+  font-family: var(--font-serif); font-size: clamp(16px, 2vw, 20px);
+  color: var(--accent); margin-bottom: 60px; line-height: 1.6;
+}
+.finale-nav {
+  display: flex; flex-direction: column; gap: 16px; margin-top: 60px;
+  align-items: center;
+}
+.finale-nav-item {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-sans); font-size: 12px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--accent); cursor: pointer;
+  padding: 12px 24px; border: 1px solid var(--border); border-radius: 8px;
+  transition: all 0.3s;
+}
+.finale-nav-item:hover {
+  background: var(--surface); border-color: var(--accent); color: var(--text);
+}
+.finale-nav-item.disabled {
+  opacity: 0.5; cursor: not-allowed;
+}
+.footer-nav {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 24px; z-index: 50; align-items: center;
+}
+.nav-link {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-sans); font-size: 11px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--text-dim);
+  cursor: pointer; transition: all 0.3s;
+}
+.nav-link:hover { color: var(--accent); }
+.nav-divider { width: 1px; height: 16px; background: var(--border); }
+.beat-counter {
+  position: fixed; bottom: 20px; right: 24px; z-index: 50;
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-dim);
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .footer-nav, .beat-counter { display: none; }
+  .beat { padding: 52px 12px 60px; }
+  .beat-card .beat-inner { padding: 24px; }
+  .beat-interactive .beat-inner { padding: 24px; }
+  .bs-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="chapter-nav" id="chapterNav"></div>
+
+<!-- BEAT 1: TITLE -->
+<a href="../index.html" class="back-button" style="position:fixed;top:max(12px,env(safe-area-inset-top,12px));left:12px;z-index:999;background:rgba(10,10,12,0.7);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);color:#8a8590;padding:6px 12px;border-radius:20px;font-family:var(--font-sans);font-size:11px;font-weight:500;letter-spacing:0.5px;text-decoration:none;">← Back</a>
+<section class="beat beat-title">
+  <canvas id="particle-canvas"></canvas>
+  <div class="beat-inner">
+    <p class="series-name">From Greenhorn to Gold(wo)man — Series Finale</p>
+    <h1 class="glitch" data-text="M&A II: What Hits the Books">M&A II: What Hits the Books</h1>
+    <p class="subtitle">Signing day. The handshake becomes ledger entries. The business event meets the accounting event.</p>
+    <p class="chapter-num">CHAPTER 11</p>
+  </div>
+</section>
+
+<!-- BEAT 2: SCENE — SIGNING DAY -->
+<section class="beat beat-scene">
+  <div class="beat-inner">
+    <p class="scene-location">Frankfurt am Main — 9 Uhr früh — Kanzlei Flick Gocke Schaumburg</p>
+    <div class="scene-text">
+      <p>The conference room smells of leather and old oak. Floor 37. The Main snakes below, glinting in January sun. Wilhelm sits at the head of the polished table, his three-piece suit pressed to military precision. His left hand rests on a Mont Blanc fountain pen — the same pen his grandfather used to sign contracts in 1952.</p>
+      <p>Haircut sits across from him, flanked by two lawyers in grey. Both sides have already signed the 120-page agreement. Now comes the symbolic moment: the purchase agreement itself.</p>
+      <div class="dialogue">
+        <span class="speaker">Wilhelm</span>
+        <span class="line">"Blue ink. Schwarz ist für Beerdigungen."</span>
+      </div>
+      <p>Black is for funerals. He twists the cap off a blue Pelikan cartridge, dips the nib, and signs: <em>Wilhelm Ludwig von Raunheim</em>. His signature is a calligrapher's prayer — slow, deliberate, final.</p>
+      <div class="dialogue">
+        <span class="speaker">Haircut</span>
+        <span class="line">"Congratulations, Wilhelm. You've just sold a 120-year-old factory."</span>
+      </div>
+      <p>Wilhelm sets the pen down and slides it across the table. A gesture. Not resignation. Transition.</p>
+      <div class="dialogue">
+        <span class="speaker">Wilhelm</span>
+        <span class="line">"You've bought a 120-year-old factory, Herr Eisenberg. Whether you keep it that way is not my concern."</span>
+      </div>
+      <p>Trace stands at the edge of the room, notebook in hand. Her pen hovers over the page. She doesn't write down the conversation. She writes down the time: 09:47. The deal closes at this moment — even though the money won't clear for three days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 3: ACCOUNTING EVENT -->
+<section class="beat beat-card">
+  <div class="beat-inner">
+    <p class="card-label">The Accounting Event</p>
+    <h2 class="card-title">From Handshake to Ledger</h2>
+    <div class="card-body">
+      <p><strong>"A deal is two events. The business event and the accounting event."</strong></p>
+      <p>Chapter 10 was the business: the strategy, the negotiation, the winner and loser declared. It was Wilhelm's story — succession, legacy, closure.</p>
+      <p>Chapter 11 is the accounting. The moment the purchase agreement transforms into journal entries. The moment the business event — "Skarn buys Königshof for €110m" — becomes a ledger entry that will propagate through financial statements for the next seven years.</p>
+      <p>The business event is a contract. The accounting event is the truth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 4: PURCHASE PRICE ALLOCATION -->
+<section class="beat beat-card">
+  <div class="beat-inner">
+    <p class="card-label">Accounting Mechanics</p>
+    <h2 class="card-title">Purchase Price Allocation (PPA)</h2>
+    <div class="card-body">
+      <p>Skarn paid €110m for Königshof. The balance sheet shows net assets of €60m. Where does the other €50m go?</p>
+      <p>The answer is called <strong>Purchase Price Allocation (PPA)</strong>. And it is the most important document Skarn's accountants will produce.</p>
+      <p>The allocation works like this:</p>
+    </div>
+    <div class="ppa-chart">
+      <div class="ppa-row">
+        <span class="ppa-label">Book value of net assets</span>
+        <div class="ppa-bar"><div class="ppa-bar-fill" style="width: 55%;"></div></div>
+        <span class="ppa-value">€60m</span>
+      </div>
+      <div class="ppa-row">
+        <span class="ppa-label">Brand value</span>
+        <div class="ppa-bar"><div class="ppa-bar-fill" style="width: 13.6%;"></div></div>
+        <span class="ppa-value">€15m</span>
+      </div>
+      <div class="ppa-row">
+        <span class="ppa-label">Customer relationships</span>
+        <div class="ppa-bar"><div class="ppa-bar-fill" style="width: 9.1%;"></div></div>
+        <span class="ppa-value">€10m</span>
+      </div>
+      <div class="ppa-row">
+        <span class="ppa-label">Patents & IP</span>
+        <div class="ppa-bar"><div class="ppa-bar-fill" style="width: 4.5%;"></div></div>
+        <span class="ppa-value">€5m</span>
+      </div>
+      <div class="ppa-row">
+        <span class="ppa-label">Fair value step-ups (tangibles)</span>
+        <div class="ppa-bar"><div class="ppa-bar-fill" style="width: 7.3%;"></div></div>
+        <span class="ppa-value">€8m</span>
+      </div>
+      <div class="ppa-row">
+        <span class="ppa-label">Goodwill (residual)</span>
+        <div class="ppa-bar"><div class="ppa-bar-fill" style="width: 10.9%;"></div></div>
+        <span class="ppa-value">€12m</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <p><strong>Total purchase price: €110m</strong></p>
+      <p>Every euro is accounted for. Nothing disappears. The PPA is the forensic breakdown of what Skarn paid for and where it went on the balance sheet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 5: GOODWILL HOTAKE -->
+<section class="beat beat-hottake">
+  <div class="beat-inner">
+    <div class="hottake-icon">⚠️</div>
+    <div class="hottake-text">
+      <p><strong>Goodwill: The Premium for Everything Else</strong></p>
+      <p>Goodwill of €12m is not a line item you can point to on the factory floor. It is the premium Skarn paid for Königshof's market position, reputation, customer relationships beyond the formal contracts, the fact that the harvesters work, that the supply chain is embedded, that Wilhelm spent 60 years building trust.</p>
+      <p>Under IFRS, goodwill is not amortised. It is not written down year by year. Instead, it is tested annually for impairment. That test is brutal: <em>Has the business deteriorated such that it is worth less than we paid?</em></p>
+      <p>If yes, goodwill is written down. A write-down is not a correction of an accounting mistake. It is a public admission: <strong>We overpaid.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 6: TAX MECHANICS -->
+<section class="beat beat-card">
+  <div class="beat-inner">
+    <p class="card-label">Tax Accounting</p>
+    <h2 class="card-title">The Deferred Tax Liability</h2>
+    <div class="card-body">
+      <p>Here is where accounting and tax diverge.</p>
+      <p>For accounting purposes (IFRS), Skarn has allocated €15m to "brand" value. This is an asset on the balance sheet.</p>
+      <p>For tax purposes (German corporate tax law), the brand has no tax basis. When Skarn pays €110m, the tax authorities recognize €110m as cost basis for the tangible assets only (factories, equipment, inventory). The intangibles (brand, customer relationships, patents) do not reduce taxable income.</p>
+      <p>But wait. The accounting brand of €15m will be amortised over 5 years. That amortisation is an accounting expense but <strong>not</strong> a tax expense.</p>
+      <p><strong>Result:</strong> A deferred tax liability of ~€4.5m appears on the balance sheet (assuming 30% tax rate). This liability unwinds over 5 years as the amortisation happens, and the tax benefit eventually flows through.</p>
+      <p>The deferred tax is neither income nor expense. It is simply the gap between accounting and tax deferring itself on the books.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 7: CONSOLIDATION -->
+<section class="beat beat-card">
+  <div class="beat-inner">
+    <p class="card-label">Fund Accounting</p>
+    <h2 class="card-title">Consolidation: Königshof Enters Skarn's Books</h2>
+    <div class="card-body">
+      <p>Skarn Capital operates a private equity fund. Before the acquisition, Skarn's consolidated financial statements included: the fund management company, GP carry stakes, distributions to LPs.</p>
+      <p>After the acquisition, Königshof's entire balance sheet and income statement are consolidated into Skarn's fund.</p>
+      <p><strong>Consolidation mechanics:</strong></p>
+      <ul style="margin: 16px 0 16px 24px; line-height: 1.8; color: var(--text-muted);">
+        <li>Eliminate intercompany transactions (none, since Königshof is now subsidiary)</li>
+        <li>Apply the PPA (the brand, customer relationships, goodwill now sit on Skarn's consolidated balance sheet)</li>
+        <li>Roll up revenue, costs, assets, liabilities, debt</li>
+        <li>Translate EUR to reporting currency if needed</li>
+      </ul>
+      <p>Skarn's consolidated revenue jumps by €114.9m (Königshof's FY24 revenue). Consolidated EBITDA improves by €9.9m. But the new debt (€60m senior facility) also appears on the liability side.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 8: BALANCE SHEET TRANSFORMATION -->
+<section class="beat beat-interactive">
+  <div class="beat-inner">
+    <p class="card-label">Interactive Animation</p>
+    <h2 class="card-title" style="text-align: center; margin-bottom: 40px;">Day One: The Balance Sheet Transforms</h2>
+
+    <div class="interactive-container">
+      <div class="bs-grid">
+        <div>
+          <div class="bs-title">Before Acquisition (Königshof Standalone)</div>
+          <div class="bs-column">
+            <h3>Assets</h3>
+            <div class="bs-row">
+              <span class="bs-label">Factories & equipment</span>
+              <span class="bs-value">€80m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Inventory (harvesters)</span>
+              <span class="bs-value">€53m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Receivables</span>
+              <span class="bs-value">€28m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Cash</span>
+              <span class="bs-value">€40m</span>
+            </div>
+            <div class="bs-row total">
+              <span class="bs-label">Total Assets</span>
+              <span class="bs-value">€201m</span>
+            </div>
+          </div>
+          <div class="bs-column">
+            <h3>Liabilities & Equity</h3>
+            <div class="bs-row">
+              <span class="bs-label">Payables</span>
+              <span class="bs-value">€32m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Other liabilities</span>
+              <span class="bs-value">€9m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Debt</span>
+              <span class="bs-value">€0m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Equity (family Stiftung)</span>
+              <span class="bs-value">€160m</span>
+            </div>
+            <div class="bs-row total">
+              <span class="bs-label">Total Liabilities + Equity</span>
+              <span class="bs-value">€201m</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 30px;"></div>
+
+      <div class="bs-grid">
+        <div>
+          <div class="bs-title">After Acquisition (Skarn Consolidated)</div>
+          <div class="bs-column">
+            <h3>Assets</h3>
+            <div class="bs-row">
+              <span class="bs-label">Factories & equipment (revalued)</span>
+              <span class="bs-value animated">€88m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Inventory (same)</span>
+              <span class="bs-value animated">€53m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Receivables (same)</span>
+              <span class="bs-value animated">€28m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Cash (post-transaction)</span>
+              <span class="bs-value animated">€25m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Brand (intangible)</span>
+              <span class="bs-value animated">€15m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Customer relationships</span>
+              <span class="bs-value animated">€10m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Patents & IP</span>
+              <span class="bs-value animated">€5m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Goodwill</span>
+              <span class="bs-value animated">€12m</span>
+            </div>
+            <div class="bs-row total">
+              <span class="bs-label">Total Assets</span>
+              <span class="bs-value">€236m</span>
+            </div>
+          </div>
+          <div class="bs-column">
+            <h3>Liabilities & Equity</h3>
+            <div class="bs-row">
+              <span class="bs-label">Payables</span>
+              <span class="bs-value animated">€32m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Other liabilities</span>
+              <span class="bs-value animated">€9m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Deferred tax liability</span>
+              <span class="bs-value animated">€4.5m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Senior debt (new)</span>
+              <span class="bs-value animated">€60m</span>
+            </div>
+            <div class="bs-row">
+              <span class="bs-label">Equity (Skarn capital)</span>
+              <span class="bs-value animated">€50m</span>
+            </div>
+            <div class="bs-row total">
+              <span class="bs-label">Total Liabilities + Equity</span>
+              <span class="bs-value">€236m</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="animation-controls">
+        <p>💡 Notice: Total assets increased by €35m. This is not wealth creation. It is the PPA at work — identifying intangible assets that weren't on Königshof's books before.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 9: EARNOUT -->
+<section class="beat beat-card">
+  <div class="beat-inner">
+    <p class="card-label">Contingent Consideration</p>
+    <h2 class="card-title">The Earnout: Risk Sharing</h2>
+    <div class="card-body">
+      <p>Skarn paid €110m at closing. But Wilhelm did not receive the full amount. €10m is contingent on performance.</p>
+      <p><strong>The earnout condition:</strong> If Königshof's FY25 EBITDA exceeds €12m, Wilhelm receives an additional €10m.</p>
+      <p>Why contingent consideration? Because:</p>
+      <ul style="margin: 16px 0 16px 24px; line-height: 1.8; color: var(--text-muted);">
+        <li><strong>Wilhelm's skin in the game:</strong> He has incentive to stay through FY25 and ensure a smooth integration.</li>
+        <li><strong>Risk sharing:</strong> Skarn hedges the risk that post-close integration goes poorly and EBITDA stalls.</li>
+        <li><strong>Dispute avoidance:</strong> A formula (EBITDA > €12m) is less subjective than arguing about "normalised" earnings.</li>
+      </ul>
+      <p>For accounting purposes, the €10m contingent liability is recognised at fair value at close (estimated probability-weighted: ~€8m). As time passes and FY25 approaches, this estimate is adjusted. If Wilhelm hits €12m, the full €10m is paid and the liability settles. If he misses, the liability is released.</p>
+      <p>Earnouts create alignment. They also create arguments.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 10: POST-CLOSE INTEGRATION -->
+<section class="beat beat-scene">
+  <div class="beat-inner">
+    <p class="scene-location">Würzburg — Two weeks post-close</p>
+    <div class="scene-text">
+      <p>Wilhelm sits in the factory's management office. His desk. Same photographs. Same view of the yard. But now there is a Dell laptop on the desk. Not his.</p>
+      <p>Skarn has sent the new CFO: a German woman named Petra Kühne, 35, from a mid-market manufacturing company in Stuttgart. She has spent the last two weeks installing systems.</p>
+      <div class="dialogue">
+        <span class="speaker">Petra</span>
+        <span class="line">"The data room is operational. We're running both your old system and our ERP in parallel for two weeks. Every transaction is logged in both. This is not your system anymore, Wilhelm. This is Skarn's system."</span>
+      </div>
+      <p>Wilhelm nods. He expected this.</p>
+      <div class="dialogue">
+        <span class="speaker">Wilhelm</span>
+        <span class="line">"The factory has run the same way for 60 years. I am not interested in new systems. I am interested in new numbers."</span>
+      </div>
+      <div class="dialogue">
+        <span class="speaker">Petra</span>
+        <span class="line">"You will have new numbers. Every Friday. Cash position, receivables aging, inventory days, supplier payment status. Everything. Haircut wants weekly visibility."</span>
+      </div>
+      <p>She pulls up a dashboard on the new laptop. Real-time cash balance. Königshof currently sits at €18m liquid (down from €40m before the deal, due to the €22m purchase price paid at close). A red line shows the debt covenant: minimum €15m liquidity at all times.</p>
+      <div class="dialogue">
+        <span class="speaker">Wilhelm</span>
+        <span class="line">"Three million euros from covenant breach. That is not a lot of room for weather."</span>
+      </div>
+      <div class="dialogue">
+        <span class="speaker">Petra</span>
+        <span class="line">"That is why we are managing it weekly. We have also reviewed every supplier contract. You are overpaying on raw materials by 8–12%. We are renegotiating in March."</span>
+      </div>
+      <p>Wilhelm does not argue. He knows this dance. He has bought enough machinery to understand that every system can be optimised. That the factory floor is the last place anything changes, and the balance sheet is the first.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 11: POST-CLOSE PLAYBOOK -->
+<section class="beat beat-card">
+  <div class="beat-inner">
+    <p class="card-label">Post-Close Playbook</p>
+    <h2 class="card-title">What Happens After Close</h2>
+    <div class="card-body">
+      <p>Post-merger integration (PMI) is where the deal thesis meets reality. The abstract "synergies" now have to be executed.</p>
+      <p><strong>Skarn's integration plan for Königshof:</strong></p>
+      <ul style="margin: 16px 0 16px 24px; line-height: 1.8; color: var(--text-muted);">
+        <li><strong>Week 1-2:</strong> Install ERP system. Migrate all transaction data. Establish weekly cash reporting.</li>
+        <li><strong>Week 3-4:</strong> Audit supplier contracts. Identify renegotiation opportunities. Target: €1.5m annual savings.</li>
+        <li><strong>Month 2:</strong> Workforce review. Redundancy analysis (unlikely at Königshof; Wilhelm runs a tight ship). Incentive restructuring.</li>
+        <li><strong>Month 3:</strong> Capex review. The third factory expansion: is it still strategic? (Answer: pause for 6 months.)</li>
+        <li><strong>Quarter 2:</strong> Revenue synergies. Can Skarn's other portfolio companies buy from Königshof? (Unlikely but explored.)</li>
+      </ul>
+      <p>By Month 6, Skarn will have identified €3-4m in annual run-rate savings. The reality will be €1.5-2m (synergies always take longer than modeled). But the story will be: "We paid €110m. We have already found €2m in savings. Our €50m premium is 'only' €48m. We are on track."</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 12: SIX MONTHS POST-CLOSE -->
+<section class="beat beat-scene">
+  <div class="beat-inner">
+    <p class="scene-location">Königshof Factory — Würzburg — June 2025 — Six months post-close</p>
+    <div class="scene-text">
+      <p>The factory still hums. The machines still sing their old mechanical song. The harvesters roll off the line in the same order. The paint is still green — Königshof green, 60 years old.</p>
+      <p>But the surface has shifted.</p>
+      <p>The ERP system on the management desks is Skarn's. The invoicing flows through a new portal. The bank account has been consolidated. The capital structure now includes €60m of Euribor+300bps debt that didn't exist six months ago.</p>
+      <p>Wilhelm walks the factory floor as he has every day for 40 years. The workers know him. Some have been here since before he was CEO. But now, Wilhelm reports to a board. A monthly call with Haircut and two other Skarn partners. Performance questions. EBITDA variance analysis. "Wilhelm, you're at €10.2m EBITDA year-to-date. On track for €11.5m full-year. You need €12m for the earnout. Walk me through the gap."</p>
+      <p>He is the CEO. He is also now an employee.</p>
+      <div class="scene-divider">✦</div>
+      <p>Trace visits on a Tuesday. She has not been to the factory since signing day. She pulls into the visitor car park — a new sign, new lines, Skarn Capital branding at the entrance — and walks into the management building.</p>
+      <p>Wilhelm greets her in his office, same leather chairs, same photographs on the wall. But there is a new painting: a stylised chart showing "Post-Close Synergies: €1.8m Identified to Date."</p>
+      <div class="dialogue">
+        <span class="speaker">Wilhelm</span>
+        <span class="line">"They have decorated my office with spreadsheets."</span>
+      </div>
+      <div class="dialogue">
+        <span class="speaker">Trace</span>
+        <span class="line">"That's what happens when accountants buy factories."</span>
+      </div>
+      <p>They walk the floor together. The line is busy — 18 harvesters in assembly stages 1 through 8. Wilhelm's eye catches a harvester near the end of the line.</p>
+      <p>On its frame, there is a white paper sleeve — the kind that has been there for months, with destination labels for each machine as it moves through assembly. It had always been blank at this stage. The destination would be filled in at quality sign-off.</p>
+      <p>This one is no longer blank.</p>
+      <p>It reads: <em>Co-op Aalborg, Denmark. Ship date: 15 July.</em></p>
+      <p>Spoken for. After 60 years, with 10,000 harvesters sold, the supply chain has evolved. The machines are now pre-sold. The factory now builds to order, not to forecast.</p>
+      <p>Integration works in small ways.</p>
+      <div class="dialogue">
+        <span class="speaker">Trace</span>
+        <span class="line">"The deal is real now, isn't it?"</span>
+      </div>
+      <div class="dialogue">
+        <span class="speaker">Wilhelm</span>
+        <span class="line">"The deal was real the moment I signed. This is just the numbers catching up."</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 13: SERIES TAKEAWAY -->
+<section class="beat beat-takeaway">
+  <div class="beat-inner">
+    <p class="takeaway-text">
+      "Five characters. Five agendas. One story. And the numbers, as always, told it first."
+    </p>
+  </div>
+</section>
+
+<!-- BEAT 14: EPILOGUE / NARRATOR -->
+<section class="beat beat-narrator">
+  <div class="beat-inner">
+    <p class="narrator-text">
+      Wilhelm Ludwig von Raunheim returned to Würzburg and walked the factory floor for three more years. The earnout was hit (FY25 EBITDA came in at €12.3m). He received his €10m. He resigned in 2028 and sailed the Rhine with his wife. The factory was resold to AGCO in 2029 at a 6.2x return to Skarn's fund.<br><br>
+      Trace Flint was promoted to Associate at SBCI. She led seven more transactions before moving to Rothschild as an MD. She still has the notebook from signing day.<br><br>
+      Le Pitch founded his own boutique advisory firm in 2027. He represents three German manufacturers and one French logistics company. He now wears Paul Smith ties instead of Hermès, but the calculus remains the same: value creation is leverage plus efficiency plus time.<br><br>
+      Haircut Eisenberg retired from Skarn Capital in 2030. He bought a vineyard in Mosel. He still reads pitchbooks over breakfast, but no longer builds models.<br><br>
+      Magda Kowalska sold Subtrax to HubSpot in 2026 for $128m. She is now an advisor to early-stage SaaS founders in Eastern Europe. Her office is in Warsaw, and her sheets still have the same thread count as a five-star hotel. She has never forgotten the £1.3m freeze at the processor, and she still maintains two checking accounts in two countries.
+    </p>
+  </div>
+</section>
+
+<!-- BEAT 15: SERIES FINALE -->
+<section class="beat beat-finale">
+  <div class="finale-glow"></div>
+  <div class="beat-inner">
+    <p class="finale-text">From Greenhorn to Gold(wo)man</p>
+    <p class="finale-subtitle">You made it. You understand the deal.<br>The numbers are the story. The story is the value.</p>
+
+    <div class="finale-nav">
+      <a href="../index.html" class="finale-nav-item">
+        <span>← Return to Series</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="footer-nav">
+  <a href="ch10.html" class="nav-link">← Strategy, Process, Players</a>
+  <div class="nav-divider"></div>
+  <span class="nav-link" style="cursor: default; color: var(--accent);">Series Complete</span>
+</div>
+<div class="beat-counter"><span id="beatCounter">1 / 15</span></div>
+
+<script>
+// Particle canvas animation (purple/gold for finale)
+(function() {
+  const canvas = document.getElementById('particle-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+
+  const particles = Array.from({length: 80}, () => ({
+    x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+    vx: Math.random() * 0.4 - 0.2, vy: Math.random() * 0.4 - 0.2,
+    r: Math.random() * 1.5 + 0.5, o: Math.random() * 0.3 + 0.1
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(176,124,232,${p.o})`; ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+    });
+    particles.forEach((a, i) => {
+      particles.slice(i+1).forEach(b => {
+        const dx = a.x - b.x, dy = a.y - b.y, dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 120) {
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(176,124,232,${0.08 * (1 - dist/120)})`; ctx.stroke();
+        }
+      });
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+  window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+})();
+
+// Konami code easter egg
+let konamiCode = [];
+const konamiSequence = [38,38,40,40,37,39,37,39,66,65];
+document.addEventListener('keydown', e => {
+  konamiCode.push(e.keyCode); konamiCode = konamiCode.slice(-10);
+  if (konamiCode.join(',') === konamiSequence.join(',')) document.body.classList.toggle('party-mode');
+});
+</script>
+
+<script>
+// PWA Swipe Engine
+let currentBeat = 0;
+let startY = 0;
+let isAnimating = false;
+const beats = document.querySelectorAll('.beat');
+const totalBeats = beats.length;
+
+function positionBeats() {
+  beats.forEach((beat, i) => {
+    if (i < currentBeat) {
+      beat.style.transform = 'translateY(-100vh)'; beat.style.opacity = '0';
+      beat.style.pointerEvents = 'none'; beat.style.visibility = 'hidden';
+    } else if (i === currentBeat) {
+      beat.style.transform = 'translateY(0)'; beat.style.opacity = '1';
+      beat.style.pointerEvents = 'auto'; beat.style.visibility = 'visible';
+    } else {
+      beat.style.transform = 'translateY(100vh)'; beat.style.opacity = '0';
+      beat.style.pointerEvents = 'none'; beat.style.visibility = 'hidden';
+    }
+  });
+}
+
+function updateCounter() {
+  const counter = document.getElementById('beatCounter');
+  if (counter) counter.textContent = `${currentBeat + 1} / ${totalBeats}`;
+}
+
+function updateProgress() {
+  const bar = document.getElementById('progressBar');
+  if (bar) bar.style.width = ((currentBeat + 1) / totalBeats * 100) + '%';
+}
+
+function goTo(index) {
+  if (isAnimating || index < 0 || index >= totalBeats) return;
+  isAnimating = true;
+  const direction = index > currentBeat ? -1 : 1;
+  beats[currentBeat].style.transform = `translateY(${direction * 100}vh)`;
+  beats[currentBeat].style.opacity = '0';
+  beats[currentBeat].style.pointerEvents = 'none';
+  beats[currentBeat].style.visibility = 'hidden';
+  beats[index].style.transform = 'translateY(0)';
+  beats[index].style.opacity = '1';
+  beats[index].style.pointerEvents = 'auto';
+  beats[index].style.visibility = 'visible';
+  currentBeat = index;
+  updateCounter();
+  updateProgress();
+  setTimeout(() => { isAnimating = false; }, 350);
+}
+
+// Touch swipe
+document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+document.addEventListener('touchend', e => {
+  const beat = beats[currentBeat];
+  const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+  const atTop = beat.scrollTop <= 5;
+  const diff = startY - e.changedTouches[0].clientY;
+  if (diff > 50 && atBottom) goTo(currentBeat + 1);
+  if (diff < -50 && atTop) goTo(currentBeat - 1);
+}, { passive: true });
+
+// Mouse wheel with trackpad accumulator
+let wheelAccum = 0;
+let wheelTimer = null;
+document.addEventListener('wheel', e => {
+  const beat = beats[currentBeat];
+  const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+  const atTop = beat.scrollTop <= 5;
+
+  wheelAccum += e.deltaY;
+  clearTimeout(wheelTimer);
+  wheelTimer = setTimeout(() => { wheelAccum = 0; }, 200);
+
+  if (wheelAccum > 50 && atBottom) { wheelAccum = 0; goTo(currentBeat + 1); }
+  if (wheelAccum < -50 && atTop) { wheelAccum = 0; goTo(currentBeat - 1); }
+}, { passive: true });
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  const beat = beats[currentBeat];
+  const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+  const atTop = beat.scrollTop <= 5;
+
+  if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key)) {
+    if (atBottom) { e.preventDefault(); goTo(currentBeat + 1); }
+  } else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) {
+    if (atTop) { e.preventDefault(); goTo(currentBeat - 1); }
+  } else if (e.key === ' ') {
+    e.preventDefault();
+    if (atBottom) goTo(currentBeat + 1);
+    else beat.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+  } else if (e.key === 'Home') {
+    e.preventDefault(); goTo(0);
+  } else if (e.key === 'End') {
+    e.preventDefault(); goTo(totalBeats - 1);
+  }
+});
+
+// Initialize
+positionBeats();
+updateCounter();
+updateProgress();
+</script>
+</body>
+</html>

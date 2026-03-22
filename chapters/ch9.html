@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0a0c">
+<link rel="manifest" href="../manifest.json">
+<title>G2G Chapter 9 — Valuation II: Judgment and Adjustments</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0c;
+  --surface: #131318;
+  --surface-2: #1a1a22;
+  --border: #2a2a35;
+  --text: #e8e4df;
+  --text-muted: #8a8590;
+  --text-dim: #5a5560;
+  --accent: #9d8a76;
+  --accent-dim: #6b6159;
+  --accent-bright: #bfaa94;
+  --green: #4a9e6e;
+  --red: #c45c4a;
+  --blue: #5a8fc4;
+  --purple: #8a3cc4;
+  --brand-purple: #6b2fa0;
+  --brand-magenta: #d946ef;
+  --font-serif: 'EB Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  background-image: radial-gradient(circle, rgba(157,138,118,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: var(--text);
+  font-family: var(--font-serif);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-purple), var(--brand-magenta));
+  z-index: 1000;
+  transition: width 0.1s linear;
+}
+.chapter-nav {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.chapter-nav .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.chapter-nav .dot.active {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(157,138,118,0.4);
+}
+.chapter-nav .dot:hover {
+  background: var(--accent-dim);
+}
+@media (max-width: 768px) {
+  .chapter-nav {
+    display: none;
+  }
+}
+.beat {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 52px 24px 60px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.35s ease-in-out;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.beat-inner {
+  max-width: 680px;
+  width: 100%;
+}
+.beat-title {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  background: radial-gradient(ellipse at center, #141418 0%, #0a0a0c 70%);
+  position: relative;
+  overflow: hidden;
+}
+.beat-title canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.beat-title .beat-inner {
+  position: relative;
+  z-index: 10;
+}
+.beat-title .series-name {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  margin-bottom: 40px;
+}
+.beat-title h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 7vw, 72px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 16px;
+  position: relative;
+}
+.beat-title h1.glitch::before,
+.beat-title h1.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+.beat-title h1.glitch::before {
+  color: var(--brand-purple);
+  clip-path: inset(40% 0 30% 0);
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+  z-index: -1;
+}
+.beat-title h1.glitch::after {
+  color: var(--brand-magenta);
+  clip-path: inset(60% 0 10% 0);
+  animation: glitch-anim2 2.5s infinite linear alternate-reverse;
+  z-index: -1;
+}
+@keyframes glitch-anim {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -1px);
+  }
+  60% {
+    transform: translate(-1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes glitch-anim2 {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(2px, -2px);
+  }
+  40% {
+    transform: translate(-2px, 1px);
+  }
+  60% {
+    transform: translate(1px, -1px);
+  }
+  80% {
+    transform: translate(-1px, 2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+.beat-title .subtitle {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: 60px;
+}
+.beat-title .chapter-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+}
+.beat-scene .beat-inner {
+  padding: 0;
+}
+.scene-location {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  margin-bottom: 24px;
+  padding-left: 2px;
+}
+.scene-text {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.2vw, 21px);
+  line-height: 1.8;
+  color: var(--text);
+}
+.scene-text p {
+  margin-bottom: 20px;
+}
+.scene-text p:last-child {
+  margin-bottom: 0;
+}
+.scene-text em {
+  color: var(--accent);
+  font-style: italic;
+}
+.dialogue {
+  margin: 24px 0;
+  padding-left: 0;
+}
+.dialogue .speaker {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+  display: block;
+}
+.dialogue .line {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.2vw, 21px);
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.beat-card .beat-inner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 760px;
+}
+.card-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-label::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: var(--accent);
+}
+.card-title {
+  font-family: var(--font-sans);
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+.card-body {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+.card-body p {
+  margin-bottom: 16px;
+}
+.card-body p:last-child {
+  margin-bottom: 0;
+}
+.card-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.card-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.card-table th {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--accent-dim);
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.card-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+}
+.card-table tr:last-child td {
+  border-bottom: none;
+}
+.card-table .row-highlight td {
+  color: var(--text);
+  font-weight: 600;
+}
+.card-table .row-accent td {
+  color: var(--accent);
+  font-weight: 600;
+}
+.card-table .num {
+  text-align: right;
+}
+.card-table .negative {
+  color: var(--red);
+}
+.card-table .positive {
+  color: var(--green);
+}
+.adjustment-spectrum {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+@media (max-width: 600px) {
+  .adjustment-spectrum {
+    grid-template-columns: 1fr;
+  }
+}
+.adjustment-zone {
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid;
+}
+.adjustment-zone.green {
+  background: rgba(74, 158, 110, 0.1);
+  border-color: var(--green);
+}
+.adjustment-zone.amber {
+  background: rgba(157, 138, 118, 0.1);
+  border-color: var(--accent);
+}
+.adjustment-zone.red {
+  background: rgba(196, 92, 74, 0.1);
+  border-color: var(--red);
+}
+.zone-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.adjustment-zone.green .zone-label {
+  color: var(--green);
+}
+.adjustment-zone.amber .zone-label {
+  color: var(--accent);
+}
+.adjustment-zone.red .zone-label {
+  color: var(--red);
+}
+.zone-items {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  list-style: none;
+}
+.zone-items li {
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.zone-items li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+}
+.beat-takeaway .beat-inner {
+  max-width: 600px;
+  text-align: center;
+  padding: 20px 40px;
+}
+.takeaway-text {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text);
+  font-style: italic;
+}
+.takeaway-text .highlight {
+  color: var(--accent);
+  font-style: normal;
+}
+.beat-equation .beat-inner {
+  text-align: center;
+  max-width: 600px;
+}
+.equation {
+  font-family: var(--font-mono);
+  font-size: clamp(20px, 3vw, 32px);
+  color: var(--accent);
+  letter-spacing: 2px;
+  margin: 20px 0;
+  font-weight: 500;
+}
+.equation-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.equation-note {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--text-muted);
+  margin-top: 16px;
+  font-style: italic;
+}
+.beat-narrator .beat-inner {
+  max-width: 600px;
+}
+.narrator-text {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.narrator-text p {
+  margin-bottom: 16px;
+}
+.narrator-text em {
+  color: var(--accent);
+  font-style: italic;
+}
+.narrator-text strong {
+  color: var(--text);
+}
+.beat-divider .beat-inner {
+  text-align: center;
+}
+.divider-num {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.divider-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+.beat-interactive .beat-inner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 800px;
+}
+.interactive-title {
+  font-family: var(--font-sans);
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.interactive-title::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: var(--accent);
+}
+.slider-group {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.slider-group label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.slider-group input[type="range"] {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--surface-2);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.slider-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(157,138,118,0.3);
+}
+.slider-group input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 8px rgba(157,138,118,0.3);
+}
+.slider-val {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+}
+.bridge-display {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 24px;
+}
+.bridge-line {
+  display: grid;
+  grid-template-columns: 140px 1fr 160px;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.bridge-line:last-child {
+  border-bottom: none;
+}
+.bridge-label {
+  color: var(--text-dim);
+  font-weight: 500;
+}
+.bridge-arrow {
+  text-align: center;
+  color: var(--accent);
+}
+.bridge-value {
+  text-align: right;
+  font-weight: 600;
+  color: var(--text);
+}
+.bridge-value.total {
+  color: var(--accent);
+  font-size: 15px;
+}
+.bridge-line.total {
+  border-top: 1px solid var(--accent);
+  border-bottom: none;
+  margin-top: 8px;
+  padding-top: 12px;
+}
+.lingo-grid {
+  display: grid;
+  gap: 2px;
+  margin: 20px 0;
+}
+.lingo-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+@media (max-width: 600px) {
+  .lingo-item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+.lingo-item .term {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--accent);
+}
+.lingo-item .def {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.back-button {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top, 12px));
+  left: 12px;
+  z-index: 999;
+  background: rgba(10, 10, 12, 0.7);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.back-button:hover,
+.back-button:active {
+  background: rgba(157, 138, 118, 0.4);
+  border-color: var(--accent-dim);
+  color: var(--text);
+}
+.beat-counter {
+  position: fixed;
+  bottom: max(16px, env(safe-area-inset-bottom, 16px));
+  right: 16px;
+  z-index: 999;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  background: rgba(10, 10, 12, 0.7);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.swipe-hint {
+  position: fixed;
+  bottom: max(70px, env(safe-area-inset-bottom, 70px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  animation: swipe-hint-show 0.6s ease 2s forwards;
+  pointer-events: none;
+}
+.swipe-hint svg {
+  width: 28px;
+  height: 28px;
+  animation: swipe-gesture 1.8s ease-in-out infinite;
+}
+.swipe-hint span {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+@keyframes swipe-hint-show {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes swipe-gesture {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-16px);
+    opacity: 1;
+  }
+}
+
+/* MOBILE MEDIA QUERIES */
+@media (max-width: 768px) {
+  .beat {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    padding: 52px 20px 60px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .beat-scene {
+    align-items: flex-start;
+    padding-top: 52px;
+  }
+  .beat-card {
+    align-items: flex-start;
+    padding-top: 52px;
+  }
+  .beat-inner {
+    max-width: 100%;
+  }
+  .beat-card .beat-inner {
+    padding: 20px 14px;
+  }
+  .card-table {
+    font-size: 11px;
+  }
+  .card-table th,
+  .card-table td {
+    padding: 8px 6px;
+  }
+  .scene-text,
+  .card-body {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .beat-title h1 {
+    font-size: 28px;
+  }
+  .adjustment-spectrum {
+    grid-template-columns: 1fr;
+  }
+  .lingo-def {
+    font-size: 14px;
+  }
+  .beat-takeaway .beat-inner {
+    padding: 20px 16px;
+  }
+  .takeaway-text {
+    font-size: 20px;
+  }
+  .beat-narrator .beat-inner {
+    max-width: 100%;
+  }
+  .narrator-text {
+    font-size: 16px;
+  }
+  .progress-bar {
+    height: 3px;
+  }
+  .beat-interactive .beat-inner {
+    padding: 20px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-table {
+    font-size: 10px;
+  }
+  .card-table th,
+  .card-table td {
+    padding: 6px 4px;
+  }
+  .beat-title h1 {
+    font-size: 24px;
+  }
+  .beat {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<a href="../index.html" class="back-button">← Back</a>
+<div class="beat-counter" id="beatCounter"></div>
+<div class="swipe-hint" id="swipeHint">
+<svg viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="1.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+<span>Swipe up</span>
+</div>
+
+<!-- BEAT 1: TITLE -->
+<section class="beat beat-title" data-section="0">
+<canvas id="particleCanvas"></canvas>
+<div class="beat-inner">
+<div class="series-name">From Greenhorn to Gold(wo)man — Chapter 9</div>
+<h1 class="glitch" data-text="Judgment and Adjustments">Judgment and Adjustments</h1>
+<div class="subtitle">Valuation II: The Art of the Bridge</div>
+<div class="chapter-num">CHAPTER 9 OF 100</div>
+</div>
+</section>
+
+<!-- BEAT 2: SCENE — Haircut opens the pitchbook -->
+<section class="beat beat-scene" data-section="1">
+<div class="beat-inner">
+<div class="scene-location">City of London</div>
+<div class="scene-text">
+<p>Haircut sits in the Skarn office on a Monday morning. Coffee black, cooling in a glass. An SBCI envelope arrives by courier: thick, glossy, 47 pages. Le Pitch's seal on the front. <em>"Project Forge: Comprehensive Financial Analysis."</em></p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 3: SCENE — The Reading -->
+<section class="beat beat-scene" data-section="1">
+<div class="beat-inner">
+<div class="dialogue">
+<span class="speaker">Haircut</span>
+<div class="line">"Tell me what matters in a 47-page pitchbook."</div>
+<span class="speaker">Associate (off-page)</span>
+<div class="line">"All of it, obviously."</div>
+<span class="speaker">Haircut</span>
+<div class="line">"Wrong."</div>
+</div>
+<div class="scene-text">
+<p>He opens to page 3: company overview. Scans. Page 7: market analysis. Skim. Page 12: financial statements. Read. Page 31: adjustments and working capital. Study. The rest slides into the bin.</p>
+<p>Every page after that is comfort. Comfort is expensive. Comfort is why SBCI's fees are higher than anyone else's, and why half their pitchbooks end up in recycling.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 4: SCENE — The Bridge -->
+<section class="beat beat-scene" data-section="1">
+<div class="beat-inner">
+<div class="dialogue">
+<span class="speaker">Haircut</span>
+<div class="line">"The bridge doesn't tie."</div>
+<span class="speaker">Associate</span>
+<div class="line">"I'll ask SBCI to recheck."</div>
+<span class="speaker">Haircut</span>
+<div class="line">"Don't ask. It never does on the first pass. The question is whether it's sloppiness or strategy. Call them. Ask about the adjustments on page 31. Every one. I want to know who approved each line."</div>
+</div>
+</div>
+</section>
+
+<!-- BEAT 5: TAKEAWAY -->
+<section class="beat beat-takeaway" data-section="1">
+<div class="beat-inner">
+<div class="takeaway-text">
+By the end of Chapter 9, you will know why the adjustments matter more than the pitch, and why <span class="highlight">the bridge never ties on the first pass.</span>
+</div>
+</div>
+</section>
+
+<!-- BEAT 6: SECTION DIVIDER — Adjusted EBITDA -->
+<section class="beat beat-divider" data-section="2">
+<div class="beat-inner">
+<div class="divider-num">01</div>
+<div class="divider-title">Adjusted EBITDA in Practice</div>
+</div>
+</section>
+
+<!-- BEAT 7: NARRATOR -->
+<section class="beat beat-narrator" data-section="2">
+<div class="beat-inner">
+<div class="narrator-text">
+<p>The fundamental valuation metric in PE is not reported EBITDA. It is <em>adjusted EBITDA.</em> Three words. Enormous impact.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 8: EQUATION -->
+<section class="beat beat-equation" data-section="2">
+<div class="beat-inner">
+<div class="equation-label">The Adjustment Framework</div>
+<div class="equation">Reported EBITDA</div>
+<div class="equation-note">+ One-off items</div>
+<div class="equation">= Base Adjusted EBITDA</div>
+<div class="equation-note">+ Run-rate savings</div>
+<div class="equation">= Pro Forma Adjusted EBITDA</div>
+</div>
+</section>
+
+<!-- BEAT 9: CARD — Königshof Adjustment Waterfall -->
+<section class="beat beat-card" data-section="2">
+<div class="beat-inner">
+<div class="card-label">Königshof FY24</div>
+<div class="card-title">From Reported to Adjusted EBITDA</div>
+<table class="card-table">
+<thead>
+<tr><th>Item</th><th class="num">€m</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr class="row-highlight"><td><strong>Reported EBITDA</strong></td><td class="num">15.9</td><td>Baseline</td></tr>
+<tr><td>Abusive related-party rent (FY23)</td><td class="num positive">+0.8</td><td>One-off</td></tr>
+<tr><td>CEO severance (FY24, replacement hired)</td><td class="num positive">+1.2</td><td>One-off</td></tr>
+<tr><td>Factory relocation costs</td><td class="num positive">+0.6</td><td>One-off</td></tr>
+<tr class="row-highlight"><td><strong>Base Adjusted</strong></td><td class="num">18.5</td><td>—</td></tr>
+<tr><td>COO will cut €1.5m admin costs (FY25+)</td><td class="num positive">+1.5</td><td>Run-rate</td></tr>
+<tr class="row-accent"><td><strong>Pro Forma Adjusted EBITDA</strong></td><td class="num">20.0</td><td>Buyer's case</td></tr>
+</tbody>
+</table>
+<div class="card-body" style="margin-top: 24px;">
+<p><strong>The story:</strong> Reported €15.9m looks modest. But strip one-offs and add achievable cost saves, and the "real" earning power is €20m. That is the number SBCI puts on page 31. That is the number buyers focus on. That is the number the valuation is built from.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 10: NARRATOR -->
+<section class="beat beat-narrator" data-section="2">
+<div class="beat-inner">
+<div class="narrator-text">
+<p>Adjusted EBITDA is the battleground. Every addback is an argument. Every argument is a negotiation. The question is not "how much did you make?" but <em>"how much could you make?"</em></p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 11: SECTION DIVIDER — Adjustment Spectrum -->
+<section class="beat beat-divider" data-section="3">
+<div class="beat-inner">
+<div class="divider-num">02</div>
+<div class="divider-title">The Adjustment Spectrum</div>
+</div>
+</section>
+
+<!-- BEAT 12: CARD — Traffic Light System -->
+<section class="beat beat-card" data-section="3">
+<div class="beat-inner">
+<div class="card-label">Quality of Earnings Check</div>
+<div class="card-title">Three Zones of Credibility</div>
+<div class="adjustment-spectrum">
+<div class="adjustment-zone green">
+<div class="zone-label">Green: Clear</div>
+<ul class="zone-items">
+<li>Documented one-offs</li>
+<li>Non-recurring by definition</li>
+<li>Auditor-approved</li>
+<li>Examples: severance, legal settlements, asset sales</li>
+</ul>
+</div>
+<div class="adjustment-zone amber">
+<div class="zone-label">Amber: Judgment</div>
+<ul class="zone-items">
+<li>Arguably non-recurring</li>
+<li>Depends on management</li>
+<li>Requires assumption</li>
+<li>Examples: consulting projects, one-time IT spend</li>
+</ul>
+</div>
+<div class="adjustment-zone red">
+<div class="zone-label">Red: Fiction</div>
+<ul class="zone-items">
+<li>Recurring costs dressed as one-offs</li>
+<li>Optimistic assumptions</li>
+<li>Hard to defend</li>
+<li>Examples: "always do this" listed as adjustment</li>
+</ul>
+</div>
+</div>
+<div class="card-body" style="margin-top: 24px;">
+<p><strong>The sell-side always stacks Green and Amber high, and hopes buyers don't dig into Red.</strong> Good financial sponsors dig. They hire QofE (Quality of Earnings) specialists — independent accountants whose job is to mark every adjustment red, then defend Green.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 13: SCENE — The QofE Call -->
+<section class="beat beat-scene" data-section="3">
+<div class="beat-inner">
+<div class="dialogue">
+<span class="speaker">QofE Partner (on call)</span>
+<div class="line">"€1.5m COO savings. Who has signed the employment letter?"</div>
+<span class="speaker">Haircut</span>
+<div class="line">"No one. COO starts Monday."</div>
+<span class="speaker">QofE Partner</span>
+<div class="line">"We're marking it Amber. Achievable, not certain."</div>
+<span class="speaker">Haircut</span>
+<div class="line">"Fair. That's what I told SBCI. They sent it to buyers as Green."</div>
+</div>
+<div class="scene-text">
+<p>Thirty seconds of silence.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 14: SECTION DIVIDER — EV to Equity -->
+<section class="beat beat-divider" data-section="4">
+<div class="beat-inner">
+<div class="divider-num">03</div>
+<div class="divider-title">Enterprise Value to Equity: The Bridge</div>
+</div>
+</section>
+
+<!-- BEAT 15: NARRATOR -->
+<section class="beat beat-narrator" data-section="4">
+<div class="beat-inner">
+<div class="narrator-text">
+<p>Every M&A deal reduces to one equation. The simplest. The most misunderstood.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 16: EQUATION -->
+<section class="beat beat-equation" data-section="4">
+<div class="beat-inner">
+<div class="equation-label">The Bridge Formula</div>
+<div class="equation">EV + Cash − Debt = Equity</div>
+<div class="equation-note">
+EV = what the whole business is worth<br>
+Equity = what shareholders get
+</div>
+</div>
+</section>
+
+<!-- BEAT 17: CARD — Königshof Bridge -->
+<section class="beat beat-card" data-section="4">
+<div class="beat-inner">
+<div class="card-label">The Bridge That Breaks Intuition</div>
+<div class="card-title">Königshof €100m EV → ? Equity</div>
+<table class="card-table">
+<thead>
+<tr><th></th><th class="num">€m</th></tr>
+</thead>
+<tbody>
+<tr class="row-highlight"><td><strong>Enterprise Value</strong></td><td class="num">100.0</td></tr>
+<tr><td>+ Cash on hand</td><td class="num positive">40.0</td></tr>
+<tr><td>− Debt</td><td class="num negative">(0.0)</td></tr>
+<tr class="row-accent"><td><strong>Equity Value</strong></td><td class="num">140.0</td></tr>
+</tbody>
+</table>
+<div class="card-body" style="margin-top: 24px;">
+<p>The EV is €100m. But the shareholders (Wilhelm's family) get €140m. Why? Because the company is a cash machine. It generates cash. That cash is worth something. After paying off zero debt (there is none), the whole pie is Equity.</p>
+<p>This is the <em>cash-rich paradox</em>: a business worth less than its equity value.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 18: SCENE — The Paradox Explained -->
+<section class="beat beat-scene" data-section="4">
+<div class="beat-inner">
+<div class="dialogue">
+<span class="speaker">Trace</span>
+<div class="line">"So the EV is lower than the Equity? That's backwards."</div>
+<span class="speaker">Le Pitch</span>
+<div class="line">"Only if you think about it wrong. EV is the operating business. The machines, the sales, the EBITDA. It's worth €100m. Königshof also happens to sit on €40m in cash. That cash is not part of the operating business. It is part of what you get when you buy the company. So you pay €100m for the operations plus €40m of cash inside the company. Total paid to shareholders: €140m."</div>
+<span class="speaker">Trace</span>
+<div class="line">"But Skarn paid €110m, didn't they? For the operations?"</div>
+<span class="speaker">Le Pitch</span>
+<div class="line">"Yes. They negotiated the EV down to €110m. They left some of the cash in the balance sheet to pay down acquisition debt, and took the rest as a cash return. That is a separate negotiation: the working capital and cash adjustment. Page 31."</div>
+</div>
+</div>
+</section>
+
+<!-- BEAT 19: SECTION DIVIDER — Working Capital -->
+<section class="beat beat-divider" data-section="5">
+<div class="beat-inner">
+<div class="divider-num">04</div>
+<div class="divider-title">Working Capital True-Ups</div>
+</div>
+</section>
+
+<!-- BEAT 20: NARRATOR -->
+<section class="beat beat-narrator" data-section="5">
+<div class="beat-inner">
+<div class="narrator-text">
+<p>The EV is one number. The price adjusts for what's inside the balance sheet on closing day. Working capital is the sword of Damocles.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 21: CARD — Königshof Inventory Adjustment -->
+<section class="beat beat-card" data-section="5">
+<div class="beat-inner">
+<div class="card-label">Closing Adjustment</div>
+<div class="card-title">The €18m Inventory Trap</div>
+<table class="card-table">
+<thead>
+<tr><th></th><th class="num">€m</th><th>Days</th></tr>
+</thead>
+<tbody>
+<tr><td>Actual inventory (at closing)</td><td class="num">53.0</td><td>600 DIO</td></tr>
+<tr><td>Normal inventory for run-rate</td><td class="num">(35.0)</td><td>(400 DIO)</td></tr>
+<tr class="row-highlight"><td><strong>Excess inventory</strong></td><td class="num">18.0</td><td>—</td></tr>
+</tbody>
+</table>
+<div class="card-body" style="margin-top: 24px;">
+<p><strong>The story:</strong> Königshof's factory is slow. Sales fell. Inventory piled up: €53m of harvesters in the yard. Normal operating inventory should be €35m. The excess €18m is cash tied up in product that will eventually sell.</p>
+<p>At closing, Skarn negotiates a €18m price <em>credit</em>. They don't pay Wilhelm for the excess inventory. They will own it and sell it, eventually, into cash. That €18m was paid for, but not purchased by Skarn.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 22: SCENE — The Working Capital Trap -->
+<section class="beat beat-scene" data-section="5">
+<div class="beat-inner">
+<div class="dialogue">
+<span class="speaker">Wilhelm's Advisor</span>
+<div class="line">"If Skarn gets an €18m credit for inventory, that means the purchase price drops by €18m."</div>
+<span class="speaker">Le Pitch</span>
+<div class="line">"Correct. But only temporarily. In the deal, we negotiate a target level of working capital. Königshof must deliver working capital at that target level. If actual is higher, price drops. If actual is lower, Skarn pays more."</div>
+<span class="speaker">Wilhelm's Advisor</span>
+<div class="line">"So Wilhelm will get paid for the inventory eventually?"</div>
+<span class="speaker">Le Pitch</span>
+<div class="line">"He will get a credit at closing. That inventory sells down over FY25 and FY26, and Skarn keeps the cash. Working capital is where PE makes the real money: buying slow-moving balance sheets and extracting the cash."</div>
+</div>
+</div>
+</section>
+
+<!-- BEAT 23: SECTION DIVIDER — IFRS 16 & Leases -->
+<section class="beat beat-divider" data-section="6">
+<div class="beat-inner">
+<div class="divider-num">05</div>
+<div class="divider-title">IFRS 16: Leases on the Balance Sheet</div>
+</div>
+</section>
+
+<!-- BEAT 24: NARRATOR -->
+<section class="beat beat-narrator" data-section="6">
+<div class="beat-inner">
+<div class="narrator-text">
+<p>From 2019, all operating leases moved onto the balance sheet. One line: the lease liability. Two implications: assets swell, debt swell. Valuation looks worse than it is.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 25: CARD — Subtrax IFRS 16 Impact -->
+<section class="beat beat-card" data-section="6">
+<div class="beat-inner">
+<div class="card-label">Accounting Treatment</div>
+<div class="card-title">Subtrax Shoreditch Office Lease</div>
+<table class="card-table">
+<thead>
+<tr><th>Item</th><th class="num">£</th></tr>
+</thead>
+<tbody>
+<tr><td>Annual lease payment</td><td class="num">320,000</td></tr>
+<tr><td>Lease term</td><td class="num">5 years</td></tr>
+<tr><td>Discount rate (IFRS 16)</td><td class="num">8%</td></tr>
+<tr class="row-highlight"><td><strong>Right-of-use asset</strong></td><td class="num">1,300,000</td></tr>
+<tr class="row-accent"><td><strong>Lease liability (debt)</strong></td><td class="num">1,300,000</td></tr>
+</tbody>
+</table>
+<div class="card-body" style="margin-top: 24px;">
+<p>Before IFRS 16, Subtrax's £320k annual lease was just an opex line item. Now it lives as a £1.3m liability. Result: when you calculate Net Debt, Subtrax looks more leveraged than before. EV/EBITDA looks worse. The valuation math changes without the economics changing.</p>
+<p>Adjusting for this is standard: many adjustors eliminate the lease liability when calculating Enterprise Value.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 26: EQUATION -->
+<section class="beat beat-equation" data-section="6">
+<div class="beat-inner">
+<div class="equation-label">Enterprise Value with/without Lease</div>
+<div class="equation">EV (legacy) = Debt (excl. lease) − Cash</div>
+<div class="equation-note">or</div>
+<div class="equation">EV (modern) = Debt (incl. lease) − Cash</div>
+<div class="equation-note">The difference is accounting, not economics.</div>
+</div>
+</section>
+
+<!-- BEAT 27: SECTION DIVIDER — Net vs Gross Debt -->
+<section class="beat beat-divider" data-section="7">
+<div class="beat-inner">
+<div class="divider-num">06</div>
+<div class="divider-title">Net Debt vs Gross Debt</div>
+</div>
+</section>
+
+<!-- BEAT 28: NARRATOR -->
+<section class="beat beat-narrator" data-section="7">
+<div class="beat-inner">
+<div class="narrator-text">
+<p>Debt is not just debt. It is debt minus the cash you have to pay it off. The difference between gross and net is cash. And cash changes everything.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 29: CARD — Net vs Gross Debt -->
+<section class="beat beat-card" data-section="7">
+<div class="beat-inner">
+<div class="card-label">Debt Framework</div>
+<div class="card-title">Two Companies, Two Debt Stories</div>
+<table class="card-table">
+<thead>
+<tr><th>Metric</th><th class="num">Königshof</th><th class="num">Subtrax</th></tr>
+</thead>
+<tbody>
+<tr><td>Bank debt</td><td class="num">€0.0m</td><td class="num">£0.0m</td></tr>
+<tr class="row-highlight"><td><strong>Gross Debt</strong></td><td class="num">0.0</td><td class="num">0.0</td></tr>
+<tr><td>Less: Cash on hand</td><td class="num negative">(40.0)</td><td class="num negative">(0.5)</td></tr>
+<tr class="row-accent"><td><strong>Net Debt</strong></td><td class="num negative">(40.0)</td><td class="num negative">(0.5)</td></tr>
+</tbody>
+</table>
+<div class="card-body" style="margin-top: 24px;">
+<p><strong>Königshof: negative net debt of €40m.</strong> The balance sheet is so strong that debt is negative. Zero borrowing + €40m cash = net cash position. This is the envy of private equity: a cash machine with fortress balance sheet.</p>
+<p><strong>Subtrax: negative net debt of £0.5m.</strong> After the processor freeze crisis, cash is thin. But still positive. The startup is not in danger, yet.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 30: SECTION DIVIDER — Quality of Earnings -->
+<section class="beat beat-divider" data-section="8">
+<div class="beat-inner">
+<div class="divider-num">07</div>
+<div class="divider-title">Quality of Earnings</div>
+</div>
+</section>
+
+<!-- BEAT 31: NARRATOR -->
+<section class="beat beat-narrator" data-section="8">
+<div class="beat-inner">
+<div class="narrator-text">
+<p>Adjusted EBITDA is a number. Quality of earnings is a judgment. The sponsor's job: verify every adjustment. Trust no one. Verify again.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 32: CARD — Lingo Grid -->
+<section class="beat beat-card" data-section="8">
+<div class="beat-inner">
+<div class="card-label">Standard Adjustments</div>
+<div class="card-title">What Quality of Earnings Covers</div>
+<div class="lingo-grid">
+<div class="lingo-item">
+<div class="term">Related-party transactions</div>
+<div class="def">Clean out abusive pricing (e.g., selling to related party below market). Adjust to fair value.</div>
+</div>
+<div class="lingo-item">
+<div class="term">One-time items</div>
+<div class="def">Severance, litigation, restructuring, asset sales. Must be documented, non-recurring.</div>
+</div>
+<div class="lingo-item">
+<div class="term">Run-rate savings</div>
+<div class="def">Cost cuts already underway or committed. Must have board approval + signed employment offers.</div>
+</div>
+<div class="lingo-item">
+<div class="term">Revenue normalization</div>
+<div class="def">If a customer left or will arrive, adjust base revenue. Build the "maintenance" case.</div>
+</div>
+<div class="lingo-item">
+<div class="term">SG&A normalization</div>
+<div class="def">Owner's perks, excess corporate staff. What's truly needed to run the business?</div>
+</div>
+<div class="lingo-item">
+<div class="term">Lease capitalization</div>
+<div class="def">IFRS 16: add back the P&L lease expense, treat as a balance sheet liability.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BEAT 33: SECTION DIVIDER — Interactive Bridge -->
+<section class="beat beat-divider" data-section="9">
+<div class="beat-inner">
+<div class="divider-num">08</div>
+<div class="divider-title">Interactive: EV to Equity Bridge</div>
+</div>
+</section>
+
+<!-- BEAT 34: INTERACTIVE — EV-to-Equity Calculator -->
+<section class="beat beat-interactive" data-section="9">
+<div class="beat-inner">
+<div class="interactive-title">Build Your Own Bridge</div>
+<div class="slider-group">
+<label>
+Enterprise Value (€m)
+<span class="slider-val" id="evVal">100</span>
+</label>
+<input type="range" id="evSlider" min="50" max="200" value="100">
+</div>
+<div class="slider-group">
+<label>
+Cash on Balance Sheet (€m)
+<span class="slider-val" id="cashVal">40</span>
+</label>
+<input type="range" id="cashSlider" min="0" max="100" value="40">
+</div>
+<div class="slider-group">
+<label>
+Total Debt (€m)
+<span class="slider-val" id="debtVal">0</span>
+</label>
+<input type="range" id="debtSlider" min="0" max="100" value="0">
+</div>
+<div class="bridge-display">
+<div class="bridge-line">
+<div class="bridge-label">Enterprise Value</div>
+<div class="bridge-arrow">→</div>
+<div class="bridge-value" id="bridgeEV">100.0</div>
+</div>
+<div class="bridge-line">
+<div class="bridge-label">+ Cash</div>
+<div class="bridge-arrow">↓</div>
+<div class="bridge-value" id="bridgeCash">40.0</div>
+</div>
+<div class="bridge-line">
+<div class="bridge-label">− Debt</div>
+<div class="bridge-arrow">↓</div>
+<div class="bridge-value" id="bridgeDebt">0.0</div>
+</div>
+<div class="bridge-line total">
+<div class="bridge-label"><strong>= EQUITY VALUE</strong></div>
+<div class="bridge-arrow"></div>
+<div class="bridge-value total" id="bridgeEquity">140.0</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BEAT 35: SCENE — The Calculator Lesson -->
+<section class="beat beat-scene" data-section="9">
+<div class="beat-inner">
+<div class="dialogue">
+<span class="speaker">Trace</span>
+<div class="line">"If I slide debt up to 50, equity becomes 90?"</div>
+<span class="speaker">Haircut</span>
+<div class="line">"Yes. That is leverage. You raise debt, you reduce equity."</div>
+<span class="speaker">Trace</span>
+<div class="line">"And if I have €60m cash instead of €40m?"</div>
+<span class="speaker">Haircut</span>
+<div class="line">"Equity becomes €160m. The EV stays the same — the operating business is worth the same. But the balance sheet is richer."</div>
+<span class="speaker">Trace</span>
+<div class="line">"So Königshof selling at €100m EV but €140m equity is not an accident."</div>
+<span class="speaker">Haircut</span>
+<div class="line">"It is the business model. Factories generate cash. Shareholders captured it. Skarn bought the businesses and inherited the cash."</div>
+</div>
+</div>
+</section>
+
+<!-- BEAT 36: SECTION DIVIDER — The Adjustment Challenge -->
+<section class="beat beat-divider" data-section="10">
+<div class="beat-inner">
+<div class="divider-num">09</div>
+<div class="divider-title">Putting It Together: The Pitchbook Test</div>
+</div>
+</section>
+
+<!-- BEAT 37: CARD — SBCI Adjustment Summary -->
+<section class="beat beat-card" data-section="10">
+<div class="beat-inner">
+<div class="card-label">Page 31 of 47</div>
+<div class="card-title">Königshof Adjustment Checklist</div>
+<table class="card-table">
+<thead>
+<tr><th>Adjustment</th><th class="num">€m</th><th>Color</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td>Reported EBITDA FY24</td><td class="num">15.9</td><td>—</td><td>Baseline</td></tr>
+<tr><td>Related-party rent (2023)</td><td class="num positive">+0.8</td><td>🟢 Green</td><td>Approved</td></tr>
+<tr><td>CEO severance</td><td class="num positive">+1.2</td><td>🟢 Green</td><td>Approved</td></tr>
+<tr><td>Factory relocation</td><td class="num positive">+0.6</td><td>🟢 Green</td><td>Approved</td></tr>
+<tr><td>COO cost saves</td><td class="num positive">+1.5</td><td>🟡 Amber</td><td>Conditional</td></tr>
+<tr class="row-accent"><td><strong>Pro Forma Adjusted</strong></td><td class="num">20.0</td><td>—</td><td>Submitted</td></tr>
+</tbody>
+</table>
+<div class="card-body" style="margin-top: 24px;">
+<p><strong>Reality check:</strong> SBCI sent the full €20m to buyers. QofE marked the COO saves as Amber. Buyers used €18.5m as the valuation base (excluding COO). That is the number that matters when negotiating the price. Everything above is comfort.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 38: SCENE — Closing Moment -->
+<section class="beat beat-scene" data-section="10">
+<div class="beat-inner">
+<div class="scene-text">
+<p>Haircut and his associate sit in silence. Mark-up. Cross-out. Recalculate. The bridge has tied three times now, each iteration with fewer lines to defend.</p>
+</div>
+<div class="dialogue">
+<span class="speaker">Haircut</span>
+<div class="line">"The EV is the price. The equity is the story."</div>
+<span class="speaker">Associate</span>
+<div class="line">"What does that mean?"</div>
+<span class="speaker">Haircut</span>
+<div class="line">"It means: what you pay for the operating business is objective. EV. What you get to own — all of it, the machines and the cash and the balance sheet — that is subjective. That is the story. And the story, for once, is interesting."</div>
+</div>
+<div class="scene-text">
+<p>He caps his pen. Not a Mont Blanc. He doesn't have pretensions. Just a pen that works. He stares at page 31 one more time, then pulls it from the stack and slides it across the table.</p>
+<p><em>"This is all we need."</em></p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 39: TAKEAWAY — Final Message -->
+<section class="beat beat-takeaway" data-section="11">
+<div class="beat-inner">
+<div class="takeaway-text">
+<span class="highlight">The bridge never ties on the first pass.</span> It ties because professionals spend a week marking adjustments red until the story makes sense. That is valuation.
+</div>
+</div>
+</section>
+
+<!-- BEAT 40: CLOSING SCENE -->
+<section class="beat beat-scene" data-section="11">
+<div class="beat-inner">
+<div class="scene-location">Simultaneous, four places</div>
+<div class="scene-text">
+<p><strong>Würzburg:</strong> Wilhelm opens the offer letter from Skarn. The price: €110m EV, €40m cash left on the balance sheet, net €110m equity to his family. Thirty seconds to read. A lifetime to decide.</p>
+<p><strong>Shoreditch:</strong> Magda watches her bank account. The £1.3m processor hold is released. She can make payroll. She can pay suppliers. Subtrax lives another week.</p>
+<p><strong>Frankfurt:</strong> Le Pitch calls the IC to present. Dual-track achieved: one PE offer (Skarn €110m), one strategic bid from AGCO (€120m but with earn-outs). Let the auction begin.</p>
+<p><strong>City of London:</strong> Haircut closes his notebook. Page 31, marked and approved. He knows the number now: €110m. Whether the bid goes higher is leverage. Whether the adjustments hold is execution. Both are games, and both are won on this page.</p>
+</div>
+</div>
+</section>
+
+<!-- BEAT 41: FINAL TAKEAWAY -->
+<section class="beat beat-takeaway" data-section="11">
+<div class="beat-inner">
+<div class="takeaway-text">
+Chapter 9 is the algebra of deals. Chapter 10 is where you use that algebra to move the world.
+</div>
+</div>
+</section>
+
+<!-- BEAT 42: FOOTER -->
+<section class="beat beat-scene" data-section="12">
+<div class="beat-inner">
+<div class="scene-text" style="text-align: center; margin-top: 40px;">
+<p><a href="ch8.html" style="color: var(--accent); text-decoration: none;">← Chapter 8: Building the Toolkit</a></p>
+<p style="margin-top: 20px;"><a href="ch10.html" style="color: var(--accent); text-decoration: none;">Chapter 10: Strategy, Process, Players →</a></p>
+</div>
+</div>
+</section>
+
+<script>
+// Progress bar
+const progressBar = document.getElementById('progressBar');
+
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  progressBar.style.width = pct + '%';
+});
+
+// Beat counter
+const beatCounter = document.getElementById('beatCounter');
+const beats = document.querySelectorAll('.beat');
+let currentBeat = 1;
+
+window.addEventListener('scroll', () => {
+  let beatNum = 1;
+  beats.forEach((beat, idx) => {
+    const rect = beat.getBoundingClientRect();
+    if (rect.top <= window.innerHeight / 2) {
+      beatNum = idx + 1;
+    }
+  });
+  currentBeat = beatNum;
+  beatCounter.textContent = `${beatNum} / ${beats.length}`;
+});
+
+beatCounter.textContent = `1 / ${beats.length}`;
+
+// Chapter nav dots
+const sections = document.querySelectorAll('[data-section]');
+const uniqueSections = [];
+sections.forEach(s => {
+  const sec = s.getAttribute('data-section');
+  if (!uniqueSections.includes(sec)) {
+    uniqueSections.push(sec);
+  }
+});
+
+const nav = document.querySelector('.chapter-nav');
+if (!nav.hasChildNodes()) {
+  uniqueSections.forEach((sec, idx) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (idx === 0 ? ' active' : '');
+    dot.dataset.section = sec;
+    dot.addEventListener('click', () => {
+      const target = document.querySelector(`[data-section="${sec}"]`);
+      if (target) {
+        const pos = target.offsetTop;
+        window.scrollTo({ top: pos, behavior: 'smooth' });
+      }
+    });
+    nav.appendChild(dot);
+  });
+}
+
+// Update active dot on scroll
+window.addEventListener('scroll', () => {
+  let activeSection = uniqueSections[0];
+  sections.forEach(s => {
+    const rect = s.getBoundingClientRect();
+    if (rect.top <= window.innerHeight / 2) {
+      activeSection = s.getAttribute('data-section');
+    }
+  });
+
+  document.querySelectorAll('.chapter-nav .dot').forEach(d => {
+    d.classList.toggle('active', d.dataset.section === activeSection);
+  });
+});
+
+// Interactive bridge calculator
+const evSlider = document.getElementById('evSlider');
+const cashSlider = document.getElementById('cashSlider');
+const debtSlider = document.getElementById('debtSlider');
+const evVal = document.getElementById('evVal');
+const cashVal = document.getElementById('cashVal');
+const debtVal = document.getElementById('debtVal');
+const bridgeEV = document.getElementById('bridgeEV');
+const bridgeCash = document.getElementById('bridgeCash');
+const bridgeDebt = document.getElementById('bridgeDebt');
+const bridgeEquity = document.getElementById('bridgeEquity');
+
+function updateBridge() {
+  const ev = parseFloat(evSlider.value);
+  const cash = parseFloat(cashSlider.value);
+  const debt = parseFloat(debtSlider.value);
+
+  evVal.textContent = ev.toFixed(0);
+  cashVal.textContent = cash.toFixed(0);
+  debtVal.textContent = debt.toFixed(0);
+
+  bridgeEV.textContent = ev.toFixed(1);
+  bridgeCash.textContent = cash.toFixed(1);
+  bridgeDebt.textContent = debt.toFixed(1);
+
+  const equity = ev + cash - debt;
+  bridgeEquity.textContent = equity.toFixed(1);
+}
+
+evSlider.addEventListener('input', updateBridge);
+cashSlider.addEventListener('input', updateBridge);
+debtSlider.addEventListener('input', updateBridge);
+
+// Initialize
+updateBridge();
+
+// Apply glitch to title
+document.addEventListener('DOMContentLoaded', () => {
+  const h1 = document.querySelector('.beat-title h1');
+  if (h1 && h1.classList.contains('glitch')) {
+    const text = h1.textContent.trim();
+    h1.setAttribute('data-text', text);
+  }
+});
+
+</script>
+</body>
+</html>
