@@ -24,6 +24,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            overscroll-behavior: none;
+        }
+
         body {
             background: var(--bg);
             color: var(--text);
@@ -31,6 +35,8 @@
             overflow: hidden;
             font-size: 16px;
             line-height: 1.5;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .container {
@@ -64,6 +70,7 @@
         .beat {
             overflow-y: auto;
             max-height: 100vh;
+            max-height: 100dvh;
             align-items: flex-start;
             justify-content: flex-start;
             padding-top: 80px;

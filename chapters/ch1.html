@@ -21,9 +21,10 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { height: 100%; overflow: hidden; }
+html { height: 100%; overflow: hidden; overscroll-behavior: none; }
 body {
   height: 100%; width: 100%; overflow: hidden;
+  word-break: break-word; overflow-wrap: break-word;
   background: var(--bg);
   background-image: radial-gradient(circle, rgba(107,47,160,0.06) 1px, transparent 1px);
   background-size: 40px 40px;
@@ -57,7 +58,7 @@ body.party-mode .beat-title h1 {
 .chapter-nav .dot:hover { background: var(--accent-dim); }
 @media (max-width: 768px) { .chapter-nav { display: none; } }
 .beat {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; z-index: 1;
   display: flex; align-items: center; justify-content: center;
   padding: 52px 24px 60px; opacity: 1; transform: translateY(0);
   transition: opacity 0.3s, transform 0.35s ease-in-out;
@@ -65,7 +66,7 @@ body.party-mode .beat-title h1 {
 }
 .beat-inner { max-width: 680px; width: 100%; }
 .beat-title {
-  min-height: 100vh; display: flex; flex-direction: column;
+  min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column;
   align-items: center; justify-content: center; text-align: center;
   padding: 40px 24px;
   background: radial-gradient(ellipse at center, #1a1028 0%, var(--bg) 70%);
@@ -388,7 +389,7 @@ body.party-mode .beat-title h1 {
 @media (max-width: 768px) {
   .beat {
     position: fixed; top: 0; left: 0; width: 100%;
-    min-height: 100vh; height: 100vh;
+    min-height: 100vh; min-height: 100dvh; height: 100vh; height: 100dvh;
     padding: 52px 20px 60px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;

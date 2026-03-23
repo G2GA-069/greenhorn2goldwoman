@@ -37,6 +37,7 @@
   box-sizing: border-box;
 }
 html {
+  overscroll-behavior: none;
   height: 100%;
   overflow: hidden;
 }
@@ -44,6 +45,7 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  word-break: break-word; overflow-wrap: break-word;
   background: var(--bg);
   background-image: radial-gradient(circle, rgba(157,138,118,0.04) 1px, transparent 1px);
   background-size: 40px 40px;
@@ -96,7 +98,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100vh; height: 100dvh;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -113,7 +115,7 @@ body {
   width: 100%;
 }
 .beat-title {
-  min-height: 100vh;
+  min-height: 100vh; min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -752,8 +754,8 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 100vh;
-    height: 100vh;
+    min-height: 100vh; min-height: 100dvh;
+    height: 100vh; height: 100dvh;
     padding: 52px 20px 60px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
