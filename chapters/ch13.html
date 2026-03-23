@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0a0c">
+<link rel="manifest" href="../manifest.json">
+<title>G2G Chapter 13 — The Complete Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0c; --surface: #131318; --surface-2: #1a1a22; --border: #2a2a35;
+  --text: #e8e4df; --text-muted: #8a8590; --text-dim: #5a5560;
+  --accent: #b07ce8; --accent-dim: #7a55b0; --accent-bright: #d4a0ff;
+  --green: #4a9e6e; --red: #c45c4a; --blue: #5a8fc4; --purple: #8a3cc4;
+  --brand-purple: #6b2fa0; --brand-magenta: #d946ef;
+  --font-serif: 'EB Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { height: 100%; overflow: hidden; }
+body {
+  height: 100%; width: 100%; overflow: hidden;
+  background: var(--bg);
+  background-image: radial-gradient(circle, rgba(107,47,160,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: var(--text);
+  font-family: var(--font-serif);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: linear-gradient(90deg, var(--brand-purple), var(--brand-magenta));
+  z-index: 1000; transition: width 0.1s linear;
+}
+.chapter-nav {
+  position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+  z-index: 100; display: flex; flex-direction: column; gap: 8px;
+}
+.chapter-nav .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--border); cursor: pointer; transition: all 0.3s;
+}
+.chapter-nav .dot.active {
+  background: var(--accent); box-shadow: 0 0 8px rgba(138,60,196,0.4);
+}
+.chapter-nav .dot:hover { background: var(--accent-dim); }
+@media (max-width: 768px) { .chapter-nav { display: none; } }
+.beat {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 52px 24px 60px; opacity: 1; transform: translateY(0);
+  transition: opacity 0.3s, transform 0.35s ease-in-out;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+}
+.beat-inner { max-width: 680px; width: 100%; }
+.beat-title {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 40px 24px;
+  background: radial-gradient(ellipse at center, #1a0a28 0%, #0a0a0c 70%);
+  position: relative; overflow: hidden;
+}
+.beat-title canvas { position: absolute; top: 0; left: 0; z-index: 0; }
+.beat-title .beat-inner { position: relative; z-index: 10; }
+.beat-title .series-name {
+  font-family: var(--font-sans); font-size: 11px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--accent-dim); margin-bottom: 40px;
+}
+.beat-title h1 {
+  font-family: var(--font-serif); font-size: clamp(42px, 7vw, 72px);
+  font-weight: 700; line-height: 1.1; color: var(--text);
+  margin-bottom: 16px; position: relative;
+}
+.beat-title .subtitle {
+  font-family: var(--font-serif); font-size: clamp(20px, 3vw, 28px);
+  font-weight: 400; font-style: italic; color: var(--accent);
+  margin-bottom: 60px;
+}
+.beat-title .chapter-num {
+  font-family: var(--font-mono); font-size: 13px; color: var(--text-dim);
+  letter-spacing: 2px;
+}
+.beat-card .beat-inner {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 40px; max-width: 760px;
+}
+.card-label {
+  font-family: var(--font-sans); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.card-label::before { content: ''; display: block; width: 16px; height: 1px; background: var(--accent); }
+.card-title {
+  font-family: var(--font-sans); font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700; color: var(--text); margin-bottom: 24px; line-height: 1.3;
+}
+.card-body {
+  font-family: var(--font-serif); font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.8; color: var(--text-muted);
+}
+.card-body p { margin-bottom: 16px; }
+.card-body p:last-child { margin-bottom: 0; }
+.card-body strong { color: var(--text); font-weight: 600; }
+.card-body em { font-style: italic; }
+.beat-takeaway .beat-inner {
+  background: transparent; border: none; padding: 0;
+  text-align: center;
+}
+.takeaway-text {
+  font-family: var(--font-serif); font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700; color: var(--accent); line-height: 1.4;
+  margin: 0;
+}
+
+/* Download button */
+.download-hero {
+  margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+.download-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 16px 36px; border-radius: 10px; text-decoration: none;
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-magenta));
+  color: #fff; font-family: var(--font-sans); font-size: 15px;
+  font-weight: 700; letter-spacing: 0.5px;
+  transition: all 0.3s; box-shadow: 0 4px 24px rgba(107,47,160,0.4);
+}
+.download-btn:hover {
+  transform: translateY(-2px); box-shadow: 0 8px 32px rgba(107,47,160,0.6);
+}
+.download-btn svg { width: 20px; height: 20px; }
+.download-note {
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-dim);
+  letter-spacing: 0.5px;
+}
+
+/* TOC grid */
+.toc-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0;
+}
+.toc-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 14px; background: var(--surface-2); border-radius: 8px;
+  border: 1px solid var(--border); transition: border-color 0.3s;
+}
+.toc-item:hover { border-color: var(--accent-dim); }
+.toc-num {
+  font-family: var(--font-mono); font-size: 11px; color: var(--brand-magenta);
+  font-weight: 600; min-width: 24px; padding-top: 2px;
+}
+.toc-label {
+  font-family: var(--font-sans); font-size: 13px; color: var(--text);
+  font-weight: 500; line-height: 1.4;
+}
+@media (max-width: 600px) {
+  .toc-grid { grid-template-columns: 1fr; }
+}
+
+/* Stats row */
+.stats-row {
+  display: flex; justify-content: center; gap: 40px; margin: 32px 0;
+  flex-wrap: wrap;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: var(--font-mono); font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700; color: var(--accent-bright);
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-magenta));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.stat-label {
+  font-family: var(--font-sans); font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text-dim); margin-top: 4px;
+}
+
+/* Section preview cards */
+.section-preview {
+  margin: 20px 0; padding: 20px; background: var(--surface-2); border-radius: 8px;
+  border-left: 3px solid var(--brand-purple);
+}
+.section-preview h3 {
+  font-family: var(--font-sans); font-size: 14px; font-weight: 700;
+  color: var(--text); margin-bottom: 12px; letter-spacing: 0.3px;
+}
+.section-preview ul {
+  list-style: none; margin: 0; padding: 0;
+}
+.section-preview li {
+  font-family: var(--font-serif); font-size: 15px; color: var(--text-muted);
+  padding: 4px 0; padding-left: 16px; position: relative; line-height: 1.6;
+}
+.section-preview li::before {
+  content: '›'; position: absolute; left: 0; color: var(--accent-dim); font-weight: 700;
+}
+
+/* Finale */
+.beat-finale {
+  background: linear-gradient(135deg, rgba(107,47,160,0.1) 0%, rgba(217,70,239,0.1) 100%);
+  position: relative; overflow: hidden;
+}
+.finale-glow {
+  position: absolute; width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(217,70,239,0.15) 0%, transparent 70%);
+  border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0;
+}
+.beat-finale .beat-inner {
+  position: relative; z-index: 10; text-align: center;
+}
+.finale-text {
+  font-family: var(--font-serif); font-size: clamp(24px, 3.5vw, 48px);
+  font-weight: 700; line-height: 1.4; margin-bottom: 24px;
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-magenta), var(--accent-bright));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.finale-subtitle {
+  font-family: var(--font-serif); font-size: clamp(16px, 2vw, 20px);
+  color: var(--accent); margin-bottom: 40px; line-height: 1.6;
+}
+.finale-nav {
+  display: flex; flex-direction: column; gap: 16px; margin-top: 40px;
+  align-items: center;
+}
+.finale-nav-item {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-sans); font-size: 12px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--accent); cursor: pointer;
+  padding: 12px 24px; border: 1px solid var(--border); border-radius: 8px;
+  transition: all 0.3s; text-decoration: none;
+}
+.finale-nav-item:hover {
+  background: var(--surface); border-color: var(--accent); color: var(--text);
+}
+.footer-nav {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 24px; z-index: 50; align-items: center;
+}
+.nav-link {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-sans); font-size: 11px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--text-dim);
+  cursor: pointer; transition: all 0.3s; text-decoration: none;
+}
+.nav-link:hover { color: var(--accent); }
+.nav-divider { width: 1px; height: 16px; background: var(--border); }
+.beat-counter {
+  position: fixed; bottom: 20px; right: 24px; z-index: 50;
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-dim);
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .footer-nav, .beat-counter { display: none; }
+  .beat { padding: 52px 12px 60px; }
+  .beat-card .beat-inner { padding: 24px; }
+}
+.resume-toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  z-index: 1000; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 24px; display: flex; align-items: center; gap: 16px;
+  font-family: var(--font-sans); font-size: 13px; color: var(--text);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  animation: toast-in 0.4s ease-out;
+}
+.resume-toast button {
+  padding: 6px 14px; border-radius: 6px; border: none; font-family: var(--font-sans);
+  font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;
+}
+.resume-toast .resume-btn { background: var(--brand-purple); color: white; }
+.resume-toast .skip-btn { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+@keyframes toast-in { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="chapter-nav" id="chapterNav"></div>
+
+<!-- BEAT 1: TITLE -->
+<a href="../index.html" class="back-button" style="position:fixed;top:max(12px,env(safe-area-inset-top,12px));left:12px;z-index:999;background:rgba(10,10,12,0.85);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);border-left:2px solid var(--accent, #b07ce8);color:#8a8590;padding:8px 16px;border-radius:20px;font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:0.5px;text-decoration:none;">← Back</a>
+<section class="beat beat-title">
+  <canvas id="particle-canvas"></canvas>
+  <div class="beat-inner">
+    <p class="series-name">From Greenhorn to Gold(wo)man — Complete Reference</p>
+    <h1>The Complete Reference</h1>
+    <p class="subtitle">Every formula. Every definition. Every framework. One document.</p>
+    <p class="chapter-num">CHAPTER 13 OF 13 — APPENDIX</p>
+    <div class="download-hero">
+      <a href="G2G_Complete_Reference.pdf" download class="download-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download PDF
+      </a>
+      <span class="download-note">PDF — Printable — Offline-ready</span>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 2: WHAT THIS IS -->
+<section class="beat beat-card">
+  <div class="beat-inner">
+    <p class="card-label">About This Document</p>
+    <h2 class="card-title">The One Source of Truth</h2>
+    <div class="card-body">
+      <p>Chapters 1 through 11 told the story. Characters, drama, deals, tension. They made finance memorable.</p>
+      <p><strong>This document strips all of that away.</strong></p>
+      <p>No narrative. No characters. No plot twists. Just the raw technical content — every concept, formula, framework, and definition from the entire G2G series, compressed into a single reference document designed for revision, exams, and interview preparation.</p>
+      <p>Think of it as the textbook behind the story.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 3: BY THE NUMBERS -->
+<section class="beat beat-takeaway">
+  <div class="beat-inner">
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">14</div>
+        <div class="stat-label">Sections</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">110+</div>
+        <div class="stat-label">Glossary Terms</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Formulas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">65+</div>
+        <div class="stat-label">Acronyms</div>
+      </div>
+    </div>
+    <p class="takeaway-text" style="font-size: clamp(20px, 2.5vw, 30px); margin-top: 24px;">
+      Everything from twelve chapters.<br>Zero fluff.
+    </p>
+  </div>
+</section>
+
+<!-- BEAT 4: TABLE OF CONTENTS -->
+<section class="beat beat-card">
+  <div class="beat-inner">
+    <p class="card-label">Inside the Reference</p>
+    <h2 class="card-title">Table of Contents</h2>
+    <div class="toc-grid">
+      <div class="toc-item"><span class="toc-num">I</span><span class="toc-label">Fund Economics &amp; GP/LP Structure</span></div>
+      <div class="toc-item"><span class="toc-num">II</span><span class="toc-label">Income Statement &amp; Revenue Recognition</span></div>
+      <div class="toc-item"><span class="toc-num">III</span><span class="toc-label">Cost Structure &amp; Operating Leverage</span></div>
+      <div class="toc-item"><span class="toc-num">IV</span><span class="toc-label">Balance Sheet Mechanics</span></div>
+      <div class="toc-item"><span class="toc-num">V</span><span class="toc-label">Cash Flow Statement &amp; Working Capital</span></div>
+      <div class="toc-item"><span class="toc-num">VI</span><span class="toc-label">Business Models &amp; Unit Economics</span></div>
+      <div class="toc-item"><span class="toc-num">VII</span><span class="toc-label">Financial Forecasting &amp; Modelling</span></div>
+      <div class="toc-item"><span class="toc-num">VIII</span><span class="toc-label">Leveraged Buyouts (LBOs)</span></div>
+      <div class="toc-item"><span class="toc-num">IX</span><span class="toc-label">Capital Structure &amp; Financing</span></div>
+      <div class="toc-item"><span class="toc-num">X</span><span class="toc-label">Credit Analysis &amp; Debt Documentation</span></div>
+      <div class="toc-item"><span class="toc-num">XI</span><span class="toc-label">Valuation I — Intrinsic Methods</span></div>
+      <div class="toc-item"><span class="toc-num">XII</span><span class="toc-label">Valuation II — Relative &amp; Advanced</span></div>
+      <div class="toc-item"><span class="toc-num">XIII</span><span class="toc-label">M&amp;A Process &amp; Deal Mechanics</span></div>
+      <div class="toc-item"><span class="toc-num">XIV</span><span class="toc-label">M&amp;A Accounting &amp; Integration</span></div>
+    </div>
+    <div class="card-body">
+      <p><strong>Plus three appendices:</strong> a master glossary of ~110 terms, a master formula sheet with ~55 formulas, and a complete acronym index.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 5: SECTION PREVIEWS — CORE -->
+<section class="beat beat-card">
+  <div class="beat-inner">
+    <p class="card-label">Sections I–VII</p>
+    <h2 class="card-title">Financial Foundations</h2>
+    <div class="section-preview">
+      <h3>Fund Economics &amp; GP/LP Structure</h3>
+      <ul>
+        <li>LP/GP structure, capital calls, blind pool, fund lifecycle</li>
+        <li>Management fees, carried interest, hurdle rate, waterfall</li>
+        <li>DPI, RVPI, TVPI, J-curve, value creation bridge</li>
+      </ul>
+    </div>
+    <div class="section-preview">
+      <h3>Income Statement, Balance Sheet &amp; Cash Flow</h3>
+      <ul>
+        <li>Revenue recognition, margins, EBITDA vs EBIT</li>
+        <li>Working capital cycle, cash conversion, FCF bridges</li>
+        <li>Three-statement modelling and circular references</li>
+      </ul>
+    </div>
+    <div class="section-preview">
+      <h3>Business Models &amp; Forecasting</h3>
+      <ul>
+        <li>SaaS metrics: ARR, MRR, churn, LTV/CAC, Rule of 40</li>
+        <li>Manufacturing: capacity utilisation, fixed/variable splits</li>
+        <li>Driver-based forecasting and scenario analysis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 6: SECTION PREVIEWS — ADVANCED -->
+<section class="beat beat-card">
+  <div class="beat-inner">
+    <p class="card-label">Sections VIII–XIV</p>
+    <h2 class="card-title">Deal Mechanics &amp; Valuation</h2>
+    <div class="section-preview">
+      <h3>LBOs, Capital Structure &amp; Credit</h3>
+      <ul>
+        <li>Sources &amp; Uses, debt tranches, WACC, leverage multiples</li>
+        <li>Term sheets, flex provisions, credit committee evaluation</li>
+        <li>Maintenance vs incurrence covenants, adjusted EBITDA definitions</li>
+      </ul>
+    </div>
+    <div class="section-preview">
+      <h3>Valuation (Intrinsic &amp; Relative)</h3>
+      <ul>
+        <li>DCF: UFCF → Enterprise Value → Equity Value</li>
+        <li>EV/EBITDA, P/E, EV/Revenue — when to use each</li>
+        <li>Football field charts and valuation triangulation</li>
+      </ul>
+    </div>
+    <div class="section-preview">
+      <h3>M&amp;A Process &amp; Accounting</h3>
+      <ul>
+        <li>Sell-side vs buy-side advisory, fee structures</li>
+        <li>Purchase Price Allocation, goodwill, impairment</li>
+        <li>Post-close consolidation and synergy tracking</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 7: HOW TO USE IT -->
+<section class="beat beat-card">
+  <div class="beat-inner">
+    <p class="card-label">Usage Guide</p>
+    <h2 class="card-title">How to Use This Reference</h2>
+    <div class="card-body">
+      <p><strong>For exam revision:</strong> Print it. Highlight liberally. The sections mirror the chapter order, so cross-reference back to the story whenever a concept feels abstract.</p>
+      <p><strong>For interview prep:</strong> The formula sheet and glossary at the back are your best friends. Know every formula cold. Be able to explain any glossary term in one sentence.</p>
+      <p><strong>For on-the-job reference:</strong> Keep the PDF on your desktop. When you encounter a concept in a model or pitchbook, search the document. Everything is there.</p>
+      <p><strong>For the curious:</strong> Read it cover to cover once. Then never again — unless you need to look something up. That is the point of a reference document.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 8: DOWNLOAD CTA -->
+<section class="beat beat-finale">
+  <div class="finale-glow"></div>
+  <div class="beat-inner">
+    <p class="finale-text">Your Cram Sheet Awaits</p>
+    <p class="finale-subtitle">Every concept from eleven chapters.<br>One PDF. Zero narrative. Pure finance.</p>
+    <div class="download-hero" style="margin-top: 0;">
+      <a href="G2G_Complete_Reference.pdf" download class="download-btn" style="font-size: 17px; padding: 18px 44px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download the Complete Reference
+      </a>
+      <span class="download-note">PDF — Printable — Offline-ready</span>
+    </div>
+    <div class="finale-nav">
+      <a href="../index.html" class="finale-nav-item">
+        <span>← Return to Contents</span>
+      </a>
+      <a href="ch12.html" class="finale-nav-item">
+        <span>← Previous: Ch 12</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="footer-nav">
+  <a href="ch12.html" class="nav-link">← Ch 12: Complete Reference</a>
+  <div class="nav-divider"></div>
+  <a href="../index.html" class="nav-link">Return to Contents</a>
+</div>
+<div class="beat-counter"><span id="beatCounter">1 / 8</span></div>
+
+<script>
+// Particle canvas animation
+(function() {
+  const canvas = document.getElementById('particle-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const particles = Array.from({length: 60}, () => ({
+    x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+    r: Math.random() * 2 + 1,
+    color: Math.random() > 0.5 ? 'rgba(107,47,160,0.5)' : 'rgba(217,70,239,0.4)'
+  }));
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = p.color; ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+    });
+    particles.forEach((a, i) => {
+      particles.slice(i+1).forEach(b => {
+        const dx = a.x - b.x, dy = a.y - b.y, dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 120) {
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(176,124,232,${0.08 * (1 - dist/120)})`; ctx.stroke();
+        }
+      });
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+  window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+})();
+</script>
+
+<script>
+// PWA Swipe Engine
+let currentBeat = 0;
+let startY = 0;
+let isAnimating = false;
+const beats = document.querySelectorAll('.beat');
+const totalBeats = beats.length;
+
+function positionBeats() {
+  beats.forEach((beat, i) => {
+    if (i < currentBeat) {
+      beat.style.transform = 'translateY(-100vh)'; beat.style.opacity = '0';
+      beat.style.pointerEvents = 'none'; beat.style.visibility = 'hidden';
+    } else if (i === currentBeat) {
+      beat.style.transform = 'translateY(0)'; beat.style.opacity = '1';
+      beat.style.pointerEvents = 'auto'; beat.style.visibility = 'visible';
+    } else {
+      beat.style.transform = 'translateY(100vh)'; beat.style.opacity = '0';
+      beat.style.pointerEvents = 'none'; beat.style.visibility = 'hidden';
+    }
+  });
+}
+
+function updateCounter() {
+  const counter = document.getElementById('beatCounter');
+  if (counter) counter.textContent = `${currentBeat + 1} / ${totalBeats}`;
+}
+
+function updateProgress() {
+  const bar = document.getElementById('progressBar');
+  if (bar) bar.style.width = ((currentBeat + 1) / totalBeats * 100) + '%';
+}
+
+function goTo(index) {
+  if (isAnimating || index < 0 || index >= totalBeats) return;
+  isAnimating = true;
+  const direction = index > currentBeat ? -1 : 1;
+  beats[currentBeat].style.transform = `translateY(${direction * 100}vh)`;
+  beats[currentBeat].style.opacity = '0';
+  beats[currentBeat].style.pointerEvents = 'none';
+  beats[currentBeat].style.visibility = 'hidden';
+  beats[index].style.transform = 'translateY(0)';
+  beats[index].style.opacity = '1';
+  beats[index].style.pointerEvents = 'auto';
+  beats[index].style.visibility = 'visible';
+  currentBeat = index;
+  saveProgress();
+  updateCounter();
+  updateProgress();
+  // Update chapter nav dots
+  document.querySelectorAll('.chapter-nav .dot').forEach((d, j) => d.classList.toggle('active', j === currentBeat));
+  setTimeout(() => { isAnimating = false; }, 350);
+}
+
+// Build chapter nav dots
+(function() {
+  const nav = document.getElementById('chapterNav');
+  for (let i = 0; i < totalBeats; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    nav.appendChild(dot);
+  }
+})();
+
+// Touch swipe
+document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+document.addEventListener('touchend', e => {
+  const beat = beats[currentBeat];
+  const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+  const atTop = beat.scrollTop <= 5;
+  const diff = startY - e.changedTouches[0].clientY;
+  if (diff > 50 && atBottom) goTo(currentBeat + 1);
+  if (diff < -50 && atTop) goTo(currentBeat - 1);
+}, { passive: true });
+
+// Mouse wheel with trackpad accumulator
+let wheelAccum = 0;
+let wheelTimer = null;
+document.addEventListener('wheel', e => {
+  const beat = beats[currentBeat];
+  const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+  const atTop = beat.scrollTop <= 5;
+  wheelAccum += e.deltaY;
+  clearTimeout(wheelTimer);
+  wheelTimer = setTimeout(() => { wheelAccum = 0; }, 200);
+  if (wheelAccum > 50 && atBottom) { wheelAccum = 0; goTo(currentBeat + 1); }
+  if (wheelAccum < -50 && atTop) { wheelAccum = 0; goTo(currentBeat - 1); }
+}, { passive: true });
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  const beat = beats[currentBeat];
+  const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+  const atTop = beat.scrollTop <= 5;
+  if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key)) {
+    if (atBottom) { e.preventDefault(); goTo(currentBeat + 1); }
+  } else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) {
+    if (atTop) { e.preventDefault(); goTo(currentBeat - 1); }
+  } else if (e.key === ' ') {
+    e.preventDefault();
+    if (atBottom) goTo(currentBeat + 1);
+    else beat.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+  } else if (e.key === 'Home') {
+    e.preventDefault(); goTo(0);
+  } else if (e.key === 'End') {
+    e.preventDefault(); goTo(totalBeats - 1);
+  }
+});
+
+// Initialize
+positionBeats();
+updateCounter();
+updateProgress();
+
+// Progress tracking
+const CHAPTER_NUM = 13;
+function saveProgress() {
+  try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeat); } catch(e) {}
+}
+
+// Resume prompt on load
+(function() {
+  try {
+    const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+    if (saved && saved > 0 && saved < totalBeats) {
+      const toast = document.createElement('div');
+      toast.className = 'resume-toast';
+      toast.innerHTML = 'Resume from beat ' + (saved + 1) + '/' + totalBeats + '? ' +
+        '<button class="resume-btn" onclick="goTo(' + saved + '); this.parentElement.remove();">Resume</button>' +
+        '<button class="skip-btn" onclick="this.parentElement.remove();">Start Over</button>';
+      document.body.appendChild(toast);
+      setTimeout(() => { if (toast.parentElement) toast.remove(); }, 8000);
+    }
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>
