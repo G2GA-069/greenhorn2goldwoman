@@ -295,6 +295,7 @@
             font-family: 'JetBrains Mono', monospace;
             min-width: 60px;
             text-align: right;
+            bottom: max(20px, env(safe-area-inset-bottom, 20px));
         }
 
         .controls-footer {
@@ -1298,8 +1299,10 @@ REIT Tax Advantage = Avoided corporation tax on rental income (20% statutory rat
         // Restore beat position
         const savedBeat = localStorage.getItem(`ch${CHAPTER_NUM}_beat`);
         if (savedBeat) {
+            const targetBeat = parseInt(savedBeat);
             positionBeats();
-            goTo(parseInt(savedBeat));
+            currentBeat = 0;
+            goTo(targetBeat);
         } else {
             positionBeats();
         }

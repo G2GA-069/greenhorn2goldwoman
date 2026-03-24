@@ -111,7 +111,7 @@
         /* Beat Counter & Nav Dots */
         .beat-counter {
             position: fixed;
-            bottom: 40px;
+            bottom: max(40px, env(safe-area-inset-bottom, 40px));
             right: 40px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
@@ -437,7 +437,7 @@
             }
 
             .card-title {
-                font-size: 36px;
+                font-size: clamp(1.8rem, 6vw, 3rem);
             }
 
             .card-subtitle {

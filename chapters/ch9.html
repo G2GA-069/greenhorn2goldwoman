@@ -260,7 +260,7 @@ body.party-mode .beat-title h1 {
 @keyframes swipe-hint-show { to { opacity: 1; } }
 @keyframes swipe-gesture { 0%,100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-16px); opacity: 1; } }
 .beat-counter {
-  position: fixed; bottom: 20px; right: 20px; z-index: 200;
+  position: fixed; bottom: max(20px, env(safe-area-inset-bottom, 20px)); right: 20px; z-index: 200;
   background: rgba(19,19,24,0.7); backdrop-filter: blur(10px);
   border: 1px solid rgba(212,165,116,0.2); border-radius: 24px;
   color: var(--gold); font-family: var(--font-mono); font-size: 12px;

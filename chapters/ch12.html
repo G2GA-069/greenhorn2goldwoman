@@ -352,7 +352,7 @@ body.party-mode .beat-title h1 {
 .nav-link:hover { color: var(--accent); }
 .nav-divider { width: 1px; height: 16px; background: var(--border); }
 .beat-counter {
-  position: fixed; bottom: 20px; right: 24px; z-index: 50;
+  position: fixed; bottom: max(20px, env(safe-area-inset-bottom, 20px)); right: 24px; z-index: 50;
   font-family: var(--font-mono); font-size: 11px; color: var(--text-dim);
   letter-spacing: 1px;
 }
