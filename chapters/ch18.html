@@ -1379,7 +1379,11 @@ Fair value: €14.25. Stock at €15 = slight premium.
             loadProgress();
             updateUI();
             initFinalCanvas();
-            goTo(currentBeat);
+            // goTo() only hides beats[currentBeat], so reset to 0 first
+            // so it properly hides beat 0 (shown by positionBeats) before showing saved beat
+            const targetBeat = currentBeat;
+            currentBeat = 0;
+            goTo(targetBeat);
         });
 
         // Handle window resize
