@@ -367,7 +367,7 @@
 
     .beat-counter {
       position: fixed;
-      bottom: 24px;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
       right: 24px;
       font-family: var(--font-sans);
       font-size: 12px;

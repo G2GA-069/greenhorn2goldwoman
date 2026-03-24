@@ -87,7 +87,7 @@
 
         .beat-title h1 {
             font-family: 'EB Garamond', serif;
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             font-weight: 700;
             margin-bottom: 20px;
             background: linear-gradient(135deg, var(--accent) 0%, var(--brand-magenta) 100%);
@@ -114,7 +114,7 @@
 
         .beat-scene h2, .beat-card h2, .beat-takeaway h2, .beat-finale h2 {
             font-family: 'EB Garamond', serif;
-            font-size: 3rem;
+            font-size: clamp(1.8rem, 6vw, 3rem);
             margin-bottom: 20px;
             color: var(--accent);
         }
@@ -302,7 +302,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 80px;
+            height: calc(80px + env(safe-area-inset-bottom, 0px));
+            padding-bottom: env(safe-area-inset-bottom, 0px);
             background: rgba(10, 10, 12, 0.95);
             backdrop-filter: blur(10px);
             border-top: 1px solid var(--border);
