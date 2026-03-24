@@ -273,6 +273,21 @@ footer {
   .nav-dots .dot.active { width: 8px; height: 8px; }
 
 }
+
+/* Swipe hint */
+.swipe-hint {
+  position: fixed; bottom: max(60px, calc(40px + env(safe-area-inset-bottom)));
+  left: 50%; transform: translateX(-50%); z-index: 90;
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-sans, 'Inter', sans-serif); font-size: 12px;
+  color: var(--text-muted, var(--text-dim, #a8a4b0)); letter-spacing: 0.5px;
+  opacity: 0; animation: swipe-hint-show 0.6s ease 2s forwards;
+  pointer-events: none;
+}
+.swipe-hint svg { width: 16px; height: 16px; animation: swipe-bounce 2s ease-in-out infinite; }
+.swipe-hint span { white-space: nowrap; }
+@keyframes swipe-hint-show { to { opacity: 0.7; } }
+@keyframes swipe-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 </style>
 </head>
 <body>
@@ -296,6 +311,7 @@ A G2G Advisory Project · <a href="../index.html" style="color: var(--accent-dim
 </div>
 </section>
 
+<div class="swipe-hint" id="swipeHint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg><span>Swipe to navigate</span></div>
 <div class="nav-dots" id="navDots"></div>
 
 <div class="beat beat-title" data-section="0">
@@ -671,7 +687,13 @@ if (canvas) {
 }
 
 // Beat navigation
-function showBeat(index) {
+
+  // Hide swipe hint after first navigation
+  var swipeHintEl = document.getElementById('swipeHint');
+  function hideSwipeHint() {
+    if (swipeHintEl) { swipeHintEl.style.opacity = '0'; swipeHintEl.style.transition = 'opacity 0.3s'; }
+  }
+  function showBeat(index) {
   if (index < 0 || index >= totalBeats) return;
   currentBeatIndex = index;
   beats.forEach((beat, i) => {
@@ -703,9 +725,7 @@ function updateChapterNav() {
   }
 }
 
-function updateProgressBar() {
-  const progress = ((currentBeatIndex + 1) / totalBeats) * 100;
-}
+// Progress tracking handled by nav dots
 
 function updateBeatCounter() {
   document.getElementById('beatCounter').textContent = `${currentBeatIndex + 1} / ${totalBeats}`;

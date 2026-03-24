@@ -1493,10 +1493,7 @@ Chapter 9 is the algebra of deals. Chapter 10 is where you use that algebra to m
 <script>
 // Progress bar
 
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-});
+// Scroll tracking handled by nav dots
 
 // Beat counter
 const beatCounter = document.getElementById('beatCounter');
@@ -1512,7 +1509,7 @@ window.addEventListener('scroll', () => {
     }
   });
   currentBeat = beatNum;
-  beatCounter.textContent = `${beatNum} / ${beats.length}`;
+  if (beatCounter) beatCounter.textContent = `${beatNum} / ${beats.length}`;
     document.querySelectorAll('.nav-dots .dot').forEach(function(d, i) { d.classList.toggle('active', i === currentBeat); });
   saveProgress();
 });
@@ -1574,25 +1571,26 @@ const bridgeDebt = document.getElementById('bridgeDebt');
 const bridgeEquity = document.getElementById('bridgeEquity');
 
 function updateBridge() {
+  if (!evSlider || !cashSlider || !debtSlider) return;
   const ev = parseFloat(evSlider.value);
   const cash = parseFloat(cashSlider.value);
   const debt = parseFloat(debtSlider.value);
 
-  evVal.textContent = ev.toFixed(0);
-  cashVal.textContent = cash.toFixed(0);
-  debtVal.textContent = debt.toFixed(0);
+  if (evVal) evVal.textContent = ev.toFixed(0);
+  if (cashVal) cashVal.textContent = cash.toFixed(0);
+  if (debtVal) debtVal.textContent = debt.toFixed(0);
 
-  bridgeEV.textContent = ev.toFixed(1);
-  bridgeCash.textContent = cash.toFixed(1);
-  bridgeDebt.textContent = debt.toFixed(1);
+  if (bridgeEV) bridgeEV.textContent = ev.toFixed(1);
+  if (bridgeCash) bridgeCash.textContent = cash.toFixed(1);
+  if (bridgeDebt) bridgeDebt.textContent = debt.toFixed(1);
 
   const equity = ev + cash - debt;
-  bridgeEquity.textContent = equity.toFixed(1);
+  if (bridgeEquity) bridgeEquity.textContent = equity.toFixed(1);
 }
 
-evSlider.addEventListener('input', updateBridge);
-cashSlider.addEventListener('input', updateBridge);
-debtSlider.addEventListener('input', updateBridge);
+if (evSlider) evSlider.addEventListener('input', updateBridge);
+if (cashSlider) cashSlider.addEventListener('input', updateBridge);
+if (debtSlider) debtSlider.addEventListener('input', updateBridge);
 
 // Initialize
 updateBridge();
@@ -1628,6 +1626,17 @@ function saveProgress() {
   } catch(e) {}
 })();
 
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowDown' || e.key === ' ') {
+    e.preventDefault();
+    window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    window.scrollBy({ top: -window.innerHeight * 0.8, behavior: 'smooth' });
+  }
+});
 </script>
 </body>
 </html>
