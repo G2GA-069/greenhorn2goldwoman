@@ -876,7 +876,7 @@ let currentBeat = 0;
 
 function updateProgress() {
   const progress = ((currentBeat + 1) / beats.length) * 100;
-  document.getElementById('beatCounter').textContent = `${currentBeat + 1}/${beats.length}`;
+  var bc = document.getElementById('beatCounter'); if (bc) bc.textContent = `${currentBeat + 1}/${beats.length}`;
 }
 
 function goToBeam(index) {

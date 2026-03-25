@@ -1275,8 +1275,8 @@ REIT Tax Advantage = Avoided corporation tax on rental income (20% statutory rat
 
         function updateProgress() {
             const progress = ((currentBeat - 1) / (totalBeats - 1)) * 100;
-            document.querySelector('.progress-fill').style.width = progress + '%';
-            document.getElementById('currentBeat').textContent = currentBeat;
+            var pf = document.querySelector('.progress-fill'); if (pf) pf.style.width = progress + '%';
+            var cb = document.getElementById('currentBeat'); if (cb) cb.textContent = currentBeat;
         }
 
         function updateDots() {

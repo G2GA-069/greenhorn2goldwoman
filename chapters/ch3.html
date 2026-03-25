@@ -600,7 +600,7 @@ const totalBeats = beats.length;
 
 function updateProgress() {
   const progress = (currentBeat / (totalBeats - 1)) * 100;
-  document.getElementById('beatCounter').textContent = (currentBeat + 1) + ' / ' + totalBeats;
+  var bc = document.getElementById('beatCounter'); if (bc) bc.textContent = (currentBeat + 1) + ' / ' + totalBeats;
 }
 
 function showBeat(n) {

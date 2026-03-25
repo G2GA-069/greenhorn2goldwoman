@@ -729,7 +729,7 @@ function updateChapterNav() {
 // Progress tracking handled by nav dots
 
 function updateBeatCounter() {
-  document.getElementById('beatCounter').textContent = `${currentBeatIndex + 1} / ${totalBeats}`;
+  var bc = document.getElementById('beatCounter'); if (bc) bc.textContent = `${currentBeatIndex + 1} / ${totalBeats}`;
 }
 
 // Keyboard navigation

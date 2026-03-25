@@ -1529,7 +1529,7 @@ sections.forEach(s => {
 });
 
 const nav = document.querySelector('.nav-dots');
-if (!nav.hasChildNodes()) {
+if (nav && !nav.hasChildNodes()) {
   uniqueSections.forEach((sec, idx) => {
     const dot = document.createElement('div');
     dot.className = 'dot' + (idx === 0 ? ' active' : '');

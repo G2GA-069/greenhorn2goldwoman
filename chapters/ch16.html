@@ -1706,7 +1706,7 @@ Base Valuation (DCF or trading multiples)
     }
   })();
 
-            swipeHint.style.opacity = currentBeat === TOTAL_BEATS ? '0.3' : '0.6';
+            if (swipeHint) swipeHint.style.opacity = currentBeat === TOTAL_BEATS ? '0.3' : '0.6';
 
             if (currentBeat > 1) {
                 showResumeToast();

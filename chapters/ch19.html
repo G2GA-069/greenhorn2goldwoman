@@ -1774,7 +1774,7 @@
 
         function updateUI() {
             const progress = ((currentBeat + 1) / beats.length) * 100;
-            document.querySelector('.progress-bar').style.width = progress + '%';
+            var pb = document.querySelector('.progress-bar'); if (pb) pb.style.width = progress + '%';
 
             const navDots = document.querySelectorAll('.nav-dot');
             navDots.forEach((dot, i) => {

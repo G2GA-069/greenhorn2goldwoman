@@ -1454,12 +1454,12 @@ function updateCounter() {
 }
 
 function updateProgress() {
-  if (bar) bar.style.width = ((currentBeat + 1) / totalBeats * 100) + '%';
+  // Progress bar removed (nav dots replaced it)
 }
 
 function updateNavDots() {
   const nav = document.getElementById('chapterNav');
-  if (!nav.hasChildNodes()) {
+  if (nav && !nav.hasChildNodes()) {
     for (let i = 0; i < totalBeats; i++) {
       const dot = document.createElement('div');
       dot.className = 'dot' + (i === 0 ? ' active' : '');
