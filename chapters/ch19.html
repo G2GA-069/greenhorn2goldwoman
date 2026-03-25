@@ -488,6 +488,36 @@
   .nav-dots .dot.active { width: 8px; height: 8px; }
 
 }
+
+/* Next chapter button */
+.next-chapter-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  margin-top: 32px; padding: 16px 32px;
+  background: linear-gradient(135deg, #6b2fa0, #9333ea);
+  color: #fff; font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 16px; font-weight: 600; letter-spacing: 0.5px;
+  text-decoration: none; border-radius: 50px;
+  border: none; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(107, 47, 160, 0.4), 0 0 40px rgba(147, 51, 234, 0.15);
+  transition: all 0.3s ease;
+  position: relative; z-index: 10;
+}
+.next-chapter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(107, 47, 160, 0.6), 0 0 60px rgba(147, 51, 234, 0.25);
+}
+.next-chapter-btn svg {
+  width: 20px; height: 20px;
+  transition: transform 0.3s;
+}
+.next-chapter-btn:hover svg { transform: translateX(4px); }
+.next-chapter-btn .btn-label { display: flex; flex-direction: column; align-items: flex-start; }
+.next-chapter-btn .btn-next { font-size: 11px; opacity: 0.7; letter-spacing: 1.5px; text-transform: uppercase; }
+.next-chapter-btn .btn-title { font-size: 16px; }
+@media (max-width: 768px) {
+  .next-chapter-btn { padding: 14px 24px; font-size: 14px; }
+  .next-chapter-btn .btn-title { font-size: 14px; }
+}
 </style>
 </head>
 <body>
@@ -1673,7 +1703,17 @@
                 } else {
                     beatEl.innerHTML = `
                         <h2>${beat.title}</h2>
-                        <div style="max-width: 900px;">${beat.content}</div>
+                        <div style="max-width: 900px;">${beat.content}
+<div style="text-align:center; margin-top: 32px;">
+  <a href="ch20.html" class="next-chapter-btn">
+    <span class="btn-label">
+      <span class="btn-next">Next Chapter</span>
+      <span class="btn-title">The Real Estate Special</span>
+    </span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+  </a>
+</div>
+</div>
                     `;
                 }
 

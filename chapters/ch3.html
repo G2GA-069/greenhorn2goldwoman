@@ -332,6 +332,47 @@ body.party-mode .beat-title h1 {
   .nav-dots .dot.active { width: 8px; height: 8px; }
 
 }
+
+/* Next chapter button */
+.next-chapter-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  margin-top: 32px; padding: 16px 32px;
+  background: linear-gradient(135deg, #6b2fa0, #9333ea);
+  color: #fff; font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 16px; font-weight: 600; letter-spacing: 0.5px;
+  text-decoration: none; border-radius: 50px;
+  border: none; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(107, 47, 160, 0.4), 0 0 40px rgba(147, 51, 234, 0.15);
+  transition: all 0.3s ease;
+  position: relative; z-index: 10;
+}
+.next-chapter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(107, 47, 160, 0.6), 0 0 60px rgba(147, 51, 234, 0.25);
+}
+.next-chapter-btn svg {
+  width: 20px; height: 20px;
+  transition: transform 0.3s;
+}
+.next-chapter-btn:hover svg { transform: translateX(4px); }
+.next-chapter-btn .btn-label { display: flex; flex-direction: column; align-items: flex-start; }
+.next-chapter-btn .btn-next { font-size: 11px; opacity: 0.7; letter-spacing: 1.5px; text-transform: uppercase; }
+.next-chapter-btn .btn-title { font-size: 16px; }
+@media (max-width: 768px) {
+  .next-chapter-btn { padding: 14px 24px; font-size: 14px; }
+  .next-chapter-btn .btn-title { font-size: 14px; }
+}
+
+/* Resume toast — mobile-safe */
+@media (max-width: 768px) {
+  .resume-toast {
+    max-width: calc(100vw - 32px); width: auto;
+    padding: 12px 16px; gap: 10px;
+    bottom: max(70px, calc(60px + env(safe-area-inset-bottom)));
+    font-size: 12px; flex-wrap: wrap; justify-content: center;
+  }
+  .resume-toast button { padding: 8px 16px; font-size: 12px; }
+}
 </style>
 </head>
 <body>
@@ -582,6 +623,16 @@ body.party-mode .beat-title h1 {
 </div>
 <div style="font-family: var(--font-sans); font-size: 11px; color: var(--text-dim); line-height: 1.8; max-width: 500px; margin: 0 auto;">
 From Greenhorn to Gold(wo)man is an interactive finance education series. Chapter 3 explores how cash, profit, and solvency intertwine in real businesses. Keep reading to understand the full capital cycle and how to read companies like a financial analyst would. <br><br>
+
+<div style="text-align:center; margin-top: 32px;">
+  <a href="ch4.html" class="next-chapter-btn">
+    <span class="btn-label">
+      <span class="btn-next">Next Chapter</span>
+      <span class="btn-title">How to Cloudwash a Combine</span>
+    </span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+  </a>
+</div>
 <a href="../index.html" style="color: #00d4ff; text-decoration: none;">← Return to Contents</a>
 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); max-width: 500px; margin-left: auto; margin-right: auto;">
 <a href="ch2.html" style="color: var(--accent); text-decoration: none; font-family: var(--font-sans); font-size: 13px;">← Ch 2: Buy Low, Sell High</a>
