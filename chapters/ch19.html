@@ -544,6 +544,7 @@
         const CHAPTER_NUM = 19;
         let currentBeat = 0;
         let wheelAccumulator = 0;
+        let wheelTimerRef = null;
 
         const beats = [
             {
@@ -1788,8 +1789,10 @@
             });
         }
 
+        let isAnimating = false;
         function goTo(index) {
-            if (index < 0 || index >= beats.length) return;
+            if (isAnimating || index < 0 || index >= beats.length) return;
+            isAnimating = true;
             currentBeat = index;
 
             const beats_el = document.querySelectorAll('.beat');
@@ -1812,6 +1815,7 @@
 
             updateUI();
             localStorage.setItem(`ch${CHAPTER_NUM}_beat`, index);
+            setTimeout(() => { isAnimating = false; }, 350);
         }
 
         function updateUI() {
@@ -1843,25 +1847,26 @@
         }, { passive: true });
 
         document.getElementById('container').addEventListener('touchend', (e) => {
+            const beat = beats[currentBeat];
+            const atBottom = !beat || beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+            const atTop = !beat || beat.scrollTop <= 5;
             const diff = touchStartY - e.changedTouches[0].clientY;
-            if (diff > 50) {
-                goTo(currentBeat + 1);
-            } else if (diff < -50) {
-                goTo(currentBeat - 1);
-            }
+            if (diff > 50 && atBottom) goTo(currentBeat + 1);
+            if (diff < -50 && atTop) goTo(currentBeat - 1);
         }, { passive: true });
 
         document.addEventListener('wheel', (e) => {
-            e.preventDefault();
+            const beat = beats[currentBeat];
+            const atBottom = !beat || beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+            const atTop = !beat || beat.scrollTop <= 5;
+
             wheelAccumulator += e.deltaY;
-            if (wheelAccumulator > 100) {
-                wheelAccumulator = 0;
-                goTo(currentBeat + 1);
-            } else if (wheelAccumulator < -100) {
-                wheelAccumulator = 0;
-                goTo(currentBeat - 1);
-            }
-        }, { passive: false });
+            clearTimeout(wheelTimerRef);
+            wheelTimerRef = setTimeout(() => { wheelAccumulator = 0; }, 200);
+
+            if (wheelAccumulator > 50 && atBottom) { wheelAccumulator = 0; goTo(currentBeat + 1); }
+            if (wheelAccumulator < -50 && atTop) { wheelAccumulator = 0; goTo(currentBeat - 1); }
+        }, { passive: true });
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') goTo(currentBeat + 1);

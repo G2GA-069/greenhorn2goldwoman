@@ -1731,8 +1731,10 @@ Base Valuation (DCF or trading multiples)
         }
 
         // Go to beat
+        let isAnimating = false;
         function goTo(beatNum) {
-            if (beatNum < 1 || beatNum > TOTAL_BEATS) return;
+            if (isAnimating || beatNum < 1 || beatNum > TOTAL_BEATS) return;
+            isAnimating = true;
             currentBeat = beatNum;
             positionBeats();
 
@@ -1764,21 +1766,24 @@ Base Valuation (DCF or trading multiples)
             if (currentBeat > 1) {
                 showResumeToast();
             }
+            setTimeout(() => { isAnimating = false; }, 350);
         }
 
         // Wheel navigation
+        let wheelAccum = 0;
+        let wheelTimer = null;
         document.addEventListener('wheel', (e) => {
-            const now = Date.now();
-            if (now - lastScrollTime < scrollThrottle) return;
-            lastScrollTime = now;
+            const beat = document.querySelectorAll('.beat')[currentBeat - 1];
+            const atBottom = !beat || beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+            const atTop = !beat || beat.scrollTop <= 5;
 
-            if (e.deltaY > 0) {
-                if (currentBeat < TOTAL_BEATS) goTo(currentBeat + 1);
-            } else {
-                if (currentBeat > 1) goTo(currentBeat - 1);
-            }
-            e.preventDefault();
-        }, { passive: false });
+            wheelAccum += e.deltaY;
+            clearTimeout(wheelTimer);
+            wheelTimer = setTimeout(() => { wheelAccum = 0; }, 200);
+
+            if (wheelAccum > 50 && atBottom) { wheelAccum = 0; goTo(currentBeat + 1); }
+            if (wheelAccum < -50 && atTop) { wheelAccum = 0; goTo(currentBeat - 1); }
+        }, { passive: true });
 
         // Touch navigation
         let touchStartY = 0;
@@ -1798,9 +1803,13 @@ Base Valuation (DCF or trading multiples)
             if (now - lastScrollTime < scrollThrottle) return;
             lastScrollTime = now;
 
-            if (touchStartY - touchEndY > 50) {
+            const beat = document.querySelectorAll('.beat')[currentBeat - 1];
+            const atBottom = !beat || beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+            const atTop = !beat || beat.scrollTop <= 5;
+
+            if (touchStartY - touchEndY > 50 && atBottom) {
                 if (currentBeat < TOTAL_BEATS) goTo(currentBeat + 1);
-            } else if (touchEndY - touchStartY > 50) {
+            } else if (touchEndY - touchStartY > 50 && atTop) {
                 if (currentBeat > 1) goTo(currentBeat - 1);
             }
         }

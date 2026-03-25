@@ -1279,8 +1279,10 @@ REIT Tax Advantage = Avoided corporation tax on rental income (20% statutory rat
             goTo(1);
         }
 
+        let isAnimating = false;
         function goTo(beatNumber) {
-            if (beatNumber < 1 || beatNumber > totalBeats) return;
+            if (isAnimating || beatNumber < 1 || beatNumber > totalBeats) return;
+            isAnimating = true;
             currentBeat = beatNumber;
 
             beats.forEach((beat, index) => {
@@ -1303,6 +1305,7 @@ REIT Tax Advantage = Avoided corporation tax on rental income (20% statutory rat
             updateProgress();
             updateDots();
             localStorage.setItem(`ch${CHAPTER_NUM}_beat`, currentBeat);
+            setTimeout(() => { isAnimating = false; }, 350);
         }
 
         function updateProgress() {
@@ -1333,17 +1336,19 @@ REIT Tax Advantage = Avoided corporation tax on rental income (20% statutory rat
             window.location.href = '../index.html';
         }
 
+        let wheelTimerRef = null;
         document.addEventListener('wheel', (e) => {
-            e.preventDefault();
+            const beatEl = beats[currentBeat - 1];
+            const atBottom = !beatEl || beatEl.scrollTop + beatEl.clientHeight >= beatEl.scrollHeight - 5;
+            const atTop = !beatEl || beatEl.scrollTop <= 5;
+
             wheelAccumulator += e.deltaY;
-            if (wheelAccumulator > 50) {
-                nextBeat();
-                wheelAccumulator = 0;
-            } else if (wheelAccumulator < -50) {
-                prevBeat();
-                wheelAccumulator = 0;
-            }
-        }, { passive: false });
+            clearTimeout(wheelTimerRef);
+            wheelTimerRef = setTimeout(() => { wheelAccumulator = 0; }, 200);
+
+            if (wheelAccumulator > 50 && atBottom) { wheelAccumulator = 0; nextBeat(); }
+            if (wheelAccumulator < -50 && atTop) { wheelAccumulator = 0; prevBeat(); }
+        }, { passive: true });
 
         let touchStartY = 0;
         document.addEventListener('touchstart', (e) => {
@@ -1351,9 +1356,12 @@ REIT Tax Advantage = Avoided corporation tax on rental income (20% statutory rat
         }, { passive: true });
 
         document.addEventListener('touchend', (e) => {
+            const beatEl = beats[currentBeat - 1];
+            const atBottom = !beatEl || beatEl.scrollTop + beatEl.clientHeight >= beatEl.scrollHeight - 5;
+            const atTop = !beatEl || beatEl.scrollTop <= 5;
             const diff = touchStartY - e.changedTouches[0].clientY;
-            if (diff > 50) nextBeat();
-            if (diff < -50) prevBeat();
+            if (diff > 50 && atBottom) nextBeat();
+            if (diff < -50 && atTop) prevBeat();
         }, { passive: true });
 
         document.addEventListener('keydown', (e) => {

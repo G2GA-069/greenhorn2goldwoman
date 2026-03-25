@@ -1286,6 +1286,7 @@ Fair value: €14.25. Stock at €15 = slight premium.
         const TOTAL_BEATS = 28;
         let currentBeat = 0;
         let scrollAccumulator = 0;
+        let scrollTimer = null;
 
         const beatsViewport = document.getElementById('beatsViewport');
         const beatCounter = document.getElementById('beatCounter');
@@ -1315,8 +1316,10 @@ Fair value: €14.25. Stock at €15 = slight premium.
         }
 
         // Navigate to beat
+        let isAnimating = false;
         function goTo(beatNum) {
-            if (beatNum < 0 || beatNum >= TOTAL_BEATS) return;
+            if (isAnimating || beatNum < 0 || beatNum >= TOTAL_BEATS) return;
+            isAnimating = true;
 
             const beats = document.querySelectorAll('.beat');
 
@@ -1338,6 +1341,7 @@ Fair value: €14.25. Stock at €15 = slight premium.
             currentBeat = beatNum;
             updateUI();
             saveProgress();
+            setTimeout(() => { isAnimating = false; }, 350);
         }
 
         // Update UI
@@ -1373,23 +1377,27 @@ Fair value: €14.25. Stock at €15 = slight premium.
         }, { passive: true });
 
         document.addEventListener('touchend', (e) => {
+            const beat = beats[currentBeat];
+            const atBottom = !beat || beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+            const atTop = !beat || beat.scrollTop <= 5;
             const diff = touchStartY - e.changedTouches[0].clientY;
-            if (diff > 50) goTo(currentBeat + 1);
-            if (diff < -50) goTo(currentBeat - 1);
+            if (diff > 50 && atBottom) goTo(currentBeat + 1);
+            if (diff < -50 && atTop) goTo(currentBeat - 1);
         }, { passive: true });
 
         // Mouse wheel
         document.addEventListener('wheel', (e) => {
-            e.preventDefault();
+            const beat = beats[currentBeat];
+            const atBottom = !beat || beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+            const atTop = !beat || beat.scrollTop <= 5;
+
             scrollAccumulator += e.deltaY;
-            if (scrollAccumulator > 100) {
-                goTo(currentBeat + 1);
-                scrollAccumulator = 0;
-            } else if (scrollAccumulator < -100) {
-                goTo(currentBeat - 1);
-                scrollAccumulator = 0;
-            }
-        }, { passive: false });
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(() => { scrollAccumulator = 0; }, 200);
+
+            if (scrollAccumulator > 50 && atBottom) { scrollAccumulator = 0; goTo(currentBeat + 1); }
+            if (scrollAccumulator < -50 && atTop) { scrollAccumulator = 0; goTo(currentBeat - 1); }
+        }, { passive: true });
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
