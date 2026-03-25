@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G2G Chapter 21 — The Infrastructure &amp; Transport Special</title>
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://g2ga-069.github.io/G2G/chapters/ch21.html">
+  <meta property="og:title" content="Chapter 21: The Infrastructure &amp; Transport Special — G2G Advisory">
+  <meta property="og:description" content="PPP/PFI, Regulated Assets, Concessions &amp; Transport">
+  <meta property="og:image" content="https://g2ga-069.github.io/G2G/images/og-preview.png">
+  <meta property="og:site_name" content="G2G Advisory">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chapter 21: The Infrastructure &amp; Transport Special — G2G Advisory">
+  <meta name="twitter:description" content="PPP/PFI, Regulated Assets, Concessions &amp; Transport">
+  <meta name="twitter:image" content="https://g2ga-069.github.io/G2G/images/og-preview.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon-180.png">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0c;
+      --surface: #131318;
+      --surface-2: #1a1a22;
+      --border: #2a2a35;
+      --text: #e8e4df;
+      --text-muted: #a8a4b0;
+      --text-dim: #7a7680;
+      --accent: #b07ce8;
+      --accent-dim: #7a55b0;
+      --accent-bright: #d4a0ff;
+      --green: #4a9e6e;
+      --red: #c45c4a;
+      --blue: #5a8fc4;
+      --purple: #8a3cc4;
+      --brand-purple: #6b2fa0;
+      --brand-magenta: #d946ef;
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { height: 100%; overflow: hidden; overscroll-behavior: none; }
+    body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-serif);
+      line-height: 1.7;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .beat {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 52px 24px 60px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s, transform 0.35s ease-in-out;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .beat-inner {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* TITLE BEAT */
+    .beat-title {
+      background: radial-gradient(ellipse at 60% 40%, rgba(176, 124, 232, 0.15) 0%, rgba(107, 47, 160, 0.08) 40%, var(--bg) 100%);
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .beat-title .beat-inner {
+      text-align: center;
+    }
+
+    .series-name {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 16px;
+    }
+
+    .chapter-number {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+
+    .beat-title h1 {
+      font-family: var(--font-serif);
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--accent-bright);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .beat-title .subtitle {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* CARD BEAT */
+    .beat-card {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beat-card .beat-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .card-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    .card-body {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .card-body p {
+      margin-bottom: 16px;
+    }
+
+    .card-body strong {
+      color: var(--accent-bright);
+      font-weight: 600;
+    }
+
+    .metric-item {
+      margin-bottom: 16px;
+      padding-left: 16px;
+      border-left: 2px solid var(--accent-dim);
+    }
+
+    .metric-name {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--accent-bright);
+    }
+
+    .metric-def {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .comparison-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .comparison-col {
+      flex: 1;
+    }
+
+    .comparison-header {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .comparison-value {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .bullet-list {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    .bullet-list li {
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .bullet-list li strong {
+      color: var(--accent-bright);
+    }
+
+    .formula-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--accent-bright);
+      line-height: 1.6;
+    }
+
+    .formula-box .formula-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .example-box {
+      background: linear-gradient(135deg, rgba(74,158,110,0.08), rgba(74,158,110,0.03));
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .example-box .example-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, rgba(196,92,74,0.08), rgba(196,92,74,0.03));
+      border-left: 3px solid var(--red);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .warning-box .warning-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-box p {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .section-divider {
+      background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+      height: 1px;
+      margin: 24px 0;
+    }
+
+    .part-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 4px;
+    }
+
+    /* SCENE BEAT */
+    .beat-scene {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beat-scene .beat-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .scene-location {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 16px;
+    }
+
+    .scene-text {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    .scene-text strong {
+      color: var(--accent-bright);
+    }
+
+    .scene-text a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .scene-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* UI ELEMENTS */
+    .beat-counter {
+      position: fixed;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
+      right: 24px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--text-dim);
+      z-index: 998;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      z-index: 996;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .swipe-hint {
+      position: fixed;
+      bottom: 60px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-dim);
+      z-index: 995;
+      animation: fadeOutAfter 7s forwards;
+    }
+
+    @keyframes fadeOutAfter {
+      0%, 85% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .resume-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      border: 1px solid var(--accent-dim);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 1000;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .resume-toast button {
+      background: var(--accent-dim);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+
+    .resume-toast button:first-of-type {
+      background: var(--brand-purple);
+    }
+
+    .resume-toast button:hover {
+      opacity: 0.9;
+    }
+
+    /* Wider beat-inner for comparison tables */
+    .beat-card.comparison-wide .beat-inner {
+      max-width: 760px;
+    }
+
+    /* Download button */
+    .download-hero {
+      margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 14px;
+    }
+    .download-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 36px; border-radius: 10px; text-decoration: none;
+      background: linear-gradient(135deg, #6b2fa0, #d946ef);
+      color: #fff; font-family: var(--font-sans, 'Inter', sans-serif); font-size: 15px;
+      font-weight: 700; letter-spacing: 0.5px;
+      transition: all 0.3s; box-shadow: 0 4px 24px rgba(107,47,160,0.4);
+    }
+    .download-btn:hover {
+      transform: translateY(-2px); box-shadow: 0 8px 32px rgba(107,47,160,0.6);
+    }
+    .download-btn svg { width: 20px; height: 20px; }
+    .download-note {
+      font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 11px;
+      color: var(--text-dim, var(--text-muted, #7a7680)); letter-spacing: 0.5px;
+    }
+
+    /* Nav dots */
+    .nav-dots {
+      position: fixed; top: 50%; right: 12px; transform: translateY(-50%);
+      z-index: 100; display: flex; flex-direction: column; gap: 6px;
+    }
+    .nav-dots .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); cursor: pointer; transition: all 0.3s;
+    }
+    .nav-dots .dot.active {
+      background: var(--accent, #b07ce8); box-shadow: 0 0 6px rgba(176,124,232,0.4);
+      width: 10px; height: 10px;
+    }
+    .nav-dots .dot:hover { background: var(--accent-dim, rgba(176,124,232,0.5)); }
+
+    @media (max-width: 768px) {
+      .nav-dots { right: 8px; gap: 4px; }
+      .beat-inner { padding-right: 28px; }
+      .nav-dots .dot { width: 6px; height: 6px; }
+      .nav-dots .dot.active { width: 8px; height: 8px; }
+    }
+
+    /* Resume toast — mobile-safe */
+    @media (max-width: 768px) {
+      .resume-toast {
+        max-width: calc(100vw - 32px); width: auto;
+        padding: 12px 16px; gap: 10px;
+        bottom: max(70px, calc(60px + env(safe-area-inset-bottom)));
+        font-size: 12px; flex-wrap: wrap; justify-content: center;
+      }
+      .resume-toast button { padding: 8px 16px; font-size: 12px; }
+    }
+
+    .prev-chapter-btn, .next-chapter-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 28px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(107,47,160,0.15), rgba(176,124,232,0.10));
+      border: 1px solid rgba(176,124,232,0.25);
+      color: var(--accent, #b07ce8); text-decoration: none;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      transition: all 0.3s ease; margin-top: 32px; cursor: pointer;
+    }
+    .prev-chapter-btn:hover, .next-chapter-btn:hover {
+      background: linear-gradient(135deg, rgba(107,47,160,0.25), rgba(176,124,232,0.20));
+      border-color: rgba(176,124,232,0.5); transform: translateY(-1px);
+    }
+    .prev-chapter-btn svg, .next-chapter-btn svg { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.2s; }
+    .next-chapter-btn:hover svg { transform: translateX(4px); }
+    .prev-chapter-btn:hover svg { transform: translateX(-4px); }
+    .prev-chapter-btn .btn-label, .next-chapter-btn .btn-label { display: flex; flex-direction: column; align-items: flex-start; }
+    .prev-chapter-btn .btn-next, .next-chapter-btn .btn-next { font-size: 11px; opacity: 0.7; letter-spacing: 1.5px; text-transform: uppercase; }
+    .prev-chapter-btn .btn-title, .next-chapter-btn .btn-title { font-size: 16px; }
+    .chapter-nav-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 32px; }
+
+    @media (max-width: 768px) {
+      .beat-title h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+      }
+
+      .beat-title .subtitle {
+        font-size: 16px;
+      }
+
+      .card-title {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+      }
+
+      .beat-counter {
+        bottom: max(16px, env(safe-area-inset-bottom, 16px));
+        right: 16px;
+        font-size: 11px;
+      }
+
+      .back-link {
+        top: 16px;
+        left: 16px;
+        font-size: 12px;
+      }
+
+      .prev-chapter-btn, .next-chapter-btn { padding: 14px 24px; font-size: 14px; }
+      .prev-chapter-btn .btn-title, .next-chapter-btn .btn-title { font-size: 14px; }
+      .chapter-nav-row { flex-direction: column; align-items: stretch; }
+      .prev-chapter-btn, .next-chapter-btn { margin-top: 8px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="beat-counter" id="beatCounter"></div>
+  <a href="../index.html" class="back-link">← G2G</a>
+  <div class="nav-dots"></div>
+  <div class="swipe-hint" id="swipeHint">Swipe up to navigate</div>
+
+  <!-- BEAT 1: TITLE -->
+  <div class="beat beat-title">
+    <div class="beat-inner">
+      <div class="series-name">G2G ADVISORY</div>
+      <div class="chapter-number">CHAPTER 21</div>
+      <h1>The Infrastructure &amp; Transport Special</h1>
+      <p class="subtitle">PPP/PFI, Regulated Assets, Concessions &amp; Transport</p>
+      <div class="download-hero">
+        <a href="G2G_Infrastructure_Reference.pdf" download target="_blank" rel="noopener" class="download-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Infrastructure Cram Sheet
+        </a>
+        <span class="download-note">PDF — Printable — Offline-ready</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 2: CHAPTER ROADMAP -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Overview</div>
+      <div class="card-title">Chapter Roadmap</div>
+      <div class="card-body">
+        <p>Infrastructure is the bridge between capital markets and essential services. This chapter maps the entire landscape: from regulated utilities generating inflation-linked returns through regulatory frameworks, to concession-based transport assets where demand forecasting determines investor returns, to PPP/PFI structures that transfer public sector risk into the private market.</p>
+        <p>You'll learn how a regulated asset base (RAB) is set, how price reviews can destroy value overnight, why infrastructure can sustain 60-80% gearing versus 30-50% in corporates, and where the real diligence risks hide.</p>
+        <div class="section-divider"></div>
+        <p style="font-size: 14px; color: var(--text-dim); margin-top: 16px;"><strong>Part I:</strong> Core metrics and risk allocation — RAB, RCV, gearing, revenue models<br><strong>Part II:</strong> Sub-sector deep-dives — utilities, transport, social infra, digital<br><strong>Part III:</strong> Valuation mechanics — DCF, multiples, transaction types<br><strong>Part IV:</strong> Diligence red flags — regulatory reset, demand, construction, political risk</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 3: RAB & RAR -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part I: Foundations</div>
+      <div class="card-title">Core Metrics I: RAB &amp; RAR</div>
+      <div class="card-body">
+        <div class="metric-item">
+          <div class="metric-name">RAB (Regulated Asset Base)</div>
+          <div class="metric-def">The value of assets that a regulator allows an infrastructure company to earn a return on. Set at initial price review and rolled forward via depreciation, capex, and inflation adjustments annually. Periodic resets (typically 5-8 years) recalibrate RAB based on actual asset condition, capex efficiency, and updated cost of capital assumptions.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">RCV (Regulatory Capital Value)</div>
+          <div class="metric-def">RCV is the opening balance sheet value of assets in some regulatory regimes (e.g., UK water). Used as starting point for RAB calculations. RCV grows each year by: capex added + inflation adjustment – depreciation.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">RAR (Regulatory Asset Ratio)</div>
+          <div class="metric-def">RAB ÷ Enterprise Value. Indicates what % of the company's market value is backed by regulated assets. Ratio &gt;80% = high regulatory dependence, lower growth optionality. Ratio &lt;60% = more commercial revenue exposure, higher growth potential but higher risk.</div>
+        </div>
+        <p style="margin-top: 16px;"><strong>Key insight:</strong> RAB is set by regulators, not the market. If a company is bought at EV = 1.5x RAB, the acquirer is betting on outperformance (cost efficiencies, ODI rewards). If bought at EV &lt; RAB, something is broken (risk of regulatory intervention, high capex catch-up needed).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 4: RCV & WACC -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part I: Foundations</div>
+      <div class="card-title">Core Metrics II: RCV &amp; WACC Dynamics</div>
+      <div class="card-body">
+        <div class="metric-item">
+          <div class="metric-name">Regulatory WACC</div>
+          <div class="metric-def">The cost of capital set by the regulator in each price review. UK water regulator (Ofwat) sets allowed WACC; Ofgem does the same for energy. This WACC is applied to RAB to determine allowed revenue. Recent trend: regulators cutting allowed WACC as bond yields fall, compressing infrastructure returns.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Allowed vs. Actual Return</div>
+          <div class="metric-def">Allowed return = Regulatory WACC × RAB. Actual return depends on: (1) cost management (keeping opex below allowed level), (2) capex efficiency, (3) regulatory outperformance (ODI incentives). If actual WACC &lt; allowed, company captures the spread.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Cost of Equity Compression Risk</div>
+          <div class="metric-def">As government bond yields fall, regulators cut allowed equity cost of capital. This directly reduces allowed returns. Ofwat cut allowed CoE from 4.8% (2017) to 2.75% (2020) — a 205 bps decline. Equity investors face year-on-year return compression without any operational change.</div>
+        </div>
+        <div class="formula-box">
+          <span class="formula-label">Regulatory Return (Simplified)</span>
+          Allowed Revenue = RAB × Allowed WACC<br>
+          Net Outperformance = (Actual WACC − Allowed WACC) × RAB
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 5: GEARING & LEVERAGE RATIOS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part I: Foundations</div>
+      <div class="card-title">Core Metrics III: Gearing &amp; Coverage Ratios</div>
+      <div class="card-body">
+        <div class="metric-item">
+          <div class="metric-name">Net Debt / RAB</div>
+          <div class="metric-def">Infrastructure standard leverage metric. Typical range: 60-80%. Compare to corporates at 30-50%. Infrastructure can sustain higher leverage because: (1) cashflows are contracted/regulated and predictable, (2) long asset lives match long debt tenors, (3) regulatory framework limits dividend payouts, forcing debt service priority.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">DSCR (Debt Service Coverage Ratio)</div>
+          <div class="metric-def">EBITDA ÷ Interest + Principal payments. Infrastructure typically targets 1.3-1.6x DSCR (higher than corporates at 1.2-1.3x due to cashflow rigidity). Lower DSCR = higher refinancing risk and covenant tightness.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">ICR (Interest Coverage Ratio)</div>
+          <div class="metric-def">EBITDA ÷ Interest expense. Typical: 2.5-4.0x for A-rated infra, 2.0-2.5x for BBB. Below 2.0x signals distress risk. Many infrastructure financings include ICR maintenance covenants (e.g., &gt;1.75x) that trigger accelerated amortization if breached.</div>
+        </div>
+        <p style="margin-top: 16px;"><strong>Why higher gearing works:</strong> Regulated revenue floors mean creditors have first lien on cashflows. Equity is subordinated, creating tight cashflow hierarchy. Debt repayment is non-negotiable.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 6: CASH FLOW CHARACTERISTICS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part I: Foundations</div>
+      <div class="card-title">Cash Flow Characteristics &amp; Inflation Linkage</div>
+      <div class="card-body">
+        <div class="metric-item">
+          <div class="metric-name">Inflation Linkage (RPI vs CPI)</div>
+          <div class="metric-def">Many UK regulated utilities link revenues to Retail Price Index (RPI), which includes mortgage interest costs and runs 0.5-1.0% higher than Consumer Price Index (CPI). A shift from RPI to CPI (as occurred in UK water 2020) cuts real returns by ~50-100 bps, destroying equity value instantly.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Real vs. Nominal Returns</div>
+          <div class="metric-def">Inflation-linked assets generate real (inflation-protected) returns. In high inflation (2022-2023), this protected investors. In low inflation, it caps returns. Many infrastructure investors accept inflation-linked returns as portfolio diversification (hedge against inflation).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Contracted vs. Regulated vs. Merchant Revenue</div>
+          <div class="metric-def">Contracted = PPP, concessions with fixed/escalating unitary charges (highest visibility). Regulated = utilities with allowed revenue set by regulator (visible but subject to reset risk). Merchant = volume-based (toll roads, airports, passenger revenue) — exposed to demand swings.</div>
+        </div>
+        <div class="example-box">
+          <span class="example-label">Example: Hybrid Revenue Model (Airports)</span>
+          Aeronautical fees (landing, handling) are contracted with airlines. Commercial revenue (retail, car parks, lounges) is merchant volume-based. If aeronautical is 40% of revenue and merchant is 60%, airport is 40% contracted, 60% demand-exposed.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 7: REVENUE MODELS COMPARISON -->
+  <div class="beat beat-card comparison-wide">
+    <div class="beat-inner">
+      <div class="card-label">Part I: Foundations</div>
+      <div class="card-title">Revenue Models: Availability vs. Demand vs. Regulated</div>
+      <div class="card-body">
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Availability-Based (PPP/PFI)</div>
+            <div class="comparison-value">Government pays fixed unitary charge regardless of usage. School PFI: £5m/year × 25 years, whether 500 or 5,000 students. Risk: zero demand risk to equity, but refinancing/inflation risk remains.</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Demand-Risk (Tolls, Airports)</div>
+            <div class="comparison-value">Revenue tied to usage: £5 per vehicle-km × traffic. Toll road forecasts often 20-30% optimistic. Demand risk sits with equity. Upside: traffic ramp-up can exceed forecasts (e.g., new airport terminal).</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Regulated (Utilities)</div>
+            <div class="comparison-value">Regulator sets allowed revenue annually. Visibility 5-8 years to next major reset. Risk: cost overruns not automatically passed through; efficiency penalties apply if opex exceeds allowed level.</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Hybrid (Airports, Concessions)</div>
+            <div class="comparison-value">Mix of contracted (aeronautical fees) and merchant (retail). Blends visibility with upside. Regulatory oversight may apply to aeronautical (capped pricing, service levels).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 8: RISK ALLOCATION MATRIX -->
+  <div class="beat beat-card comparison-wide">
+    <div class="beat-inner">
+      <div class="card-label">Part I: Foundations</div>
+      <div class="card-title">Risk Allocation Matrix Across Sub-Sectors</div>
+      <div class="card-body">
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Risk Type</div>
+            <div class="comparison-value">Regulated Utilities</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Toll Roads</div>
+            <div class="comparison-value">Airports</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">PPP/PFI</div>
+            <div class="comparison-value">Digital Infra</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Construction Risk</div>
+            <div class="comparison-value">Low (existing)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">HIGH (greenfield)</div>
+            <div class="comparison-value">Medium (expansion)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">HIGH (EPC risk)</div>
+            <div class="comparison-value">Medium (capex cycles)</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Demand Risk</div>
+            <div class="comparison-value">Low (regulated)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">HIGH (traffic)</div>
+            <div class="comparison-value">HIGH (passengers)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Low (contracted)</div>
+            <div class="comparison-value">Medium (growth)</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Regulatory Risk</div>
+            <div class="comparison-value">HIGH (price resets)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Medium (pricing caps)</div>
+            <div class="comparison-value">Medium (slot allocation)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Low (fixed terms)</div>
+            <div class="comparison-value">Medium (spectrum)</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Political Risk</div>
+            <div class="comparison-value">HIGH (privatisation)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">HIGH (toll bans)</div>
+            <div class="comparison-value">Medium (slot policy)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">LOW (protected)</div>
+            <div class="comparison-value">HIGH (regulation)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 9: REGULATED UTILITIES - WATER -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: Sub-Sectors</div>
+      <div class="card-title">Regulated Utilities: Water Sector</div>
+      <div class="card-body">
+        <p><strong>Market structure:</strong> 10 regional monopolies in England & Wales (Ofwat-regulated), each with c.5m+ customers. Private. Concession periods: indefinite. Revenue: 80%+ contracted (water, sewerage charges).</p>
+        <div class="metric-item">
+          <div class="metric-name">Price Review Cycle (Ofwat)</div>
+          <div class="metric-def">Every 5 years. Sets allowed revenue for next 5 years based on: (1) RCV (opening asset base) + capex allowance, (2) forecast demand growth, (3) cost of capital, (4) inflation assumptions. Next major review: 2024 (applies 2025-2029).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Totex Framework</div>
+          <div class="metric-def">Total expenditure (capex + opex combined) is assessed. Companies that beat totex allowance keep 50% of savings (NPV). Incentivizes efficiency. Overspend is partly disallowed (loss of margin).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">ODIs (Outcome Delivery Incentives)</div>
+          <div class="metric-def">Reward/penalty mechanism for service outcomes (water quality, leakage, customer satisfaction). Companies can earn +/−2% on allowed return based on ODI performance. Ofwat 2024: pushing for tighter leakage targets (50% reduction by 2050).</div>
+        </div>
+        <p style="margin-top: 16px;"><strong>Value driver:</strong> RCV growth (capex adds to asset base, earns return for 50+ years). Ofwat allowing £170bn capex 2025-2029 (climate, leakage, growth). Risk: climate costs could spiral; political pressure to freeze bills limiting revenue growth.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 10: REGULATED UTILITIES - ENERGY NETWORKS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: Sub-Sectors</div>
+      <div class="card-title">Regulated Utilities: Energy Networks</div>
+      <div class="card-body">
+        <p><strong>Market structure:</strong> 14 regional distribution networks (DNOs) in GB, 2 transmission operators (TOs). Monopolies regulated by Ofgem. Revenue: ~100% contracted (access fees set by regulator).</p>
+        <div class="metric-item">
+          <div class="metric-name">RIIO Framework (Revenue = Incentives + Innovation + Outputs)</div>
+          <div class="metric-def">Ofgem's approach: set 8-year regulatory period (vs water's 5), incentivize capital investment in network resilience, EV charging, renewable integration. RIIO-2 (2021-2028): allowed return compressed; RIIO-3 (2028+) under development.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Transmission vs. Distribution Revenue Dynamics</div>
+          <div class="metric-def">Transmission (high-voltage backbone): longer assets, more capex-intensive, higher ROI if demand growth materializes. Distribution (customer-facing): lower returns but stable, essential infrastructure.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Gas vs. Electricity Divergence</div>
+          <div class="metric-def">Gas networks facing secular decline (decarbonisation). Equity markets downrated gas DNOs. Electricity networks benefiting from EV charging, heat pump growth, renewable integration (more network capex needed).</div>
+        </div>
+        <div class="warning-box">
+          <span class="warning-label">Risk: Stranded Gas Assets</span>
+          <p>UK planning net-zero carbon by 2050. Gas distribution networks may face accelerated depreciation/impairment if government mandates earlier phase-out. Ofgem may not fully compensate asset write-downs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 11: TRANSPORT - AIRPORTS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: Sub-Sectors</div>
+      <div class="card-title">Transport: Airports</div>
+      <div class="card-body">
+        <p><strong>Revenue model:</strong> Aeronautical (landing fees, handling charges from airlines: 40%) + Commercial (retail, car parks, lounges, rental car commissions: 60%).</p>
+        <div class="metric-item">
+          <div class="metric-name">Key Operating Metrics</div>
+          <div class="metric-def">Passengers (annual); Revenue/passenger (REVPAR); Cost/passenger; EBITDA/passenger (target: £10-15 for major hub). Load factor (aircraft utilisation). Seat capacity (can't grow revenue faster than slot allocation allows).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Regulatory Model: Single vs. Dual Till</div>
+          <div class="metric-def">Single till: Aeronautical charges capped by regulator (CAA in UK) and must cross-subsidise poor commercial performance. Dual till: Aeronautical fees set independently; commercial revenue kept separately. Heathrow (dual) vs. Gatwick (single): fee/pax differ substantially as a result.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Passenger Mix Impact</div>
+          <div class="metric-def">Business pax = higher yields (aeronautical, premium lounges). Leisure pax = volume, lower yields. Post-COVID: leisure pax (cheaper, easier to fill) increased, but yields (revenue/pax) fell. BAA airports: pre-COVID £20+ per pax; 2023: £15-17 per pax.</div>
+        </div>
+        <p style="margin-top: 16px;"><strong>Value driver:</strong> Capacity recovery + yield recovery. 2024-2026: focus on returning to pre-COVID pax levels (~250m UK) at improved unit economics. Risk: recession killing business travel permanently.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 12: TRANSPORT - TOLL ROADS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: Sub-Sectors</div>
+      <div class="card-title">Transport: Toll Roads &amp; Motorways</div>
+      <div class="card-body">
+        <p><strong>Concession model:</strong> 30-50 year terms. Government grants exclusive right to collect tolls. Concession ends → asset reverts to government at zero residual value to operator.</p>
+        <div class="metric-item">
+          <div class="metric-name">Traffic Forecasting Risk (Flyvbjerg Research)</div>
+          <div class="metric-def">Academic analysis: 80% of greenfield toll roads worldwide overestimate Year 1 traffic by 20-30%. Causes: optimism bias, incomplete demand modelling, induced demand underestimation. Equity bears early-period shortfall risk.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">AADT (Average Annual Daily Traffic) & Revenue/km</div>
+          <div class="metric-def">AADT = daily vehicle count. Revenue/km = (AADT × toll rate × traffic composition) ÷ road length. Mature toll roads: £2-5m per km annually. New toll roads: £0.5-1.5m in ramp-up (Year 1-3), reaching steady state by Year 5-7.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Shadow Toll vs. Real Toll</div>
+          <div class="metric-def">Shadow toll: government pays per vehicle regardless of actual traffic (availability-based). Removes demand risk but creates refinancing risk (no real revenue to refinance). Real toll: operator collects from users; demand risk but true revenue signalling.</div>
+        </div>
+        <div class="warning-box">
+          <span class="warning-label">Construction Risk: Fixed-Price EPC</span>
+          <p>Toll road PPP: EPC contractor obligated to complete at fixed price. Cost overruns = contractor loss (unless force majeure). Carillion's toll road failures (Spain, Australia) showed contractor insolvency risk (subs left unpaid; assets unfinished).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 13: TRANSPORT - PORTS & RAIL -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: Sub-Sectors</div>
+      <div class="card-title">Transport: Ports &amp; Rail</div>
+      <div class="card-body">
+        <div class="metric-item">
+          <div class="metric-name">Ports: Throughput Metrics</div>
+          <div class="metric-def">TEUs (Twenty-foot Equivalent Units) = container volume. Tonnage = bulk cargo. Revenue = per-TEU fee + per-tonne fee + ancillary (warehousing, cranes). Hinterland connectivity critical: port value tied to rail/trucking infrastructure to inland distribution hubs.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Port Regulatory Model</div>
+          <div class="metric-def">Landlord model (most common): Port operator owns infrastructure, sets charges, is regulated (capped ROI on tariffs). Service concessions: private operators run wharves/terminals at concession fees. Merchant model: ports fully commercial (less common, used in some US, Australian ports).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Rail: Track Access Charges &amp; Franchise vs. Open Access</div>
+          <div class="metric-def">UK model: Network Rail owns track, charges train operators per-km. Franchises: government contracts operator for passenger services (fixed revenue from government + volume risk). Open access: operator charges passengers directly (e.g., Arriva Trains Wales, Hull Trains) — full demand risk to operator.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">ROSCOs (Rolling Stock Operating Companies)</div>
+          <div class="metric-def">Own and lease trains to train operators. UK: Arriva, FirstGroup, Stagecoach lease fleets. ROSCO returns: depends on lease rates (set contractually) and residual value at end of 10-20 year lease. Obsolescence risk if electrification mandates force early fleet replacement.</div>
+        </div>
+        <p style="margin-top: 16px;"><strong>Trend:</strong> Port consolidation (PSA, DP World, CMA CGM expanding globally). Rail: UK franchising model being replaced with "Great British Railways" (re-integration of regional franchises from 2024+), reducing private operator control.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 14: SOCIAL INFRASTRUCTURE -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: Sub-Sectors</div>
+      <div class="card-title">Social Infrastructure: Hospitals, Schools, Prisons</div>
+      <div class="card-body">
+        <p><strong>Payment model:</strong> Availability-based. Government pays fixed unitary charge (e.g., £8m/year) for 25 years, regardless of usage. Risk: zero demand risk. Equity returns tied to cost management, inflation linkage, and handback compliance.</p>
+        <div class="metric-item">
+          <div class="metric-name">Unitary Charge Structure</div>
+          <div class="metric-def">Annual fee = Capital service (debt repayment + return on equity) + Facilities management (staff, utilities, maintenance) + Contingency reserve. Typically: 50% capital, 35% FM, 15% reserve. Government can deduct charges if availability failures occur (e.g., hospital ward closed = service charge reduction).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Lifecycle Cost Obligations</div>
+          <div class="metric-def">Operator must keep asset in specified condition for 25-30 year term. Major component replacement (roof, MEP systems) typically funded from contingency reserves. At handback: asset must meet government condition standards (cost of non-compliance can be 5-10% of contract value).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Soft FM vs. Hard FM</div>
+          <div class="metric-def">Soft FM: cleaning, catering, security, general maintenance. Often outsourced to 3rd party contractors (higher cost transparency). Hard FM: major systems (HVAC, plumbing, electrical). Operator typically retains to control lifecycle costs.</div>
+        </div>
+        <div class="warning-box">
+          <span class="warning-label">Social Infra Headwind: Refinancing Risk</span>
+          <p>Early PFI contracts (2000-2008) priced at high funding costs (5-7% yield). Refinancings (2012+) compressed returns (2-3% yield). Embedded outperformance captured by government, not equity. New PFI/PPP deals increasingly rare.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 15: DIGITAL INFRASTRUCTURE -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: Sub-Sectors</div>
+      <div class="card-title">Digital Infrastructure: Towers, Fibre, Data Centres</div>
+      <div class="card-body">
+        <div class="metric-item">
+          <div class="metric-name">Towers: Tenancy Ratio, Revenue/Tenant, Co-Location</div>
+          <div class="metric-def">Tenancy ratio = number of occupiers per tower. 2+ tenants = co-location revenue. Revenue/tenant: £10-40k annually in developed markets (varies by geography, population density). Target: 2.2-2.5 tenants/tower. Growth via 4G/5G rollouts (added capacity), international expansion.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Fibre: Homes Passed vs. Homes Connected</div>
+          <div class="metric-def">Homes passed = network covers but customer not yet subscribed. Homes connected = active subscribers. Penetration rate = connected ÷ passed. ARPU (Average Revenue Per User): £30-50/month. Upside = increased penetration (30% → 50%+). Risk = overbuilding, cannibalization of copper base.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Data Centres: Power Capacity, PUE, Utilisation</div>
+          <div class="metric-def">Capacity = MW of available power. PUE (Power Usage Effectiveness) = total power ÷ IT load. Target &lt;1.2 (70% efficient); above 1.3 = inefficient. Utilisation = % of cabinets occupied. Revenue per cabinet: £2-10k/month depending on tier (standard vs. premium/colocation).</div>
+        </div>
+        <p style="margin-top: 16px;"><strong>Growth drivers:</strong> Data consumption (streaming, gaming, AI), enterprise cloud adoption. Contract length critical: long-term contracts (3-5 years) smooth revenue, reduce churn risk. Hyperscale migration (cloud capex to data centre operators) a major growth vector.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 16: CONCESSION & PPP/PFI DEEP-DIVE -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: Sub-Sectors</div>
+      <div class="card-title">Concession Models: PPP/PFI Structure Deep-Dive</div>
+      <div class="card-body">
+        <p><strong>Typical capital structure:</strong> 70-80% senior debt (10-25 year tenor, investment-grade rated) + 10-15% mezzanine debt (11-25 year, subordinated, unrated) + 10-20% equity (IRR target: 12-15% for greenfield, 8-12% for brownfield).</p>
+        <div class="metric-item">
+          <div class="metric-name">Senior Debt Characteristics</div>
+          <div class="metric-def">Secured against assets & unitary charge/revenues. Lenders require DSCR &gt;1.5x. Covenants: ICR &gt;1.75x, leverage &lt;70% net debt/RAB. Amortizing schedule ensures deleveraging over project life. Refinancing risk if DSCR breached at maturity.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Mezzanine Debt Layer</div>
+          <div class="metric-def">Sits between senior and equity. Subordinated (loses value if project distresses). Typically: 2-5% coupon above senior debt. Absorbs cost overruns, demand shortfalls. Equity comfort: mezzanine acts as cushion, allows equity to absorb first 5-10% value loss before mezzanine hits.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Payment Mechanics &amp; Lifecycle Reserves</div>
+          <div class="metric-def">Unitary charge paid monthly by government (or received from toll/retail). Monthly: debt service, opex, FM costs, and 1-5% reserve accrual. Reserves deployed for major maintenance, inflation hedging, end-of-term handback costs. Well-structured deal: reserves = 15-25% of annual unitary charge.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Compensation on Early Termination</div>
+          <div class="metric-def">If government ends contract early (demand collapse, political change), equity entitled to compensation (typically: remaining unitary charge NPV + residual asset value). Amount negotiated upfront in concession agreement. Risk: government disputes amount or refuses to pay.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 17: SUB-SECTOR COMPARISON -->
+  <div class="beat beat-card comparison-wide">
+    <div class="beat-inner">
+      <div class="card-label">Part II: Sub-Sectors</div>
+      <div class="card-title">Sub-Sector Comparison Matrix</div>
+      <div class="card-body">
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Dimension</div>
+            <div class="comparison-value">Regulated Utilities</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Transport (Toll, Airport)</div>
+            <div class="comparison-value">Social Infra (PFI)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Digital</div>
+            <div class="comparison-value">Infrastructure</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Revenue Visibility</div>
+            <div class="comparison-value">5-8 years (price review)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Demand-dependent, forecast risk</div>
+            <div class="comparison-value">25+ years (fixed unitary)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Contract-dependent (3-5y)</div>
+            <div class="comparison-value">Leases and commercial</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Gearing Capacity</div>
+            <div class="comparison-value">60-75% (regulatory framework)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">50-70% (demand risk buffer)</div>
+            <div class="comparison-value">70-80% (low risk payment)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">50-60% (refinance risk)</div>
+            <div class="comparison-value">Higher growth capex</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Inflation Linkage</div>
+            <div class="comparison-value">RPI/CPI linked (80%+ revenue)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Demand-exposed (low linkage)</div>
+            <div class="comparison-value">RPI-linked (contracted)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Mixed (tower leases escalate, fibre growth)</div>
+            <div class="comparison-value">depends on power/contract terms</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Growth Potential</div>
+            <div class="comparison-value">RAB capex (3-4%/year growth)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Capacity expansion (5-10% CAGR)</div>
+            <div class="comparison-value">Minimal (fixed contract)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Colocation, new markets (8-12%)</div>
+            <div class="comparison-value">Data centre hypergrowth (15%+)</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Regulatory Complexity</div>
+            <div class="comparison-value">Very High (price review risk)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Medium-High (pricing caps, slots)</div>
+            <div class="comparison-value">Low (contract terms fixed)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Medium (spectrum, tariffs)</div>
+            <div class="comparison-value">varies by jurisdiction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 18: RAB-BASED VALUATION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: Valuation</div>
+      <div class="card-title">RAB-Based Valuation &amp; RAB Premium/Discount</div>
+      <div class="card-body">
+        <p><strong>Baseline:</strong> Regulated utility equity value = RAB + value of embedded outperformance. Most listed utilities trade at premium to RAB (1.2-1.6x RAB).</p>
+        <div class="metric-item">
+          <div class="metric-name">Why RAB Premium?</div>
+          <div class="metric-def">Premium stems from: (1) Embedded cost outperformance (company can beat allowed totex, keep 50%), (2) RCV/RAB growth assumptions (capex adds to asset base at attractive returns), (3) Cost of equity compression (falling gilt yields cut allowed CoE, but company locked into higher returns by lagging regulatory adjustment). Typical premium: 20-40% over RAB.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">When Discounts Emerge</div>
+          <div class="metric-def">EV &lt; RAB signals: (1) Regulatory intervention risk (government price cap freeze), (2) Major capex catch-up needed (RCV growth stalled, financing burden high), (3) Financial distress (dividend cuts imminent, covenant pressure), (4) Stranded assets (gas networks facing secular decline). Example: UK water 2023-2024 traded 0.8-1.0x RAB due to investor concerns re: regulatory reset + environmental capex costs.</div>
+        </div>
+        <div class="formula-box">
+          <span class="formula-label">RAB Valuation (Simplified)</span>
+          Equity Value = RAB × (1 + Premium) − Net Debt<br>
+          Premium = f(Outperformance expectations, CoE compression, Capex efficiency)
+        </div>
+        <p style="margin-top: 16px;"><strong>Diligence:</strong> Stress test premium assumptions. If regulatory reset is imminent (2025), premium may compress. If major capex is unscheduled (climate-driven), ROI may be below allowed return (no premium justified).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 19: DCF IN INFRASTRUCTURE -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: Valuation</div>
+      <div class="card-title">DCF in Infrastructure: Real vs. Nominal Discount Rates</div>
+      <div class="card-body">
+        <p><strong>Key challenge:</strong> Infrastructure cashflows are inflation-linked (real), while WACC is typically nominal. Mismatch creates valuation errors.</p>
+        <div class="metric-item">
+          <div class="metric-name">Real vs. Nominal WACC</div>
+          <div class="metric-def">Nominal WACC: calculated from nominal cost of debt (5-6%) and nominal cost of equity (8-10%), reflecting current inflation expectations. Real WACC: removes inflation expectations (typically 2-3% lower). Use real WACC with real cashflows; nominal WACC with nominal cashflows. Mixing = error.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Terminal Value: Concession vs. Perpetuity</div>
+          <div class="metric-def">Concession (fixed 30-50 year term): Terminal value = 0 (or residual asset value at handback). Regulated utility (perpetual): Terminal value = Gordon growth model (FCF in year N+1) ÷ (WACC − g). Growth rate g: typically inflation (2-3%), rarely higher.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Matching Inflation Assumptions Across Model</div>
+          <div class="metric-def">If revenue grows at RPI (2-3% real, or 4-5% nominal at 2% inflation assumption), discount rate must reflect same inflation assumption. Ofwat models: 2% base inflation, RPI growth in revenues, real WACC applied. Mismatch (e.g., 3% inflation in FCF but 2% in WACC) compounds valuation error year-over-year.</div>
+        </div>
+        <div class="formula-box">
+          <span class="formula-label">DCF Setup (Simplified)</span>
+          Year 1-5: Explicit forecast (detailed capex, opex, tax)<br>
+          Year 6+: Steady-state (revenue growth = inflation rate)<br>
+          Terminal Value = FCF(Yr N) × (1+g) ÷ (WACC − g)<br>
+          For concession: TV = Residual asset value (0 if full depreciation)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 20: SUM-OF-THE-PARTS VALUATION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: Valuation</div>
+      <div class="card-title">Sum-of-the-Parts: Multi-Asset Platforms</div>
+      <div class="card-body">
+        <p><strong>Structure:</strong> Holding company owns multiple infrastructure assets (Brookfield Infra owns utilities, toll roads, ports, data centres across 50+ jurisdictions). Valuation = sum of underlying assets − holding company overhead.</p>
+        <div class="metric-item">
+          <div class="metric-name">Valuing Each Asset Separately</div>
+          <div class="metric-def">Utilities (Ofwat-regulated): 1.3x RAB. Toll roads (concession): DCF (years to maturity). Ports: EV/EBITDA 8-12x (depending on growth, leverage). Digital infra: 15-20x EBITDA (higher growth multiple). Sum each separately, then combine.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Holding Company Discount (HCD)</div>
+          <div class="metric-def">Parent company overhead (management, financing, tax) typically reduces NAV by 10-20%. HCD reflects: (1) Interest costs on parent debt, (2) Corporate costs not allocated to divisions, (3) Minority interest losses. Example: Brookfield Infrastructure trades at 10-15% discount to calculated NAV.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Cross-Selling Synergies vs. Conglomerate Discount</div>
+          <div class="metric-def">Potential synergies: shared capex/opex platforms, financing optimization (lower blended cost of capital across portfolio), risk diversification (geography, sector). But: execution risk (integration costs), lack of focus (investors dislike conglomerate trading discounts). Net: typically 5-10% discount unless synergies are clearly articulated.</div>
+        </div>
+        <p style="margin-top: 16px;"><strong>NAV-based approach:</strong> For listed vehicles trading below NAV, upside exists if discounts close. Risk: if underlying asset values fall (RAB revaluation, toll road traffic miss), NAV contracts, discount persists.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 21: TRANSACTION MULTIPLES -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: Valuation</div>
+      <div class="card-title">Transaction Multiples by Sub-Sector</div>
+      <div class="card-body">
+        <p><strong>Multiples are highly regime-dependent.</strong> Post-2020 QE: multiples inflated. 2023-2024 (rising rates): multiples compressed 15-25%. Use recent comps, stress for interest rate sensitivity.</p>
+        <div class="metric-item">
+          <div class="metric-name">Regulated Utilities: EV/EBITDA & EV/RAB</div>
+          <div class="metric-def">Water (Ofwat): 10-14x EV/EBITDA (operational), 1.2-1.6x EV/RAB (depending on outperformance visibility). Energy networks: 11-15x EV/EBITDA. Gas networks: lower multiples (8-11x) due to secular decline. Buyer premium: +10-15% above listed price (control premium, synergy value).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Airports: EV/EBITDA Range</div>
+          <div class="metric-def">2022-2023: 12-18x EV/EBITDA (post-COVID recovery discount). 2024: 14-20x as traffic normalized. Standalone airport acquisition rare; usually bought as portfolio (BAA, Singapore Changi, Groupe Aéroport de Paris). Multiple reflects: passenger growth assumptions, commercial upside, regulatory regime.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Toll Roads: EV/EBITDA & Yield-Based Pricing</div>
+          <div class="metric-def">Mature toll roads: 12-18x EV/EBITDA (low growth, stable cashflows). Yield-based: 5-7% yield (EBITDA ÷ EV). Greenfield toll roads: 8-12x (higher risk, construction uncertainty). Spanish/LatAm toll roads: lower multiples (political risk discount).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Towers: 20-30x EBITDA; Data Centres: 15-25x EBITDA</div>
+          <div class="metric-def">Towers: Growth from colocation, 5G rollout. Data centres: Hyperscale migration, AI capex driving demand. Both command growth multiples (vs utilities at 10-14x). Buyer synergies: scale efficiencies, combined capex leverage, customer overlap.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 22: TRANSACTION TYPES & ACQUISITION RETURNS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: Valuation</div>
+      <div class="card-title">Transaction Types: Greenfield, Brownfield, Refinancing, Portfolio Sales</div>
+      <div class="card-body">
+        <div class="metric-item">
+          <div class="metric-name">Greenfield (New Infrastructure, Construction Risk)</div>
+          <div class="metric-def">IRR target: 12-15% (equity). Buyers: infrastructure funds, pension funds, institutional LPs. Return drivers: (1) Construction management (deliver on time, on budget), (2) cost overrun mitigation, (3) ramp-up execution (traffic/demand reach forecast). Risk: 20-30% of greenfield toll roads underperform forecast. Hold period: 8-12 years to operating maturity, then sell to core infra buyer.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Brownfield (Operational Assets, Lower Risk)</div>
+          <div class="metric-def">IRR target: 7-10% (equity). Buyers: core infrastructure (long-term hold), life insurance, pension funds. Return drivers: (1) cost efficiencies (opex savings), (2) capex optimization (avoid major surprises), (3) regulated tariff increases (for utilities). Lower risk = lower return. Typically: hold period 15+ years.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Refinancing (Leverage Optimization)</div>
+          <div class="metric-def">Asset stable, debt markets favorable: refinance at lower cost. Example: 2015-2018, many utilities refinanced 5-7% debt at 2-3%. Spread captured by equity (reduced cost of debt = higher FCF to equity). IRR uplift: 2-4% from leverage optimization alone. Risk: only works if rates falling or credit quality improving.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Portfolio Sales (Bulk Divestiture, Aggregation)</div>
+          <div class="metric-def">Sell multiple assets as package (e.g., 50 solar plants, 100 telecom towers). Buyer synergies: operational consolidation, financing optimization, risk pooling across geographies. Premium vs. standalone: +5-15%. Discount risk: if buyer is distressed seller (financial institution forced exit), multiples compress 10-20%.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 23: REGULATORY RESET RISK -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV: Diligence &amp; Red Flags</div>
+      <div class="card-title">Regulatory Reset Risk &amp; Value Destruction</div>
+      <div class="card-body">
+        <p><strong>Case study: UK Water 2024 Price Review.</strong> Ofwat allowed returns compressed from 5.2% (AMP6, 2015-2020) to 2.75% (AMP7, 2020-2025). Many water utilities' equity IRR fell from 15%+ to 6-8% in single regulatory decision. Stock prices fell 30-40%.</p>
+        <div class="metric-item">
+          <div class="metric-name">Cost of Equity Compression Drivers</div>
+          <div class="metric-def">Regulators cut allowed CoE as government bond yields fall. But equity investors don't see a proportional benefit (valuation multiples expand on lower yield, but infra-specific risk premiums don't fall as fast). Result: structural return compression. Ofwat 2024: debate over whether CoE should be 2.5% or 3.5% — 100 bps difference = 20-30% equity value variance.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Capex Allowance Cuts</div>
+          <div class="metric-def">Regulator may reduce allowed capex (e.g., climate-related costs deemed "not efficient"). Lower capex = lower RAB growth, lower future returns. Ofwat 2024: water companies proposed £170bn capex for AMP8; regulators likely to allow only £120-140bn. Shortfall = £30-50bn RAB growth lost.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Regulatory Lag & Timing Mismatches</div>
+          <div class="metric-def">Inflation surges (2021-2023), but regulatory reset may be 18+ months away. Companies bear inflation cost in interim (wages, energy, materials). Recovery may be partial or delayed. Example: UK gas networks: inflation spiked 2021-2022, but RIIO-2 settlement (effective 2021-2028) was agreed pre-inflation spike. Recovery via mid-term review (2026) uncertain.</div>
+        </div>
+        <div class="warning-box">
+          <span class="warning-label">Key Risk: Regulatory Intervention</span>
+          <p>Political pressure can override regulator independence. UK 2023: government called for water price freeze. If enforced, £5-10bn of regulatory value at stake (equals 20-30% of market cap for large water utility). Due diligence: assess political risk, regulator independence, likelihood of intervention.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 24: DEMAND FORECASTING ERRORS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV: Diligence &amp; Red Flags</div>
+      <div class="card-title">Demand Forecasting Errors &amp; Optimism Bias</div>
+      <div class="card-body">
+        <p><strong>Flyvbjerg Research (2002-2020):</strong> Analyzed 183 transport projects worldwide. Finding: 85% of projects with demand forecasts overestimated traffic; average overestimation: 20-30% in Year 1.</p>
+        <div class="metric-item">
+          <div class="metric-name">Root Causes of Optimism Bias</div>
+          <div class="metric-def">(1) Developer incentives (higher traffic forecasts justify higher capex financing, larger equity IRR), (2) Incomplete demand modelling (missing induced demand, cannibalization), (3) Supplier forecasting (consultants contracted by developer, incentivized to please), (4) Regulatory capture (regulators accept forecasts without scrutiny). Example: London Thames Crossing (£20bn toll scheme): forecasts show 120k vehicles/day; independent review suggests 60-80k realistic.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Greenfield Toll Road Case Study</div>
+          <div class="metric-def">Typical pattern: Year 1 traffic = forecast × 70-80%. Ramp-up over 3-5 years to 90%+ of forecast. Some never reach forecast (induced demand assumption wrong). Example: Sydney Crosstown tunnel (Australia) opened 2024 with traffic 40% below forecast. Equity value destruction: 15-25% IRR compression vs. underwriting.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">COVID as Permanent Demand Shift</div>
+          <div class="metric-def">Airports: business travel fell 40% (2020). Recovery post-2022: 80% of pre-COVID levels (some permanent work-from-home), not 100%. Toll roads: 15-20% traffic loss (lockdown), 95%+ recovery post-2021, but some structural shift to EVs (lower mileage). Demand forecasts updated (lower forever assumptions), equity valuations reset downward.</div>
+        </div>
+        <div class="warning-box">
+          <span class="warning-label">Permanent Demand Destruction Risk</span>
+          <p>Shifts in behaviour (remote work, EV adoption, modal shift) can permanently reduce demand. Toll road equity models often assume traffic ramps back to pre-crisis trend. Reality: trend may be permanently lower. Scenario analysis: model +10%, base, −10% demand cases. In −10% case, IRR may fall from 12% to 5%.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 25: CONSTRUCTION & COMPLETION RISK -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV: Diligence &amp; Red Flags</div>
+      <div class="card-title">Construction Risk &amp; EPC Contractor Failure</div>
+      <div class="card-body">
+        <p><strong>Mega-project track record:</strong> 90% of £1bn+ infrastructure projects exceed budget. Average cost overrun: 25-35%. Schedule overruns: 20-40%.</p>
+        <div class="metric-item">
+          <div class="metric-name">Fixed-Price EPC Structures</div>
+          <div class="metric-def">Contractor obligated to deliver at fixed price. Cost overruns = contractor loss (unless force majeure claim). Incentivizes efficiency, but creates contractor bankruptcy risk. Contractor insolvency (Carillion, Granite) leaves clients with incomplete assets, unpaid subs, warranty gaps. Equity bears cost of project completion or takes loss.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Liquidated Damages (LD) Caps</div>
+          <div class="metric-def">If contractor misses completion date, pays delay penalties (e.g., £1m per week). Total LD = cap (e.g., 10% of contract value). Once cap hit, contractor has no incentive to accelerate. Risk: project stalls at 90% complete. Client forced to negotiate revised terms (contractor demands cost increase). Equity diluted.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Key Risk Factors to Assess</div>
+          <div class="metric-def">(1) Contractor credit rating (A− minimum for major projects), (2) Contractor balance sheet (sufficient capital to absorb cost overruns), (3) Subcontractor chain (if subs fail, contractor liable), (4) Contract structure (cost + gain-share reduces contractor skin-in-game), (5) Insurance coverage (project insurance for latent defects, weather, supply chain).</div>
+        </div>
+        <div class="example-box">
+          <span class="example-label">Case: Carillion PFI Failures</span>
+          Carillion contracted for £70m+ of UK PFI/PPP construction. 2018: insolvency. Projects unfinished, staff unpaid. Government forced to complete projects, costs ballooned 20-30%. Equity investors in Carillion took 80%+ losses. PFI sponsors lost £100m+ of project value.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 26: POLITICAL & EXPROPRIATION RISK -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV: Diligence &amp; Red Flags</div>
+      <div class="card-title">Political Risk &amp; Concession Renegotiation</div>
+      <div class="card-body">
+        <p><strong>Trend:</strong> Governments increasingly renegotiating infrastructure contracts post-election or under political pressure (populism, anti-private sector sentiment).</p>
+        <div class="metric-item">
+          <div class="metric-name">Nationalisation Risk (UK Water Case)</div>
+          <div class="metric-def">2023-2024: UK political debate over water utility nationalisation (privatised 1989). If enacted, private equity takes 50-70% haircut (or full loss). Probability: 20-30% (dependent on election outcome). Market reaction: UK water stocks down 40%+ over 18 months. Political risk insurance available (50bps−2% annual premium) but caps coverage at 80%.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Regulatory Intervention & Windfall Taxes</div>
+          <div class="metric-def">2021-2023: UK introduced 25% windfall tax on oil/gas profits due to energy crisis. Infrastructure could face similar taxes if deemed "excess profits". Italy: 10% windfall tax on utilities (2022). Spain: temporary price caps on energy (destroyed regulated return assumptions). Diligence: assess government fiscal pressure, probability of retroactive tax changes.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Concession Renegotiation (Latin America, Africa)</div>
+          <div class="metric-def">LatAm trend: governments renegotiate toll road, energy, water concessions to lower fees/profits to citizens. Example: Peru toll roads: concessionaires forced to accept lower tariffs (political pressure). Argentina toll roads: tariffs frozen 2018-2023 despite inflation (operator losses). Outcome: equity destroyed, debt defaults, concession terminated.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Bilateral Investment Treaties (BITs)</div>
+          <div class="metric-def">Protection for foreign investors against expropriation/unfair treatment. Investor can sue host government for damages. Coverage: typically 80-100% of investment value. Trend: many countries withdrawing from BITs (sovereignty concerns). Claims increasingly lost (narrower interpretation of "fair and equitable treatment"). Insurance declining; cost rising.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 27: INFLATION LINKAGE & MISMATCH RISK -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV: Diligence &amp; Red Flags</div>
+      <div class="card-title">Inflation Linkage Mismatches &amp; Real vs. Nominal Debt</div>
+      <div class="card-body">
+        <p><strong>2021-2023 lesson:</strong> Inflation spiked to 10%+ (UK, Europe, US). Winners: assets with inflation-linked revenues (utilities, toll roads with RPI escalators). Losers: assets with fixed-rate debt (nominal) + inflation-capped revenues.</p>
+        <div class="metric-item">
+          <div class="metric-name">RPI Linkage Benefit in High Inflation</div>
+          <div class="metric-def">Utility revenue linked to RPI = grows 8-10% annually in high inflation. Debt fixed at 2-3% nominal = real debt burden falls. Equity captures the spread. Example: UK water 2022-2023: revenues up 5-7% (RPI), debt cost fixed 2-3%. Net benefit to equity: 2-4% ROE uplift.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">RPI to CPI Switch Risk (UK Water 2020)</div>
+          <div class="metric-def">Ofwat decided to switch from RPI (4-5% in inflation regimes) to CPI (typically 1-2 percentage points lower). One-time impact: 30-50 bps reduction in allowed return. Perpetual impact: £10-20bn of water utility equity value destroyed. Lesson: regulatory framework changes can override inflation linkage benefit.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Real vs. Nominal Debt Structures</div>
+          <div class="metric-def">Real debt: linked to inflation (rare; mostly index-linked gilts, government bonds). Nominal debt: fixed interest rate. In high inflation, nominal debt benefits borrower (real cost falls). Example: 3% nominal debt in 8% inflation = −5% real cost of borrowing. Equity captures value. Risk: debt maturity requires refinance at higher rates (inflation expectations adjust upward).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Breakeven Inflation Analysis</div>
+          <div class="metric-def">At what inflation rate does the project/utility reach target IRR? Example: toll road with 2% nominal revenue growth, 4% nominal debt cost. Breakeven inflation ≈ 2-3% (below long-run expectations, so IRR likely higher). If inflation falls to 1%, toll road IRR compressed. Stress: model project at 0%, 2%, 4% inflation scenarios.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 28: KEY GLOBAL REGULATORS APPENDIX -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV: Diligence &amp; Red Flags</div>
+      <div class="card-title">Key Regulators: Global Infrastructure Landscape</div>
+      <div class="card-body">
+        <div class="metric-item">
+          <div class="metric-name">Ofwat (England & Wales Water)</div>
+          <div class="metric-def">Regulates 10 monopoly water companies. 5-year price reviews (AMP cycles). 2024: setting AMP8 (2025-2030), allowed return debate: 2.75-3.5% CoE (vs. 5.2% in 2015). Known for: totex efficiency framework, ODI incentives, environmental scrutiny (leakage targets). Risk: cost-of-capital compression ongoing.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Ofgem (GB Energy Networks)</div>
+          <div class="metric-def">Regulates electricity transmission/distribution and gas networks. 8-year RIIO cycles (2021-2028: RIIO-2, 2028+: RIIO-3). Allowed CoE: 4.5-5.0% (higher than water due to transition risk). Focus: decarbonisation (EV charging, heat pumps), grid hardening. Risk: gas network secular decline.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">AER (Australian Energy Regulator)</div>
+          <div class="metric-def">Regulates Australian utilities and networks. Known for: inflation indexation (CPI-linked), market-based CoE benchmarking. 5-year regulatory periods. Recently: CoE debate (2020-2024): allowed return falls from 5.8% to 5.0%+. Reputation: rigorous technical analysis, lower political interference than some markets.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">FERC (Federal Energy Regulatory Commission, USA)</div>
+          <div class="metric-def">Regulates interstate transmission and pipeline utilities. Less prescriptive than EU/UK regulators; allows negotiated ROE (target: 10-11% for utilities). State-level regulators (PUCs) set retail rate caps. Known for: less regulatory intervention, higher returns available, higher political variability (state-level policy shifts).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">BNetzA (German Federal Network Agency)</div>
+          <div class="metric-def">Regulates electricity/gas networks. 4-year regulatory periods. Allowed CoE: 5-6% (higher risk premium for regulatory intervention likelihood). Known for: decentralisation (renewable integration), transition support (Energiewende). Risk: political pressure to cap consumer prices.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">ARERA (Italian Utility Regulator)</div>
+          <div class="metric-def">Regulates Italian utilities and networks. 4-year periods. CoE: 5-6%. Known for: cost-push regulation (allowed ROA on RAB), less efficiency incentives than UK. Risk: government fiscal pressure (windfall taxes, price caps on energy during crises).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 29: FINALE -->
+  <div class="beat beat-scene">
+    <div class="beat-inner">
+      <div class="scene-location">INFRASTRUCTURE &amp; TRANSPORT SPECIAL COMPLETE</div>
+      <div class="scene-text">
+        <p>You've covered the full infrastructure landscape: from regulated asset bases and price review mechanics, through concession economics and PPP/PFI structures, to the sub-sector nuances that separate a water utility from a toll road from a data centre. You understand how RAB-based valuation works, why infrastructure gearing runs structurally higher than corporates, and where the real diligence risks hide — in demand forecasts, regulatory resets, and political intervention.</p>
+        <p>Infrastructure is a long-duration asset class. The cashflows are predictable — until they aren't. Regulatory frameworks that took decades to build can be upended by a single political cycle. Traffic forecasts that looked conservative at FID can prove wildly optimistic five years in. The discipline is in stress-testing the assumptions that everyone else takes for granted.</p>
+        <p><strong>Remember:</strong> In infrastructure, the contract is everything. Read the concession agreement. Understand the regulatory settlement. Model the downside. The best infrastructure investments are bought on the basis of contractual cashflows, not optimistic demand projections or political promises.</p>
+        <div style="margin-top: 24px; text-align: center;">
+          <a href="G2G_Infrastructure_Reference.pdf" download target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #6b2fa0, #d946ef); color: #fff; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 15px; box-shadow: 0 4px 15px rgba(107,47,160,0.4);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Infrastructure Cram Sheet
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter-nav-row">
+    <a href="ch20.html" class="prev-chapter-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      <span class="btn-label"><span class="btn-next">Previous Chapter</span><span class="btn-title">The Real Estate Special</span></span>
+    </a>
+    <a href="ch22.html" class="next-chapter-btn">
+      <span class="btn-label"><span class="btn-next">Next Chapter</span><span class="btn-title">The Business Services &amp; Outsourcing Special</span></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+<script>
+  let currentBeat = 0;
+  let startY = 0;
+  let isAnimating = false;
+  const beats = document.querySelectorAll('.beat');
+  const totalBeats = beats.length;
+
+  function positionBeats() {
+    beats.forEach((beat, i) => {
+      if (i < currentBeat) {
+        beat.style.transform = 'translateY(-100vh)';
+        beat.style.opacity = '0';
+        beat.style.pointerEvents = 'none';
+        beat.style.visibility = 'hidden';
+      } else if (i === currentBeat) {
+        beat.style.transform = 'translateY(0)';
+        beat.style.opacity = '1';
+        beat.style.pointerEvents = 'auto';
+        beat.style.visibility = 'visible';
+      } else {
+        beat.style.transform = 'translateY(100vh)';
+        beat.style.opacity = '0';
+        beat.style.pointerEvents = 'none';
+        beat.style.visibility = 'hidden';
+      }
+    });
+  }
+
+  function updateCounter() {
+    const counter = document.getElementById('beatCounter');
+    if (counter) counter.textContent = `${currentBeat + 1} / ${totalBeats}`;
+  }
+
+  function updateProgress() {
+    // Progress bar removed (nav dots replaced it)
+  }
+
+  function goTo(index) {
+    if (isAnimating || index < 0 || index >= totalBeats) return;
+    isAnimating = true;
+    const direction = index > currentBeat ? -1 : 1;
+    beats[currentBeat].style.transform = `translateY(${direction * 100}vh)`;
+    beats[currentBeat].style.opacity = '0';
+    beats[currentBeat].style.pointerEvents = 'none';
+    beats[currentBeat].style.visibility = 'hidden';
+    beats[index].style.transform = 'translateY(0)';
+    beats[index].style.opacity = '1';
+    beats[index].style.pointerEvents = 'auto';
+    beats[index].style.visibility = 'visible';
+    currentBeat = index;
+    updateCounter();
+    updateProgress();
+    saveProgress();
+    document.querySelectorAll('.nav-dots .dot').forEach((d, di) => d.classList.toggle('active', di === currentBeat));
+    const hint = document.getElementById('swipeHint');
+    if (hint) {
+      hint.style.opacity = '0';
+      setTimeout(() => hint.remove(), 500);
+      try { localStorage.setItem('g2g-swipe-seen', '1'); } catch(e) {}
+    }
+    setTimeout(() => { isAnimating = false; }, 350);
+  }
+
+  document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const beat = beats[currentBeat];
+    const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+    const atTop = beat.scrollTop <= 5;
+    const diff = startY - e.changedTouches[0].clientY;
+    if (diff > 50 && atBottom) goTo(currentBeat + 1);
+    if (diff < -50 && atTop) goTo(currentBeat - 1);
+  }, { passive: true });
+
+  let wheelAccum = 0;
+  let wheelTimer = null;
+  document.addEventListener('wheel', e => {
+    const beat = beats[currentBeat];
+    const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+    const atTop = beat.scrollTop <= 5;
+    wheelAccum += e.deltaY;
+    clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(() => { wheelAccum = 0; }, 200);
+    if (wheelAccum > 50 && atBottom) { wheelAccum = 0; goTo(currentBeat + 1); }
+    if (wheelAccum < -50 && atTop) { wheelAccum = 0; goTo(currentBeat - 1); }
+  }, { passive: true });
+
+  document.addEventListener('keydown', e => {
+    const beat = beats[currentBeat];
+    const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+    const atTop = beat.scrollTop <= 5;
+    if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key)) {
+      if (atBottom) { e.preventDefault(); goTo(currentBeat + 1); }
+    } else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) {
+      if (atTop) { e.preventDefault(); goTo(currentBeat - 1); }
+    } else if (e.key === ' ') {
+      e.preventDefault();
+      if (atBottom) goTo(currentBeat + 1);
+      else beat.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+    } else if (e.key === 'Home') {
+      e.preventDefault(); goTo(0);
+    } else if (e.key === 'End') {
+      e.preventDefault(); goTo(totalBeats - 1);
+    }
+  });
+
+  const swipeHint = document.getElementById('swipeHint');
+  if (swipeHint) {
+    try { if (localStorage.getItem('g2g-swipe-seen')) swipeHint.remove(); } catch(e) {}
+  }
+
+  const navContainer = document.querySelector('.nav-dots');
+  for (let i = 0; i < totalBeats; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goTo(i);
+    navContainer.appendChild(dot);
+  }
+
+  positionBeats();
+
+  // Create nav dots
+  (function() {
+    var navEl = document.querySelector('.nav-dots');
+    if (!navEl) {
+      navEl = document.createElement('div');
+      navEl.className = 'nav-dots';
+      navEl.id = 'navDots';
+      document.body.appendChild(navEl);
+    }
+    var beats = document.querySelectorAll('.beat');
+    navEl.innerHTML = '';
+    for (var i = 0; i < beats.length; i++) {
+      var dot = document.createElement('div');
+      dot.className = 'dot';
+      dot.dataset.index = i;
+      dot.addEventListener('click', function() {
+        var idx = parseInt(this.dataset.index);
+        if (typeof goTo === 'function') goTo(idx);
+      });
+      navEl.appendChild(dot);
+    }
+  })();
+
+  updateCounter();
+  updateProgress();
+
+  const CHAPTER_NUM = 21;
+  function saveProgress() {
+    try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeat); } catch(e) {}
+  }
+
+  (function() {
+    try {
+      const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+      if (saved && saved > 0 && saved < totalBeats) {
+        const toast = document.createElement('div');
+        toast.className = 'resume-toast';
+        toast.innerHTML = `<span>Resume from beat ${saved + 1}?</span><button onclick="goTo(${saved}); this.parentNode.remove();">Resume</button><button onclick="this.parentNode.remove();">Start Over</button>`;
+        document.body.appendChild(toast);
+        setTimeout(() => { if (toast.parentNode) toast.remove(); }, 8000);
+      }
+    } catch(e) {}
+  })();
+</script>
+</body>
+</html>

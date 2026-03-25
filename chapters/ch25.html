@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G2G Chapter 25 — The Capital Markets Special</title>
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://g2ga-069.github.io/G2G/chapters/ch25.html">
+  <meta property="og:title" content="Chapter 25: The Capital Markets Special — G2G Advisory">
+  <meta property="og:description" content="Equity &amp; Debt Origination, Syndication &amp; Execution">
+  <meta property="og:image" content="https://g2ga-069.github.io/G2G/images/og-preview.png">
+  <meta property="og:site_name" content="G2G Advisory">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chapter 25: The Capital Markets Special — G2G Advisory">
+  <meta name="twitter:description" content="Equity &amp; Debt Origination, Syndication &amp; Execution">
+  <meta name="twitter:image" content="https://g2ga-069.github.io/G2G/images/og-preview.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon-180.png">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0c;
+      --surface: #131318;
+      --surface-2: #1a1a22;
+      --border: #2a2a35;
+      --text: #e8e4df;
+      --text-muted: #a8a4b0;
+      --text-dim: #7a7680;
+      --accent: #b07ce8;
+      --accent-dim: #7a55b0;
+      --accent-bright: #d4a0ff;
+      --green: #4a9e6e;
+      --red: #c45c4a;
+      --blue: #5a8fc4;
+      --purple: #8a3cc4;
+      --brand-purple: #6b2fa0;
+      --brand-magenta: #d946ef;
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { height: 100%; overflow: hidden; overscroll-behavior: none; }
+    body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-serif);
+      line-height: 1.7;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .beat {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 52px 24px 60px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s, transform 0.35s ease-in-out;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .beat-inner {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* TITLE BEAT */
+    .beat-title {
+      background: radial-gradient(ellipse at 60% 40%, rgba(176, 124, 232, 0.15) 0%, rgba(107, 47, 160, 0.08) 40%, var(--bg) 100%);
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .beat-title .beat-inner {
+      text-align: center;
+    }
+
+    .series-name {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 16px;
+    }
+
+    .chapter-number {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+
+    .beat-title h1 {
+      font-family: var(--font-serif);
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--accent-bright);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .beat-title .subtitle {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* CARD BEAT */
+    .beat-card {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beat-card .beat-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .card-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    .card-body {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .card-body p {
+      margin-bottom: 16px;
+    }
+
+    .card-body strong {
+      color: var(--accent-bright);
+      font-weight: 600;
+    }
+
+    .metric-item {
+      margin-bottom: 16px;
+      padding-left: 16px;
+      border-left: 2px solid var(--accent-dim);
+    }
+
+    .metric-name {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--accent-bright);
+    }
+
+    .metric-def {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .comparison-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .comparison-col {
+      flex: 1;
+    }
+
+    .comparison-header {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .comparison-value {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .bullet-list {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    .bullet-list li {
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .bullet-list li strong {
+      color: var(--accent-bright);
+    }
+
+    .formula-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--accent-bright);
+      line-height: 1.6;
+    }
+
+    .formula-box .formula-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .example-box {
+      background: linear-gradient(135deg, rgba(74,158,110,0.08), rgba(74,158,110,0.03));
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .example-box .example-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, rgba(196,92,74,0.08), rgba(196,92,74,0.03));
+      border-left: 3px solid var(--red);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .warning-box .warning-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-box p {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .section-divider {
+      background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+      height: 1px;
+      margin: 24px 0;
+    }
+
+    .part-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 4px;
+    }
+
+    /* SCENE BEAT */
+    .beat-scene {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beat-scene .beat-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .scene-location {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 16px;
+    }
+
+    .scene-text {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    .scene-text strong {
+      color: var(--accent-bright);
+    }
+
+    .scene-text a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .scene-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* UI ELEMENTS */
+    .beat-counter {
+      position: fixed;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
+      right: 24px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--text-dim);
+      z-index: 998;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      z-index: 996;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .swipe-hint {
+      position: fixed;
+      bottom: 60px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-dim);
+      z-index: 995;
+      animation: fadeOutAfter 7s forwards;
+    }
+
+    @keyframes fadeOutAfter {
+      0%, 85% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .resume-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      border: 1px solid var(--accent-dim);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 1000;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .resume-toast button {
+      background: var(--accent-dim);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+
+    .resume-toast button:first-of-type {
+      background: var(--brand-purple);
+    }
+
+    .resume-toast button:hover {
+      opacity: 0.9;
+    }
+
+    /* Wider beat-inner for comparison tables */
+    .beat-card.comparison-wide .beat-inner {
+      max-width: 760px;
+    }
+
+    /* Download button */
+    .download-hero {
+      margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 14px;
+    }
+    .download-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 36px; border-radius: 10px; text-decoration: none;
+      background: linear-gradient(135deg, #6b2fa0, #d946ef);
+      color: #fff; font-family: var(--font-sans, 'Inter', sans-serif); font-size: 15px;
+      font-weight: 700; letter-spacing: 0.5px;
+      transition: all 0.3s; box-shadow: 0 4px 24px rgba(107,47,160,0.4);
+    }
+    .download-btn:hover {
+      transform: translateY(-2px); box-shadow: 0 8px 32px rgba(107,47,160,0.6);
+    }
+    .download-btn svg { width: 20px; height: 20px; }
+    .download-note {
+      font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 11px;
+      color: var(--text-dim, var(--text-muted, #7a7680)); letter-spacing: 0.5px;
+    }
+
+    /* Nav dots */
+    .nav-dots {
+      position: fixed; top: 50%; right: 12px; transform: translateY(-50%);
+      z-index: 100; display: flex; flex-direction: column; gap: 6px;
+    }
+    .nav-dots .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); cursor: pointer; transition: all 0.3s;
+    }
+    .nav-dots .dot.active {
+      background: var(--accent, #b07ce8); box-shadow: 0 0 6px rgba(176,124,232,0.4);
+      width: 10px; height: 10px;
+    }
+    .nav-dots .dot:hover { background: var(--accent-dim, rgba(176,124,232,0.5)); }
+
+    @media (max-width: 768px) {
+      .nav-dots { right: 8px; gap: 4px; }
+      .beat-inner { padding-right: 28px; }
+      .nav-dots .dot { width: 6px; height: 6px; }
+      .nav-dots .dot.active { width: 8px; height: 8px; }
+    }
+
+    /* Resume toast — mobile-safe */
+    @media (max-width: 768px) {
+      .resume-toast {
+        max-width: calc(100vw - 32px); width: auto;
+        padding: 12px 16px; gap: 10px;
+        bottom: max(70px, calc(60px + env(safe-area-inset-bottom)));
+        font-size: 12px; flex-wrap: wrap; justify-content: center;
+      }
+      .resume-toast button { padding: 8px 16px; font-size: 12px; }
+    }
+
+    .prev-chapter-btn, .next-chapter-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 28px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(107,47,160,0.15), rgba(176,124,232,0.10));
+      border: 1px solid rgba(176,124,232,0.25);
+      color: var(--accent, #b07ce8); text-decoration: none;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      transition: all 0.3s ease; margin-top: 32px; cursor: pointer;
+    }
+    .prev-chapter-btn:hover, .next-chapter-btn:hover {
+      background: linear-gradient(135deg, rgba(107,47,160,0.25), rgba(176,124,232,0.20));
+      border-color: rgba(176,124,232,0.5); transform: translateY(-1px);
+    }
+    .prev-chapter-btn svg, .next-chapter-btn svg { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.2s; }
+    .next-chapter-btn:hover svg { transform: translateX(4px); }
+    .prev-chapter-btn:hover svg { transform: translateX(-4px); }
+    .prev-chapter-btn .btn-label, .next-chapter-btn .btn-label { display: flex; flex-direction: column; align-items: flex-start; }
+    .prev-chapter-btn .btn-next, .next-chapter-btn .btn-next { font-size: 11px; opacity: 0.7; letter-spacing: 1.5px; text-transform: uppercase; }
+    .prev-chapter-btn .btn-title, .next-chapter-btn .btn-title { font-size: 16px; }
+    .chapter-nav-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 32px; }
+
+    @media (max-width: 768px) {
+      .beat-title h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+      }
+
+      .beat-title .subtitle {
+        font-size: 16px;
+      }
+
+      .card-title {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+      }
+
+      .beat-counter {
+        bottom: max(16px, env(safe-area-inset-bottom, 16px));
+        right: 16px;
+        font-size: 11px;
+      }
+
+      .back-link {
+        top: 16px;
+        left: 16px;
+        font-size: 12px;
+      }
+
+      .prev-chapter-btn, .next-chapter-btn { padding: 14px 24px; font-size: 14px; }
+      .prev-chapter-btn .btn-title, .next-chapter-btn .btn-title { font-size: 14px; }
+      .chapter-nav-row { flex-direction: column; align-items: stretch; }
+      .prev-chapter-btn, .next-chapter-btn { margin-top: 8px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="beat-counter" id="beatCounter"></div>
+  <a href="../index.html" class="back-link">← G2G</a>
+  <div class="nav-dots"></div>
+  <div class="swipe-hint" id="swipeHint">Swipe up to navigate</div>
+
+  <!-- BEAT 1: TITLE -->
+  <div class="beat beat-title">
+    <div class="beat-inner">
+      <div class="chapter-number">Chapter 25</div>
+      <h1>The Capital Markets Special</h1>
+      <div class="subtitle">Equity &amp; Debt Origination, Syndication &amp; Execution</div>
+      <div class="download-hero">
+        <a href="../pdfs/G2G_Capital_Markets_Reference.pdf" class="download-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download Reference
+        </a>
+        <div class="download-note">G2G_Capital_Markets_Reference.pdf</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 2: Overview -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part I</div>
+      <h2 class="card-title">Overview</h2>
+      <div class="card-body">
+        <p>Capital markets is the product that connects issuers (companies and governments needing capital) with investors (institutions deploying capital). The investment bank sits in the middle: originating, structuring, syndicating, and executing. This chapter covers both halves — <strong>equity (ECM)</strong> and <strong>debt (DCM)</strong> — as a single integrated product.</p>
+        <p>While M&A advisory focuses on one buyer and one seller negotiating behind closed doors, capital markets is fundamentally a <strong>distribution business</strong>. The bank's critical role is placing securities with the right investors at the right price, managing the market's appetite in real time, and executing before market conditions shift. The stakes are immediate: a mispriced offering or failed syndication is visible to the entire market within hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 3: The Capital Markets Value Chain -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part I</div>
+      <h2 class="card-title">The Capital Markets Value Chain</h2>
+      <div class="card-body">
+        <p>Every capital markets transaction follows a five-stage value chain:</p>
+        <ul class="bullet-list">
+          <li><strong>Origination:</strong> Relationship banking and pipeline development. Senior bankers maintain issuer relationships, identify financing needs, and pitch mandate opportunities.</li>
+          <li><strong>Structuring:</strong> Security design and pricing framework. What type of equity or debt instrument? What tenor, coupon, covenants, and terms? This is where investment banking skill translates to execution readiness.</li>
+          <li><strong>Syndication:</strong> Building the investor book and managing allocation. Sales teams distribute the offering to institutions, track demand, and pressure-test pricing as the book builds.</li>
+          <li><strong>Execution:</strong> Final pricing, allocation, and settlement. The moment of truth — all the marketing and structuring decisions crystallise into a live execution.</li>
+          <li><strong>Aftermarket:</strong> Stabilisation, market-making, and research coverage. Supporting the price post-issuance, quoting the secondary market, and providing analyst coverage.</li>
+        </ul>
+        <p>Each stage has distinct roles, skill sets, and revenue attribution models. Understanding the full chain is critical because a break anywhere — weak origination relationships, poor structuring, failed syndication, clumsy execution, or lack of aftermarket support — derails the entire transaction.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 4: ECM vs DCM Comparison -->
+  <div class="beat beat-card comparison-wide">
+    <div class="beat-inner">
+      <div class="card-label">Part I</div>
+      <h2 class="card-title">ECM vs DCM Comparison</h2>
+      <div class="card-body">
+        <p>Equity and debt capital markets operate under different dynamics:</p>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Dimension</div>
+            <div class="comparison-value"><strong>Typical Deal Size</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">ECM (Equity)</div>
+            <div class="comparison-value">$500M–$5B+ (large-cap IPOs)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">DCM (Debt)</div>
+            <div class="comparison-value">$200M–$3B (corporate bonds)</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Dimension</div>
+            <div class="comparison-value"><strong>Fee Level</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">ECM (Equity)</div>
+            <div class="comparison-value">3–7% (IPO), 2–4% (follow-on)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">DCM (Debt)</div>
+            <div class="comparison-value">0.2–0.5% (IG), 1.5–2.5% (HY)</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Dimension</div>
+            <div class="comparison-value"><strong>Timeline</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">ECM (Equity)</div>
+            <div class="comparison-value">12–24 months (IPO), 4–6 weeks (follow-on)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">DCM (Debt)</div>
+            <div class="comparison-value">4–6 weeks (IG), 2–4 weeks (HY)</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Dimension</div>
+            <div class="comparison-value"><strong>Investor Base</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">ECM (Equity)</div>
+            <div class="comparison-value">Mutual funds, hedge funds, retail</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">DCM (Debt)</div>
+            <div class="comparison-value">Insurance, asset managers, banks, pension funds</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Dimension</div>
+            <div class="comparison-value"><strong>Risk Profile</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">ECM (Equity)</div>
+            <div class="comparison-value">High volatility, sentiment-driven</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">DCM (Debt)</div>
+            <div class="comparison-value">Credit-driven, covenant-focused</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Dimension</div>
+            <div class="comparison-value"><strong>Market Sensitivity</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">ECM (Equity)</div>
+            <div class="comparison-value">VIX, sector momentum, IPO appetite</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">DCM (Debt)</div>
+            <div class="comparison-value">Credit spreads, interest rates, credit events</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Dimension</div>
+            <div class="comparison-value"><strong>First-Day Dynamics</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">ECM (Equity)</div>
+            <div class="comparison-value">"Pop" typical (15–25%)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">DCM (Debt)</div>
+            <div class="comparison-value">Should trade tight to reoffer (no pop)</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Dimension</div>
+            <div class="comparison-value"><strong>Skill Set</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">ECM (Equity)</div>
+            <div class="comparison-value">Market timing, allocation strategy, sales</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">DCM (Debt)</div>
+            <div class="comparison-value">Credit analysis, covenant design, roadshow</div>
+          </div>
+        </div>
+        <p style="margin-top: 16px;">The key insight: <strong>ECM is event-driven and sentiment-dependent; DCM is continuous and credit-driven.</strong> An equity offering window can slam shut if the market corrects 10% or sentiment shifts against the sector. A debt offering can happen almost any week because credit spreads are always available — the question is price, not binary feasibility.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 5: Market Windows -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part I</div>
+      <h2 class="card-title">Market Windows</h2>
+      <div class="card-body">
+        <p>Capital markets are <strong>window-dependent</strong>. Deals can only be executed when market conditions permit. Understanding and reading the window is the make-or-break skill in capital markets banking.</p>
+        <p><strong>ECM Windows:</strong> Open when equity markets are calm, volatility is low (VIX &lt;20), sector sentiment is positive, and IPO pipeline momentum exists. A spike in VIX, sector rotation, or broad market correction slams the window shut. Companies in acquisition mode often accelerate IPOs to catch a narrow window — miss it and they refinance debt or reduce growth plans instead.</p>
+        <p><strong>DCM Windows:</strong> Open when credit spreads are tight (high demand for corporate bonds relative to supply), interest rates are not spiking, and credit events aren't roiling the market. A ratings downgrade, emerging market crisis, or Fed tightening cycle widens spreads and makes debt offerings expensive. Conversely, post-event normalisations (Fed pauses, corporate earnings beat, geopolitical resolution) reopen windows fast.</p>
+        <p><strong>Why Timing is Everything:</strong> An issuer with a 12-month capital plan doesn't wait passively. Teams at every major company have "hit the market" plans ready: if the window opens next week, can we launch IPO in 10 days? If credit spreads tighten post-Fed decision, can we get a bond away in 48 hours? The most profitable capital markets outcomes happen when banks and issuers are prepared to move <strong>instantly</strong> when conditions align.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 6: The Origination Model -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part I</div>
+      <h2 class="card-title">The Origination Model</h2>
+      <div class="card-body">
+        <p>Capital markets origination is where relationship banking meets execution markets. The structure is hierarchical but tension-ridden.</p>
+        <p><strong>Senior Bankers (Coverage Heads):</strong> Maintain primary issuer relationships. Their role is to know the CFO and treasurer intimately, understand the capital plan (5-year guidance, debt maturities, acquisition ambitions), and pitch mandate opportunities. When the window opens, senior bankers are the ones calling the CFO saying "the window is open now — should we move?"</p>
+        <p><strong>Coverage Bankers:</strong> Bring sector expertise. They understand the sector's capital markets cycle, peer comps, and investor demand. They structure the offering with product specialists and validate whether the proposed terms are competitive in the current market.</p>
+        <p><strong>Syndicate Desk:</strong> Manages distribution to investors. Sales teams own the investor relationships, know which long-only funds are allocating to the sector, which hedge funds are active, and how appetite is shifting. They build the order book in real time and feed back price signals to the pricing committee.</p>
+        <p><strong>Revenue Attribution:</strong> This is where politics emerge. Originator credit (the relationship banker) typically earns 25–35% of the banking fee. Distributor credit (syndicate) earns 40–50%. If the deal is heavily marketed and the sales team's efforts win allocations, distributors demand higher credit. If the deal is tight and relies on the relationship, originators demand higher credit. Joint-bookrunner mandates split credit awkwardly between co-leads.</p>
+        <p><strong>The Tension:</strong> Banking (origination) and Markets (syndicate/trading) divisions have different incentives. Banking wants to close mandates and get the deal live. Markets wants to ensure the deal prices at the best level and that the bank has inventory risk management in place. When the book isn't building, banking pressure to "just get it away" conflicts with markets discipline to "wait for better demand." The best banks manage this tension through clear escalation paths and leadership alignment.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 7: IPO Process Overview -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: ECM</div>
+      <h2 class="card-title">IPO Process Overview</h2>
+      <div class="card-body">
+        <p>An IPO is the most complex capital markets transaction. It typically unfolds in two phases:</p>
+        <p><strong>Pre-IPO Phase (12–24 months):</strong> Long before any marketing begins, the company undergoes:</p>
+        <ul class="bullet-list">
+          <li><strong>Corporate Governance Readiness:</strong> Board independence, audit committee expertise, SOX 404 compliance, internal controls audit.</li>
+          <li><strong>Financial Audit Trail:</strong> 2–3 years of audited financials. The auditor issues comfort letters at key milestones.</li>
+          <li><strong>Management Team Strengthening:</strong> Hire CFO, Controller, and IR head (if not already in place). Institutional investors want to see seasoned management.</li>
+          <li><strong>Equity Story Clarity:</strong> What's the growth narrative? Profitability path? Competitive positioning? IPO bankers help crystallise this into a compelling narrative.</li>
+        </ul>
+        <p><strong>Formal IPO Process (4–6 months):</strong> Once readiness is confirmed, the transaction follows a structured timeline encompassing underwriter selection, kick-off, drafting, due diligence, SEC filing, pre-marketing, bookbuilding, pricing, allocation, and listing.</p>
+        <p><strong>Greenshoe Mechanism:</strong> IPO underwriters typically get an overallotment option (greenshoe) of 15% of the offering size. If first-day trading is strong, the underwriter can buy additional shares at the offer price and resell them. If weak, the greenshoe is not exercised. This provides price stabilisation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 8: IPO Pre-Marketing -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: ECM</div>
+      <h2 class="card-title">IPO Pre-Marketing</h2>
+      <div class="card-body">
+        <p>Before formal bookbuilding, underwriters conduct <strong>pilot fishing</strong> — confidential soundings with 10–15 institutional investors. The goal: gauge demand and refine the offer structure.</p>
+        <p><strong>Pilot Fishing Process:</strong> Underwriter calls key institutional investors under NDA. "We're thinking of taking Company X public in Q2. Preliminary valuation range is $50–60B. What's your appetite?" Investors provide feedback that informs the indicative price range (IPR).</p>
+        <p><strong>Anchor Investor Identification:</strong> In many markets (especially Asia and Europe), sponsors identify <strong>cornerstone investors</strong> pre-bookbuilding — large institutions who commit 10–20% of the offering. Cornerstones get guaranteed allocation and sometimes a lockup waiver in exchange for commitment. This reduces execution risk.</p>
+        <p><strong>Price Discovery:</strong> IPR setting is critical. Too high and bookbuilding will be weak. Too low and the company receives less capital. Best practices: set the IPR such that the book is 2–3x covered at the low end, leaving room to discover price upside through bookbuilding.</p>
+        <p><strong>Analyst Pre-Deal Research:</strong> In some jurisdictions, underwriter analysts publish independent research on the company pre-IPO. This builds market awareness and analyst credibility post-listing.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 9: Bookbuilding Mechanics -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: ECM</div>
+      <h2 class="card-title">Bookbuilding Mechanics</h2>
+      <div class="card-body">
+        <p>Bookbuilding is where price discovery happens in real time. The process unfolds over 1–5 days, during which syndicate sales teams gather investor indications simultaneously with company roadshow presentations.</p>
+        <p><strong>Book Opening:</strong> Sales open the order book at the indicative price range (IPR). Example: IPR of $50–60 per share on 100M shares = $5–6B offer.</p>
+        <p><strong>Order Types:</strong> Investors can place two types of orders:</p>
+        <ul class="bullet-list">
+          <li><strong>Limit Orders (Price-Sensitive):</strong> "We want $10M at $52 or below; don't allocate us above $55." These reveal price elasticity.</li>
+          <li><strong>Market Orders (Price-Insensitive):</strong> "We want $10M at any price in the range." These reveal commitment but lack price signals.</li>
+        </ul>
+        <p><strong>Book Statistics:</strong> Every few hours, syndicate reports the state of the book to the pricing committee: coverage ratio (total demand / offering size), quality metrics (long-only vs hedge funds), sector and geography mix.</p>
+        <p><strong>Price Tension:</strong> If the book is 5–10x covered and most orders are market orders, the pricing committee will likely range upward. If the book is 1x covered, the committee may range downward or pause the offering. The art is reading momentum: is demand accelerating or deteriorating?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 10: IPO Allocation Strategy -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: ECM</div>
+      <h2 class="card-title">IPO Allocation Strategy</h2>
+      <div class="card-body">
+        <p>Allocating shares in an IPO is art, not science. It's where banking relationships, sales effectiveness, and market strategy intersect.</p>
+        <p><strong>Allocation Hierarchy:</strong> Underwriters prioritise in this order:</p>
+        <ol style="margin-left: 24px;">
+          <li><strong>Long-Only Institutions (Mutual Funds, Asset Managers):</strong> Most favoured. These are stable holders who buy and hold.</li>
+          <li><strong>Hedge Funds with Listed Positions:</strong> Secondary tier. Some are legitimate holders; others are just trading the pop.</li>
+          <li><strong>Retail Allocations:</strong> Lowest priority. Retail is highly likely to flip on day one.</li>
+        </ol>
+        <p><strong>Allocation Criteria:</strong> Beyond investor type, allocations are based on order quality, relationship history, sector expertise, and aftermarket support expectation.</p>
+        <p><strong>Cornerstone Allocations:</strong> If cornerstone investors were pre-committed, their allocations are guaranteed and often at a fixed price. They fill their commitment first, then syndicate allocates the remaining offering.</p>
+        <p><strong>The Politics:</strong> Allocation is contentious. Investors who don't get full allocation may be angry. Sales teams must manage expectations carefully.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 11: IPO Pricing -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: ECM</div>
+      <h2 class="card-title">IPO Pricing</h2>
+      <div class="card-body">
+        <p>IPO pricing is the moment where estimated value meets market reality. Several dynamics collide:</p>
+        <p><strong>Offer Price vs NAV:</strong> The company likely has a pre-IPO valuation. The IPO offer price should reflect market demand — ideally above NAV to reward the IPO process, but not so high that first-day trading reveals overpricing.</p>
+        <p><strong>First-Day Pop:</strong> IPOs typically trade up 15–25% on day one. Why? Because the bank intentionally prices slightly below what it believes the market will clear at — a deliberate "money on the table" strategy. A pop validates the underwriters' analysis and builds confidence. However:</p>
+        <ul class="bullet-list">
+          <li>Too much pop (30%+) = money left on the table. The company and early shareholders feel cheated.</li>
+          <li>Negative pop or flat trading = broken deal perception. Underwriter credibility damaged.</li>
+        </ul>
+        <p><strong>Lock-up Periods:</strong> Founders, early employees, and pre-IPO shareholders (except cornerstones) cannot sell for 90–180 days post-IPO. Lock-up expiry is a key risk event.</p>
+        <p><strong>Free Float Requirements:</strong> Stock exchanges require minimum public float. This mechanism prevents day-two crashes while rewarding successful underwriters.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 12: Follow-On Offerings -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: ECM</div>
+      <h2 class="card-title">Follow-On Offerings</h2>
+      <div class="card-body">
+        <p>Once a company is public, it can tap capital markets multiple times via follow-on offerings. Several structures exist:</p>
+        <p><strong>Accelerated Bookbuilds (ABB):</strong> Fastest mechanism. Executed overnight or same-day. Banks market to existing shareholders and major institutions, gather orders, and price within hours. Typical discount to market: 1–5%. Used for quick capital raises (acquisition financing, debt refinancing, opportunistic capital deployment).</p>
+        <p><strong>Rights Issues:</strong> Pro-rata offering to existing shareholders. Each shareholder gets the right to buy shares proportional to their current holding, typically at 15–30% discount to market price. Can be underwritten or open offer. Popular in Europe and Asia; less common in US.</p>
+        <p><strong>Block Trades:</strong> Secondary sell-down by early shareholders, founders, or private equity sponsors looking to reduce ownership. Bank facilitates the trade privately, usually as agency (not principal).</p>
+        <p><strong>Bought Deals:</strong> Bank buys a large block of shares (from founders, PE sponsor, or company treasury) at a set price, then immediately resells to institutions. Bank carries inventory risk. Used when speed is priority.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 13: Convertible Bonds -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: ECM</div>
+      <h2 class="card-title">Convertible Bonds</h2>
+      <div class="card-body">
+        <p>Convertible bonds are hybrid securities that blur the line between debt and equity. They're issued like bonds but carry equity upside.</p>
+        <p><strong>Key Terms:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>Conversion Price:</strong> The price at which bondholders can convert into equity, typically 25–40% premium to spot at issuance. Upside incentive embedded in the bond.</li>
+          <li><strong>Coupon:</strong> Much lower than a straight bond (2–4% vs 6–8% for IG corporate). Investors accept lower cash return in exchange for equity upside.</li>
+          <li><strong>Maturity:</strong> Usually 5–7 years, similar to straight bonds.</li>
+          <li><strong>Put/Call Features:</strong> Issuer can call (redeem early) if stock appreciates significantly. Investor can put (force issuer to buy back) if conversion doesn't happen.</li>
+        </ul>
+        <p><strong>Issuance Mechanics:</strong> Similar to DCM: documentation, credit rating, roadshow, bookbuilding. But the investor base is different — dedicated convertible funds, hedge funds (who delta hedge by shorting stock), and equity-oriented investors.</p>
+        <p><strong>Why Issuers Like Convertibles:</strong> Lower coupon saves cash. Deferred dilution — if stock appreciates and bondholders convert, it happens years out. Often used by tech/growth companies.</p>
+        <p><strong>Why Investors Like Them:</strong> Equity upside with downside protection (bond floor). Convertible funds earn returns from both coupon and price appreciation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 14: ECM Metrics -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: ECM</div>
+      <h2 class="card-title">ECM Metrics</h2>
+      <div class="card-body">
+        <p>ECM deals are measured across several performance metrics:</p>
+        <p><strong>Gross Spread:</strong> Total fee earned by underwriters, expressed as % of offering proceeds.</p>
+        <ul class="bullet-list">
+          <li>IPO: 3–7% (US higher due to larger deal sizes; Europe lower due to competition)</li>
+          <li>Follow-on Offering: 2–4%</li>
+          <li>Converted Bonds: 1–2%</li>
+        </ul>
+        <p><strong>First-Day Returns:</strong> Stock price move from offer price to first-day close. Market sanity check on pricing accuracy.</p>
+        <p><strong>Aftermarket Performance:</strong> Stock performance at 30, 60, and 90 days post-IPO. Long-term outperformers signal strong fundamentals and allocation strategy; underperformers suggest overpricing.</p>
+        <p><strong>Deal Completion Rate:</strong> Percentage of mandated offerings that successfully price and list. Failed or withdrawn deals damage underwriter credibility.</p>
+        <p><strong>Withdrawn/Postponed Deals:</strong> Key market health indicator. If ECM pipelines start getting pulled in a particular month, it signals window closure. Conversely, pipelines accelerating signal window opening.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 15: ECM Risk and Liability -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part II: ECM</div>
+      <h2 class="card-title">ECM Risk and Liability</h2>
+      <div class="card-body">
+        <p>ECM carries material legal and regulatory risks:</p>
+        <p><strong>Underwriting Risk:</strong> IPO underwriters commit to purchase all shares that aren't sold to investors (firm commitment underwriting). This is a real principal risk. If the offering doesn't sell, the underwriter is stuck holding shares.</p>
+        <p><strong>Material Misstatement Liability (US: Securities Act § 11):</strong> If the prospectus contains material misstatements or omissions, underwriters are strictly liable. Underwriters can defend if they conducted a reasonable investigation and had "due diligence defence." This is why prospectus due diligence is exhaustive.</p>
+        <p><strong>Due Diligence Defence:</strong> To escape § 11 liability, underwriters must show they conducted a reasonable investigation and had reasonable grounds to believe statements were true. For expert sections (audited financials), relying on expert opinions is acceptable.</p>
+        <p><strong>Comfort Letters:</strong> Auditors issue "comfort letters" to underwriters, confirming that financial statements have been reviewed and that no material changes have occurred. These letters are critical risk mitigation.</p>
+        <p><strong>Legal Counsel Role:</strong> Underwriter counsel conducts extensive legal due diligence, issues a "10-b-5 opinion," and works with company counsel to ensure all disclosures are complete and accurate. This is the primary protection against liability.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 16: Bond Issuance Process -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: DCM</div>
+      <h2 class="card-title">Bond Issuance Process</h2>
+      <div class="card-body">
+        <p>Bond issuance is faster than IPO but follows a similar sequence: mandate → documentation → rating → marketing → bookbuilding → pricing → settlement.</p>
+        <p><strong>Timeline:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>Investment Grade (IG):</strong> 4–6 weeks. Predictable, low execution risk. Rating agency feedback is known, and investor base is familiar. Can execute same-day if conditions align.</li>
+          <li><strong>High Yield (HY):</strong> 2–4 weeks. Faster than IG because covenant negotiations are limited, but requires more intensive roadshow marketing.</li>
+        </ul>
+        <p><strong>Mandate → Documentation:</strong> Lead underwriter is selected, offering circular/prospectus is drafted, indenture (the governing contract) is negotiated, and financial statements are assembled.</p>
+        <p><strong>Credit Rating:</strong> Issuer contacts rating agencies (S&P, Moody's, Fitch) for preliminary ratings. Ratings are typically conditional on documentation and financial covenants. Once documentation is final, rating is confirmed.</p>
+        <p><strong>Roadshow (2–5 days):</strong> Management presents to institutional investors. Unlike equity roadshows (focused on growth story), bond roadshows focus on cash flow stability, leverage trends, covenant compliance, and refinancing risk.</p>
+        <p><strong>Bookbuilding → Pricing:</strong> Orders are gathered in spread terms (basis points above benchmark rate). Once sufficient demand is evident, the underwriter prices the bonds and manages allocation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 17: Bond Documentation -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: DCM</div>
+      <h2 class="card-title">Bond Documentation</h2>
+      <div class="card-body">
+        <p>Bond documentation is more complex and restrictive than equity offerings because creditors are prioritised stakeholders — they want certainty of repayment.</p>
+        <p><strong>Offering Circular / Prospectus:</strong> Describes the company, its business, risk factors, financials (typically 3 years audited), and use of proceeds. Much more detailed than equity prospectus.</p>
+        <p><strong>Indenture / Trust Deed:</strong> The governing contract that establishes bondholder rights, bondholder representative (trustee), and covenants. Highly technical legal document.</p>
+        <p><strong>Covenants:</strong> Restrictions on company behaviour to protect creditors. Two types:</p>
+        <ul class="bullet-list">
+          <li><strong>Incurrence Covenants:</strong> "If you do X, you must satisfy Y." Example: "If debt/EBITDA exceeds 4.0x, you cannot pay dividends." Violations prevent future actions.</li>
+          <li><strong>Maintenance Covenants:</strong> "You must maintain Y at all times." Example: "Maintain interest coverage &gt;2.5x." Violations trigger immediate default. Common in HY.</li>
+        </ul>
+        <p><strong>Typical IG Covenants:</strong> Negative pledge (can't pledge assets without bondholder consent), change of control provision (call price step-up if acquired), restricted payments (can't pay dividends above certain thresholds if leverage is high).</p>
+        <p><strong>Covenant-Lite Trend:</strong> Many IG issuers now issue bonds with minimal covenants. Investors accept weaker protections because they're comfortable with issuer credit quality. Covenant-lite bonds are cheaper to print and negotiate.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 18: Bond Pricing and Spread Dynamics -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: DCM</div>
+      <h2 class="card-title">Bond Pricing and Spread Dynamics</h2>
+      <div class="card-body">
+        <p>Bond pricing is fundamentally about spread — the additional yield above a risk-free benchmark (Treasury, Bund, Gilt) that investors demand for credit risk.</p>
+        <p><strong>Spread vs Yield:</strong> A corporate bond paying 5% when Treasuries yield 3% is quoted as "250 basis points over Treasuries" or "250bp spread." Spread compensates for credit risk, liquidity risk, and other factors.</p>
+        <p><strong>Credit Spread Drivers:</strong> Company-specific factors (leverage, EBITDA growth, industry dynamics), market-wide factors (risk sentiment, Fed policy, credit events), and investor demand (supply/demand imbalance, capital flows).</p>
+        <p><strong>Rating Impact:</strong> Investment Grade bonds (BBB and above) trade tighter (lower spreads, lower yields) than High Yield (BB and below). IG spreads typically range 50–300bp; HY spreads range 300–1,000bp+.</p>
+        <p><strong>Pricing Process:</strong> Underwriter gathers demand, observes what spread investors are willing to pay, and negotiates final terms. A deal "pricing well" means achieving a tighter spread than expected. A deal "pricing weak" means higher spread required to attract demand.</p>
+        <p><strong>New Issue Concession:</strong> New bonds often trade at slightly wider spreads than secondary bonds (existing bonds) of the same issuer, called the "new issue concession" — typically 10–50bp. This incentivises investors to buy new paper.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 19: Loan Syndication -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: DCM</div>
+      <h2 class="card-title">Loan Syndication</h2>
+      <div class="card-body">
+        <p>Bank loans (leveraged loans, senior facilities) are syndicated to multiple lenders, distributing credit risk and creating a diversified investor base.</p>
+        <p><strong>Loan Structure:</strong> A leveraged loan typically has two tranches:</p>
+        <ul class="bullet-list">
+          <li><strong>Term Loan A (TLA):</strong> Senior secured debt, amortizing schedule, 4–7 year maturity, floating rate (LIBOR/SOFR + spread). Held by institutional lenders (CLOs, hedge funds, pension funds).</li>
+          <li><strong>Term Loan B (TLB):</strong> Senior secured debt, non-amortizing (bullet repayment), 5–7 year maturity, floating rate. Held by syndicated loan funds, CLOs.</li>
+        </ul>
+        <p><strong>Syndication Process:</strong> Arranger (lead bank) negotiates with borrower, finalises documentation, then syndicates to other lenders. Arranger typically commits to provide the full facility amount (underwriting the risk), then sells commitments to other lenders.</p>
+        <p><strong>Loan Pricing:</strong> Expressed as SOFR/LIBOR + spread (typically 200–600bp depending on credit quality). Unlike bonds, loan pricing is floating — when benchmark rates change, borrower's cost changes.</p>
+        <p><strong>Primary vs Secondary Syndication:</strong> Primary: initial placement immediately after loan is signed. Secondary: syndicated loan funds buy and sell loans in secondary market, providing liquidity.</p>
+        <p><strong>Covenant-Heavy:</strong> Loans are much more covenant-restrictive than bonds. Maintenance covenants (leverage, interest coverage ratios that must be maintained) are standard. Covenant violations trigger default and can lead to lender takeover.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 20: High-Yield Bonds and Distressed Situations -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: DCM</div>
+      <h2 class="card-title">High-Yield Bonds and Distressed Situations</h2>
+      <div class="card-body">
+        <p>High-yield (HY) debt is issued by companies with lower credit quality (BB and below). These bonds carry higher coupon payments but also higher default risk.</p>
+        <p><strong>HY Issuance Drivers:</strong> Leveraged buyouts (PE sponsor acquiring company, loading it with debt), acquisition financing, refinancing existing debt at higher leverage, or organically weak credits.</p>
+        <p><strong>HY Dynamics:</strong> Much more volatile than IG. In bull markets, HY spreads compress to 300–400bp and investors hunt for yield. In market corrections, HY spreads spike to 800bp+ and many issuers lose access to markets. HY issuers must refinance constantly, making them vulnerable to market windows.</p>
+        <p><strong>Covenant Structures:</strong> HY bonds carry detailed maintenance covenants, incurrence covenants, and step-downs (tightening covenants as debt paydown progresses). "Covenant light" (covenant-lite) HY bonds exist but are rarer — only for high-quality HY credits.</p>
+        <p><strong>Distressed Situations:</strong> When an issuer's credit quality deteriorates, bonds trade into distressed territory (CCC+ and below, spreads 1,000bp+). Default probability rises. Distressed funds specialize in buying these bonds, restructuring negotiations, or taking control of creditor-owned assets.</p>
+        <p><strong>Exchange Offers and Restructurings:</strong> To avoid default, issuers may offer creditors a restructuring deal: exchange old bonds (trading at 40 cents on the dollar) for new bonds with extended maturity and lower coupon. This is cheaper than bankruptcy.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 21: Private Placements and Structured Finance -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: DCM</div>
+      <h2 class="card-title">Private Placements and Structured Finance</h2>
+      <div class="card-body">
+        <p>Not all debt is issued in public capital markets. Private placements and structured finance products exist for specific borrower profiles.</p>
+        <p><strong>Rule 144A Offerings (US):</strong> Debt issued privately to qualified institutional investors (QIBs), exempt from SEC registration. Rule 144A bonds can later be resold among QIBs, creating a liquid secondary market without public registration. Often used for emerging market issuers or first-time issuers who lack credit history.</p>
+        <p><strong>Private Placements:</strong> Debt sold directly to a small number of institutional investors (insurance companies, pension funds, asset managers), usually in large denominations ($25M–$100M+ per investor). Negotiated terms, less standardized, but faster execution than public offerings. Includes private investment in public equity (PIPE) structures.</p>
+        <p><strong>Asset-Backed Securities (ABS):</strong> Debt backed by underlying assets (mortgages, auto loans, credit card receivables). Originator sells receivables to a special purpose vehicle (SPV), which issues securities backed by those receivables. Credit risk is isolated to the asset pool, not the originator. Key to securitization markets.</p>
+        <p><strong>Collateralized Loan Obligations (CLOs):</strong> Structured products that bundle syndicated loans, tranched into risk tiers. Senior CLO tranches are AAA-rated and pay LIBOR+low spread; junior tranches are unrated and capture default risk. CLOs are major investors in syndicated loan markets.</p>
+        <p><strong>Project Finance:</strong> Debt for long-term infrastructure or energy projects (power plants, motorways, airports). Secured by project assets and cash flows. Complex documentation due to long tenor (20–30 years) and multiple stakeholder interests.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 22: DCM Bookbuilding and Allocation -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: DCM</div>
+      <h2 class="card-title">DCM Bookbuilding and Allocation</h2>
+      <div class="card-body">
+        <p>DCM bookbuilding differs from ECM because orders are expressed in spread (basis points) rather than price per share.</p>
+        <p><strong>Order Types:</strong> Investors express orders as "I want $50M at 275bp" or "I want $30M at 300bp or tighter." Orders reveal price sensitivity and demand elasticity.</p>
+        <p><strong>Book Reporting:</strong> Similar to ECM, but using spread statistics rather than share counts. Example: "Book is $2B at low end of guidance (250bp), $4.5B at low end (260bp), $7.2B at mid-point (270bp)."</p>
+        <p><strong>Spread Adjustment Strategy:</strong> If demand is strong (book heavily oversubscribed at low end), underwriter will likely tighten (lower) spread. If weak, spread widens (increases). The pricing committee aims for a balanced book at final spread.</p>
+        <p><strong>Allocation Criteria:</strong> Long-term holds (insurance companies, pension funds) get preferential treatment. Dealers and traders who flip bonds immediately get lower priority. Issuer often cares about quality of holders (buy-and-hold vs traders) to support secondary market price.</p>
+        <p><strong>Final Outcome:</strong> After pricing, a deal is "well-allocated" if institutional quality holders get sufficient shares and secondary market is active. A deal with weak allocation (most bonds held by traders) tends to face secondary selling pressure post-issuance.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 23: DCM Metrics and Performance -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: DCM</div>
+      <h2 class="card-title">DCM Metrics and Performance</h2>
+      <div class="card-body">
+        <p>DCM deals are measured across metrics focused on credit performance and market execution:</p>
+        <p><strong>Gross Spread:</strong> Total fee earned by underwriters, expressed as % of offering proceeds or in absolute terms.</p>
+        <ul class="bullet-list">
+          <li>IG Corporates: 0.2–0.5%</li>
+          <li>HY Corporates: 1.5–3%</li>
+          <li>Loans: 150–300bp</li>
+        </ul>
+        <p><strong>Reoffer Spread:</strong> The spread at which bonds are offered to market. Comparing reoffer spread to secondary market trading spread shows whether bonds tighten (good) or widen (poor) post-launch.</p>
+        <p><strong>Secondary Trading Levels:</strong> Post-issuance, bond trading levels indicate investor sentiment. If a bond trades at reoffer spread or tighter, the deal was successful. If spreads widen materially, it signals weak demand or issuer credit deterioration.</p>
+        <p><strong>Default Rates:</strong> Historical default rates of bonds by rating category (AAA 0%, A 0.1%, BBB 1–2%, BB 3–5%, B 10%+). Banks track these to validate pricing and covenant structures.</p>
+        <p><strong>Refinancing Ability:</strong> For HY issuers, the ability to refinance debt (tap markets again for renewal financing) is critical. Refinancing risk rises when spreads widen or credit quality deteriorates.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 24: Syndicate Structure and Roles -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part III: DCM</div>
+      <h2 class="card-title">Syndicate Structure and Roles</h2>
+      <div class="card-body">
+        <p>Capital markets deals involve multiple banks with distinct roles and fee splits:</p>
+        <p><strong>Lead Arranger / Bookrunner:</strong> Manages the entire transaction from mandate to execution. Earns the largest fee share (40–50% of total fees).</p>
+        <p><strong>Co-Lead / Co-Bookrunner:</strong> Shares mandate responsibility and earns 20–35% of fees. Often a peer bank or regional leader with strong investor relationships.</p>
+        <p><strong>Syndicate Members:</strong> Mid-tier banks who contribute sales effort and investor access, earn 5–15% of fees.</p>
+        <p><strong>Documentation Agent / Administrative Agent:</strong> For loans, one bank is appointed to manage documentation and ongoing administration (covenant monitoring, drawdowns). Gets ongoing fees (typically 0.2–0.5% per annum).</p>
+        <p><strong>Revenue Splits:</strong> Bookrunner credit (underwriting/arrangement), selling credit (sales effort), and administrative credit are allocated based on contribution. Disputes over credit allocation are common in capital markets teams.</p>
+        <p><strong>Joint Mandates:</strong> When multiple banks share the mandate equally, credit is split awkwardly and can lead to turf battles. Clear MOU (memorandum of understanding) governing credit allocation is essential.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 25: Aftermarket and Stabilisation -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV</div>
+      <h2 class="card-title">Aftermarket and Stabilisation</h2>
+      <div class="card-body">
+        <p>Post-launch, underwriters support the secondary market through stabilisation, market-making, and research.</p>
+        <p><strong>Stabilisation Mechanisms:</strong> Underwriters are permitted to support the price post-issuance (e.g., via greenshoe in equity). This prevents excessive selling pressure and supports the issuer's brand. Stabilisation must be transparent and can only occur within specified windows (typically 30 days post-IPO).</p>
+        <p><strong>Market-Making:</strong> Underwriters commit to making two-way markets (bid and offer prices) for issued securities, at least initially. This provides liquidity for investors wanting to exit and prevents day-two crashes.</p>
+        <p><strong>Analyst Coverage:</strong> Underwriter research analysts publish post-deal research initiating coverage on the issuer. This builds investor awareness and supports the secondary market. Analysts must be independent; research quality directly impacts the bank's investment banking pipeline.</p>
+        <p><strong>Feedback Loop:</strong> Aftermarket performance feeds back into origination relationships. A successful deal with positive secondary trading attracts follow-on mandates. A poor aftermarket damages underwriter credibility.</p>
+        <p><strong>Fee Pools and Expense Recovery:</strong> Banking fees are typically split: origination (25–35%), underwriting/syndication (40–50%), selling (10–25%). Trading costs (inventory losses, market-making expenses) are absorbed by the capital markets division, not passed to client fees.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 26: Cross-Product and Integrated Capital Solutions -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV</div>
+      <h2 class="card-title">Cross-Product and Integrated Capital Solutions</h2>
+      <div class="card-body">
+        <p>The most sophisticated issuers use multiple products simultaneously to optimize capital structure:</p>
+        <p><strong>Hybrid Approach:</strong> Tech startup might issue convertible bonds (low coupon, equity upside) while simultaneously doing an equity follow-on to lock in institutional holders. This preserves balance sheet flexibility.</p>
+        <p><strong>Refinancing and Liability Management:</strong> Mature corporates refinance debt in multiple tranches: retire near-maturity bonds via buyback, issue new longer-dated bonds, and refinance shorter-dated facilities with loans. This ladders maturity and minimizes refinancing risk.</p>
+        <p><strong>Capital Structure Optimization:</strong> Banks advise issuers on optimal debt/equity mix. Too much leverage = credit rating downgrade and higher cost of capital. Too little = leaving growth opportunities unfunded. This is where strategic banking adds value beyond transaction execution.</p>
+        <p><strong>ESG and Sustainability Issuance:</strong> Green bonds, social bonds, and sustainability-linked bonds are increasingly common. Pricing is often favorable because investor demand for ESG-aligned securities is high. Issuers must credibly demonstrate use of proceeds (green capex, social programs) or face criticism.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 27: Career Paths and Specialization -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV</div>
+      <h2 class="card-title">Career Paths and Specialization</h2>
+      <div class="card-body">
+        <p>Capital markets careers diversify based on product and skill set:</p>
+        <p><strong>Banking/Coverage:</strong> Relationship management, pitch preparation, due diligence oversight. Leads to MD or principal (partner-track) roles. Requires client development and deal-closing skills.</p>
+        <p><strong>ECM Syndicate/Sales:</strong> Investor relationships, order-taking, allocation management. Top performers earn lucrative bonuses. Growth path: sales director, desk head, potentially MD.</p>
+        <p><strong>DCM Origination:</strong> Sector expertise (tech, healthcare, consumer), credit fundamentals, roadshow presentation. Often requires CFA or financial analysis background.</p>
+        <p><strong>DCM Trading/Secondary:</strong> Market-making, bond trading, credit analysis of seasoned credits. Requires strong quantitative skills and market intuition. Compensation linked to P&L.</p>
+        <p><strong>Research (Post-Deal):</strong> Analyst roles covering issuers post-listing. Requires independence from banking and strong fundamental analysis. Career path: senior analyst, desk lead, potentially equity research director.</p>
+        <p><strong>Product Specialists (Structurers):</strong> Technical experts on convertibles, CLOs, project finance. Highly specialized, well-compensated, sought-after for complex transactions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 28: Capital Markets in Market Stress -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV</div>
+      <h2 class="card-title">Capital Markets in Market Stress</h2>
+      <div class="card-body">
+        <p>When markets seize up, capital markets banking becomes survival-focused:</p>
+        <p><strong>Window Closure:</strong> During crises (2008 financial crisis, 2020 COVID panic), capital markets windows slam shut. Equity IPO pipelines evaporate overnight. HY spreads blow out to 1,000bp+, making debt issuance impossible except for strongest credits. Companies are forced to draw on revolving credit facilities and preserve cash.</p>
+        <p><strong>Covenant Amendments:</strong> In stressed periods, companies negotiate with lenders to amend covenants (loosen leverage tests, waive maintenance covenants). This prevents technical defaults and gives management breathing room. Lenders are forced to play along because forcing default would accelerate asset deterioration.</p>
+        <p><strong>Fire Sales:</strong> Distressed issuers resort to asset sales (non-core business, property, equipment) at steep discounts to raise cash. Underwriters facilitate sales processes and buyer syndications.</p>
+        <p><strong>Government Intervention:</strong> During severe crises (2008, 2020), central banks launch liquidity facilities (commercial paper funding, corporate bond-buying programs) to stabilize markets. Banks benefit from lower funding costs, which they pass to clients.</p>
+        <p><strong>Banking Opportunity:</strong> Paradoxically, crises create advisory opportunities: restructuring (debt-to-equity conversions, covenant amendments), M&A (forced sales, rescues), and refinancing. Banks that manage risk well during stress gain client trust and pipeline for the recovery.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 29: Regulatory Environment and Compliance -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV</div>
+      <h2 class="card-title">Regulatory Environment and Compliance</h2>
+      <div class="card-body">
+        <p>Capital markets banking operates within a complex regulatory landscape:</p>
+        <p><strong>Securities Regulation (US: Securities Act of 1933, Exchange Act of 1934):</strong> Governs issuance (Securities Act) and trading (Exchange Act). IPO underwriters face strict liability (Section 11) for prospectus misstatements. Banks must conduct "reasonable investigation" and maintain due diligence files.</p>
+        <p><strong>Prospectus Requirements:</strong> Prospectuses must disclose material information: business model, risk factors, financials, management discussion &amp; analysis (MD&A), executive compensation. SEC has become stricter about forward-looking statements and climate/ESG disclosures.</p>
+        <p><strong>Dodd-Frank (US, Post-2008):</strong> Increased capital requirements for banks, restricting proprietary trading and requiring swaps to be centrally cleared. Volcker Rule restricts banks' ability to hold inventory, reducing market-making capacity.</p>
+        <p><strong>MiFID II (EU, effective 2018):</strong> Tightened product governance, research bundling rules, and best execution requirements. Reduced research distribution to asset managers, forcing some to build internal research capabilities.</p>
+        <p><strong>ESG Disclosure Mandates:</strong> Growing requirements to disclose ESG metrics (carbon, diversity, governance). SEC proposed climate disclosure rules; EU mandated sustainability reporting. Issuers must comply with these or face regulatory fines and investor pressure.</p>
+        <p><strong>Compliance Infrastructure:</strong> Capital markets divisions require robust compliance, legal, and risk teams. Violation costs are material: settlements, reputational damage, and potential loss of banking licenses.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 30: Technology and Automation in Capital Markets -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV</div>
+      <h2 class="card-title">Technology and Automation in Capital Markets</h2>
+      <div class="card-body">
+        <p>Technology is reshaping capital markets banking:</p>
+        <p><strong>Automated Trading and Market-Making:</strong> Algorithmic trading now dominates secondary markets. Banks' market-making is increasingly automated, reducing human judgment and transaction costs for institutional clients.</p>
+        <p><strong>Blockchain and Tokenization:</strong> Distributed ledger technology (DLT) enables direct issuance and settlement without intermediaries. Tokenized bonds and equities are emerging (CBDCs, digital asset securities). This threatens traditional banking roles in settlement and custody.</p>
+        <p><strong>ESG Data and Analytics:</strong> Platforms like Refinitiv, Bloomberg, and FactSet aggregate ESG data, enabling investors to screen issuers. Banks use these tools to advise clients on ESG positioning and investor demand.</p>
+        <p><strong>Analytics and Pricing Models:</strong> Quantitative models price complex securities (CLOs, structured products). Machine learning is increasingly used for credit scoring, covenant breach prediction, and secondary market liquidity estimation.</p>
+        <p><strong>Digital Issuance Platforms:</strong> Some fintechs and banks are building direct platforms where issuers can issue securities without traditional underwriting. This disintermediates banking, but regulatory barriers remain high.</p>
+        <p><strong>Work Automation:</strong> RPA (robotic process automation) handles routine documentation, prospectus updates, and compliance reporting. This reduces administrative cost but also reduces entry-level banking jobs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 31: Global Capital Markets and Emerging Markets -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV</div>
+      <h2 class="card-title">Global Capital Markets and Emerging Markets</h2>
+      <div class="card-body">
+        <p>Capital markets are increasingly global, with emerging market issuers tapping global investor bases:</p>
+        <p><strong>US Market Dominance:</strong> US capital markets (equities and fixed income) are the deepest and most liquid globally. Many non-US companies issue in US dollars and list on US exchanges (ADRs) to access US investors.</p>
+        <p><strong>Emerging Market Debt:</strong> Sovereigns and corporates from emerging markets (LatAm, Asia, Africa) tap international capital markets, issuing bonds in USD or EUR. EM investors face currency risk and political risk, reflected in wider spreads.</p>
+        <p><strong>Regulator Fragmentation:</strong> Each jurisdiction has its own regulators (SEC in US, FCA in UK, ESMA in EU). Global transactions must satisfy multiple regulatory regimes simultaneously. This complexity increases transaction costs.</p>
+        <p><strong>Local Market Development:</strong> Many countries are building local capital markets (domestic bond markets, equity exchanges) to reduce foreign currency dependence and encourage domestic capital allocation. China, India, Brazil have evolved sophisticated local markets.</p>
+        <p><strong>Currency and Hedge Risk:</strong> Non-USD issuers face currency exposure. They can borrow in local currency (lower cost but less liquid) or USD (higher cost but matches USD-earning assets). Hedging currency risk adds transaction cost.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 32: The Future of Capital Markets -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">Part IV</div>
+      <h2 class="card-title">The Future of Capital Markets</h2>
+      <div class="card-body">
+        <p>Capital markets banking is evolving in response to structural shifts:</p>
+        <p><strong>Passive Investing Growth:</strong> Passive funds (index funds, ETFs) now manage trillions globally, reducing active trading and analyst demand. This compresses investment banking margins as issuer choice becomes driven by index membership rather than active fund conviction.</p>
+        <p><strong>ESG and Stakeholder Capitalism:</strong> Investors increasingly demand ESG alignment, pushing issuers to disclose and improve governance. Underwriters differentiate by ESG advisory and credibility.</p>
+        <p><strong>Disintermediation Threats:</strong> Direct issuance platforms and fintech disruptors are eroding underwriter roles in sales and distribution. However, regulatory barriers and relationships mean disruption is gradual.</p>
+        <p><strong>Concentration Risk:</strong> Major global banks dominate capital markets. Regional and boutique banks struggle to compete on fees and distribution. Consolidation is ongoing.</p>
+        <p><strong>Automation Paradox:</strong> Technology reduces transaction costs but also commoditizes services. Banks must differentiate through advisory, execution excellence, and distribution access. Advisory capture better margins than pure syndication.</p>
+        <p><strong>Geopolitical Fragmentation:</strong> US-China tech rivalry, Russia sanctions, and resource nationalism fragment global capital markets. Some issuers are blocked from capital markets entirely (Russia post-2022), forcing deleveraging or government support.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 33: FINALE -->
+  <div class="beat beat-scene">
+    <div class="beat-inner">
+      <div class="scene-location">The Capital Markets Special Complete</div>
+      <div class="scene-text">
+        <p>Capital markets is fundamentally the business of connecting supply and demand — companies that need capital and investors seeking returns. The investment bank sits in the middle, extracting value through origination relationships, distribution efficiency, and market timing expertise.</p>
+        <p>The core skill in capital markets is not mathematical sophistication or analytical depth — it's reading the market in real time. Window timing, allocation strategy, and aftermarket support are the true differentiators. A mediocre deal executed well (right price, right investors, good aftermarket) outperforms a well-structured deal executed poorly (wrong investors, poor execution, weak aftermarket).</p>
+        <p>For bankers, the goal is clear: originate relationships early (coverage), structure offerings that appeal to your investor base (know your distribution), and execute with discipline when the window opens. For investors, the goal is equally clear: demand fair pricing, secure allocation of quality securities, and expect professional aftermarket support.</p>
+        <p>Capital markets never sleep. There is always a window opening or closing, spreads moving, leverage cycles shifting. The bankers and investors who thrive are those who stay alert, keep their relationships sharp, and move decisively when the moment arrives.</p>
+        <div class="download-hero">
+          <a href="../pdfs/G2G_Capital_Markets_Reference.pdf" class="download-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download Full Reference
+          </a>
+          <div class="download-note">G2G_Capital_Markets_Reference.pdf</div>
+        </div>
+      </div>
+      <div class="chapter-nav-row">
+        <a href="ch24.html" class="prev-chapter-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span class="btn-label">
+            <span class="btn-next">Previous Chapter</span>
+            <span class="btn-title">The M&amp;A Advisory Special</span>
+          </span>
+        </a>
+        <a href="ch26.html" class="next-chapter-btn">
+          <span class="btn-label">
+            <span class="btn-next">Next Chapter</span>
+            <span class="btn-title">The Financial Sponsors Group Special</span>
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<script>
+  let currentBeat = 0;
+  let startY = 0;
+  let isAnimating = false;
+  const beats = document.querySelectorAll('.beat');
+  const totalBeats = beats.length;
+
+  function positionBeats() {
+    beats.forEach((beat, i) => {
+      if (i < currentBeat) {
+        beat.style.transform = 'translateY(-100vh)';
+        beat.style.opacity = '0';
+        beat.style.pointerEvents = 'none';
+        beat.style.visibility = 'hidden';
+      } else if (i === currentBeat) {
+        beat.style.transform = 'translateY(0)';
+        beat.style.opacity = '1';
+        beat.style.pointerEvents = 'auto';
+        beat.style.visibility = 'visible';
+      } else {
+        beat.style.transform = 'translateY(100vh)';
+        beat.style.opacity = '0';
+        beat.style.pointerEvents = 'none';
+        beat.style.visibility = 'hidden';
+      }
+    });
+  }
+
+  function updateCounter() {
+    const counter = document.getElementById('beatCounter');
+    if (counter) counter.textContent = `${currentBeat + 1} / ${totalBeats}`;
+  }
+
+  function updateProgress() {
+    // Progress bar removed (nav dots replaced it)
+  }
+
+  function goTo(index) {
+    if (isAnimating || index < 0 || index >= totalBeats) return;
+    isAnimating = true;
+    const direction = index > currentBeat ? -1 : 1;
+    beats[currentBeat].style.transform = `translateY(${direction * 100}vh)`;
+    beats[currentBeat].style.opacity = '0';
+    beats[currentBeat].style.pointerEvents = 'none';
+    beats[currentBeat].style.visibility = 'hidden';
+    beats[index].style.transform = 'translateY(0)';
+    beats[index].style.opacity = '1';
+    beats[index].style.pointerEvents = 'auto';
+    beats[index].style.visibility = 'visible';
+    currentBeat = index;
+    updateCounter();
+    updateProgress();
+    saveProgress();
+    document.querySelectorAll('.nav-dots .dot').forEach((d, di) => d.classList.toggle('active', di === currentBeat));
+    const hint = document.getElementById('swipeHint');
+    if (hint) {
+      hint.style.opacity = '0';
+      setTimeout(() => hint.remove(), 500);
+      try { localStorage.setItem('g2g-swipe-seen', '1'); } catch(e) {}
+    }
+    setTimeout(() => { isAnimating = false; }, 350);
+  }
+
+  document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const beat = beats[currentBeat];
+    const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+    const atTop = beat.scrollTop <= 5;
+    const diff = startY - e.changedTouches[0].clientY;
+    if (diff > 50 && atBottom) goTo(currentBeat + 1);
+    if (diff < -50 && atTop) goTo(currentBeat - 1);
+  }, { passive: true });
+
+  let wheelAccum = 0;
+  let wheelTimer = null;
+  document.addEventListener('wheel', e => {
+    const beat = beats[currentBeat];
+    const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+    const atTop = beat.scrollTop <= 5;
+    wheelAccum += e.deltaY;
+    clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(() => { wheelAccum = 0; }, 200);
+    if (wheelAccum > 50 && atBottom) { wheelAccum = 0; goTo(currentBeat + 1); }
+    if (wheelAccum < -50 && atTop) { wheelAccum = 0; goTo(currentBeat - 1); }
+  }, { passive: true });
+
+  document.addEventListener('keydown', e => {
+    const beat = beats[currentBeat];
+    const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+    const atTop = beat.scrollTop <= 5;
+    if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key)) {
+      if (atBottom) { e.preventDefault(); goTo(currentBeat + 1); }
+    } else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) {
+      if (atTop) { e.preventDefault(); goTo(currentBeat - 1); }
+    } else if (e.key === ' ') {
+      e.preventDefault();
+      if (atBottom) goTo(currentBeat + 1);
+      else beat.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+    } else if (e.key === 'Home') {
+      e.preventDefault(); goTo(0);
+    } else if (e.key === 'End') {
+      e.preventDefault(); goTo(totalBeats - 1);
+    }
+  });
+
+  const swipeHint = document.getElementById('swipeHint');
+  if (swipeHint) {
+    try { if (localStorage.getItem('g2g-swipe-seen')) swipeHint.remove(); } catch(e) {}
+  }
+
+  const navContainer = document.querySelector('.nav-dots');
+  for (let i = 0; i < totalBeats; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goTo(i);
+    navContainer.appendChild(dot);
+  }
+
+  positionBeats();
+
+  // Create nav dots
+  (function() {
+    var navEl = document.querySelector('.nav-dots');
+    if (!navEl) {
+      navEl = document.createElement('div');
+      navEl.className = 'nav-dots';
+      navEl.id = 'navDots';
+      document.body.appendChild(navEl);
+    }
+    var beats = document.querySelectorAll('.beat');
+    navEl.innerHTML = '';
+    for (var i = 0; i < beats.length; i++) {
+      var dot = document.createElement('div');
+      dot.className = 'dot';
+      dot.dataset.index = i;
+      dot.addEventListener('click', function() {
+        var idx = parseInt(this.dataset.index);
+        if (typeof goTo === 'function') goTo(idx);
+      });
+      navEl.appendChild(dot);
+    }
+  })();
+
+  updateCounter();
+  updateProgress();
+
+  const CHAPTER_NUM = 25;
+  function saveProgress() {
+    try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeat); } catch(e) {}
+  }
+
+  (function() {
+    try {
+      const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+      if (saved && saved > 0 && saved < totalBeats) {
+        const toast = document.createElement('div');
+        toast.className = 'resume-toast';
+        toast.innerHTML = `<span>Resume from beat ${saved + 1}?</span><button onclick="goTo(${saved}); this.parentNode.remove();">Resume</button><button onclick="this.parentNode.remove();">Start Over</button>`;
+        document.body.appendChild(toast);
+        setTimeout(() => { if (toast.parentNode) toast.remove(); }, 8000);
+      }
+    } catch(e) {}
+  })();
+</script>
+</body>
+</html>

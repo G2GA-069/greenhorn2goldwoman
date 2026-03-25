@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G2G Chapter 27 — The Private Capital Advisory Special</title>
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://g2ga-069.github.io/G2G/chapters/ch27.html">
+  <meta property="og:title" content="Chapter 27: The Private Capital Advisory Special — G2G Advisory">
+  <meta property="og:description" content="Secondaries, GP-Leds, LP Portfolio Sales &amp; Fund Restructurings">
+  <meta property="og:image" content="https://g2ga-069.github.io/G2G/images/og-preview.png">
+  <meta property="og:site_name" content="G2G Advisory">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chapter 27: The Private Capital Advisory Special — G2G Advisory">
+  <meta name="twitter:description" content="Secondaries, GP-Leds, LP Portfolio Sales &amp; Fund Restructurings">
+  <meta name="twitter:image" content="https://g2ga-069.github.io/G2G/images/og-preview.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon-180.png">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0c;
+      --surface: #131318;
+      --surface-2: #1a1a22;
+      --border: #2a2a35;
+      --text: #e8e4df;
+      --text-muted: #a8a4b0;
+      --text-dim: #7a7680;
+      --accent: #b07ce8;
+      --accent-dim: #7a55b0;
+      --accent-bright: #d4a0ff;
+      --green: #4a9e6e;
+      --red: #c45c4a;
+      --blue: #5a8fc4;
+      --purple: #8a3cc4;
+      --brand-purple: #6b2fa0;
+      --brand-magenta: #d946ef;
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { height: 100%; overflow: hidden; overscroll-behavior: none; }
+    body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-serif);
+      line-height: 1.7;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .beat {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 52px 24px 60px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s, transform 0.35s ease-in-out;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .beat-inner {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* TITLE BEAT */
+    .beat-title {
+      background: radial-gradient(ellipse at 60% 40%, rgba(176, 124, 232, 0.15) 0%, rgba(107, 47, 160, 0.08) 40%, var(--bg) 100%);
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .beat-title .beat-inner {
+      text-align: center;
+    }
+
+    .series-name {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 16px;
+    }
+
+    .chapter-number {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+
+    .beat-title h1 {
+      font-family: var(--font-serif);
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--accent-bright);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .beat-title .subtitle {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* CARD BEAT */
+    .beat-card {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beat-card .beat-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .card-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    .card-body {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .card-body p {
+      margin-bottom: 16px;
+    }
+
+    .card-body strong {
+      color: var(--accent-bright);
+      font-weight: 600;
+    }
+
+    .metric-item {
+      margin-bottom: 16px;
+      padding-left: 16px;
+      border-left: 2px solid var(--accent-dim);
+    }
+
+    .metric-name {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--accent-bright);
+    }
+
+    .metric-def {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .comparison-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .comparison-col {
+      flex: 1;
+    }
+
+    .comparison-header {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .comparison-value {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .bullet-list {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    .bullet-list li {
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .bullet-list li strong {
+      color: var(--accent-bright);
+    }
+
+    .formula-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--accent-bright);
+      line-height: 1.6;
+    }
+
+    .formula-box .formula-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .example-box {
+      background: linear-gradient(135deg, rgba(74,158,110,0.08), rgba(74,158,110,0.03));
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .example-box .example-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, rgba(196,92,74,0.08), rgba(196,92,74,0.03));
+      border-left: 3px solid var(--red);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .warning-box .warning-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-box p {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .section-divider {
+      background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+      height: 1px;
+      margin: 24px 0;
+    }
+
+    .part-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 4px;
+    }
+
+    /* SCENE BEAT */
+    .beat-scene {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beat-scene .beat-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .scene-location {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 16px;
+    }
+
+    .scene-text {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    .scene-text strong {
+      color: var(--accent-bright);
+    }
+
+    .scene-text a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .scene-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* UI ELEMENTS */
+    .beat-counter {
+      position: fixed;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
+      right: 24px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--text-dim);
+      z-index: 998;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      z-index: 996;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .swipe-hint {
+      position: fixed;
+      bottom: 60px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-dim);
+      z-index: 995;
+      animation: fadeOutAfter 7s forwards;
+    }
+
+    @keyframes fadeOutAfter {
+      0%, 85% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .resume-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      border: 1px solid var(--accent-dim);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 1000;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .resume-toast button {
+      background: var(--accent-dim);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+
+    .resume-toast button:first-of-type {
+      background: var(--brand-purple);
+    }
+
+    .resume-toast button:hover {
+      opacity: 0.9;
+    }
+
+    /* Wider beat-inner for comparison tables */
+    .beat-card.comparison-wide .beat-inner {
+      max-width: 760px;
+    }
+
+    /* Download button */
+    .download-hero {
+      margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 14px;
+    }
+    .download-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 36px; border-radius: 10px; text-decoration: none;
+      background: linear-gradient(135deg, #6b2fa0, #d946ef);
+      color: #fff; font-family: var(--font-sans, 'Inter', sans-serif); font-size: 15px;
+      font-weight: 700; letter-spacing: 0.5px;
+      transition: all 0.3s; box-shadow: 0 4px 24px rgba(107,47,160,0.4);
+    }
+    .download-btn:hover {
+      transform: translateY(-2px); box-shadow: 0 8px 32px rgba(107,47,160,0.6);
+    }
+    .download-btn svg { width: 20px; height: 20px; }
+    .download-note {
+      font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 11px;
+      color: var(--text-dim, var(--text-muted, #7a7680)); letter-spacing: 0.5px;
+    }
+
+    /* Nav dots */
+    .nav-dots {
+      position: fixed; top: 50%; right: 12px; transform: translateY(-50%);
+      z-index: 100; display: flex; flex-direction: column; gap: 6px;
+    }
+    .nav-dots .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); cursor: pointer; transition: all 0.3s;
+    }
+    .nav-dots .dot.active {
+      background: var(--accent, #b07ce8); box-shadow: 0 0 6px rgba(176,124,232,0.4);
+      width: 10px; height: 10px;
+    }
+    .nav-dots .dot:hover { background: var(--accent-dim, rgba(176,124,232,0.5)); }
+
+    @media (max-width: 768px) {
+      .nav-dots { right: 8px; gap: 4px; }
+      .beat-inner { padding-right: 28px; }
+      .nav-dots .dot { width: 6px; height: 6px; }
+      .nav-dots .dot.active { width: 8px; height: 8px; }
+    }
+
+    /* Resume toast — mobile-safe */
+    @media (max-width: 768px) {
+      .resume-toast {
+        max-width: calc(100vw - 32px); width: auto;
+        padding: 12px 16px; gap: 10px;
+        bottom: max(70px, calc(60px + env(safe-area-inset-bottom)));
+        font-size: 12px; flex-wrap: wrap; justify-content: center;
+      }
+      .resume-toast button { padding: 8px 16px; font-size: 12px; }
+    }
+
+    .prev-chapter-btn, .next-chapter-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 28px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(107,47,160,0.15), rgba(176,124,232,0.10));
+      border: 1px solid rgba(176,124,232,0.25);
+      color: var(--accent, #b07ce8); text-decoration: none;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      transition: all 0.3s ease; margin-top: 32px; cursor: pointer;
+    }
+    .prev-chapter-btn:hover, .next-chapter-btn:hover {
+      background: linear-gradient(135deg, rgba(107,47,160,0.25), rgba(176,124,232,0.20));
+      border-color: rgba(176,124,232,0.5); transform: translateY(-1px);
+    }
+    .prev-chapter-btn svg, .next-chapter-btn svg { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.2s; }
+    .next-chapter-btn:hover svg { transform: translateX(4px); }
+    .prev-chapter-btn:hover svg { transform: translateX(-4px); }
+    .prev-chapter-btn .btn-label, .next-chapter-btn .btn-label { display: flex; flex-direction: column; align-items: flex-start; }
+    .prev-chapter-btn .btn-next, .next-chapter-btn .btn-next { font-size: 11px; opacity: 0.7; letter-spacing: 1.5px; text-transform: uppercase; }
+    .prev-chapter-btn .btn-title, .next-chapter-btn .btn-title { font-size: 16px; }
+    .chapter-nav-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 32px; }
+
+    @media (max-width: 768px) {
+      .beat-title h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+      }
+
+      .beat-title .subtitle {
+        font-size: 16px;
+      }
+
+      .card-title {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+      }
+
+      .beat-counter {
+        bottom: max(16px, env(safe-area-inset-bottom, 16px));
+        right: 16px;
+        font-size: 11px;
+      }
+
+      .back-link {
+        top: 16px;
+        left: 16px;
+        font-size: 12px;
+      }
+
+      .prev-chapter-btn, .next-chapter-btn { padding: 14px 24px; font-size: 14px; }
+      .prev-chapter-btn .btn-title, .next-chapter-btn .btn-title { font-size: 14px; }
+      .chapter-nav-row { flex-direction: column; align-items: stretch; }
+      .prev-chapter-btn, .next-chapter-btn { margin-top: 8px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="beat-counter" id="beatCounter"></div>
+  <a href="../index.html" class="back-link">← G2G</a>
+  <div class="nav-dots"></div>
+  <div class="swipe-hint" id="swipeHint">Swipe up to navigate</div>
+
+  <!-- BEAT 1: TITLE -->
+  <div class="beat beat-title">
+    <div class="beat-inner">
+      <div class="chapter-number">CHAPTER 27</div>
+      <h1>The Private Capital Advisory Special</h1>
+      <p class="subtitle">Secondaries, GP-Leds, LP Portfolio Sales & Fund Restructurings</p>
+    </div>
+  </div>
+
+  <!-- BEAT 2: Introduction: The Liquidity Layer -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 1</div>
+      <h2 class="card-title">Introduction: The Liquidity Layer</h2>
+      <div class="card-body">
+        <p>Private Capital Advisory (PCA) sits at the intersection of illiquidity and the relentless human need for liquidity. When LPs need cash from 10-year fund commitments. When GPs want to crystallise carry before fund life expires. When the market needs a bridge between long-duration private assets and shorter-duration capital needs. PCA is the product that makes it happen.</p>
+        <p>Welcome to the secondaries market: where illiquid becomes liquid, where fund portfolios get restructured, and where billions of dollars find new homes every single year. This is the story of how private capital solves for liquidity without sacrificing the fundamental economics of private returns.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 3: What Is Private Capital Advisory? -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 2</div>
+      <h2 class="card-title">What Is Private Capital Advisory?</h2>
+      <div class="card-body">
+        <p>Private Capital Advisory (PCA) is the advisory product covering secondary transactions in private capital. When LPs need liquidity from illiquid fund commitments, when GPs want to restructure their portfolios, when the market needs a bridge between long-duration assets and shorter-duration capital needs — PCA is the product that makes it happen.</p>
+        <p>The secondaries market has grown from niche ($5B annually in 2005) to mainstream ($130B+ in 2024). It's no longer the domain of distressed sellers or sophisticated LPs with esoteric needs. Today, secondaries are a core liquidity tool for every institutional asset owner and an increasingly standard portfolio management lever for GPs.</p>
+        <p>PCA encompasses:</p>
+        <ul class="bullet-list">
+          <li><strong>LP portfolio sales:</strong> An LP sells fund interests to a secondary buyer</li>
+          <li><strong>GP-led secondaries:</strong> A GP creates a new vehicle and transfers portfolio companies into it, offering existing LPs a choice to roll over or cash out</li>
+          <li><strong>Direct secondaries:</strong> Sale of individual portfolio company stakes</li>
+          <li><strong>Structured secondaries:</strong> Preferred equity, NAV financing, or securitised instruments</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 4: Why Secondaries Exist: The Illiquidity Problem -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 3</div>
+      <h2 class="card-title">Why Secondaries Exist: The Illiquidity Problem</h2>
+      <div class="card-body">
+        <p>Private equity is illiquid by design: 10-12 year fund life, no redemption rights, annual capital calls you can't refuse. This illiquidity is a feature, not a bug — it enables long-term value creation, aligned incentives, and the patient capital that PE returns require.</p>
+        <p>But LP needs change: portfolio rebalancing (the S&P 500 rallied, now PE is 15% of the endowment instead of 10%). Regulatory capital requirements (Basel III forces banks to reduce PE exposure). Strategic shifts (new CIO, new mandate, new priorities). Liquidity events (endowment needs cash for a capital campaign). Life events (pension fund consolidation, insurance company divestiture).</p>
+        <p>GP needs change too: funds approaching end of life with assets not yet realised. Desire to crystallise carry. LP base restructuring (big LP exited, new LPs want to negotiate terms). New investment strategy that doesn't fit old fund structure.</p>
+        <p>Without a liquidity mechanism, these needs create tension: LPs become unhappy, GPs become constrained, and capital sits idle. Secondaries provide the valve — the mechanism that lets illiquid capital find new homes without requiring a full realisation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 5: Market Context: The Rise of Secondaries -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 4</div>
+      <h2 class="card-title">Market Context: The Rise of Secondaries</h2>
+      <div class="card-body">
+        <p>$130B+ annual secondary transaction volume in 2024. This is roughly 10% of total PE exit activity — a non-trivial portion of the private capital ecosystem.</p>
+        <p>Growth drivers:</p>
+        <ul class="bullet-list">
+          <li><strong>PE/VC AUM growth:</strong> $10T+ of global private capital now in existence. More AUM = more portfolios = more liquidity needs</li>
+          <li><strong>Aging fund portfolios:</strong> Funds from 2010-2015 vintages are now 9-14 years old. More funds approaching end of life</li>
+          <li><strong>LP allocation management:</strong> Institutions are more sophisticated about portfolio rebalancing and asset allocation drift</li>
+          <li><strong>Regulatory change:</strong> Basel III/IV and Solvency II creating forced sellers, increasing deal supply</li>
+          <li><strong>GP sophistication:</strong> GPs realised they could control the secondary process rather than letting LPs drive it</li>
+        </ul>
+        <p>Market participants: Dedicated secondary funds control ~60% of buying capacity. These include Ardian, Lexington Partners, Coller Capital, HarbourVest, and Blackstone Strategic Partners. They manage $200B+ in committed capital across dozens of funds.</p>
+        <p>Pricing has compressed: average discount to NAV has fallen from 15-20% in the 2010s to 5-10% recently. GP-leds often trade at par or a premium to NAV, because GPs are selling to supportive buyers they've selected.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 6: Transaction Type Taxonomy -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 5</div>
+      <h2 class="card-title">Transaction Type Taxonomy</h2>
+      <div class="card-body">
+        <p>Not all secondaries are created equal. Each has distinct economics, processes, and participants:</p>
+        <ul class="bullet-list">
+          <li><strong>LP portfolio sales (traditional secondaries):</strong> An LP sells fund interests to a secondary buyer. The LP is the seller, the GP is a bystander (though occasionally involved in management), the secondary buyer is the new owner. Timeline: 8-16 weeks. Discount: typically 5-15% to NAV</li>
+          <li><strong>GP-led secondaries:</strong> A GP initiates a transaction involving their own fund. Continuation vehicles, tender offers, strip sales all fall under this umbrella. GP is on both sides of the transaction — selling and facilitating. Timeline: 12-20 weeks. Price: par to slight premium</li>
+          <li><strong>Direct secondaries:</strong> Stakes in individual portfolio companies sold at fund level. Buyer gets economic exposure; portfolio company may be unaware. Used for partial liquidity or concentration reduction. Less common, but growing</li>
+          <li><strong>Structured secondaries:</strong> Preferred equity (investor gets preferred return), NAV financing (loan against portfolio), rated note feeders (securitisation). When LP/GP wants liquidity without discount to NAV</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 7: PCA vs Other Advisory Products -->
+  <div class="beat beat-card comparison-wide">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 6</div>
+      <h2 class="card-title">PCA vs Other Advisory Products</h2>
+      <div class="card-body">
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Dimension</div>
+            <div class="comparison-value"><strong>PCA (Secondaries)</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">M&A</div>
+            <div class="comparison-value">Corporate</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">ECM</div>
+            <div class="comparison-value">Issuer / Underwriter</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">FSG</div>
+            <div class="comparison-value">Sponsor / Seller</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Asset type</div>
+            <div class="comparison-value"><strong>Fund interests, portfolio companies</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">Operating companies</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">Public securities</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Timeline</div>
+            <div class="comparison-value"><strong>6-16 weeks (LP sale); 12-20 weeks (GP-led)</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">6-12 months</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">1-4 weeks</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Fee structure</div>
+            <div class="comparison-value"><strong>% of transaction value (typically 1-2%)</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">Lehman (1% + 0.75% + 0.5%)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">Gross spread (typically 2-4%)</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Market size (annual)</div>
+            <div class="comparison-value"><strong>$130B+</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">$1T+</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">$500B+</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Growth rate</div>
+            <div class="comparison-value"><strong>15-20% CAGR (2015-2024)</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">Cyclical, ~5% CAGR</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">Cyclical, market-driven</div>
+          </div>
+        </div>
+        <p style="margin-top: 20px;">PCA is unique in that it's smaller than M&A by transaction volume, but growing faster. It's more specialised than ECM (shorter timeline, different buyers). It's distinct from FSG in that it's not tied to a specific sponsor relationship — it's a one-off transaction for each client.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 8: LP Portfolio Sales: The Process -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 7</div>
+      <h2 class="card-title">LP Portfolio Sales: The Process</h2>
+      <div class="card-body">
+        <p>The canonical LP secondaries sale: an LP hires an advisor, the advisor builds a book of the LP's fund interests, and sells those interests to secondary buyers. The process:</p>
+        <ul class="bullet-list">
+          <li><strong>Step 1: Engagement and planning.</strong> LP hires advisor (typically a boutique like Evercore, Lazard, or Campbell Lutyens). Advisor and LP align on timing, target price expectations, and which funds to include</li>
+          <li><strong>Step 2: Portfolio stratification.</strong> Advisor categorises the LP's fund interests into tiers: "must-have" (flagship GPs, strong performance), "good" (solid GPs, acceptable performance), "tail" (small positions, older vintages, underperforming)</li>
+          <li><strong>Step 3: Marketing materials preparation.</strong> Advisor builds an information memorandum (IM): portfolio overview, GP details, NAV breakdown by vintage, performance metrics, risks</li>
+          <li><strong>Step 4: Buyer outreach.</strong> Advisor runs a controlled auction: reaches out to 15-30 secondary funds, gives each a chance to bid</li>
+          <li><strong>Step 5: Bid management.</strong> Secondary buyers submit bids (typically 5-15 end up bidding). Advisor manages the process, negotiates with leading bidders</li>
+          <li><strong>Step 6: Negotiation and closing.</strong> Advisor negotiates final terms with winning buyer: price, closing date, rep and warranty insurance, conditions</li>
+        </ul>
+        <p>Timeline: 8-16 weeks for a standard portfolio. Key tension: speed vs price optimisation. An LP might be able to sell faster if it accepts a lower price. Or it might wait longer for a better price but risk the buyer's interest fading.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 9: Portfolio Stratification: Tiering the Book -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 8</div>
+      <h2 class="card-title">Portfolio Stratification: Tiering the Book</h2>
+      <div class="card-body">
+        <p>Not all fund interests are equal. Advisor stratifies the portfolio into tiers:</p>
+        <ul class="bullet-list">
+          <li><strong>"Must-have" tier (Tier 1):</strong> Flagship GPs, strong performance, recent vintages, large positions. Examples: Carlyle Fund VIII, Apollo V, Thoma Bravo. These funds are easy to sell, have no discount or slight premium. Advisor might market these separately to attract premium buyers</li>
+          <li><strong>"Good" tier (Tier 2):</strong> Solid GPs, acceptable performance, mid-size positions. Examples: mid-market PE funds, early-stage VC funds. These are the bulk of most portfolios. Sell at reasonable discount (5-10%)</li>
+          <li><strong>"Tail" tier (Tier 3):</strong> Small positions, older vintages, underperforming GPs, concentrated bets. These are the challenge. Some have good GPs but are small (not worth the buyer's time to value). Some have underperforming GPs</li>
+        </ul>
+        <p>Stratification determines strategy: should the portfolio be marketed together or separately? Can Tier 3 assets be sold to the Tier 1 buyer? Or should they be separated?</p>
+        <p><strong>Stapling:</strong> A common strategy is to "staple" high-quality and lower-quality assets together. The buyer gets the Tier 1 flagship positions (attractive economics) and also gets Tier 2/3 (less attractive). This allows the LP to move the entire book rather than being stuck with tail positions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 10: Pricing to NAV: The Core Metric -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 9</div>
+      <h2 class="card-title">Pricing to NAV: The Core Metric</h2>
+      <div class="card-body">
+        <p>The key metric in any secondary bid: what percentage of most recent NAV is the buyer offering?</p>
+        <p>A typical bid might be: "92% of NAV." This means if the portfolio's most recent NAV is $100M, the buyer is offering $92M. The LP gets $92M in cash today, avoiding the 10+ year wait for fund realisations.</p>
+        <p>Pricing drivers:</p>
+        <ul class="bullet-list">
+          <li><strong>GP quality/track record:</strong> Blue-chip GPs command prices closer to NAV. Mid-tier or unproven GPs command deeper discounts</li>
+          <li><strong>Vintage year:</strong> Older vintages (2010-2015) often trade at deeper discounts because they've already captured much of the value creation, leaving less upside. Newer vintages (2018-2020) might trade closer to NAV because there's more time for value creation</li>
+          <li><strong>Portfolio diversification:</strong> Concentrated bets in a few companies are riskier than diversified portfolios. Discount widens</li>
+          <li><strong>Unfunded commitment liability:</strong> The buyer will inherit the obligation to fund future capital calls. The larger the unfunded commitment, the larger the discount (because the buyer will have to deploy more capital)</li>
+          <li><strong>Blind pool risk:</strong> If the fund has uninvested capital (blind pool), the buyer inherits that risk. More discount</li>
+          <li><strong>Currency exposure:</strong> If the portfolio has significant euro or yen exposure, currency hedging costs factor into the price</li>
+        </ul>
+        <div class="formula-box">
+          <span class="formula-label">Pricing Formula</span>
+          Implied Price = NAV × (1 - Discount%) - Unfunded Commitment × Expected Drawdown%<br><br>
+          <strong>Example:</strong><br>
+          NAV: $100M<br>
+          Discount: 8%<br>
+          Unfunded Commitment: $15M<br>
+          Expected Drawdown: 75% (expect to deploy 75% of unfunded capital)<br><br>
+          Implied Price = $100M × (1 - 0.08) - $15M × 0.75<br>
+          Implied Price = $92M - $11.25M = $80.75M<br><br>
+          The buyer pays $80.75M today and will deploy ~$11.25M over the next 3-5 years.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 11: Blind Pool Risk: Valuing Uninvested Capital -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 10</div>
+      <h2 class="card-title">Blind Pool Risk: Valuing Uninvested Capital</h2>
+      <div class="card-body">
+        <p>When an LP sells fund interests, it inherits all the fund's obligations, including the unfunded commitments. The buyer will receive capital calls from the GP, and must fund them. This is "blind pool risk" — the risk that uninvested capital might generate strong or weak returns.</p>
+        <p>Valuation challenge: how do you value uninvested capital? It could be deployed into a unicorn (high return) or into a struggling company (low return). Historically, a GP's investment pace and quality have been predictive, but it's not certain.</p>
+        <p>Typical approach: model unfunded capital at 70-90% of commitment, apply a J-curve discount. A standard assumption might be:</p>
+        <ul class="bullet-list">
+          <li>Year 1-2 (deployment): capital calls on unfunded commitments. Buyer funds these, receiving no immediate returns. Interim return: -5% to -10% (the opportunity cost of deploying capital into a fund with a J-curve ahead)</li>
+          <li>Year 3-5 (value creation): GP deploys capital into portfolio companies, value creation occurs. Interim return: 0% to +10%</li>
+          <li>Year 5-7 (realisation): portfolio companies exit. Returns accelerate</li>
+        </ul>
+        <p>The secondary buyer discounts the future returns from uninvested capital by 30-40% vs a new fund investment, because the buyer is taking on the J-curve risk at a mid-life point in the fund rather than at inception.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 12: LP Portfolio Sale Comparison -->
+  <div class="beat beat-card comparison-wide">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 11</div>
+      <h2 class="card-title">LP Portfolio Sale Comparison: Sizing Up the Deal Types</h2>
+      <div class="card-body">
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Deal Type</div>
+            <div class="comparison-value"><strong>Typical Size</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Buyer Profile</div>
+            <div class="comparison-value">Dedicated secondary fund</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Timeline</div>
+            <div class="comparison-value">8-12 weeks</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Standard portfolio ($50-200M NAV)</div>
+            <div class="comparison-value"><strong>Most common</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">85-95% NAV</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Mega-cap portfolio ($500M+)</div>
+            <div class="comparison-value"><strong>Multiple secondary buyers or consortium</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">12-20 weeks</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Tail sale (old, struggling positions)</div>
+            <div class="comparison-value"><strong>Specialist tail fund or financial sponsor</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">6-8 weeks (if bought)</div>
+          </div>
+        </div>
+        <p style="margin-top: 20px;">The choice of deal structure affects both timeline and price. A mega-cap portfolio takes longer but gets better pricing because it's attractive to more buyers. A tail position might sell faster (if at all) but at a steep discount.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 13: Seller Motivations: Why LPs Sell -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 12</div>
+      <h2 class="card-title">Seller Motivations: Why LPs Sell</h2>
+      <div class="card-body">
+        <p>Why would an LP sell its fund interests at a discount to NAV? Several reasons:</p>
+        <ul class="bullet-list">
+          <li><strong>Portfolio rebalancing:</strong> Private equity allocation drifted above target. S&P 500 rallied, so PE is now 12% of portfolio instead of 8%. Sell PE secondaries to rebalance without triggering gains in public markets</li>
+          <li><strong>Liquidity need:</strong> Endowment needs cash for a capital campaign. Pension fund consolidation requires cash. Insurance company de-risking. Liquidity need is more urgent than patience for 10-year fund realisations</li>
+          <li><strong>GP relationship breakdown:</strong> LP is unhappy with GP performance, can't influence governance, wants out. Selling via secondaries is cleaner than trying to negotiate an exit with the GP</li>
+          <li><strong>Strategic shift:</strong> New CIO, new mandate, new priorities. The old PE allocation doesn't fit. Better to sell everything and start fresh</li>
+          <li><strong>Regulatory capital requirements:</strong> Basel III or Solvency II rules require banks/insurance companies to hold more capital against PE. Forced sellers</li>
+          <li><strong>Unfunded commitment anxiety:</strong> LP committed $100M but only 40% has been called. Remaining $60M liability is uncomfortable. Sell to de-risk</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 14: What GP-Led Means: The Initiator Shifts -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 13</div>
+      <h2 class="card-title">What GP-Led Means: The Initiator Shifts</h2>
+      <div class="card-body">
+        <p>In a traditional LP portfolio sale, the LP initiates. The LP is unhappy or needs liquidity, hires an advisor, and runs an auction.</p>
+        <p>In a GP-led secondary, the GP initiates. The GP says: "Our fund is approaching the end of life with some assets not yet realised. Rather than waiting 2-3 more years for exits, I'm creating a new vehicle. Existing LPs can roll over into the new vehicle or cash out via a tender offer. Secondary buyers can invest in the new vehicle or buy interests from exiting LPs."</p>
+        <p>Key difference: the GP controls the narrative and the process. The GP selects the secondary buyer, sets the terms, and offers a choice to LPs. This is more collaborative than an LP-driven auction. LPs appreciate having a choice (stay invested or cash out), and secondary buyers appreciate working with a GP they trust.</p>
+        <p>GP-leds have grown from ~30% of secondary market volume in 2015 to ~50% in 2024. They're now the mainstream approach.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 15: Continuation Vehicles: The Core GP-Led Product -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 14</div>
+      <h2 class="card-title">Continuation Vehicles: The Core GP-Led Product</h2>
+      <div class="card-body">
+        <p>A continuation vehicle (CV) is a new fund created by a GP to hold a subset of assets from the original fund. Process:</p>
+        <ul class="bullet-list">
+          <li><strong>Step 1: GP selects portfolio companies.</strong> GP identifies the best assets in the original fund that are expected to generate strong returns over the next 3-5 years. These go into the CV</li>
+          <li><strong>Step 2: GP values the CV assets and proposes a price.</strong> Typical pricing: at NAV or slight premium, because the GP is selecting only the best assets</li>
+          <li><strong>Step 3: GP offers LPs a choice:</strong> roll over (invest in CV at proposed terms) or tender (sell interest to secondary buyer at tender price, typically 95-99% NAV)</li>
+          <li><strong>Step 4: GP raises secondary capital.</strong> Secondary buyers invest in the CV alongside rolling-over LPs. GP remains a significant co-investor</li>
+          <li><strong>Step 5: GP manages the CV through exit.</strong> Run companies for 3-5 more years, exit, return capital to LPs and secondary buyers</li>
+        </ul>
+        <p>CVs are the dominant GP-led product because they're tax-efficient (no realisations in the original fund), simple (buy into a new fund rather than navigate complex tender mechanics), and alignment-friendly (GP co-invests in the CV).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 16: Why GPs Do Continuation Vehicles -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 15</div>
+      <h2 class="card-title">Why GPs Do Continuation Vehicles</h2>
+      <div class="card-body">
+        <p>GPs create CVs for several reasons:</p>
+        <ul class="bullet-list">
+          <li><strong>Carry acceleration:</strong> A fund is 8 years old with unrealised portfolio companies. GPs have 2 years left before the fund dissolves. In those 2 years, they might not be able to exit everything. By rolling the best assets into a CV and realising some gains (from secondary sales), GPs crystallise carry early rather than waiting another 3-5 years</li>
+          <li><strong>Keep the best assets longer:</strong> GPs love their best portfolio companies. Exiting them just because the fund is old is frustrating. A CV lets the GP keep them under management, continue value creation, and benefit from upside</li>
+          <li><strong>Fundraise without depleting capital:</strong> Creating a new fund requires marketing to LPs, proving track record, and negotiating terms. A CV sidesteps this by offering existing LPs (who trust the GP) a choice: stay in or exit. New capital comes from secondary buyers (also trusting the GP)</li>
+          <li><strong>Manage LP attrition:</strong> An old fund that hasn't exited everything might have unhappy LPs. A CV gives those LPs a graceful exit (tender at reasonable price) rather than being forced to stay in an old fund. Remaining LPs are happier and more committed</li>
+          <li><strong>Fee generation:</strong> A new CV generates new management fees, extending the GP's economics beyond the original fund's 10-year life</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 17: CV Conflicts of Interest: The Governance Challenge -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 16</div>
+      <h2 class="card-title">CV Conflicts of Interest: The Governance Challenge</h2>
+      <div class="card-body">
+        <p>CVs create conflicts. The GP must decide which assets go into the CV (and thus get more runway and upside potential) vs which assets stay in the original fund (and get exited soon at lower valuations).</p>
+        <p>Governance mechanisms to manage this:</p>
+        <ul class="bullet-list">
+          <li><strong>Fairness opinion:</strong> Independent fairness consultant opines on whether the CV pricing is fair. If CV assets are overpriced, remaining fund LPs get stiffed</li>
+          <li><strong>Advisory committee oversight:</strong> Fund's advisory committee approves the CV and asset allocation. Gives LPs some veto power</li>
+          <li><strong>Secondary buyer negotiation:</strong> Secondary buyers are sophisticated and negotiate hard. If the CV assets are overpriced, the secondary buyer pushes back, creating natural price discipline</li>
+          <li><strong>GP co-investment:</strong> GP rolls over significant capital into the CV (typically 20-30% of GP's original fund commitment). If the CV underperforms, the GP loses alongside LPs</li>
+        </ul>
+        <p>Conflicts remain real but manageable. Regulators and LPs are increasingly comfortable with CVs as long as governance is robust.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 18: Strip Sales: Minority Stake Secondaries -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 17</div>
+      <h2 class="card-title">Strip Sales: Minority Stake Secondaries</h2>
+      <div class="card-body">
+        <p>A strip sale is when a GP sells a minority stake in a portfolio company while keeping control. For example:</p>
+        <div class="example-box">
+          <span class="example-label">Example</span>
+          A fund owns a software company valued at $500M. The fund holds 70% (primary stake). A secondary buyer acquires 25% of the 70% (i.e., ~17.5% of the company). The fund retains 52.5% and control. Secondary buyer gets economic exposure to upside but no governance rights.
+        </div>
+        <p>Strip sales are less common than CVs but growing. They allow GPs to:</p>
+        <ul class="bullet-list">
+          <li><strong>Recycle capital without exiting.</strong> A fund might need capital to invest in new companies, but has a great portfolio company that's not quite ready to exit. A strip sale lets the fund raise capital without losing the asset</li>
+          <li><strong>Reduce concentration risk.</strong> If a portfolio company is >50% of a fund's value, the fund might sell a strip to a secondary buyer to reduce concentration</li>
+          <li><strong>De-risk large positions.</strong> A fund might be nervous about a large position and want to share the risk. Sell a strip to a secondary buyer who shares upside/downside</li>
+        </ul>
+        <p>Pricing is typically 85-95% of pro-rata NAV, because the secondary buyer is taking minority holder risk (no control, potential information disadvantage vs primary holder).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 19: Tender Offers: The LP Cash-Out Option -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 18</div>
+      <h2 class="card-title">Tender Offers: The LP Cash-Out Option</h2>
+      <div class="card-body">
+        <p>A tender offer is a mechanism within a GP-led secondary that allows existing LPs to exit their position at a set price. Structure:</p>
+        <ul class="bullet-list">
+          <li><strong>GP proposes terms:</strong> "The fund is transitioning to a CV. Existing LPs can tender their interests at 98% of current NAV in cash"</li>
+          <li><strong>LP election window:</strong> LPs have 30-60 days to decide: tender (sell to secondary buyer for cash) or roll over (invest in CV at same NAV)</li>
+          <li><strong>Funding:</strong> Secondary buyer funds the tender offer, buying the interests that LPs don't want to roll over</li>
+          <li><strong>Outcome:</strong> LPs who tender get cash. LPs who roll over become shareholders in the CV alongside the secondary buyer and the GP</li>
+        </ul>
+        <p>Tender offers are attractive to LPs because they provide certainty: a clear price and timeline to exit. Secondary buyers appreciate tender offers because they can forecast participation rates and size their investment accordingly.</p>
+        <p>Participation rates in tender offers typically range from 40-70% (rest of the LPs roll over), depending on fund performance and LP attitudes toward continued management.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 20: GP-Led Market Evolution: From 15% to 50% -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 19</div>
+      <h2 class="card-title">GP-Led Market Evolution: From 15% to 50%</h2>
+      <div class="card-body">
+        <p>In 2010-2015, GP-leds were a rare, niche product. LPs and GPs didn't fully trust them. Over the past decade, GP-leds have exploded:</p>
+        <ul class="bullet-list">
+          <li><strong>2010-2015:</strong> GP-leds ~15% of secondary market volume. Most secondaries were LP-driven</li>
+          <li><strong>2016-2018:</strong> GPs realised they could control the process and offer better returns to secondary buyers. GP-leds rose to ~30-35%</li>
+          <li><strong>2019-2021:</strong> Mega-fund GPs (KKR, Apollo, Carlyle) began routinely using GP-leds. Secondary buyers became comfortable with CV products. GP-leds hit 40-45% of volume</li>
+          <li><strong>2022-2024:</strong> GP-leds are now 50%+ of market volume. They're mainstream</li>
+        </ul>
+        <p>Drivers of this shift:</p>
+        <ul class="bullet-list">
+          <li><strong>LP acceptance:</strong> LPs realised GP-leds offer a choice (roll or exit) rather than forced selling in an LP-driven auction</li>
+          <li><strong>Better pricing:</strong> GP-leds often price at NAV or premium, because the GP is selective about which assets to move. LP-driven sales average 88-92% NAV</li>
+          <li><strong>Competitive pressure:</strong> Large GPs now expect their peers to use GP-leds. Not using one signals weakness</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 21: GP-Led vs LP Sale Comparison -->
+  <div class="beat beat-card comparison-wide">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 20</div>
+      <h2 class="card-title">GP-Led vs LP Sale Comparison: Transaction Landscape</h2>
+      <div class="card-body">
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Dimension</div>
+            <div class="comparison-value"><strong>GP-Led (Continuation Vehicle)</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">LP Portfolio Sale</div>
+            <div class="comparison-value">Traditional secondaries</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Initiator</div>
+            <div class="comparison-value"><strong>GP</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">LP</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Typical reason</div>
+            <div class="comparison-value"><strong>Fund reaching end of life with unrealised assets; carry crystallisation</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">LP rebalancing, liquidity need, GP dissatisfaction</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">LP optionality</div>
+            <div class="comparison-value"><strong>Roll over or tender (choice)</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">None (forced seller)</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Pricing</div>
+            <div class="comparison-value"><strong>Par to +5% premium NAV</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">85-95% NAV</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Timeline</div>
+            <div class="comparison-value"><strong>12-20 weeks (including LP elections)</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">8-16 weeks</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Asset selection</div>
+            <div class="comparison-value"><strong>GP selects best assets for CV; weak assets stay in original fund</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">Buyer buys entire portfolio book</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">GP co-invest</div>
+            <div class="comparison-value"><strong>20-30% of original fund commitment typical</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">GP not involved</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Governance concerns</div>
+            <div class="comparison-value"><strong>Conflicts (GP choosing which assets go where); fairness opinions required</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header"></div>
+            <div class="comparison-value">No conflicts; open auction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 22: Pricing Mechanics: How Secondary Bids Are Built -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 21</div>
+      <h2 class="card-title">Pricing Mechanics: How Secondary Bids Are Built</h2>
+      <div class="card-body">
+        <p>When a secondary buyer bids on a portfolio, the buyer is essentially answering: "What is the portfolio worth to me today, given all the risks I'm inheriting?"</p>
+        <p>Buyers model:</p>
+        <ul class="bullet-list">
+          <li><strong>Realised NAV (value already received from exited companies):</strong> Cash in hand</li>
+          <li><strong>Unrealised NAV (value of portfolio companies still owned):</strong> More uncertain; value depends on company performance, exit timing, buyer's own operational improvements</li>
+          <li><strong>Unfunded commitments (capital the buyer will deploy over next 3-5 years):</strong> Opportunity cost; capital tied up that could be invested elsewhere</li>
+          <li><strong>GP risk (risk that the GP underperforms on remaining portfolio companies):</strong> Some GPs have track records; others are unproven</li>
+          <li><strong>Liquidity discount (illiquidity premium):</strong> The buyer is paying cash today rather than waiting for future realisations. How much is that worth?</li>
+        </ul>
+        <p>Typical bid structure for a portfolio with $100M NAV, $60M realised, $40M unrealised, $20M unfunded commitments:</p>
+        <div class="formula-box">
+          <span class="formula-label">Sample Bid Build</span>
+          Realised NAV: $60M × 100% = $60M<br>
+          Unrealised NAV: $40M × 85% (discount for performance risk) = $34M<br>
+          Unfunded: -$20M × 70% (expected draw rate) = -$14M<br>
+          Subtotal: $80M<br>
+          Illiquidity discount: $80M × -10% = -$8M<br>
+          <strong>Total bid: $72M (72% of NAV)</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 23: J-Curve Acceleration: The Secondary Advantage -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 22</div>
+      <h2 class="card-title">J-Curve Acceleration: The Secondary Advantage</h2>
+      <div class="card-body">
+        <p>One of the biggest advantages of secondaries for buyers: circumventing the J-curve.</p>
+        <p>In a traditional fund investment, the LP experiences a J-curve: early returns are negative (capital calls, nothing deployed yet, fees accruing). Over 3-5 years, value creation kicks in and returns go positive. By year 10, cumulative returns are strongly positive.</p>
+        <p>A secondary buyer gets the portfolio at a mid-life point. The J-curve is already behind; the fund is past the initial capital-call phase. The buyer is buying a portfolio where:</p>
+        <ul class="bullet-list">
+          <li><strong>Most capital is already deployed.</strong> Buyer doesn't face the opportunity cost of deploying $100M of capital over 3 years; it's mostly already deployed</li>
+          <li><strong>Value creation has already started.</strong> Some portfolio companies have already been improved and are generating returns</li>
+          <li><strong>Exit timing is near.</strong> Buyer only waits 3-5 years for exits, not 7-10 years</li>
+        </ul>
+        <p>This J-curve acceleration is why secondary buyers can accept lower headline returns (8-12% IRR on secondaries vs 12-15%+ on primary fund investments). They're receiving smoother cash flows and faster returns, which justifies lower IRRs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 24: Portfolio Valuation Approaches: Depth vs Speed -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 23</div>
+      <h2 class="card-title">Portfolio Valuation Approaches: Depth vs Speed</h2>
+      <div class="card-body">
+        <p>Valuing a secondary portfolio is harder than valuing a single company (M&A diligence) because the buyer is getting a whole portfolio of 20-50 companies at different stages.</p>
+        <p>Two approaches:</p>
+        <ul class="bullet-list">
+          <li><strong>Depth approach:</strong> Buyer deep-dives on each portfolio company. Hires sector experts, audits financials, models exit scenarios. Takes 6-8 weeks. Produces granular NAV model and IRR projection. Used for mega-deals ($500M+) or when pricing is contested</li>
+          <li><strong>Speed approach:</strong> Buyer audits the GP's NAV calculations, spot-checks key companies, applies a discount to NAV based on portfolio composition and risk. Takes 2-3 weeks. Used for routine portfolios where the secondary buyer trusts the GP</li>
+        </ul>
+        <p>Most buyers use a hybrid: light depth-dives on the top 5-10 companies (which represent 60% of value), faster spot checks on the rest. This balances speed and conviction.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 25: Diligence in Secondaries: What Buyers Investigate -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 24</div>
+      <h2 class="card-title">Diligence in Secondaries: What Buyers Investigate</h2>
+      <div class="card-body">
+        <p>Secondary buyers care about different things than LPs.</p>
+        <p>LPs, when investing in a new PE fund, care about: GP track record, investment thesis, team stability, fees.</p>
+        <p>Secondary buyers, when buying a portfolio, care about:</p>
+        <ul class="bullet-list">
+          <li><strong>Portfolio company fundamentals:</strong> Revenue, EBITDA, growth rate, margins of each portfolio company. Are the companies performing to plan?</li>
+          <li><strong>Valuation credibility:</strong> Did the GP fairly value the portfolio companies, or are NAV estimates inflated?</li>
+          <li><strong>Value creation levers:</strong> What's the path to value creation in the next 3-5 years? Revenue growth? Margin improvement? Acquisition?</li>
+          <li><strong>Exit readiness:</strong> Which companies are close to exit? Which ones need more work? Timing to exits?</li>
+          <li><strong>GP track record on exits:</strong> Has the GP exited similar companies before? What multiples did they achieve? (This is predictive of future exit multiples)</li>
+          <li><strong>Unfunded commitments risk:</strong> How much capital is the buyer committing to deploy? What's the quality of those uninvested companies?</li>
+        </ul>
+        <p>Diligence is typically led by a sourcing partner (who understands the deal structure) and a sector expert (who understands the companies).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 26: Key Players: The Secondary Ecosystem -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 25</div>
+      <h2 class="card-title">Key Players: The Secondary Ecosystem</h2>
+      <div class="card-body">
+        <p><strong>Advisors (sellers' agents):</strong> Lazard, Evercore, Campbell Lutyens, Dyal, Lexington Partners Advisory Services. Help LPs/GPs structure deals, run auctions, negotiate with buyers. Fee: 1-1.5% of transaction value</p>
+        <p><strong>Secondary funds (buyers):</strong> Dedicated secondaries include Ardian, Coller Capital, HarbourVest, Blackstone Strategic Partners, Lexington Partners Secondary, Partners Group. Also strategic buyers: large PE firms (KKR, Carlyle) increasingly buy secondaries alongside raising new funds. Secondary funds manage $200B+ of committed capital</p>
+        <p><strong>Sponsors/GPs (sellers in GP-led, sometimes co-buyers):</strong> The initiators. They create CVs, offer tender prices, sometimes co-invest alongside secondary buyers</p>
+        <p><strong>LPs (sellers in LP sales, sometimes investors in CVs):</strong> Endowments, pensions, insurance companies, family offices. They initiate LP sales or decide whether to roll into CVs</p>
+        <p><strong>Technical advisors:</strong> Fairness opinion providers, valuation consultants, tax advisors. Help structure deals and manage governance</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 27: Structured Secondaries: Preferred Equity and NAV Financing -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 26</div>
+      <h2 class="card-title">Structured Secondaries: Preferred Equity and NAV Financing</h2>
+      <div class="card-body">
+        <p>Not all secondaries are straight fund-interest sales. Some are structured products:</p>
+        <ul class="bullet-list">
+          <li><strong>Preferred equity:</strong> LP/GP gets preferred return (e.g., 6% annual return) plus a share of upside. Like a bond-equity hybrid. Used when seller wants downside protection but buyer wants upside. Example: a secondary buyer invests $100M for a 6% preferred return + 30% of upside above $100M</li>
+          <li><strong>NAV financing:</strong> GP borrows against portfolio NAV. A lender advances 50-60% of portfolio NAV, GP repays from future realisations. This is a de facto secondaries transaction — GP gets cash today, new investor (lender) gets a claim on future cash flows</li>
+          <li><strong>Rated note feeders:</strong> Securitised secondaries. Multiple secondary portfolios are pooled, tranched, and issued as rated notes. Senior tranche is triple-A rated (low risk, low yield). Junior tranche is unrated (higher risk, higher yield). This allows institutional investors (insurance companies, pension funds) to access secondaries via a bond-like instrument</li>
+        </ul>
+        <p>Structured secondaries are growing in popularity because they let sellers achieve multiple objectives: get cash today without deep discounts to NAV, while investors get risk-adjusted returns matching their risk tolerance.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 28: Dry Powder vs Deal Flow: The Supply-Demand Dynamic -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 27</div>
+      <h2 class="card-title">Dry Powder vs Deal Flow: The Supply-Demand Dynamic</h2>
+      <div class="card-body">
+        <p>The secondaries market is tight because supply doesn't match demand.</p>
+        <p><strong>Dry powder (demand):</strong> Secondary funds have $200B+ of capital raised, waiting to deploy. Every secondary fund manager has a target deployment rate (30-40% per year). At a $200B market, secondaries funds want to deploy $60-80B annually. With $130B of secondary volume in the market, demand roughly equals supply. But not every secondary buyer can invest in every deal (they have geographic, sector, GP-relationship preferences)</p>
+        <p><strong>Deal flow (supply):</strong> The amount of portfolio assets available for sale annually. $130B+ in recent years. But supply is lumpy. In some quarters, lots of GP-led secondaries from mega-funds. In other quarters, few deals. Secondary buyers compete for the most attractive deals, pushing prices up. In slow quarters, fewer deals, secondary buyers sit with idle capital</p>
+        <p><strong>Implication:</strong> Secondary buyers have enormous leverage. They're capital-rich, deal-poor. This is why:</p>
+        <ul class="bullet-list">
+          <li>Pricing has compressed (buyers compete on price to get deals)</li>
+          <li>Buyer optionality is increasing (buyers negotiate harder terms)</li>
+          <li>Mega-fund GPs get better prices (because they have lots of deals to sell; secondary buyers want the relationship)</li>
+          <li>Small GPs get worse prices (less deal flow, less leverage)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 29: Regulatory and Structural Trends Reshaping Secondaries -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 28</div>
+      <h2 class="card-title">Regulatory and Structural Trends Reshaping Secondaries</h2>
+      <div class="card-body">
+        <p><strong>Regulatory tailwinds:</strong> Solvency II (EU insurance) and Basel III/IV (banking) are forcing institutional sellers into secondaries. Regulators penalise PE holdings; forced sales are increasing deal supply. This is cyclical — when regulations ease, forced-seller flow dries up</p>
+        <p><strong>Mega-fund consolidation:</strong> Mega-funds (Blackstone, Apollo, KKR, Carlyle) control more AUM than ever. They're increasingly self-dealing — raising secondary vehicles and buying their own secondaries (not exiting). This reduces supply available to other secondary funds</p>
+        <p><strong>Direct secondaries growth:</strong> Instead of selling entire funds, GPs are selling individual portfolio company stakes. This is more complex (portfolio company might have co-owners) but offers more flexibility to GPs</p>
+        <p><strong>Secondary funds going mega:</strong> Ardian, Coller, and HarbourVest are now raising $5-10B funds themselves. This gives them scale to do large continuation vehicles and mega-deals. Mid-market secondary funds are struggling to compete</p>
+        <p><strong>Retail access:</strong> Secondaries are increasingly available to smaller investors via continuation vehicles, mutual funds, and ETFs. This democratises access but might create volatility (retail LP outflows in downturns)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 30: The Future of PCA: Mainstreaming Liquidity -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 29</div>
+      <h2 class="card-title">The Future of PCA: Mainstreaming Liquidity</h2>
+      <div class="card-body">
+        <p>Secondaries are no longer a niche product. They're becoming a mainstream portfolio management lever. In 10 years, we'll expect:</p>
+        <ul class="bullet-list">
+          <li><strong>Every GP does a GP-led secondary within 5 years of raising a fund.</strong> It's now standard operating procedure for mega-funds; will become standard for mid-market</li>
+          <li><strong>Multiple exit windows.</strong> Instead of one 10-year fund life, LPs get choices to exit at year 5 (via continuation vehicle) and year 10 (via traditional exit). More optionality = higher demand from LPs</li>
+          <li><strong>Secondaries as a yield vehicle for risk-off capital.</strong> Institutional investors tired of 0% bond yields will view secondaries as a stable, income-producing alternative. Flow of institutional capital into secondaries will accelerate</li>
+          <li><strong>Regulatory tailwinds continue.</strong> Insurance companies and banks will remain forced sellers, supporting secondary deal supply for the next 5-10 years</li>
+          <li><strong>Pricing compression continues.</strong> More buyers (mega-funds, strategic corporations, institutions, retail) competing for the same deals will keep secondary discounts low. Some deals will price at NAV or premium</li>
+        </ul>
+        <p>The future of PCA is a world where illiquidity is optional. LPs and GPs can choose liquidity at multiple points. Secondaries are how that choice becomes real.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 31: FINALE -->
+  <div class="beat beat-scene">
+    <div class="beat-inner">
+      <div class="scene-location">PRIVATE CAPITAL ADVISORY SPECIAL COMPLETE</div>
+      <div class="scene-text">
+        <p><strong>This concludes From Greenhorn to Gold(wo)man. Twenty-seven chapters across three pillars of modern finance.</strong></p>
+        <p>We began with the fundamentals — what a deal looks like, how money flows, how returns are calculated. We moved through the core advisory products: M&A, ECM, FSG, DCM. We built expertise in the specialized sectors: infrastructure, TMT, healthcare, real estate. And we closed with the portfolio management tools: secondaries, continuation vehicles, structured products.</p>
+        <p>You now understand the machinery of modern finance. The next step is to walk into a bank, a fund, or a company and apply it. To see a deal and recognise the value. To sit in a meeting and ask the right questions. To build a financial model that impresses. To negotiate terms that make sense. To know when to buy and when to hold.</p>
+        <p>Finance isn't magic. It's discipline, pattern recognition, and the courage to make decisions with incomplete information. This guide has given you the patterns. The discipline and courage are yours to build.</p>
+        <p>Welcome to the inner circle. The investing world is yours.</p>
+        <div class="download-hero">
+          <a href="https://drive.google.com/uc?export=download&id=1Q2xZL7xF6VyRd7B5V5qY9zL0c0d0V0Z0" class="download-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download Reference: G2G_PCA_Reference.pdf
+          </a>
+          <p class="download-note">Last updated: March 2026 | All Rights Reserved</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV SECTION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="chapter-nav-row">
+        <a href="ch26.html" class="prev-chapter-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+          <span class="btn-label"><span class="btn-next">Previous Chapter</span><span class="btn-title">The Financial Sponsors Group Special</span></span>
+        </a>
+        <a href="../index.html" class="next-chapter-btn">
+          <span class="btn-label"><span class="btn-next">Return to</span><span class="btn-title">Back to Home</span></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentBeat = 0;
+    let startY = 0;
+    let isAnimating = false;
+    const beats = document.querySelectorAll('.beat');
+    const totalBeats = beats.length;
+
+    function positionBeats() {
+      beats.forEach((beat, i) => {
+        if (i < currentBeat) {
+          beat.style.transform = 'translateY(-100vh)';
+          beat.style.opacity = '0';
+          beat.style.pointerEvents = 'none';
+          beat.style.visibility = 'hidden';
+        } else if (i === currentBeat) {
+          beat.style.transform = 'translateY(0)';
+          beat.style.opacity = '1';
+          beat.style.pointerEvents = 'auto';
+          beat.style.visibility = 'visible';
+        } else {
+          beat.style.transform = 'translateY(100vh)';
+          beat.style.opacity = '0';
+          beat.style.pointerEvents = 'none';
+          beat.style.visibility = 'hidden';
+        }
+      });
+    }
+
+    function updateCounter() {
+      const counter = document.getElementById('beatCounter');
+      if (counter) counter.textContent = `${currentBeat + 1} / ${totalBeats}`;
+    }
+
+    function updateProgress() {
+      // Progress bar removed (nav dots replaced it)
+    }
+
+    function goTo(index) {
+      if (isAnimating || index < 0 || index >= totalBeats) return;
+      isAnimating = true;
+      const direction = index > currentBeat ? -1 : 1;
+      beats[currentBeat].style.transform = `translateY(${direction * 100}vh)`;
+      beats[currentBeat].style.opacity = '0';
+      beats[currentBeat].style.pointerEvents = 'none';
+      beats[currentBeat].style.visibility = 'hidden';
+      beats[index].style.transform = 'translateY(0)';
+      beats[index].style.opacity = '1';
+      beats[index].style.pointerEvents = 'auto';
+      beats[index].style.visibility = 'visible';
+      currentBeat = index;
+      updateCounter();
+      updateProgress();
+      saveProgress();
+      document.querySelectorAll('.nav-dots .dot').forEach((d, di) => d.classList.toggle('active', di === currentBeat));
+      const hint = document.getElementById('swipeHint');
+      if (hint) {
+        hint.style.opacity = '0';
+        setTimeout(() => hint.remove(), 500);
+        try { localStorage.setItem('g2g-swipe-seen', '1'); } catch(e) {}
+      }
+      setTimeout(() => { isAnimating = false; }, 350);
+    }
+
+    document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+    document.addEventListener('touchend', e => {
+      const beat = beats[currentBeat];
+      const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+      const atTop = beat.scrollTop <= 5;
+      const diff = startY - e.changedTouches[0].clientY;
+      if (diff > 50 && atBottom) goTo(currentBeat + 1);
+      if (diff < -50 && atTop) goTo(currentBeat - 1);
+    }, { passive: true });
+
+    let wheelAccum = 0;
+    let wheelTimer = null;
+    document.addEventListener('wheel', e => {
+      const beat = beats[currentBeat];
+      const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+      const atTop = beat.scrollTop <= 5;
+      wheelAccum += e.deltaY;
+      clearTimeout(wheelTimer);
+      wheelTimer = setTimeout(() => { wheelAccum = 0; }, 200);
+      if (wheelAccum > 50 && atBottom) { wheelAccum = 0; goTo(currentBeat + 1); }
+      if (wheelAccum < -50 && atTop) { wheelAccum = 0; goTo(currentBeat - 1); }
+    }, { passive: true });
+
+    document.addEventListener('keydown', e => {
+      const beat = beats[currentBeat];
+      const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+      const atTop = beat.scrollTop <= 5;
+      if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key)) {
+        if (atBottom) { e.preventDefault(); goTo(currentBeat + 1); }
+      } else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) {
+        if (atTop) { e.preventDefault(); goTo(currentBeat - 1); }
+      } else if (e.key === ' ') {
+        e.preventDefault();
+        if (atBottom) goTo(currentBeat + 1);
+        else beat.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+      } else if (e.key === 'Home') {
+        e.preventDefault(); goTo(0);
+      } else if (e.key === 'End') {
+        e.preventDefault(); goTo(totalBeats - 1);
+      }
+    });
+
+    const swipeHint = document.getElementById('swipeHint');
+    if (swipeHint) {
+      try { if (localStorage.getItem('g2g-swipe-seen')) swipeHint.remove(); } catch(e) {}
+    }
+
+    const navContainer = document.querySelector('.nav-dots');
+    for (let i = 0; i < totalBeats; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goTo(i);
+      navContainer.appendChild(dot);
+    }
+
+    positionBeats();
+
+    // Create nav dots
+    (function() {
+      var navEl = document.querySelector('.nav-dots');
+      if (!navEl) {
+        navEl = document.createElement('div');
+        navEl.className = 'nav-dots';
+        navEl.id = 'navDots';
+        document.body.appendChild(navEl);
+      }
+      var beats = document.querySelectorAll('.beat');
+      navEl.innerHTML = '';
+      for (var i = 0; i < beats.length; i++) {
+        var dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.dataset.index = i;
+        dot.addEventListener('click', function() {
+          var idx = parseInt(this.dataset.index);
+          if (typeof goTo === 'function') goTo(idx);
+        });
+        navEl.appendChild(dot);
+      }
+    })();
+
+    updateCounter();
+    updateProgress();
+
+    const CHAPTER_NUM = 27;
+    function saveProgress() {
+      try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeat); } catch(e) {}
+    }
+
+    (function() {
+      try {
+        const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+        if (saved && saved > 0 && saved < totalBeats) {
+          const toast = document.createElement('div');
+          toast.className = 'resume-toast';
+          toast.innerHTML = `<span>Resume from beat ${saved + 1}?</span><button onclick="goTo(${saved}); this.parentNode.remove();">Resume</button><button onclick="this.parentNode.remove();">Start Over</button>`;
+          document.body.appendChild(toast);
+          setTimeout(() => { if (toast.parentNode) toast.remove(); }, 8000);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</body>
+</html>

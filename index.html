@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Corporate Finance. Through Story. Learn investment banking through five characters, two companies, and twenty chapters. Zero formulas to memorise.">
+  <meta name="theme-color" content="#6b2fa0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
   <title>From Greenhorn to Gold(wo)man — G2G Advisory</title>
-  
+
     <!-- Open Graph / WhatsApp Preview -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://g2ga-069.github.io/G2G">
@@ -31,9 +36,9 @@
       --surface-2: #1a1a22;
       --border: #2a2a35;
       --text: #e8e4df;
-      --text-muted: #8a8590;
-      --text-dim: #5a5560;
-      --accent: #b07ce8;
+      --text-muted: #b0adb5;
+      --text-dim: #9a95a0;
+      --accent: #c49aee;
       --accent-dim: #7a55b0;
       --accent-bright: #d4a0ff;
       --brand-purple: #6b2fa0;
@@ -103,7 +108,7 @@
       height: 3px;
       background: linear-gradient(90deg, var(--brand-purple), var(--brand-magenta));
       width: 0%;
-      z-index: 999;
+      z-index: 50;
       transition: width 0.1s ease;
     }
 
@@ -619,8 +624,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, transparent, currentColor, transparent);
-      color: inherit;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
 
     .company-card:nth-child(1) {
@@ -731,7 +735,7 @@
       margin-top: 70px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       .chapters-grid {
         grid-template-columns: 1fr;
       }
@@ -770,7 +774,6 @@
     .chapter-card:hover {
       transform: translateY(-8px);
       border-color: var(--accent);
-      box-shadow: 0 20px 60px rgba(176, 124, 232, 0.2);
     }
 
     .chapter-card.coming-soon {
@@ -1137,21 +1140,107 @@
         height: 75px;
         font-size: 26px;
       }
+
+      /* Disable glitch pseudo-elements on mobile (saves GPU) */
+      .hero-title h1.glitch::before,
+      .hero-title h1.glitch::after {
+        display: none;
+      }
+    }
+
+    /* ===== TABLET BREAKPOINT ===== */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .cast-card {
+        flex: 0 1 calc(50% - 14px);
+      }
+      .chapters-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ===== SAFE AREA (notch devices) ===== */
+    .hero {
+      padding-top: max(40px, env(safe-area-inset-top));
+    }
+
+    /* ===== SKIP LINK ===== */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 16px;
+      z-index: 1000;
+      padding: 12px 24px;
+      background: var(--brand-purple);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 0 0 8px 8px;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* ===== FOCUS VISIBLE ===== */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ===== PRINT STYLESHEET ===== */
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+        background-image: none;
+      }
+      .progress-bar, .hero canvas, .scroll-indicator, .chapter-arrow {
+        display: none !important;
+      }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .chapter-card, .cast-card, .company-card {
+        break-inside: avoid;
+        border: 1px solid #ccc;
+        background: #fff;
+      }
+      a { color: #333; }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="progress-bar"></div>
+  <a href="#chapters" class="skip-link">Skip to chapters</a>
+  <div class="progress-bar" role="progressbar" aria-label="Reading progress"></div>
 
+  <main>
   <!-- ===== HERO SECTION ===== -->
   <section class="hero" id="hero">
     <canvas id="canvas"></canvas>
     <div class="hero-content">
       <div class="hero-logo-container">
         <div class="hero-logo-bg">
-          <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" aria-label="G2G Advisory logo" role="img">
             <defs>
               <linearGradient id="logoGrad" x1="0%" y1="100%" x2="100%" y2="0%">
                 <stop offset="0%" style="stop-color:#8a3cc4;stop-opacity:1" />
@@ -1253,7 +1342,7 @@
 
       <div class="companies-grid">
         <div class="company-card">
-          <svg class="company-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+          <svg class="company-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
             <circle cx="12" cy="6" r="3" opacity="0.4"/>
             <path d="M12 12c-4 0-6 2-6 4v4h12v-4c0-2-2-4-6-4zm-5 8v-2c0-1 1-2 5-2s5 1 5 2v2z" opacity="0.6"/>
             <path d="M8 8h8M8 11h8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
@@ -1276,7 +1365,7 @@
         </div>
 
         <div class="company-card">
-          <svg class="company-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <svg class="company-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
             <path d="M6 8h12M6 12h8M6 16h10"/>
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
           </svg>
@@ -1868,6 +1957,202 @@
           </div>
         </a>
 
+        <a href="chapters/ch21.html" class="chapter-card">
+          <div class="chapter-inner">
+            <div class="chapter-label">Chapter 21</div>
+            <div class="chapter-title">The Infrastructure & Transport Special</div>
+            <div class="chapter-subtitle">PPP/PFI, Regulated Assets, Concessions & Transport</div>
+            <div class="chapter-desc">RAB, RCV, WACC, gearing, concession models, and regulatory resets — infrastructure IB in full</div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">Infrastructure</span>
+              <span class="chapter-tag">PPP/PFI</span>
+              <span class="chapter-tag">Regulated Assets</span>
+            </div>
+            <div class="chapter-footer">
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  PDF Download
+                </span>
+              </div>
+              <span class="chapter-arrow">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="chapters/ch22.html" class="chapter-card">
+          <div class="chapter-inner">
+            <div class="chapter-label">Chapter 22</div>
+            <div class="chapter-title">The Business Services & Outsourcing Special</div>
+            <div class="chapter-subtitle">Professional Services, Facilities Management, BPO & Staffing</div>
+            <div class="chapter-desc">Revenue per FTE, utilisation, roll-up economics, and contractor misclassification risk</div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">Business Services</span>
+              <span class="chapter-tag">Roll-Ups</span>
+              <span class="chapter-tag">Outsourcing</span>
+            </div>
+            <div class="chapter-footer">
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  PDF Download
+                </span>
+              </div>
+              <span class="chapter-arrow">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="chapters/ch23.html" class="chapter-card">
+          <div class="chapter-inner">
+            <div class="chapter-label">Chapter 23</div>
+            <div class="chapter-title">The Restructuring & Special Situations Special</div>
+            <div class="chapter-subtitle">Distressed Debt, Turnarounds, DIP Finance & Creditor Dynamics</div>
+            <div class="chapter-desc">Fulcrum security, absolute priority, Chapter 11, schemes of arrangement, and loan-to-own</div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">Restructuring</span>
+              <span class="chapter-tag">Distressed Debt</span>
+              <span class="chapter-tag">DIP Finance</span>
+            </div>
+            <div class="chapter-footer">
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  PDF Download
+                </span>
+              </div>
+              <span class="chapter-arrow">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="chapters/ch24.html" class="chapter-card">
+          <div class="chapter-inner">
+            <div class="chapter-label">Chapter 24</div>
+            <div class="chapter-title">The M&A Advisory Special</div>
+            <div class="chapter-subtitle">Sell-Side, Buy-Side, Defence & Fairness Opinions</div>
+            <div class="chapter-desc">Mandate types, fee structures, the sell-side process end-to-end, and advisory economics</div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">M&A Advisory</span>
+              <span class="chapter-tag">Sell-Side</span>
+              <span class="chapter-tag">Fairness Opinions</span>
+            </div>
+            <div class="chapter-footer">
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  PDF Download
+                </span>
+              </div>
+              <span class="chapter-arrow">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="chapters/ch25.html" class="chapter-card">
+          <div class="chapter-inner">
+            <div class="chapter-label">Chapter 25</div>
+            <div class="chapter-title">The Capital Markets Special</div>
+            <div class="chapter-subtitle">Equity & Debt Origination, Syndication & Execution</div>
+            <div class="chapter-desc">IPO bookbuilding, bond pricing, syndicate structure, and aftermarket stabilisation</div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">ECM</span>
+              <span class="chapter-tag">DCM</span>
+              <span class="chapter-tag">Syndication</span>
+            </div>
+            <div class="chapter-footer">
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  PDF Download
+                </span>
+              </div>
+              <span class="chapter-arrow">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="chapters/ch26.html" class="chapter-card">
+          <div class="chapter-inner">
+            <div class="chapter-label">Chapter 26</div>
+            <div class="chapter-title">The Financial Sponsors Group Special</div>
+            <div class="chapter-subtitle">Sponsor Coverage, Co-Investment & Fund Relationships</div>
+            <div class="chapter-desc">FSG origination, wallet share, stapled financing, fund economics, and league table dynamics</div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">FSG</span>
+              <span class="chapter-tag">Private Equity</span>
+              <span class="chapter-tag">Co-Investment</span>
+            </div>
+            <div class="chapter-footer">
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  PDF Download
+                </span>
+              </div>
+              <span class="chapter-arrow">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="chapters/ch27.html" class="chapter-card">
+          <div class="chapter-inner">
+            <div class="chapter-label">Chapter 27</div>
+            <div class="chapter-title">The Private Capital Advisory Special</div>
+            <div class="chapter-subtitle">Secondaries, GP-Leds, LP Portfolio Sales & Fund Restructurings</div>
+            <div class="chapter-desc">Continuation vehicles, NAV pricing, J-curve acceleration, and the secondaries market</div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">Secondaries</span>
+              <span class="chapter-tag">GP-Led</span>
+              <span class="chapter-tag">LP Sales</span>
+            </div>
+            <div class="chapter-footer">
+              <div>
+                <span class="chapter-status live">Live</span>
+                <span class="chapter-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  PDF Download
+                </span>
+              </div>
+              <span class="chapter-arrow">Read →</span>
+            </div>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
@@ -1884,10 +2169,12 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="footer-logo">
-      <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" aria-label="G2G Advisory logo" role="img">
         <defs>
           <linearGradient id="logoGradFooter" x1="0%" y1="100%" x2="100%" y2="0%">
             <stop offset="0%" style="stop-color:#8a3cc4;stop-opacity:1" />
@@ -1921,118 +2208,129 @@
 
   <script>
     // ===== PROGRESS BAR =====
+    const progressBar = document.querySelector('.progress-bar');
     window.addEventListener('scroll', () => {
+      if (!progressBar) return;
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      document.querySelector('.progress-bar').style.width = scrollPercent + '%';
+      progressBar.style.width = scrollPercent + '%';
     });
 
     // ===== PARTICLE ANIMATION =====
     const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
+    if (!canvas) { console.warn('Canvas element not found'); }
+    const ctx = canvas ? canvas.getContext('2d') : null;
 
     function resizeCanvas() {
       const hero = document.querySelector('.hero');
+      if (!canvas || !hero) return;
       canvas.width = hero.offsetWidth;
       canvas.height = hero.offsetHeight;
     }
 
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    const particles = [];
-    const particleCount = window.innerWidth < 768 ? 30 : 60;
-    const connectionDistance = 150;
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.8;
-        this.vy = (Math.random() - 0.5) * 0.8;
-        this.radius = Math.random() * 2.5 + 1.2;
-        this.color = 'rgba(176, 124, 232, ' + (Math.random() * 0.6 + 0.15) + ')';
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-        this.x = Math.max(0, Math.min(canvas.width, this.x));
-        this.y = Math.max(0, Math.min(canvas.height, this.y));
-      }
-
-      draw() {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fill();
-      }
+    if (canvas) {
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
     }
 
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
+    if (canvas && ctx) {
+      const particles = [];
+      const particleCount = window.innerWidth < 768 ? 30 : 60;
+      const connectionDistance = 150;
 
-    function drawConnections() {
-      ctx.strokeStyle = 'rgba(176, 124, 232, 0.1)';
-      ctx.lineWidth = 1;
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.8;
+          this.vy = (Math.random() - 0.5) * 0.8;
+          this.radius = Math.random() * 2.5 + 1.2;
+          this.color = 'rgba(176, 124, 232, ' + (Math.random() * 0.6 + 0.15) + ')';
+        }
 
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
 
-          if (distance < connectionDistance) {
-            const opacity = 1 - (distance / connectionDistance);
-            ctx.strokeStyle = 'rgba(176, 124, 232, ' + (opacity * 0.25) + ')';
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+          this.x = Math.max(0, Math.min(canvas.width, this.x));
+          this.y = Math.max(0, Math.min(canvas.height, this.y));
+        }
+
+        draw() {
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      function drawConnections() {
+        ctx.strokeStyle = 'rgba(176, 124, 232, 0.1)';
+        ctx.lineWidth = 1;
+
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < connectionDistance) {
+              const opacity = 1 - (distance / connectionDistance);
+              ctx.strokeStyle = 'rgba(176, 124, 232, ' + (opacity * 0.25) + ')';
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
           }
         }
       }
-    }
 
-    let animationRunning = true;
-    let animationId = null;
+      let animationRunning = true;
+      let animationId = null;
 
-    function animate() {
-      if (!animationRunning) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      function animate() {
+        if (!animationRunning) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      for (let particle of particles) {
-        particle.update();
-        particle.draw();
+        for (let particle of particles) {
+          particle.update();
+          particle.draw();
+        }
+
+        drawConnections();
+        animationId = requestAnimationFrame(animate);
       }
 
-      drawConnections();
-      animationId = requestAnimationFrame(animate);
-    }
+      // Pause animation when hero is off-screen (saves battery on mobile)
+      const heroEl = document.querySelector('.hero');
+      if (heroEl) {
+        const heroObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              if (!animationRunning) {
+                animationRunning = true;
+                animate();
+              }
+            } else {
+              animationRunning = false;
+              if (animationId) cancelAnimationFrame(animationId);
+            }
+          });
+        }, { threshold: 0 });
+        heroObserver.observe(heroEl);
+      }
 
-    // Pause animation when hero is off-screen (saves battery on mobile)
-    const heroObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (!animationRunning) {
-            animationRunning = true;
-            animate();
-          }
-        } else {
-          animationRunning = false;
-          if (animationId) cancelAnimationFrame(animationId);
-        }
-      });
-    }, { threshold: 0 });
-    heroObserver.observe(document.querySelector('.hero'));
-
-    animate();
+      animate();
+    } // end canvas guard
 
     // ===== GLITCH TEXT =====
     const glitchElement = document.querySelector('.hero-title h1');
@@ -2066,7 +2364,7 @@
     let konamiIndex = 0;
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === konamiCode[konamiIndex] || e.code === konamiCode[konamiIndex]) {
+      if (e.key === konamiCode[konamiIndex]) {
         konamiIndex++;
         if (konamiIndex === konamiCode.length) {
           document.body.classList.toggle('party-mode');
@@ -2076,6 +2374,17 @@
         konamiIndex = 0;
       }
     });
+  </script>
+
+  <!-- ===== SERVICE WORKER REGISTRATION ===== -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('SW registered:', reg.scope))
+          .catch(err => console.warn('SW registration failed:', err));
+      });
+    }
   </script>
 
 </body>

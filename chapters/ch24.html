@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G2G Chapter 24 — The M&amp;A Advisory Special</title>
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://g2ga-069.github.io/G2G/chapters/ch24.html">
+  <meta property="og:title" content="Chapter 24: The M&amp;A Advisory Special — G2G Advisory">
+  <meta property="og:description" content="Sell-Side, Buy-Side, Defence &amp; Fairness Opinions">
+  <meta property="og:image" content="https://g2ga-069.github.io/G2G/images/og-preview.png">
+  <meta property="og:site_name" content="G2G Advisory">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chapter 24: The M&amp;A Advisory Special — G2G Advisory">
+  <meta name="twitter:description" content="Sell-Side, Buy-Side, Defence &amp; Fairness Opinions">
+  <meta name="twitter:image" content="https://g2ga-069.github.io/G2G/images/og-preview.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon-180.png">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0c;
+      --surface: #131318;
+      --surface-2: #1a1a22;
+      --border: #2a2a35;
+      --text: #e8e4df;
+      --text-muted: #a8a4b0;
+      --text-dim: #7a7680;
+      --accent: #b07ce8;
+      --accent-dim: #7a55b0;
+      --accent-bright: #d4a0ff;
+      --green: #4a9e6e;
+      --red: #c45c4a;
+      --blue: #5a8fc4;
+      --purple: #8a3cc4;
+      --brand-purple: #6b2fa0;
+      --brand-magenta: #d946ef;
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { height: 100%; overflow: hidden; overscroll-behavior: none; }
+    body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-serif);
+      line-height: 1.7;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .beat {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 52px 24px 60px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s, transform 0.35s ease-in-out;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .beat-inner {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* TITLE BEAT */
+    .beat-title {
+      background: radial-gradient(ellipse at 60% 40%, rgba(176, 124, 232, 0.15) 0%, rgba(107, 47, 160, 0.08) 40%, var(--bg) 100%);
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .beat-title .beat-inner {
+      text-align: center;
+    }
+
+    .series-name {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 16px;
+    }
+
+    .chapter-number {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+
+    .beat-title h1 {
+      font-family: var(--font-serif);
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--accent-bright);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .beat-title .subtitle {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* CARD BEAT */
+    .beat-card {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beat-card .beat-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .card-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    .card-body {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .card-body p {
+      margin-bottom: 16px;
+    }
+
+    .card-body strong {
+      color: var(--accent-bright);
+      font-weight: 600;
+    }
+
+    .metric-item {
+      margin-bottom: 16px;
+      padding-left: 16px;
+      border-left: 2px solid var(--accent-dim);
+    }
+
+    .metric-name {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--accent-bright);
+    }
+
+    .metric-def {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .comparison-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .comparison-col {
+      flex: 1;
+    }
+
+    .comparison-header {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .comparison-value {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .bullet-list {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    .bullet-list li {
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .bullet-list li strong {
+      color: var(--accent-bright);
+    }
+
+    .formula-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--accent-bright);
+      line-height: 1.6;
+    }
+
+    .formula-box .formula-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .example-box {
+      background: linear-gradient(135deg, rgba(74,158,110,0.08), rgba(74,158,110,0.03));
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .example-box .example-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, rgba(196,92,74,0.08), rgba(196,92,74,0.03));
+      border-left: 3px solid var(--red);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .warning-box .warning-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-box p {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .section-divider {
+      background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+      height: 1px;
+      margin: 24px 0;
+    }
+
+    .part-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 4px;
+    }
+
+    /* SCENE BEAT */
+    .beat-scene {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beat-scene .beat-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .scene-location {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 16px;
+    }
+
+    .scene-text {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    .scene-text strong {
+      color: var(--accent-bright);
+    }
+
+    .scene-text a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .scene-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* UI ELEMENTS */
+    .beat-counter {
+      position: fixed;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
+      right: 24px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--text-dim);
+      z-index: 998;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      z-index: 996;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .swipe-hint {
+      position: fixed;
+      bottom: 60px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-dim);
+      z-index: 995;
+      animation: fadeOutAfter 7s forwards;
+    }
+
+    @keyframes fadeOutAfter {
+      0%, 85% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .resume-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      border: 1px solid var(--accent-dim);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 1000;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .resume-toast button {
+      background: var(--accent-dim);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+
+    .resume-toast button:first-of-type {
+      background: var(--brand-purple);
+    }
+
+    .resume-toast button:hover {
+      opacity: 0.9;
+    }
+
+    /* Wider beat-inner for comparison tables */
+    .beat-card.comparison-wide .beat-inner {
+      max-width: 760px;
+    }
+
+    /* Download button */
+    .download-hero {
+      margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 14px;
+    }
+    .download-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 36px; border-radius: 10px; text-decoration: none;
+      background: linear-gradient(135deg, #6b2fa0, #d946ef);
+      color: #fff; font-family: var(--font-sans, 'Inter', sans-serif); font-size: 15px;
+      font-weight: 700; letter-spacing: 0.5px;
+      transition: all 0.3s; box-shadow: 0 4px 24px rgba(107,47,160,0.4);
+    }
+    .download-btn:hover {
+      transform: translateY(-2px); box-shadow: 0 8px 32px rgba(107,47,160,0.6);
+    }
+    .download-btn svg { width: 20px; height: 20px; }
+    .download-note {
+      font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 11px;
+      color: var(--text-dim, var(--text-muted, #7a7680)); letter-spacing: 0.5px;
+    }
+
+    /* Nav dots */
+    .nav-dots {
+      position: fixed; top: 50%; right: 12px; transform: translateY(-50%);
+      z-index: 100; display: flex; flex-direction: column; gap: 6px;
+    }
+    .nav-dots .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); cursor: pointer; transition: all 0.3s;
+    }
+    .nav-dots .dot.active {
+      background: var(--accent, #b07ce8); box-shadow: 0 0 6px rgba(176,124,232,0.4);
+      width: 10px; height: 10px;
+    }
+    .nav-dots .dot:hover { background: var(--accent-dim, rgba(176,124,232,0.5)); }
+
+    @media (max-width: 768px) {
+      .nav-dots { right: 8px; gap: 4px; }
+      .beat-inner { padding-right: 28px; }
+      .nav-dots .dot { width: 6px; height: 6px; }
+      .nav-dots .dot.active { width: 8px; height: 8px; }
+    }
+
+    /* Resume toast — mobile-safe */
+    @media (max-width: 768px) {
+      .resume-toast {
+        max-width: calc(100vw - 32px); width: auto;
+        padding: 12px 16px; gap: 10px;
+        bottom: max(70px, calc(60px + env(safe-area-inset-bottom)));
+        font-size: 12px; flex-wrap: wrap; justify-content: center;
+      }
+      .resume-toast button { padding: 8px 16px; font-size: 12px; }
+    }
+
+    .prev-chapter-btn, .next-chapter-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 28px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(107,47,160,0.15), rgba(176,124,232,0.10));
+      border: 1px solid rgba(176,124,232,0.25);
+      color: var(--accent, #b07ce8); text-decoration: none;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      transition: all 0.3s ease; margin-top: 32px; cursor: pointer;
+    }
+    .prev-chapter-btn:hover, .next-chapter-btn:hover {
+      background: linear-gradient(135deg, rgba(107,47,160,0.25), rgba(176,124,232,0.20));
+      border-color: rgba(176,124,232,0.5); transform: translateY(-1px);
+    }
+    .prev-chapter-btn svg, .next-chapter-btn svg { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.2s; }
+    .next-chapter-btn:hover svg { transform: translateX(4px); }
+    .prev-chapter-btn:hover svg { transform: translateX(-4px); }
+    .prev-chapter-btn .btn-label, .next-chapter-btn .btn-label { display: flex; flex-direction: column; align-items: flex-start; }
+    .prev-chapter-btn .btn-next, .next-chapter-btn .btn-next { font-size: 11px; opacity: 0.7; letter-spacing: 1.5px; text-transform: uppercase; }
+    .prev-chapter-btn .btn-title, .next-chapter-btn .btn-title { font-size: 16px; }
+    .chapter-nav-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 32px; }
+
+    @media (max-width: 768px) {
+      .beat-title h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+      }
+
+      .beat-title .subtitle {
+        font-size: 16px;
+      }
+
+      .card-title {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+      }
+
+      .beat-counter {
+        bottom: max(16px, env(safe-area-inset-bottom, 16px));
+        right: 16px;
+        font-size: 11px;
+      }
+
+      .back-link {
+        top: 16px;
+        left: 16px;
+        font-size: 12px;
+      }
+
+      .prev-chapter-btn, .next-chapter-btn { padding: 14px 24px; font-size: 14px; }
+      .prev-chapter-btn .btn-title, .next-chapter-btn .btn-title { font-size: 14px; }
+      .chapter-nav-row { flex-direction: column; align-items: stretch; }
+      .prev-chapter-btn, .next-chapter-btn { margin-top: 8px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="beat-counter" id="beatCounter"></div>
+  <a href="../index.html" class="back-link">← G2G</a>
+  <div class="nav-dots"></div>
+  <div class="swipe-hint" id="swipeHint">Swipe up to navigate</div>
+
+  <!-- BEAT 1: TITLE -->
+  <div class="beat beat-title">
+    <div class="beat-inner">
+      <div class="chapter-number">CHAPTER 24</div>
+      <h1>The M&amp;A Advisory Special</h1>
+      <p class="subtitle">Sell-Side, Buy-Side, Defence &amp; Fairness Opinions</p>
+      <div class="download-hero">
+        <a href="../assets/G2G_MA_Advisory_Reference.pdf" class="download-btn">
+          <span>Download M&amp;A Advisory Cram Sheet</span>
+        </a>
+        <div class="download-note">PDF: G2G_MA_Advisory_Reference.pdf</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 2: OVERVIEW -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="part-label">PART I — THE M&amp;A ADVISORY PRODUCT</div>
+      <h2 class="card-title">Overview</h2>
+      <div class="card-label">The Flagship Product</div>
+      <div class="card-body">
+        <p>M&amp;A advisory is the flagship investment banking product. This chapter covers the business of advising on M&amp;A — how mandates are won, processes run, fees structured, and deliverables produced.</p>
+        <p>Unlike Chapters 11–12, which teach deal mechanics (valuation, structure, negotiation dynamics), this chapter teaches the advisory craft: the relationship dynamics, process management, and judgment calls that define an excellent M&amp;A advisor.</p>
+        <p>Investment banks advise on roughly $4–5 trillion in M&amp;A globally each year. A portion of that translates to advisory fees ranging from $50M to $500M per deal for the lead advisors. Understanding how those fees are earned — and why some advisors consistently command premium fees — is core to investment banking strategy.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 3: MANDATE TYPES -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Mandate Types Overview</h2>
+      <div class="card-label">The Six Advisory Roles</div>
+      <div class="card-body">
+        <ul class="bullet-list">
+          <li><strong>Sell-side M&amp;A:</strong> Advising the seller throughout the sale process, from strategy through completion. Typically a single advisor (or dual advisors) manages the entire process.</li>
+          <li><strong>Buy-side M&amp;A:</strong> Advising the buyer (often via a strategic screening process, approach, bid preparation, and negotiation support). Often reactive, dependent on market conditions and deal opportunities.</li>
+          <li><strong>Defence advisory:</strong> Helping a target respond to a hostile bid — from counter-bidding through strategic alternatives to negotiating with the aggressor. Fee-based, high stakes.</li>
+          <li><strong>Fairness opinions:</strong> Providing an independent financial assessment that a transaction price is fair from a financial perspective. Often required in conflicted situations.</li>
+          <li><strong>Independent board advisory:</strong> Advising boards in conflicted situations (related-party transactions, MBOs, controlling shareholder squeeze-outs) where independence is critical.</li>
+          <li><strong>Restructuring advisory:</strong> Advising on distressed M&amp;A, including asset sales, acquisitions by PE buyers, and balance-sheet refinancing.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 4: SELL VS BUY ECONOMICS -->
+  <div class="beat beat-card comparison-wide">
+    <div class="beat-inner">
+      <h2 class="card-title">Sell-Side vs Buy-Side Economics</h2>
+      <div class="card-label">Revenue and Risk Profile</div>
+      <div class="card-body">
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Sell-Side</div>
+            <div class="comparison-value">
+              <strong>Fee level:</strong> 1–3% of EV<br><br>
+              <strong>Certainty:</strong> High; fee earned once deal closes<br><br>
+              <strong>Timeline:</strong> Bank largely controls the process<br><br>
+              <strong>Economics:</strong> More predictable; process-heavy
+            </div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Buy-Side</div>
+            <div class="comparison-value">
+              <strong>Fee level:</strong> 0.5–1.5% of EV<br><br>
+              <strong>Certainty:</strong> Lower; dependent on winning competitive auction<br><br>
+              <strong>Timeline:</strong> Buyer controls deal timing; advisory often reactive<br><br>
+              <strong>Economics:</strong> Less predictable; higher win-loss volatility
+            </div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Defence</div>
+            <div class="comparison-value">
+              <strong>Fee level:</strong> $5–20M retainer + success fee (often 20–30% of price uplift)<br><br>
+              <strong>Certainty:</strong> Medium; retainer paid regardless<br><br>
+              <strong>Timeline:</strong> Unpredictable; driven by bidder aggression<br><br>
+              <strong>Economics:</strong> Retainer de-risks the engagement
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 5: HOW MANDATES ARE WON -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">How Mandates Are Won</h2>
+      <div class="card-label">The Pitch Process</div>
+      <div class="card-body">
+        <p><strong>The Beauty Parade:</strong> When a company initiates a process, it typically invites 3–5 banks to pitch. The selected 1–2 banks are mandated. Pitches typically last 60–120 minutes and cover:</p>
+        <ul class="bullet-list">
+          <li>Market overview (universe of buyers, strategic vs financial acquirers)</li>
+          <li>Process recommendations (timeline, phases, exclusivity terms)</li>
+          <li>Track record (past deals, outcomes, fees earned)</li>
+          <li>Team structure (managing director, senior banker, analyst)</li>
+          <li>Valuation framework (comp analysis, precedent transactions)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 6: FEE STRUCTURES -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Fee Structures</h2>
+      <div class="card-label">How Advisory Fees Are Charged</div>
+      <div class="card-body">
+        <div class="metric-item">
+          <div class="metric-name">Percentage of Transaction Value (PTV)</div>
+          <div class="metric-def">Most common. Typically 1–3% on sell-side, 0.5–1.5% on buy-side. Fee usually earned upon deal signing or closing.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Retainer + Success Fee</div>
+          <div class="metric-def">Common in defence and situations where deal close is uncertain. Retainer (e.g., $2M) covers advisory costs; success fee (often 20–30% of value created) rewards outcome.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Success Fee Only</div>
+          <div class="metric-def">Rare in mainstream M&amp;A; more common in distressed situations. Bank bears all risk; fee only paid if deal closes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 7: ENGAGEMENT LETTER -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Engagement Letter Anatomy</h2>
+      <div class="card-label">Critical Terms &amp; Conditions</div>
+      <div class="card-body">
+        <ul class="bullet-list">
+          <li><strong>Scope of work:</strong> Explicit list of services (from initial strategy through closing support).</li>
+          <li><strong>Fee structure:</strong> Percentage of transaction value, retainer, expense reimbursement.</li>
+          <li><strong>Expenses:</strong> Who pays for travel, printing, due diligence support, legal fees?</li>
+          <li><strong>Exclusivity:</strong> Is the client exclusive, or can the bank advise other bidders?</li>
+          <li><strong>Confidentiality:</strong> What information is protected; what happens post-signing?</li>
+          <li><strong>Termination:</strong> Can either party exit? Under what circumstances?</li>
+          <li><strong>Conflicts of interest:</strong> Who does the bank advise; what situations trigger consent requirements?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 8: PHASE 0 PREPARATION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="part-label">PART II — SELL-SIDE PROCESS</div>
+      <h2 class="card-title">Phase 0 — Preparation</h2>
+      <div class="card-label">Pre-Market Steps (Weeks 1–4)</div>
+      <div class="card-body">
+        <p><strong>Key activities:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>Seller diligence:</strong> Bankers review financials, legal documents, contracts, historical performance. Identify key issues early.</li>
+          <li><strong>Quality of earnings (QoE) review:</strong> Engage accountants to stress-test financials, identify one-time items, normalize working capital, and validate run-rate.</li>
+          <li><strong>Vendor/customer concentration:</strong> Map top 20 counterparties. Understand renewal risks and contract terms.</li>
+          <li><strong>Management presentations:</strong> Bankers rehearse with the team. Ensure consistency and polish.</li>
+          <li><strong>Data room setup:</strong> Assemble sensitive data (tax returns, board minutes, litigation files, customer contracts) in secure repository.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 9: MARKETING MATERIALS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Marketing Materials</h2>
+      <div class="card-label">The Confidential Information Memorandum (CIM)</div>
+      <div class="card-body">
+        <p>The CIM is the core marketing document. Typically 40–100 pages, it presents the business in the most compelling light while remaining truthful. Structure:</p>
+        <ul class="bullet-list">
+          <li><strong>Executive summary:</strong> 2–3 pages. Headline story, investment highlights, financials at a glance.</li>
+          <li><strong>Company overview:</strong> History, ownership, management, locations.</li>
+          <li><strong>Market overview:</strong> Market size, growth trends, competitive landscape.</li>
+          <li><strong>Business segments:</strong> Revenue by segment, margin trends, strategic positioning.</li>
+          <li><strong>Financial overview:</strong> Historical P&amp;L, balance sheet, cash flow (typically 3–5 years).</li>
+          <li><strong>Opportunities:</strong> Market expansion, operational improvements, M&amp;A synergies.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 10: PHASE 1 INITIAL BIDS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Phase 1 — Initial Bids</h2>
+      <div class="card-label">Weeks 4–8 (Broad Solicitation)</div>
+      <div class="card-body">
+        <p><strong>Key activities:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>Buyer targeting:</strong> Bankers identify 30–50 prospective buyers (strategic + PE) and execute outreach. Use template (teaser).</li>
+          <li><strong>NDA execution:</strong> Buyers sign non-disclosure agreements before receiving CIM.</li>
+          <li><strong>Auction management:</strong> Bankers track buyer interest, answer Q&amp;A, coordinate management presentations (calls or in-person).</li>
+          <li><strong>First-round bids:</strong> Typically 5–10 indicative bids received. Bankers assess credibility, financing readiness, strategic rationale.</li>
+          <li><strong>Bid comparison:</strong> Price, terms, proposed synergies, likelihood of close.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 11: BID EVALUATION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Bid Evaluation Framework</h2>
+      <div class="card-label">How Sellers Rank Offers</div>
+      <div class="card-body">
+        <div class="metric-item">
+          <div class="metric-name">Price</div>
+          <div class="metric-def">Headline valuation (EV, equity value). Most important, but not the only factor.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Certainty of Close</div>
+          <div class="metric-def">Financial readiness (cash on hand, debt capacity), regulatory risk, customer retention risk.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Terms &amp; Conditions</div>
+          <div class="metric-def">Reps &amp; warranties, indemnification, escrow provisions, earnout structures.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Strategic Fit</div>
+          <div class="metric-def">Buyer's ability to realize synergies, cultural alignment, employee retention risk.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 12: PHASE 2 PROGRESSION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Phase 2 — Progression to Final Bids</h2>
+      <div class="card-label">Weeks 8–14 (Narrowing the Field)</div>
+      <div class="card-body">
+        <p><strong>Key activities:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>Shortlist creation:</strong> 2–4 bidders invited to Phase 2 (typically highest price + best strategic fit).</li>
+          <li><strong>Detailed data access:</strong> Shortlisted bidders given access to full data room (legal, environmental, tax, contracts).</li>
+          <li><strong>Due diligence support:</strong> Bankers coordinate diligence calls, site visits, management presentations.</li>
+          <li><strong>Final bid preparation:</strong> Bidders prepare detailed proposals with financing, synergy plans, integration strategy.</li>
+          <li><strong>Final bids:</strong> Binding or near-binding bids received. Typically 2–3 serious bids remain.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 13: FINAL BIDS & SPA -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Final Bids &amp; SPA Negotiation</h2>
+      <div class="card-label">Weeks 14–18 (Deal Crystallization)</div>
+      <div class="card-body">
+        <p><strong>Process flow:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>Final bid round:</strong> Bidders submit best-and-final offers (BFO). Seller board selects preferred buyer.</li>
+          <li><strong>Exclusive negotiation:</strong> Seller + preferred bidder negotiate Purchase Agreement (SPA). Reps, warranties, indemnification, escrow, earnouts.</li>
+          <li><strong>Banker role:</strong> Facilitate negotiation, flag deal-breaker issues, manage timelines.</li>
+          <li><strong>Financing confirmation:</strong> If buyer is levered, ensure debt commitments from lenders (not binding until later).</li>
+          <li><strong>SPA signing:</strong> Deal signed; press release issued. Closing contingencies begin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 14: SIGNING TO COMPLETION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Signing to Completion</h2>
+      <div class="card-label">Weeks 18–26+ (Final Mile)</div>
+      <div class="card-body">
+        <p><strong>Key steps:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>Regulatory approvals:</strong> HSR (antitrust), industry-specific approvals (telecom, defence, utilities).</li>
+          <li><strong>Customer/supplier consents:</strong> Key contract assignments.</li>
+          <li><strong>Financing documentation:</strong> Buyer's lenders finalize debt terms, commitment letters become definitive agreements.</li>
+          <li><strong>Closing mechanics:</strong> Final working capital adjustment, escrow setup, employee benefit plan transitions.</li>
+          <li><strong>Closing:</strong> Funds flow; seller departs. Banker's role largely concluded.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 15: DUAL-TRACK PROCESS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">The Dual-Track Process</h2>
+      <div class="card-label">Strategic vs Leveraged Buyout Options</div>
+      <div class="card-body">
+        <p>In some situations, sellers run a dual-track: simultaneously pursuing a strategic sale AND a leveraged buyout (LBO). Key differences:</p>
+        <div class="metric-item">
+          <div class="metric-name">Strategic Track</div>
+          <div class="metric-def">Buyers (corporations) offer higher prices due to synergies. Longer due diligence; more integration risk.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">LBO Track</div>
+          <div class="metric-def">PE firms offer lower prices but provide certainty and speed. Typically close in 60–90 days. IPO/secondary sale upside down the road.</div>
+        </div>
+        <p style="margin-top: 16px;"><strong>Timing:</strong> Dual-track runs parallel; seller can switch lanes if one stalls.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 16: PROCESS COMPARISON -->
+  <div class="beat beat-card comparison-wide">
+    <div class="beat-inner">
+      <h2 class="card-title">Sell-Side Process Comparison</h2>
+      <div class="card-label">Auction vs Negotiated Sale</div>
+      <div class="card-body">
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Auction (Competitive)</div>
+            <div class="comparison-value">
+              <strong>Approach:</strong> Broad outreach; multiple bids; price discovery<br><br>
+              <strong>Timeline:</strong> 16–20 weeks<br><br>
+              <strong>Price:</strong> Typically higher (competition drives bids)<br><br>
+              <strong>Risk:</strong> Longer timeline; information leakage risk; deal fatigue
+            </div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Negotiated (Direct)</div>
+            <div class="comparison-value">
+              <strong>Approach:</strong> Seller approaches preferred buyer; direct negotiation<br><br>
+              <strong>Timeline:</strong> 8–12 weeks (faster)<br><br>
+              <strong>Price:</strong> Often lower (no competition)<br><br>
+              <strong>Risk:</strong> Less price certainty; buyer has leverage
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 17: CIM DEEP-DIVE -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="part-label">PART III — DELIVERABLES &amp; ECONOMICS</div>
+      <h2 class="card-title">CIM Deep-Dive</h2>
+      <div class="card-label">The Marketing Document Perfected</div>
+      <div class="card-body">
+        <p><strong>CIM quality directly impacts:</strong></p>
+        <ul class="bullet-list">
+          <li>Number of Phase 1 bids received</li>
+          <li>Quality of bidders (strategic vs financial fit)</li>
+          <li>Final auction price</li>
+        </ul>
+        <p style="margin-top: 16px;"><strong>Critical sections:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>Cover letter:</strong> Sets tone. Should intrigue readers.</li>
+          <li><strong>Key metrics dashboard:</strong> Revenue, EBITDA, margins, growth rates (5-year history).</li>
+          <li><strong>Strengths &amp; competitive advantages:</strong> Why is this business special? Market position, customer loyalty, management team, intellectual property.</li>
+          <li><strong>Risk disclosure:</strong> Regulatory, competitive, customer concentration, operational risks (be transparent; courts enforce seller reps).</li>
+          <li><strong>Financial tables:</strong> Normalized EBITDA (add back one-time items, owner perks, known synergy opportunities).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 18: MANAGEMENT PRESENTATION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Management Presentation (M&amp;A Roadshow)</h2>
+      <div class="card-label">Selling the Story in Live Time</div>
+      <div class="card-body">
+        <p><strong>Format:</strong> 60–90 minute calls with potential bidders. CEO/CFO walk through:</p>
+        <ul class="bullet-list">
+          <li>Company history and strategic milestones</li>
+          <li>Market opportunity and competitive positioning</li>
+          <li>Operations and business model</li>
+          <li>Financial overview (and normalized scenarios)</li>
+          <li>Q&amp;A</li>
+        </ul>
+        <p style="margin-top: 16px;"><strong>Key tips:</strong></p>
+        <ul class="bullet-list">
+          <li>Rehearse extensively with bankers and management team.</li>
+          <li>Know your numbers cold.</li>
+          <li>Be candid about risks; honesty builds credibility.</li>
+          <li>Focus on value drivers (customer durability, growth potential, operational leverage).</li>
+          <li>Track attendee engagement; bankers follow up post-call.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 19: DATAROOM -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">The Data Room</h2>
+      <div class="card-label">Organizing Diligence Information</div>
+      <div class="card-body">
+        <p><strong>Purpose:</strong> Secure, organized access to all company information needed by bidders' advisors (lawyers, accountants, consultants).</p>
+        <p style="margin-top: 16px;"><strong>Typical structure:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>Financial section:</strong> Audited financials (3+ years), tax returns, monthly actuals, management accounts, budgets.</li>
+          <li><strong>Legal section:</strong> Articles of incorporation, board minutes, contracts (customer, vendor, employment), litigation files.</li>
+          <li><strong>Operational section:</strong> Org chart, headcount details, facility leases, supplier agreements.</li>
+          <li><strong>Regulatory section:</strong> Licenses, compliance certifications, environmental reports.</li>
+          <li><strong>Commercial section:</strong> Customer list (anonymized if needed), pricing, churn rates, SLAs.</li>
+        </ul>
+        <p style="margin-top: 16px;"><strong>Best practices:</strong> Clean data room, clear indexing, prompt responses to Q&amp;A, VPN access only (tracked downloads).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 20: FAIRNESS OPINIONS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Fairness Opinions</h2>
+      <div class="card-label">Independent Valuation Assessment</div>
+      <div class="card-body">
+        <p><strong>What is it?</strong> A written opinion from an independent financial advisor that a transaction price is fair from a financial perspective.</p>
+        <p style="margin-top: 16px;"><strong>When required?</strong></p>
+        <ul class="bullet-list">
+          <li>Related-party transactions (controlling shareholder acquisitions)</li>
+          <li>Management buyouts (MBOs)</li>
+          <li>Derivative litigation risk (fairness opinions reduce litigation exposure)</li>
+        </ul>
+        <p style="margin-top: 16px;"><strong>Process:</strong> Independent banker (not transaction banker) conducts valuation analysis:</p>
+        <ul class="bullet-list">
+          <li>Comparable company analysis (trading multiples)</li>
+          <li>Precedent transactions (M&amp;A multiples)</li>
+          <li>DCF analysis (intrinsic value)</li>
+          <li>Conclusion: Opinion on whether $X is fair</li>
+        </ul>
+        <p style="margin-top: 16px;"><strong>Cost:</strong> Typically $200K–$500K fee; critical in conflicted deals.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 21: ADVISORY P&L -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Advisory Economics &amp; P&amp;L</h2>
+      <div class="card-label">How Banks Make Money on Advisory</div>
+      <div class="card-body">
+        <p><strong>Revenue:</strong> M&amp;A advisory fees (typically 1–3% of deal value; average deal: ~$500M–$1B = $5M–$30M fee)</p>
+        <p style="margin-top: 16px;"><strong>Costs:</strong></p>
+        <ul class="bullet-list">
+          <li>Managing director + senior banker + analyst salary/bonus (often $2M–$5M per person in major deals)</li>
+          <li>Support staff (operations, legal, compliance)</li>
+          <li>Third-party advisors (accountants, environmental, tech consultants)</li>
+          <li>Travel, printing, data room hosting</li>
+        </ul>
+        <p style="margin-top: 16px;"><strong>Margin:</strong> Best case: 60–70% EBITDA margins (if deal is large, process is efficient, and team is lean). Real-world: 40–50% after allocating overhead.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 22: LEAGUE TABLES -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">M&amp;A League Tables</h2>
+      <div class="card-label">How Banks Compete for Mandates</div>
+      <div class="card-body">
+        <p><strong>What are they?</strong> Rankings published by financial data providers (Thomson Reuters, Bloomberg, etc.) of investment banks by number of deals advised and total M&amp;A value.</p>
+        <p style="margin-top: 16px;"><strong>Metrics:</strong></p>
+        <ul class="bullet-list">
+          <li>Deal count (number of transactions)</li>
+          <li>Deal value (total EV of deals)</li>
+          <li>Bookrunner status (lead advisor vs co-advisor)</li>
+          <li>Sector-specific tables (healthcare, tech, industrial, etc.)</li>
+        </ul>
+        <p style="margin-top: 16px;"><strong>Why it matters:</strong> League table position signals credibility, market presence, and expertise. Top-ranked banks win more pitches. Media attention drives deal flow.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 23: ADVISORY CALENDAR -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">The M&amp;A Advisory Calendar</h2>
+      <div class="card-label">Seasonal Patterns &amp; Deal Trends</div>
+      <div class="card-body">
+        <p><strong>Seasonal trends:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>Q1 (Jan–Mar):</strong> Strong. Holiday season + New Year resets fuel deal activity.</li>
+          <li><strong>Q2 (Apr–Jun):</strong> Seasonal slowdown (summer holidays in Europe).</li>
+          <li><strong>Q3 (Jul–Sep):</strong> Moderate; schools/vacation disrupt calendar.</li>
+          <li><strong>Q4 (Oct–Dec):</strong> Very strong initially (closing year-end deals), then weak (holidays).</li>
+        </ul>
+        <p style="margin-top: 16px;"><strong>Macro factors:</strong> Interest rates, equity multiples, credit conditions, regulatory environment all affect deal volume.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 24: CONFLICTS —DUAL MANDATES -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="part-label">PART IV — CONFLICTS &amp; ADVISORY EVOLUTION</div>
+      <h2 class="card-title">Conflicts — Dual Mandates</h2>
+      <div class="card-label">Advising Buyer AND Seller in Same Deal</div>
+      <div class="card-body">
+        <p><strong>Scenario:</strong> Bank advises both seller and buyer in the same transaction. Classic conflict of interest.</p>
+        <p style="margin-top: 16px;"><strong>Why it happens:</strong> Seller asks bank to "shop" the deal to potential buyers, some of whom are existing clients.</p>
+        <p style="margin-top: 16px;"><strong>Management approach:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>Firewalling:</strong> Separate bankers work seller vs buyer sides. No information sharing.</li>
+          <li><strong>Consent:</strong> Both parties must explicitly consent to the dual engagement in writing.</li>
+          <li><strong>Advance pricing:</strong> Fees agreed upfront (may be lower for buyer-side if dual engagement exists).</li>
+          <li><strong>Regulatory disclosure:</strong> Disclosed in documentation; conflicts of interest letter required.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 25: CONFLICTED SITUATIONS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Conflicted Situations — When to Decline</h2>
+      <div class="card-label">Grey Areas &amp; Red Lines</div>
+      <div class="card-body">
+        <p><strong>Red lines (should decline):</strong></p>
+        <ul class="bullet-list">
+          <li>Advising buyer who recently lost to seller in competitive auction.</li>
+          <li>Advising one party while having debt relationship with counterparty (lender bias).</li>
+          <li>Advising on sale when bank is primary lender to buyer (financing conflicts).</li>
+          <li>Advising related parties with irreconcilable interests (true independent judgment not possible).</li>
+        </ul>
+        <p style="margin-top: 16px;"><strong>Grey areas (requires disclosure/management):</strong></p>
+        <ul class="bullet-list">
+          <li>Advising buyer while bank has small equity stake in target.</li>
+          <li>Advising when counterparties are bank clients (but in non-competing businesses).</li>
+          <li>Advising in sector where bank has significant advisory footprint (competitive pressure).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 26: PROCESS FAILURES -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Process Failures &amp; Deal Catastrophes</h2>
+      <div class="card-label">When Advisory Goes Wrong</div>
+      <div class="card-body">
+        <p><strong>Common failure modes:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>Broken exclusivity:</strong> Buyer goes directly to seller, circumventing banker. Common in smaller deals; damages banker credibility.</li>
+          <li><strong>Information leakage:</strong> CIM details leak to press/competitors before official announcement. Kills deal momentum.</li>
+          <li><strong>Failed financing:</strong> Buyer's funding falls through post-signing. Seller forced to renegotiate or find new buyer.</li>
+          <li><strong>Buyer's remorse:</strong> Post-signing, buyer discovers issues; tries to renegotiate down. Often litigated.</li>
+          <li><strong>Regulatory block:</strong> Antitrust (HSR) denied unexpectedly. Rare in advisory, but catastrophic when it happens.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 27: ADVISORY EVOLUTION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">The Evolution of M&amp;A Advisory</h2>
+      <div class="card-label">Trends &amp; Future Directions</div>
+      <div class="card-body">
+        <p><strong>Industry shifts:</strong></p>
+        <ul class="bullet-list">
+          <li><strong>PE consolidation:</strong> Mega-funds (Apollo, Blackstone, KKR) increasingly self-advise; lower advisory volume from PE activity.</li>
+          <li><strong>Technology M&amp;A:</strong> High-growth SaaS/fintech M&amp;A remains hot; valuation complexity increases (DCF-heavy).</li>
+          <li><strong>ESG advisory:</strong> Sellers want advisors who understand ESG diligence, buyer concerns, remediation costs.</li>
+          <li><strong>Full-service advising:</strong> Top banks now offer strategy + M&amp;A + financing + post-close integration in bundled packages.</li>
+          <li><strong>Specialized advisors:</strong> Pure-play M&amp;A boutiques capturing share of mid-market deals (lower-cost alternative to bulge-bracket).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 28: SUMMARY / TAKEAWAYS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <h2 class="card-title">Key Takeaways</h2>
+      <div class="card-label">What Masters of M&amp;A Advisory Know</div>
+      <div class="card-body">
+        <ul class="bullet-list">
+          <li><strong>Mandate is everything:</strong> Without the mandate, there's no deal. Winning pitches requires track record, credibility, process recommendations.</li>
+          <li><strong>Process design drives outcome:</strong> Auction vs negotiated sale, Phase 1 breadth, shortlist size — all impact final price.</li>
+          <li><strong>Information asymmetry is gold:</strong> Bankers know buyer universe better than any single seller. Knowledge = power.</li>
+          <li><strong>Conflicts are inevitable:</strong> Manage them transparently. Decline egregious ones. Firewall others.</li>
+          <li><strong>Execution matters as much as strategy:</strong> A mediocre seller with excellent execution beats a great business with sloppy bankers.</li>
+          <li><strong>Relationships win mandates, not just pitches:</strong> Years of trust with CEOs and boards unlock advisory opportunities.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 29: FINALE -->
+  <div class="beat beat-scene">
+    <div class="beat-inner">
+      <div class="scene-location">M&amp;A ADVISORY SPECIAL COMPLETE</div>
+      <div class="scene-text">
+        <p>You've now walked through the business of M&amp;A advisory — from mandate pitch to closing mechanics to conflict management. You understand how bankers win deals, structure processes, and command premium fees.</p>
+        <p style="margin-top: 16px;">In the next chapter, we explore the Capital Markets Special: how investment banks advise on IPOs, follow-on offerings, and debt capital raises.</p>
+        <div class="download-hero">
+          <a href="../assets/G2G_MA_Advisory_Reference.pdf" class="download-btn">
+            <span>Download M&amp;A Advisory Reference Guide</span>
+          </a>
+          <div class="download-note">PDF: G2G_MA_Advisory_Reference.pdf</div>
+        </div>
+        <div class="chapter-nav-row">
+          <a href="ch23.html" class="prev-chapter-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <div class="btn-label">
+              <span class="btn-next">Previous Chapter</span>
+              <span class="btn-title">The Restructuring &amp; Special Situations Special</span>
+            </div>
+          </a>
+          <a href="ch25.html" class="next-chapter-btn">
+            <div class="btn-label">
+              <span class="btn-next">Next Chapter</span>
+              <span class="btn-title">The Capital Markets Special</span>
+            </div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  let currentBeat = 0;
+  let startY = 0;
+  let isAnimating = false;
+  const beats = document.querySelectorAll('.beat');
+  const totalBeats = beats.length;
+
+  function positionBeats() {
+    beats.forEach((beat, i) => {
+      if (i < currentBeat) {
+        beat.style.transform = 'translateY(-100vh)';
+        beat.style.opacity = '0';
+        beat.style.pointerEvents = 'none';
+        beat.style.visibility = 'hidden';
+      } else if (i === currentBeat) {
+        beat.style.transform = 'translateY(0)';
+        beat.style.opacity = '1';
+        beat.style.pointerEvents = 'auto';
+        beat.style.visibility = 'visible';
+      } else {
+        beat.style.transform = 'translateY(100vh)';
+        beat.style.opacity = '0';
+        beat.style.pointerEvents = 'none';
+        beat.style.visibility = 'hidden';
+      }
+    });
+  }
+
+  function updateCounter() {
+    const counter = document.getElementById('beatCounter');
+    if (counter) counter.textContent = `${currentBeat + 1} / ${totalBeats}`;
+  }
+
+  function updateProgress() {
+    // Progress bar removed (nav dots replaced it)
+  }
+
+  function goTo(index) {
+    if (isAnimating || index < 0 || index >= totalBeats) return;
+    isAnimating = true;
+    const direction = index > currentBeat ? -1 : 1;
+    beats[currentBeat].style.transform = `translateY(${direction * 100}vh)`;
+    beats[currentBeat].style.opacity = '0';
+    beats[currentBeat].style.pointerEvents = 'none';
+    beats[currentBeat].style.visibility = 'hidden';
+    beats[index].style.transform = 'translateY(0)';
+    beats[index].style.opacity = '1';
+    beats[index].style.pointerEvents = 'auto';
+    beats[index].style.visibility = 'visible';
+    currentBeat = index;
+    updateCounter();
+    updateProgress();
+    saveProgress();
+    document.querySelectorAll('.nav-dots .dot').forEach((d, di) => d.classList.toggle('active', di === currentBeat));
+    const hint = document.getElementById('swipeHint');
+    if (hint) {
+      hint.style.opacity = '0';
+      setTimeout(() => hint.remove(), 500);
+      try { localStorage.setItem('g2g-swipe-seen', '1'); } catch(e) {}
+    }
+    setTimeout(() => { isAnimating = false; }, 350);
+  }
+
+  document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const beat = beats[currentBeat];
+    const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+    const atTop = beat.scrollTop <= 5;
+    const diff = startY - e.changedTouches[0].clientY;
+    if (diff > 50 && atBottom) goTo(currentBeat + 1);
+    if (diff < -50 && atTop) goTo(currentBeat - 1);
+  }, { passive: true });
+
+  let wheelAccum = 0;
+  let wheelTimer = null;
+  document.addEventListener('wheel', e => {
+    const beat = beats[currentBeat];
+    const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+    const atTop = beat.scrollTop <= 5;
+    wheelAccum += e.deltaY;
+    clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(() => { wheelAccum = 0; }, 200);
+    if (wheelAccum > 50 && atBottom) { wheelAccum = 0; goTo(currentBeat + 1); }
+    if (wheelAccum < -50 && atTop) { wheelAccum = 0; goTo(currentBeat - 1); }
+  }, { passive: true });
+
+  document.addEventListener('keydown', e => {
+    const beat = beats[currentBeat];
+    const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+    const atTop = beat.scrollTop <= 5;
+    if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key)) {
+      if (atBottom) { e.preventDefault(); goTo(currentBeat + 1); }
+    } else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) {
+      if (atTop) { e.preventDefault(); goTo(currentBeat - 1); }
+    } else if (e.key === ' ') {
+      e.preventDefault();
+      if (atBottom) goTo(currentBeat + 1);
+      else beat.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+    } else if (e.key === 'Home') {
+      e.preventDefault(); goTo(0);
+    } else if (e.key === 'End') {
+      e.preventDefault(); goTo(totalBeats - 1);
+    }
+  });
+
+  const swipeHint = document.getElementById('swipeHint');
+  if (swipeHint) {
+    try { if (localStorage.getItem('g2g-swipe-seen')) swipeHint.remove(); } catch(e) {}
+  }
+
+  const navContainer = document.querySelector('.nav-dots');
+  for (let i = 0; i < totalBeats; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goTo(i);
+    navContainer.appendChild(dot);
+  }
+
+  positionBeats();
+
+  // Create nav dots
+  (function() {
+    var navEl = document.querySelector('.nav-dots');
+    if (!navEl) {
+      navEl = document.createElement('div');
+      navEl.className = 'nav-dots';
+      navEl.id = 'navDots';
+      document.body.appendChild(navEl);
+    }
+    var beats = document.querySelectorAll('.beat');
+    navEl.innerHTML = '';
+    for (var i = 0; i < beats.length; i++) {
+      var dot = document.createElement('div');
+      dot.className = 'dot';
+      dot.dataset.index = i;
+      dot.addEventListener('click', function() {
+        var idx = parseInt(this.dataset.index);
+        if (typeof goTo === 'function') goTo(idx);
+      });
+      navEl.appendChild(dot);
+    }
+  })();
+
+  updateCounter();
+  updateProgress();
+
+  const CHAPTER_NUM = 24;
+  function saveProgress() {
+    try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeat); } catch(e) {}
+  }
+
+  (function() {
+    try {
+      const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+      if (saved && saved > 0 && saved < totalBeats) {
+        const toast = document.createElement('div');
+        toast.className = 'resume-toast';
+        toast.innerHTML = `<span>Resume from beat ${saved + 1}?</span><button onclick="goTo(${saved}); this.parentNode.remove();">Resume</button><button onclick="this.parentNode.remove();">Start Over</button>`;
+        document.body.appendChild(toast);
+        setTimeout(() => { if (toast.parentNode) toast.remove(); }, 8000);
+      }
+    } catch(e) {}
+  })();
+</script>
+</body>
+</html>

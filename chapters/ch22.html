@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G2G Chapter 22 — The Business Services &amp; Outsourcing Special</title>
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://g2ga-069.github.io/G2G/chapters/ch22.html">
+  <meta property="og:title" content="Chapter 22: The Business Services &amp; Outsourcing Special — G2G Advisory">
+  <meta property="og:description" content="Professional Services, Facilities Management, BPO &amp; Staffing">
+  <meta property="og:image" content="https://g2ga-069.github.io/G2G/images/og-preview.png">
+  <meta property="og:site_name" content="G2G Advisory">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chapter 22: The Business Services &amp; Outsourcing Special — G2G Advisory">
+  <meta name="twitter:description" content="Professional Services, Facilities Management, BPO &amp; Staffing">
+  <meta name="twitter:image" content="https://g2ga-069.github.io/G2G/images/og-preview.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon-180.png">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0c;
+      --surface: #131318;
+      --surface-2: #1a1a22;
+      --border: #2a2a35;
+      --text: #e8e4df;
+      --text-muted: #a8a4b0;
+      --text-dim: #7a7680;
+      --accent: #b07ce8;
+      --accent-dim: #7a55b0;
+      --accent-bright: #d4a0ff;
+      --green: #4a9e6e;
+      --red: #c45c4a;
+      --blue: #5a8fc4;
+      --purple: #8a3cc4;
+      --brand-purple: #6b2fa0;
+      --brand-magenta: #d946ef;
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { height: 100%; overflow: hidden; overscroll-behavior: none; }
+    body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-serif);
+      line-height: 1.7;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .beat {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 52px 24px 60px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s, transform 0.35s ease-in-out;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .beat-inner {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* TITLE BEAT */
+    .beat-title {
+      background: radial-gradient(ellipse at 60% 40%, rgba(176, 124, 232, 0.15) 0%, rgba(107, 47, 160, 0.08) 40%, var(--bg) 100%);
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .beat-title .beat-inner {
+      text-align: center;
+    }
+
+    .series-name {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 16px;
+    }
+
+    .chapter-number {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+
+    .beat-title h1 {
+      font-family: var(--font-serif);
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--accent-bright);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .beat-title .subtitle {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* CARD BEAT */
+    .beat-card {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beat-card .beat-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .card-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    .card-body {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .card-body p {
+      margin-bottom: 16px;
+    }
+
+    .card-body strong {
+      color: var(--accent-bright);
+      font-weight: 600;
+    }
+
+    .metric-item {
+      margin-bottom: 16px;
+      padding-left: 16px;
+      border-left: 2px solid var(--accent-dim);
+    }
+
+    .metric-name {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--accent-bright);
+    }
+
+    .metric-def {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .comparison-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .comparison-col {
+      flex: 1;
+    }
+
+    .comparison-header {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .comparison-value {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .bullet-list {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    .bullet-list li {
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .bullet-list li strong {
+      color: var(--accent-bright);
+    }
+
+    .formula-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--accent-bright);
+      line-height: 1.6;
+    }
+
+    .formula-box .formula-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .example-box {
+      background: linear-gradient(135deg, rgba(74,158,110,0.08), rgba(74,158,110,0.03));
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .example-box .example-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, rgba(196,92,74,0.08), rgba(196,92,74,0.03));
+      border-left: 3px solid var(--red);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .warning-box .warning-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-box p {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .section-divider {
+      background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+      height: 1px;
+      margin: 24px 0;
+    }
+
+    .part-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 4px;
+    }
+
+    /* SCENE BEAT */
+    .beat-scene {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beat-scene .beat-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .scene-location {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 16px;
+    }
+
+    .scene-text {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    .scene-text strong {
+      color: var(--accent-bright);
+    }
+
+    .scene-text a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .scene-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* UI ELEMENTS */
+    .beat-counter {
+      position: fixed;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
+      right: 24px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--text-dim);
+      z-index: 998;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      z-index: 996;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .swipe-hint {
+      position: fixed;
+      bottom: 60px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-dim);
+      z-index: 995;
+      animation: fadeOutAfter 7s forwards;
+    }
+
+    @keyframes fadeOutAfter {
+      0%, 85% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .resume-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      border: 1px solid var(--accent-dim);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 1000;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .resume-toast button {
+      background: var(--accent-dim);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+
+    .resume-toast button:first-of-type {
+      background: var(--brand-purple);
+    }
+
+    .resume-toast button:hover {
+      opacity: 0.9;
+    }
+
+    /* Wider beat-inner for comparison tables */
+    .beat-card.comparison-wide .beat-inner {
+      max-width: 760px;
+    }
+
+    /* Download button */
+    .download-hero {
+      margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 14px;
+    }
+    .download-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 36px; border-radius: 10px; text-decoration: none;
+      background: linear-gradient(135deg, #6b2fa0, #d946ef);
+      color: #fff; font-family: var(--font-sans, 'Inter', sans-serif); font-size: 15px;
+      font-weight: 700; letter-spacing: 0.5px;
+      transition: all 0.3s; box-shadow: 0 4px 24px rgba(107,47,160,0.4);
+    }
+    .download-btn:hover {
+      transform: translateY(-2px); box-shadow: 0 8px 32px rgba(107,47,160,0.6);
+    }
+    .download-btn svg { width: 20px; height: 20px; }
+    .download-note {
+      font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 11px;
+      color: var(--text-dim, var(--text-muted, #7a7680)); letter-spacing: 0.5px;
+    }
+
+    /* Nav dots */
+    .nav-dots {
+      position: fixed; top: 50%; right: 12px; transform: translateY(-50%);
+      z-index: 100; display: flex; flex-direction: column; gap: 6px;
+    }
+    .nav-dots .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); cursor: pointer; transition: all 0.3s;
+    }
+    .nav-dots .dot.active {
+      background: var(--accent, #b07ce8); box-shadow: 0 0 6px rgba(176,124,232,0.4);
+      width: 10px; height: 10px;
+    }
+    .nav-dots .dot:hover { background: var(--accent-dim, rgba(176,124,232,0.5)); }
+
+    @media (max-width: 768px) {
+      .nav-dots { right: 8px; gap: 4px; }
+      .beat-inner { padding-right: 28px; }
+      .nav-dots .dot { width: 6px; height: 6px; }
+      .nav-dots .dot.active { width: 8px; height: 8px; }
+    }
+
+    /* Resume toast — mobile-safe */
+    @media (max-width: 768px) {
+      .resume-toast {
+        max-width: calc(100vw - 32px); width: auto;
+        padding: 12px 16px; gap: 10px;
+        bottom: max(70px, calc(60px + env(safe-area-inset-bottom)));
+        font-size: 12px; flex-wrap: wrap; justify-content: center;
+      }
+      .resume-toast button { padding: 8px 16px; font-size: 12px; }
+    }
+
+    .prev-chapter-btn, .next-chapter-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 28px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(107,47,160,0.15), rgba(176,124,232,0.10));
+      border: 1px solid rgba(176,124,232,0.25);
+      color: var(--accent, #b07ce8); text-decoration: none;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      transition: all 0.3s ease; margin-top: 32px; cursor: pointer;
+    }
+    .prev-chapter-btn:hover, .next-chapter-btn:hover {
+      background: linear-gradient(135deg, rgba(107,47,160,0.25), rgba(176,124,232,0.20));
+      border-color: rgba(176,124,232,0.5); transform: translateY(-1px);
+    }
+    .prev-chapter-btn svg, .next-chapter-btn svg { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.2s; }
+    .next-chapter-btn:hover svg { transform: translateX(4px); }
+    .prev-chapter-btn:hover svg { transform: translateX(-4px); }
+    .prev-chapter-btn .btn-label, .next-chapter-btn .btn-label { display: flex; flex-direction: column; align-items: flex-start; }
+    .prev-chapter-btn .btn-next, .next-chapter-btn .btn-next { font-size: 11px; opacity: 0.7; letter-spacing: 1.5px; text-transform: uppercase; }
+    .prev-chapter-btn .btn-title, .next-chapter-btn .btn-title { font-size: 16px; }
+    .chapter-nav-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 32px; }
+
+    @media (max-width: 768px) {
+      .beat-title h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+      }
+
+      .beat-title .subtitle {
+        font-size: 16px;
+      }
+
+      .card-title {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+      }
+
+      .beat-counter {
+        bottom: max(16px, env(safe-area-inset-bottom, 16px));
+        right: 16px;
+        font-size: 11px;
+      }
+
+      .back-link {
+        top: 16px;
+        left: 16px;
+        font-size: 12px;
+      }
+
+      .prev-chapter-btn, .next-chapter-btn { padding: 14px 24px; font-size: 14px; }
+      .prev-chapter-btn .btn-title, .next-chapter-btn .btn-title { font-size: 14px; }
+      .chapter-nav-row { flex-direction: column; align-items: stretch; }
+      .prev-chapter-btn, .next-chapter-btn { margin-top: 8px; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+<body>
+  <div class="beat-counter" id="beatCounter"></div>
+  <a href="../index.html" class="back-link">← G2G</a>
+  <div class="nav-dots"></div>
+  <div class="swipe-hint" id="swipeHint">Swipe up to navigate</div>
+
+  <!-- BEAT 1: BEAT 1: TITLE -->
+  <div class="beat beat-title">
+    <div class="beat-inner">
+      <div class="series-name">G2G ADVISORY</div>
+      <div class="chapter-number">CHAPTER 22</div>
+      <h1>The Business Services &amp; Outsourcing Special</h1>
+      <p class="subtitle">Professional Services, Facilities Management, BPO &amp; Staffing</p>
+      <div class="download-hero">
+        <a href="G2G_Business_Services_Reference.pdf" download target="_blank" rel="noopener" class="download-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Business Services Cram Sheet
+        </a>
+        <span class="download-note">PDF — Printable — Offline-ready</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 2: BEAT 2: CHAPTER ROADMAP -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 2</div>
+      <h2 class="card-title">Chapter Roadmap: People-Based Economics</h2>
+      <div class="card-body">
+
+          <p>Business services is the ultimate capital-efficient business model. You're not selling a product — you're selling brainpower, labour, and execution. Scale a professional services firm from $10M to $100M revenue and your capital requirements are measured in millions, not billions. Compare that to manufacturing, logistics, or infrastructure.</p>
+          <p style="margin-top: 16px;">But capital efficiency comes with a diligence tax. People-based businesses are harder to understand, harder to integrate, and harder to keep from fragmenting after acquisition. The assets literally walk out the door every evening.</p>
+          <p style="margin-top: 16px;">This chapter covers the full spectrum:</p>
+          <ul class="bullet-list" style="margin-top: 16px;">
+            <li><strong>White-collar:</strong> Consulting, professional services, recruitment</li>
+            <li><strong>Blue-collar:</strong> Facilities management, security, logistics staffing</li>
+            <li><strong>Process:</strong> BPO, outsourced finance &amp; accounting, IT outsourcing</li>
+            <li><strong>Compliance:</strong> Testing, inspection &amp; certification (TIC)</li>
+            <li><strong>Government:</strong> Welfare services, immigration, defence contracting</li>
+          </ul>
+          <p style="margin-top: 16px; color: var(--text-muted);">By the end, you'll understand the economics of each, the roll-up mechanics that create value, and the diligence landmines that blow up acquisitions.</p>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 3: BEAT 3: CORE METRICS I -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 3</div>
+      <h2 class="card-title">Core Metrics I: Productivity &amp; Utilisation</h2>
+      <div class="card-body">
+
+          <div class="metric-item">
+            <div class="metric-name">Revenue per FTE</div>
+            <div class="metric-def">The fundamental productivity metric. Typical ranges by sector:</div>
+            <ul class="bullet-list" style="margin-top: 12px;">
+              <li>Consulting: $300k–$500k per FTE</li>
+              <li>Staffing: $100k–$200k per FTE</li>
+              <li>Facilities Management: $80k–$150k per FTE</li>
+              <li>BPO: $120k–$250k per FTE</li>
+              <li>TIC: $250k–$400k per FTE</li>
+            </ul>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Utilisation Rate</div>
+            <div class="metric-def">Billable hours as a percentage of available hours. This is the engine of profitability.</div>
+            <div class="formula-box">
+Utilisation = Billable Hours / Available Hours (typically 1,900–2,100 hours/year)<br/>
+<br/>
+Target ranges by sector:<br/>
+Consulting: 70–85% (some slack for proposals, admin)<br/>
+Staffing: 80–95% (tighter control)<br/>
+FM: 85–98% (scheduled work)<br/>
+BPO: 85–95% (process-driven)
+            </div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Bill Rate vs. Pay Rate Spread</div>
+            <div class="metric-def">The fundamental unit economics. If you bill $150/hour and pay $50/hour labour cost, the spread is $100/hour. This must cover overhead, taxes, insurance, and profit.</div>
+            <div class="example-box">
+              <strong>Example:</strong> A 50-person consulting firm billing $200/hour with $60/hour labour cost. At 75% utilisation and 1,900 billable hours/year per FTE:
+              <ul class="bullet-list" style="margin-top: 12px;">
+                <li>Revenue per FTE: $200 × 75% × 1,900 = $285k</li>
+                <li>Labour cost per FTE: $60 × 1,900 = $114k</li>
+                <li>Gross margin: ($285k - $114k) / $285k = 60%</li>
+              </ul>
+            
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 4: BEAT 4: CORE METRICS II -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 4</div>
+      <h2 class="card-title">Core Metrics II: Retention &amp; Growth Quality</h2>
+      <div class="card-body">
+
+          <div class="metric-item">
+            <div class="metric-name">Contract Attrition &amp; Retention Rates</div>
+            <div class="metric-def">In staffing and BPO, this is existential. A temp placement that should be 12 months but ends after 3 months destroys the unit economics of the acquisition. Annual customer retention targets by sector:</div>
+            <ul class="bullet-list" style="margin-top: 12px;">
+              <li>Consulting: 90%+ (long-term relationships)</li>
+              <li>Staffing: 70–85% (cyclical, high churn)</li>
+              <li>FM: 85–95% (sticky, long-term contracts)</li>
+              <li>BPO: 88–96% (multi-year contracts lock customers in)</li>
+            </ul>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Organic vs. Acquisition-Driven Growth</div>
+            <div class="metric-def">Critical distinction. Organic growth = same-store growth + price increases. Acquisition growth = bolt-on M&amp;A. For roll-up platforms, always separate these. If organic growth is declining while acquisition growth accelerates, that's a red flag: the platform is masking deterioration.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Same-Store Growth</div>
+            <div class="metric-def">Revenue growth from the same portfolio of customers, adjusted for acquisitions. This is purity. A business growing 15% organically is fundamentally stronger than one growing 15% via acquisition.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Net Revenue</div>
+            <div class="metric-def">Revenue minus direct subcontractor costs. In staffing, you may bill $30/hour for a temp worker but pay a recruiter $8/hour. Net revenue = $22/hour. Always see through the gross revenue number.
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 5: BEAT 5: CORE METRICS III -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 5</div>
+      <h2 class="card-title">Core Metrics III: Profitability &amp; Leverage</h2>
+      <div class="card-body">
+
+          <div class="metric-item">
+            <div class="metric-name">EBITDA Margin by Service Type</div>
+            <div class="metric-def">The profit waterfall. Gross margin - overhead = EBITDA margin. Expected ranges:</div>
+            <ul class="bullet-list" style="margin-top: 12px;">
+              <li>Management Consulting: 12–20% (high overhead, senior talent)</li>
+              <li>Staffing: 3–6% (razor thin, high leverage to growth)</li>
+              <li>Facilities Management: 4–8% (efficient operations, low tech investment)</li>
+              <li>BPO: 10–18% (automation-friendly, scale advantage)</li>
+              <li>TIC: 15–22% (regulatory moat, pricing power)</li>
+              <li>Government Services: 5–12% (margin-capped by contract terms)</li>
+            </ul>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Gross Margin vs. Contribution Margin</div>
+            <div class="metric-def">Gross margin = (Revenue - Direct Labour Cost) / Revenue. Contribution margin = (Revenue - All Variable Costs) / Revenue. For acquisitions, understand which margin the seller claims.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Overhead Leverage</div>
+            <div class="metric-def">A key driver of platform economics. As you scale, overhead per FTE should decline. A $50M platform with $25M overhead has 50% overhead ratio. A $500M platform with $60M overhead has 12% overhead ratio. This is the flywheel of roll-up platforms.
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 6: BEAT 6: REVENUE QUALITY SPECTRUM -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 6</div>
+      <h2 class="card-title">Revenue Quality Spectrum</h2>
+      <div class="card-body">
+
+          <p>Not all revenue is created equal. A $100M revenue business at 15x EBITDA multiple trades on its revenue composition. Understand where your target sits on this spectrum:</p>
+          <div class="comparison-row" style="margin-top: 20px;">
+            <div class="comparison-col">
+              <div class="comparison-header">Time &amp; Materials (T&amp;M)</div>
+              <div class="comparison-value">
+                Lowest visibility. Bill hourly. Staffing temp placements, daily-rate consulting. Margin: 20–40%. Risk: if client needs end, revenue ends tomorrow. No contract protection.
+              </div>
+            </div>
+            <div class="comparison-col">
+              <div class="comparison-header">Fixed-Price Contracts</div>
+              <div class="comparison-value">
+                Higher risk, predictable revenue. You quote a price for a project. If you execute well, margin is high. If you underestimate, margin disappears. 24–36 month typical length. Visibility: 1–3 years.
+              </div>
+            </div>
+            <div class="comparison-col">
+              <div class="comparison-header">Outcome-Based</div>
+              <div class="comparison-value">
+                Best alignment. You only get paid if KPIs are hit. Hardest to price. Example: "Reduce our recruiting cycle from 60 to 30 days, we pay $50k." Risk: customer satisfaction drives your fee.
+              </div>
+            </div>
+            <div class="comparison-col">
+              <div class="comparison-header">Retainers</div>
+              <div class="comparison-value">
+                Annuity-like recurring revenue. "Pay us $30k/month for ongoing CFO advisory." Most valuable: highest multiple, most predictable, stickiest. Retainer revenue should be valued 2–3x higher than T&amp;M.
+              
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 7: BEAT 7: WORKING CAPITAL DYNAMICS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 7</div>
+      <h2 class="card-title">Working Capital Dynamics: The Cash Conversion Cycle</h2>
+      <div class="card-body">
+
+          <p>People-based businesses are often portrayed as "asset-light." They are. But they're NOT cash-light. The cash conversion cycle (CCC) = Days Inventory + Days Receivable - Days Payable, determines whether a business funds growth or gets funded by growth.</p>
+          <div class="metric-item">
+            <div class="metric-name">Days Sales Outstanding (DSO) by Sub-Sector</div>
+            <div class="metric-def">How long until you collect payment after invoicing:</div>
+            <ul class="bullet-list" style="margin-top: 12px;">
+              <li>Consulting: 60–90 days (net 60, sometimes invoiced in arrears)</li>
+              <li>Staffing: 30–45 days (faster cash collection on placements)</li>
+              <li>FM: 45–60 days (long-term contracts, monthly billing)</li>
+              <li>BPO: 60–90 days (large corporates, slow payers)</li>
+              <li>TIC: 45–75 days (industrial clients, payment terms)</li>
+            </ul>
+          </div>
+          <div class="warning-box">
+            <strong>The Staffing Trap:</strong> You pay workers weekly. You bill clients monthly. You collect in 30–45 days. The math: 45 days of working capital financing for every worker you place. A 500-person staffing firm paying $15/hour × 40 hours/week = $3M weekly payroll. But you don't collect for 45 days. You need $27M in working capital just to run the operation. Grow to 1,000 people and you need $54M. Growth is a working capital sink.
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Seasonal Patterns</div>
+            <div class="metric-def">Many business services are cyclical. Temp staffing surges in Q1 (post-holiday hiring). Consulting dips in December. FM demand is steady. BPO depends on enterprise capex cycles. Understand the seasonal rhythm — it affects cash flow and EBITDA quality.
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 8: BEAT 8: LABOUR MODEL -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 8</div>
+      <h2 class="card-title">Labour Model: Permanent vs. Contractor Workforce</h2>
+      <div class="card-body">
+
+          <p>The structure of your labour force determines your cost base, flexibility, and diligence risk.</p>
+          <div class="comparison-row">
+            <div class="comparison-col">
+              <div class="comparison-header">Permanent Employees</div>
+              <div class="comparison-value">
+                Full cost: wages + benefits + taxes + pension + training. UK employer burden ~13–15%. US ~25–30%. But you own the IP, control quality, build culture. Typical mix: 70–80% permanent in consulting.
+              </div>
+            </div>
+            <div class="comparison-col">
+              <div class="comparison-header">Contractor/Freelance</div>
+              <div class="comparison-value">
+                Lower tax burden (contractor pays own taxes). More flexible. But higher hourly rate, less control, IP ownership issues, regulatory risk (misclassification claims). Typical mix: 20–30% in consulting, 40–60% in staffing.
+              
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 9: BEAT 9: PROFESSIONAL SERVICES -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 9 • PART II: SUB-SECTORS</div>
+      <h2 class="card-title">Professional Services: Strategy, Operations &amp; Technology Consulting</h2>
+      <div class="card-body">
+
+          <p>The crown jewel of business services. Consulting captures the highest margins and multiples because it's hard to scale, clients are sticky, and IP compounds.</p>
+          <div class="metric-item">
+            <div class="metric-name">Big Four vs. Boutique Dynamics</div>
+            <div class="metric-def">McKinsey, BCG, Bain, Big Four accounting firms (Deloitte, EY, KPMG, PwC) dominate through brand, network, and resources. They're not perfect acquisitions — heavy overhead, politics. Boutiques ($10M–$200M) are more acquisition-friendly — lower overhead ratios, owner-operated, motivated sellers.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Partner Leverage Model</div>
+            <div class="metric-def">The engine of consulting economics. Optimal structure:</div>
+            <div class="formula-box">
+1 Partner : 2–3 Managers : 6–10 Consultants/Analysts<br/>
+<br/>
+Partner bills $500–$1,000/hour. Manager bills $250–$400/hour. Consultant bills $150–$250/hour.<br/>
+<br/>
+Utilisation: Partner 40% (client relationships, business development), Manager 70%, Consultant 80%.
+            </div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">IP vs. Body-Shopping</div>
+            <div class="metric-def">High-quality consulting builds IP (frameworks, tools, proprietary methodologies). Body-shopping = renting brains to the client without creating residual value. A firm selling 90% services and 10% software/IP gets a lower multiple than one with 20% recurring IP revenue.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Revenue Mix: Project-Based vs. Retainer</div>
+            <div class="metric-def">Project revenue: unpredictable quarter-to-quarter, high margin. Retainer revenue: predictable, annuity-like. An elite consulting firm is 50% retainer + 50% projects. An undifferentiated one is 80% project.
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 10: BEAT 10: STAFFING & RECRUITMENT -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 10</div>
+      <h2 class="card-title">Staffing &amp; Recruitment: The Thin-Margin Scaling Game</h2>
+      <div class="card-body">
+
+          <p>Staffing is the volume play of business services. Razor-thin margins (3–6% EBITDA) but huge scalability. A successful staffing platform can grow from $50M to $500M in 5–7 years through M&amp;A.</p>
+          <div class="metric-item">
+            <div class="metric-name">Temp/Contract vs. Perm Placement</div>
+            <div class="metric-def">Different unit economics:</div>
+            <ul class="bullet-list" style="margin-top: 12px;">
+              <li>Temp/Contract: Bill $30/hour, pay worker $18/hour, retain $12/hour = 40% mark-up. Recurring revenue (worker stays placed for 6–12 months).</li>
+              <li>Permanent Placement: One-time fee of 15–25% of first-year salary. $100k hire = $15–25k fee. No recurring revenue.</li>
+            </ul>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">RPO &amp; MSP Models</div>
+            <div class="metric-def">Higher-margin variants. RPO = Recruitment Process Outsourcing (we run your entire recruiting function). MSP = Managed Service Provider (we manage your entire temp/contractor workforce). Both are more sticky and higher margin (8–12% EBITDA) than transactional staffing.</div>
+          </div>
+          <div class="warning-box">
+            <strong>Cyclicality Risk:</strong> Temp staffing is a leading indicator of recession. Companies cut temp workers first. In 2008–2009, staffing firms saw 30–50% revenue drops in quarters. Multiples compress from 8x to 4x overnight. Always model cyclicality in staffing diligence.
+          
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 11: BEAT 11: FACILITIES MANAGEMENT -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 11</div>
+      <h2 class="card-title">Facilities Management: The Boring Goldmine</h2>
+      <div class="card-body">
+
+          <p>FM is unsexy. Cleaning, catering, HVAC maintenance, security. But it's one of the best M&amp;A playgrounds in business services. Fragmented, sticky contracts, recurring revenue, and steady cash generation.</p>
+          <div class="metric-item">
+            <div class="metric-name">Hard FM vs. Soft FM</div>
+            <div class="metric-def">Hard FM: mechanical &amp; electrical infrastructure (HVAC, plumbing, electrical). Higher technical barrier, higher margin. Soft FM: cleaning, catering, security. Lower barrier, lower margin but easier to scale.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">TFM (Total FM) Bundling</div>
+            <div class="metric-def">The platform play. Instead of a client hiring 3 vendors (cleaning, security, HVAC), they hire one TFM provider. Stickier contract, higher lifetime value, easier to cross-sell.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Contract Structures: Input vs. Output</div>
+            <div class="metric-def">Input-based: You provide 5 cleaners for 40 hours/week (cost-plus). Output-based: You guarantee a "clean" standard regardless of how many people you deploy. Output-based is higher margin but requires operational excellence.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Pain/Gain Mechanisms</div>
+            <div class="metric-def">Common in FM contracts. If you reduce your costs, you share the savings with the client. If you exceed budget, you absorb the cost. Aligns incentives but reduces upside surprise.</div>
+          </div>
+          <div class="example-box">
+            <strong>Economics Example:</strong> A 200-person FM firm billing $50M to a $1.5M EBITDA (3% margin) business. Acquisition at 10x EBITDA = $15M EV. Typically, 30–40% of deal value is from consolidation synergies (layering facilities under one management, procurement leverage). Real value creation is in operational upside post-acquisition.
+          
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 12: BEAT 12: BPO & MANAGED SERVICES -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 12</div>
+      <h2 class="card-title">BPO &amp; Managed Services: Process Outsourcing at Scale</h2>
+      <div class="card-body">
+
+          <p>Business Process Outsourcing = you own a customer's non-core process (finance &amp; accounting, HR payroll, IT help desk). Typically 3–7 year contracts, high switching costs, recurring revenue.</p>
+          <div class="metric-item">
+            <div class="metric-name">Arbitrage Models</div>
+            <div class="metric-def">Labour arbitrage is the original BPO playbook. Customer pays $5k/month for a finance clerk in New York. You offshore to Philippines at $800/month. Margin: $4,200/month. Automation arbitrage is next: RPA and AI replace labour. Client still pays $5k/month; you deploy software = 80% margin.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Core BPO Services</div>
+            <div class="metric-def">F&amp;A (Finance &amp; Accounting), HR Payroll &amp; Benefits, IT Managed Services (helpdesk, infrastructure), Customer Service Centres. F&amp;A BPO is the most sticky and highest margin (12–18% EBITDA). Customer service is the lowest (4–8%) due to wage pressure and attrition.</div>
+          </div>
+          <div class="warning-box">
+            <strong>Automation Risk:</strong> BPO is facing existential pressure from RPA and AI. Basic invoice processing, data entry, and customer service are increasingly automated. Your diligence must model: How many processes are truly safe from automation? What's the trajectory of labour cost vs. automation cost? A BPO firm that doesn't invest in technology is a dying business.
+          
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 13: BEAT 13: TIC -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 13</div>
+      <h2 class="card-title">TIC: Testing, Inspection &amp; Certification — The Hidden Champion</h2>
+      <div class="card-body">
+
+          <p>TIC is the least understood and highest-quality sub-sector in business services. If you're looking for a place PE has NOT fully compressed multiples, this is it.</p>
+          <div class="metric-item">
+            <div class="metric-name">What is TIC?</div>
+            <div class="metric-def">Independent testing, inspection, and certification services. Examples: Bureau Veritas tests food safety. SGS certifies manufacturing quality. Intertek inspects offshore oil platforms. Eurofins tests environmental samples. Regulatory-driven, mission-critical, switching costs are astronomical.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Economics</div>
+            <div class="metric-def">Margins: 15–22% EBITDA (best in the business services). Revenue per FTE: $300–$400k. Capital-light (you need labs and equipment, but asset-light compared to industrial). Multiples: 14–20x EBITDA (highest in business services, reflecting quality).</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Consolidation Opportunity</div>
+            <div class="metric-def">Fragmented. Thousands of small regional testing labs. TIC platforms (Bureau Veritas, SGS, Intertek) have done roll-ups for 20+ years. Still room for consolidation in verticals (pharma testing, automotive certification).</div>
+          </div>
+          <div class="example-box">
+            <strong>Deal Example:</strong> A regional food safety testing lab with $15M revenue, $2.5M EBITDA (17% margin). Acquired at 16x = $40M. Post-acquisition, plugged into global platform. Synergies: procure equipment 20% cheaper, cross-sell to global customer base, automate reporting. EBITDA grows to $3M. Value capture = $8M of synergies.
+          
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 14: BEAT 14: GOVERNMENT SERVICES -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 14</div>
+      <h2 class="card-title">Government Services: Outsourced Public Functions</h2>
+      <div class="card-body">
+
+          <p>Prisons, welfare administration, immigration processing, defence contracting. High revenue potential but unique diligence risks.</p>
+          <div class="metric-item">
+            <div class="metric-name">Contract Characteristics</div>
+            <div class="metric-def">Long procurement cycles (12–24 months), "bid and protest" risk (competitors sue over contract awards), margin caps (government sets max profitability), FOIA exposure (Freedom of Information requests make everything public).</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Reputational Risk</div>
+            <div class="metric-def">Political. In 2016–2020, there was a movement to "abolish private prisons." A company dependent on private prison contracts faces existential risk if the political tide turns. Always model political risk in government services.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Margins</div>
+            <div class="metric-def">5–12% EBITDA. Multiples: 8–12x (lower than other business services due to political risk and margin caps).
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 15: BEAT 16: TECHNOLOGY DISRUPTION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 16</div>
+      <h2 class="card-title">Technology Disruption: AI &amp; Automation Impact</h2>
+      <div class="card-body">
+
+          <p>Every business services sector faces AI disruption. The question isn't IF, but HOW and HOW FAST.</p>
+          <div class="comparison-row">
+            <div class="comparison-col">
+              <div class="comparison-header">High Risk</div>
+              <div class="comparison-value">
+                <strong>Staffing:</strong> AI-powered job matching is improving fast. Large recruiters are investing in AI to reduce time-to-hire.<br/><br/>
+                <strong>Basic BPO:</strong> Invoice processing, data entry, customer service first-line support. RPA and AI can replace 40–60% of these roles.
+              </div>
+            </div>
+            <div class="comparison-col">
+              <div class="comparison-header">Medium Risk</div>
+              <div class="comparison-value">
+                <strong>Consulting:</strong> AI can accelerate research and analysis. But senior consulting judgment is hard to automate. Medium-term threat: more AI-augmented consulting, lower cost to serve.<br/><br/>
+                <strong>Government Services:</strong> Automation is happening slowly due to regulation.
+              </div>
+            </div>
+            <div class="comparison-col">
+              <div class="comparison-header">Lower Risk</div>
+              <div class="comparison-value">
+                <strong>Hard FM:</strong> HVAC maintenance, electrical work. Physical, on-site, human judgment required. AI won't replace a technician fixing a broken boiler.<br/><br/>
+                <strong>TIC:</strong> Physical testing requires on-site technicians and labs. Hard to disrupt.
+              
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 16: BEAT 18: INTEGRATION COST BENCHMARKS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 18</div>
+      <h2 class="card-title">Integration Cost Benchmarks &amp; Timeline</h2>
+      <div class="card-body">
+
+          <p>Integration is where most business services roll-ups succeed or fail. The numbers are specific.</p>
+          <div class="metric-item">
+            <div class="metric-name">Year 1 Integration Costs</div>
+            <div class="metric-def">Typically 5–15% of acquired revenue. A $30M acquisition costs $1.5M–$4.5M to integrate (severance, systems migration, rebranding, retention bonuses). Budget for integration is often underestimated.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Systems Migration Timeline</div>
+            <div class="metric-def">6–18 months. Most business services M&amp;A fails because of systems (HR, payroll, billing, timekeeping). Plan for parallel running of systems (6 months), then cutover (month 7). By month 12, you should have clean data and no more legacy system costs.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Customer Retention Target</div>
+            <div class="metric-def">&gt;90% in Year 1. Anything below 90% is a red flag. Customers are lost during integration — staff changes, system disruptions, attention gaps. Plan for 5–10% attrition during the integration period.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Key Person Retention</div>
+            <div class="metric-def">2–3 year earnouts are standard. Seller's founders stay for 2–3 years, locked in by golden handcuffs (earnout milestones). This is critical — if the founder leaves 6 months post-close, customers often follow.</div>
+          </div>
+          <div class="formula-box">
+Integration Success Formula:<br/>
+<br/>
+Days to Customer Retention &gt; 90%: 180–270 days<br/>
+Days to Systems Consolidation: 180–360 days<br/>
+Days to Margin Impact: 270–450 days<br/>
+<br/>
+A $30M bolt-on should take 9–18 months to fully integrate and show profit impact.
+          
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 17: BEAT 22: WORKING CAPITAL IN ACQUISITIONS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 22</div>
+      <h2 class="card-title">Working Capital in Acquisitions: The Cash Trap</h2>
+      <div class="card-body">
+
+          <p>Working capital is how buyers get blindsided in business services deals. People-based businesses have heavy working capital needs.</p>
+          <div class="metric-item">
+            <div class="metric-name">Locked-Box vs. Completion Accounts</div>
+            <div class="metric-def">Locked-box: WC measured at the lock-box date (e.g., 3 months pre-close). Seller bears WC risk between lock and close. Completion accounts: WC measured at close. Buyer assumes all WC. Prefer locked-box if you're the buyer — it limits WC surprises.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Working Capital Peg &amp; Target</div>
+            <div class="metric-def">Deal sets a "WC Target" (e.g., 30 days of revenue). If actual WC at close is $5M and target was $4M, buyer gets a $1M adjustment at close (reduction to purchase price). If actual is $3M, seller gets $1M. This mechanism prevents WC surprises but often leads to disputes (what counts as WC?).</div>
+          </div>
+          <div class="formula-box">
+NWC as % of Revenue (Benchmarks):<br/>
+<br/>
+Consulting: 25–35% (high DSO)<br/>
+Staffing: 15–25% (working capital sink for growth)<br/>
+FM: 15–25% (moderate receivables &amp; payables)<br/>
+BPO: 20–30% (DSO-heavy)<br/>
+TIC: 20–28% (capex + WC)<br/>
+<br/>
+Use these to build a WC bridge in your acquisition model.
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Earn-Out Structures &amp; Accounting</div>
+            <div class="metric-def">Earnouts for business services deals are often tied to WC metrics: "Seller gets $2M if WC stays below $4M." This incentivizes the seller to manage cash carefully during the transition. But disputes are common — how do you define WC? Should customer deposits count? Does it include accrued PTO?
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 18: BEAT 23: VALUATION MULTIPLES -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 23 • PART IV: VALUATION &amp; DILIGENCE</div>
+      <h2 class="card-title">EV/EBITDA Multiples by Sub-Sector</h2>
+      <div class="card-body">
+
+          <p>Business services multiples are driven by three factors: recurring revenue %, organic growth rate, and margin resilience. Here's the map:</p>
+          <div class="comparison-row">
+            <div class="comparison-col">
+              <div class="comparison-header">Consulting</div>
+              <div class="comparison-value">
+                <strong>10–15x EBITDA</strong><br/>
+                Premium drivers: IP ownership, retainer revenue %, partner talent retention. Discount factors: customer concentration, key person dependency.
+              </div>
+            </div>
+            <div class="comparison-col">
+              <div class="comparison-header">Staffing</div>
+              <div class="comparison-value">
+                <strong>7–10x EBITDA</strong><br/>
+                Cyclicality crush multiples. Only best-in-class (RPO, MSP mix) command 10x. Temp-only agencies trade at 5–7x.
+              </div>
+            </div>
+            <div class="comparison-col">
+              <div class="comparison-header">FM</div>
+              <div class="comparison-value">
+                <strong>8–12x EBITDA</strong><br/>
+                Long-term contracts drive premium. TFM (bundled) platforms at 11–12x. Mono-service (cleaning only) at 7–8x.
+              </div>
+            </div>
+            <div class="comparison-col">
+              <div class="comparison-header">BPO</div>
+              <div class="comparison-value">
+                <strong>8–12x EBITDA</strong><br/>
+                Depends heavily on geography mix and automation risk. Onshore BPO trades at 8–10x. Offshored at 6–8x (automation risk).
+              </div>
+            </div>
+            <div class="comparison-col">
+              <div class="comparison-header">TIC</div>
+              <div class="comparison-value">
+                <strong>14–20x EBITDA</strong><br/>
+                Highest multiples. Regulatory moat, mission-critical, switching costs. Only TIC trades near 20x.
+              
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 19: BEAT 24: PRECEDENT M&A -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 24</div>
+      <h2 class="card-title">Precedent M&amp;A &amp; Industry Consolidation Trends</h2>
+      <div class="card-body">
+
+          <p>Business services has been one of PE's greatest hunting grounds. Consolidation is relentless.</p>
+          <div class="metric-item">
+            <div class="metric-name">Notable Recent Transactions</div>
+            <div class="metric-def">
+              <ul class="bullet-list">
+                <li><strong>Rentokil Initial:</strong> Acquired Stericycle (hygiene/outsourcing) for $7.2B (2022). Multiple: ~9x on combined EBITDA.</li>
+                <li><strong>KKR/Clayton Dubilier:</strong> Paid 11x for Bausch + Lomb (not directly business services, but shows consumer healthcare multiples are higher).</li>
+                <li><strong>CBRE:</strong> Acquired multiple FM platforms throughout 2010s. Multiples: 9–12x as platform expanded.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">PE Ownership in Business Services</div>
+            <div class="metric-def">PE owns approximately 40% of large business services platforms ($100M+ EBITDA). This is where PE has built its greatest returns. Fragmented markets, roll-up potential, recurring revenue, and strong cash flow make it PE's sweet spot.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Exit Patterns</div>
+            <div class="metric-def">Secondary buyout (PE seller to PE buyer, often at higher multiple than platform could achieve in IPO) is most common. Strategic sale is second most common. IPO is rare due to size constraints (most platforms are $500M–$2B, below typical IPO minimums).
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 20: BEAT 25: DCF CONSIDERATIONS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 25</div>
+      <h2 class="card-title">DCF Valuation: Labour Cost &amp; Revenue Visibility</h2>
+      <div class="card-body">
+
+          <p>DCF for business services requires specific modeling discipline.</p>
+          <div class="metric-item">
+            <div class="metric-name">Labour Cost Inflation Modelling</div>
+            <div class="metric-def">Project wage growth for the forecast period. If wage inflation is 4% and bill rate growth is 2%, margins compress. This is not trivial — a 50-person consulting firm has $5M wage base. 4% annual inflation = $200k additional cost per year. If margins are only 15%, that's $750k of EBITDA impact. Model wage vs. pricing separately.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Revenue Visibility Discount</div>
+            <div class="metric-def">T&amp;M businesses (low visibility) get discounted 30–50% vs. contracted revenue. A $10M revenue consulting firm with 100% project-based revenue might value at $40M (4x revenue). If 50% is retainer, value is $50M (5x revenue). This "visibility premium" is real and material.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-name">Terminal Growth Rate</div>
+            <div class="metric-def">For mature platforms with strong margins, use GDP+ (2–3%) as terminal growth. For high-quality platforms with organic growth &gt; 5%, use 3–4%. For cyclical staffing, use 1–2%. Terminal growth drives 30–40% of DCF value, so this assumption is critical.</div>
+          </div>
+          <div class="formula-box">
+Business Services DCF Template:<br/>
+<br/>
+Years 1–3: Forecast FTE growth, utilisation, bill rate increases, wage inflation<br/>
+Years 4–5: Growth moderates, margins stabilize<br/>
+Terminal: GDP+ growth, stabilized EBITDA margin<br/>
+<br/>
+Discount rate: 8–10% WACC (higher for staffing/BPO due to cyclicality)
+          
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 21: BEAT 29: NOTABLE PLATFORMS APPENDIX -->
+  <div class="beat beat-scene">
+    <div class="beat-inner">
+      <div class="scene-location">BUSINESS SERVICES &amp; OUTSOURCING SPECIAL COMPLETE</div>
+      <div class="scene-text">
+        <a href="G2G_Business_Services_Reference.pdf" download target="_blank" rel="noopener" class="download-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Business Services Cram Sheet
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter-nav-row">
+    <a href="ch21.html" class="prev-chapter-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      <span class="btn-label"><span class="btn-next">Previous Chapter</span><span class="btn-title">The Infrastructure &amp; Transport Special</span></span>
+    </a>
+    <a href="ch23.html" class="next-chapter-btn">
+      <span class="btn-label"><span class="btn-next">Next Chapter</span><span class="btn-title">The Restructuring &amp; Special Situations Special</span></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <script>
+<script>
+  let currentBeat = 0;
+  let startY = 0;
+  let isAnimating = false;
+  const beats = document.querySelectorAll('.beat');
+  const totalBeats = beats.length;
+
+  function positionBeats() {
+    beats.forEach((beat, i) => {
+      if (i < currentBeat) {
+        beat.style.transform = 'translateY(-100vh)';
+        beat.style.opacity = '0';
+        beat.style.pointerEvents = 'none';
+        beat.style.visibility = 'hidden';
+      } else if (i === currentBeat) {
+        beat.style.transform = 'translateY(0)';
+        beat.style.opacity = '1';
+        beat.style.pointerEvents = 'auto';
+        beat.style.visibility = 'visible';
+      } else {
+        beat.style.transform = 'translateY(100vh)';
+        beat.style.opacity = '0';
+        beat.style.pointerEvents = 'none';
+        beat.style.visibility = 'hidden';
+      }
+    });
+  }
+
+  function updateCounter() {
+    const counter = document.getElementById('beatCounter');
+    if (counter) counter.textContent = `${currentBeat + 1} / ${totalBeats}`;
+  }
+
+  function updateProgress() {
+    // Progress bar removed (nav dots replaced it)
+  }
+
+  function goTo(index) {
+    if (isAnimating || index < 0 || index >= totalBeats) return;
+    isAnimating = true;
+    const direction = index > currentBeat ? -1 : 1;
+    beats[currentBeat].style.transform = `translateY(${direction * 100}vh)`;
+    beats[currentBeat].style.opacity = '0';
+    beats[currentBeat].style.pointerEvents = 'none';
+    beats[currentBeat].style.visibility = 'hidden';
+    beats[index].style.transform = 'translateY(0)';
+    beats[index].style.opacity = '1';
+    beats[index].style.pointerEvents = 'auto';
+    beats[index].style.visibility = 'visible';
+    currentBeat = index;
+    updateCounter();
+    updateProgress();
+    saveProgress();
+    document.querySelectorAll('.nav-dots .dot').forEach((d, di) => d.classList.toggle('active', di === currentBeat));
+    const hint = document.getElementById('swipeHint');
+    if (hint) {
+      hint.style.opacity = '0';
+      setTimeout(() => hint.remove(), 500);
+      try { localStorage.setItem('g2g-swipe-seen', '1'); } catch(e) {}
+    }
+    setTimeout(() => { isAnimating = false; }, 350);
+  }
+
+  document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const beat = beats[currentBeat];
+    const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+    const atTop = beat.scrollTop <= 5;
+    const diff = startY - e.changedTouches[0].clientY;
+    if (diff > 50 && atBottom) goTo(currentBeat + 1);
+    if (diff < -50 && atTop) goTo(currentBeat - 1);
+  }, { passive: true });
+
+  let wheelAccum = 0;
+  let wheelTimer = null;
+  document.addEventListener('wheel', e => {
+    const beat = beats[currentBeat];
+    const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+    const atTop = beat.scrollTop <= 5;
+    wheelAccum += e.deltaY;
+    clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(() => { wheelAccum = 0; }, 200);
+    if (wheelAccum > 50 && atBottom) { wheelAccum = 0; goTo(currentBeat + 1); }
+    if (wheelAccum < -50 && atTop) { wheelAccum = 0; goTo(currentBeat - 1); }
+  }, { passive: true });
+
+  document.addEventListener('keydown', e => {
+    const beat = beats[currentBeat];
+    const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+    const atTop = beat.scrollTop <= 5;
+    if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key)) {
+      if (atBottom) { e.preventDefault(); goTo(currentBeat + 1); }
+    } else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) {
+      if (atTop) { e.preventDefault(); goTo(currentBeat - 1); }
+    } else if (e.key === ' ') {
+      e.preventDefault();
+      if (atBottom) goTo(currentBeat + 1);
+      else beat.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+    } else if (e.key === 'Home') {
+      e.preventDefault(); goTo(0);
+    } else if (e.key === 'End') {
+      e.preventDefault(); goTo(totalBeats - 1);
+    }
+  });
+
+  const swipeHint = document.getElementById('swipeHint');
+  if (swipeHint) {
+    try { if (localStorage.getItem('g2g-swipe-seen')) swipeHint.remove(); } catch(e) {}
+  }
+
+  const navContainer = document.querySelector('.nav-dots');
+  for (let i = 0; i < totalBeats; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goTo(i);
+    navContainer.appendChild(dot);
+  }
+
+  positionBeats();
+
+  // Create nav dots
+  (function() {
+    var navEl = document.querySelector('.nav-dots');
+    if (!navEl) {
+      navEl = document.createElement('div');
+      navEl.className = 'nav-dots';
+      navEl.id = 'navDots';
+      document.body.appendChild(navEl);
+    }
+    var beats = document.querySelectorAll('.beat');
+    navEl.innerHTML = '';
+    for (var i = 0; i < beats.length; i++) {
+      var dot = document.createElement('div');
+      dot.className = 'dot';
+      dot.dataset.index = i;
+      dot.addEventListener('click', function() {
+        var idx = parseInt(this.dataset.index);
+        if (typeof goTo === 'function') goTo(idx);
+      });
+      navEl.appendChild(dot);
+    }
+  })();
+
+  updateCounter();
+  updateProgress();
+
+  const CHAPTER_NUM = 22;
+  function saveProgress() {
+    try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeat); } catch(e) {}
+  }
+
+  (function() {
+    try {
+      const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+      if (saved && saved > 0 && saved < totalBeats) {
+        const toast = document.createElement('div');
+        toast.className = 'resume-toast';
+        toast.innerHTML = `<span>Resume from beat ${saved + 1}?</span><button onclick="goTo(${saved}); this.parentNode.remove();">Resume</button><button onclick="this.parentNode.remove();">Start Over</button>`;
+        document.body.appendChild(toast);
+        setTimeout(() => { if (toast.parentNode) toast.remove(); }, 8000);
+      }
+    } catch(e) {}
+  })();
+</script>
+</body>
+</html>
+</body>
+</html>

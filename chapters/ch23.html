@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G2G Chapter 23 — The Restructuring &amp; Special Situations Special</title>
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://g2ga-069.github.io/G2G/chapters/ch23.html">
+  <meta property="og:title" content="Chapter 23: The Restructuring &amp; Special Situations Special — G2G Advisory">
+  <meta property="og:description" content="Distressed Debt, Turnarounds, DIP Finance &amp; Creditor Dynamics">
+  <meta property="og:image" content="https://g2ga-069.github.io/G2G/images/og-preview.png">
+  <meta property="og:site_name" content="G2G Advisory">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chapter 23: The Restructuring &amp; Special Situations Special — G2G Advisory">
+  <meta name="twitter:description" content="Distressed Debt, Turnarounds, DIP Finance &amp; Creditor Dynamics">
+  <meta name="twitter:image" content="https://g2ga-069.github.io/G2G/images/og-preview.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon-180.png">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0c;
+      --surface: #131318;
+      --surface-2: #1a1a22;
+      --border: #2a2a35;
+      --text: #e8e4df;
+      --text-muted: #a8a4b0;
+      --text-dim: #7a7680;
+      --accent: #b07ce8;
+      --accent-dim: #7a55b0;
+      --accent-bright: #d4a0ff;
+      --green: #4a9e6e;
+      --red: #c45c4a;
+      --blue: #5a8fc4;
+      --purple: #8a3cc4;
+      --brand-purple: #6b2fa0;
+      --brand-magenta: #d946ef;
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { height: 100%; overflow: hidden; overscroll-behavior: none; }
+    body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-serif);
+      line-height: 1.7;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .beat {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 52px 24px 60px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s, transform 0.35s ease-in-out;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .beat-inner {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* TITLE BEAT */
+    .beat-title {
+      background: radial-gradient(ellipse at 60% 40%, rgba(176, 124, 232, 0.15) 0%, rgba(107, 47, 160, 0.08) 40%, var(--bg) 100%);
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .beat-title .beat-inner {
+      text-align: center;
+    }
+
+    .series-name {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 16px;
+    }
+
+    .chapter-number {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+
+    .beat-title h1 {
+      font-family: var(--font-serif);
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--accent-bright);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .beat-title .subtitle {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* CARD BEAT */
+    .beat-card {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beat-card .beat-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .card-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    .card-body {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .card-body p {
+      margin-bottom: 16px;
+    }
+
+    .card-body strong {
+      color: var(--accent-bright);
+      font-weight: 600;
+    }
+
+    .metric-item {
+      margin-bottom: 16px;
+      padding-left: 16px;
+      border-left: 2px solid var(--accent-dim);
+    }
+
+    .metric-name {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--accent-bright);
+    }
+
+    .metric-def {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .comparison-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .comparison-col {
+      flex: 1;
+    }
+
+    .comparison-header {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .comparison-value {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .bullet-list {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    .bullet-list li {
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .bullet-list li strong {
+      color: var(--accent-bright);
+    }
+
+    .formula-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--accent-bright);
+      line-height: 1.6;
+    }
+
+    .formula-box .formula-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .example-box {
+      background: linear-gradient(135deg, rgba(74,158,110,0.08), rgba(74,158,110,0.03));
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .example-box .example-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, rgba(196,92,74,0.08), rgba(196,92,74,0.03));
+      border-left: 3px solid var(--red);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .warning-box .warning-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-box p {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .section-divider {
+      background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+      height: 1px;
+      margin: 24px 0;
+    }
+
+    .part-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 4px;
+    }
+
+    /* SCENE BEAT */
+    .beat-scene {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beat-scene .beat-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .scene-location {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 16px;
+    }
+
+    .scene-text {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    .scene-text strong {
+      color: var(--accent-bright);
+    }
+
+    .scene-text a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .scene-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* UI ELEMENTS */
+    .beat-counter {
+      position: fixed;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
+      right: 24px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--text-dim);
+      z-index: 998;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      z-index: 996;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .swipe-hint {
+      position: fixed;
+      bottom: 60px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-dim);
+      z-index: 995;
+      animation: fadeOutAfter 7s forwards;
+    }
+
+    @keyframes fadeOutAfter {
+      0%, 85% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .resume-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      border: 1px solid var(--accent-dim);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 1000;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .resume-toast button {
+      background: var(--accent-dim);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+
+    .resume-toast button:first-of-type {
+      background: var(--brand-purple);
+    }
+
+    .resume-toast button:hover {
+      opacity: 0.9;
+    }
+
+    /* Wider beat-inner for comparison tables */
+    .beat-card.comparison-wide .beat-inner {
+      max-width: 760px;
+    }
+
+    /* Download button */
+    .download-hero {
+      margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 14px;
+    }
+    .download-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 36px; border-radius: 10px; text-decoration: none;
+      background: linear-gradient(135deg, #6b2fa0, #d946ef);
+      color: #fff; font-family: var(--font-sans, 'Inter', sans-serif); font-size: 15px;
+      font-weight: 700; letter-spacing: 0.5px;
+      transition: all 0.3s; box-shadow: 0 4px 24px rgba(107,47,160,0.4);
+    }
+    .download-btn:hover {
+      transform: translateY(-2px); box-shadow: 0 8px 32px rgba(107,47,160,0.6);
+    }
+    .download-btn svg { width: 20px; height: 20px; }
+    .download-note {
+      font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 11px;
+      color: var(--text-dim, var(--text-muted, #7a7680)); letter-spacing: 0.5px;
+    }
+
+    /* Nav dots */
+    .nav-dots {
+      position: fixed; top: 50%; right: 12px; transform: translateY(-50%);
+      z-index: 100; display: flex; flex-direction: column; gap: 6px;
+    }
+    .nav-dots .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); cursor: pointer; transition: all 0.3s;
+    }
+    .nav-dots .dot.active {
+      background: var(--accent, #b07ce8); box-shadow: 0 0 6px rgba(176,124,232,0.4);
+      width: 10px; height: 10px;
+    }
+    .nav-dots .dot:hover { background: var(--accent-dim, rgba(176,124,232,0.5)); }
+
+    @media (max-width: 768px) {
+      .nav-dots { right: 8px; gap: 4px; }
+      .beat-inner { padding-right: 28px; }
+      .nav-dots .dot { width: 6px; height: 6px; }
+      .nav-dots .dot.active { width: 8px; height: 8px; }
+    }
+
+    /* Resume toast — mobile-safe */
+    @media (max-width: 768px) {
+      .resume-toast {
+        max-width: calc(100vw - 32px); width: auto;
+        padding: 12px 16px; gap: 10px;
+        bottom: max(70px, calc(60px + env(safe-area-inset-bottom)));
+        font-size: 12px; flex-wrap: wrap; justify-content: center;
+      }
+      .resume-toast button { padding: 8px 16px; font-size: 12px; }
+    }
+
+    .prev-chapter-btn, .next-chapter-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 28px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(107,47,160,0.15), rgba(176,124,232,0.10));
+      border: 1px solid rgba(176,124,232,0.25);
+      color: var(--accent, #b07ce8); text-decoration: none;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      transition: all 0.3s ease; margin-top: 32px; cursor: pointer;
+    }
+    .prev-chapter-btn:hover, .next-chapter-btn:hover {
+      background: linear-gradient(135deg, rgba(107,47,160,0.25), rgba(176,124,232,0.20));
+      border-color: rgba(176,124,232,0.5); transform: translateY(-1px);
+    }
+    .prev-chapter-btn svg, .next-chapter-btn svg { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.2s; }
+    .next-chapter-btn:hover svg { transform: translateX(4px); }
+    .prev-chapter-btn:hover svg { transform: translateX(-4px); }
+    .prev-chapter-btn .btn-label, .next-chapter-btn .btn-label { display: flex; flex-direction: column; align-items: flex-start; }
+    .next-chapter-btn .btn-label { align-items: flex-end; }
+    .prev-chapter-btn .btn-next, .next-chapter-btn .btn-next { font-size: 11px; opacity: 0.7; letter-spacing: 1.5px; text-transform: uppercase; }
+    .prev-chapter-btn .btn-title, .next-chapter-btn .btn-title { font-size: 16px; }
+    .chapter-nav-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 32px; }
+
+    @media (max-width: 768px) {
+      .beat-title h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+      }
+
+      .beat-title .subtitle {
+        font-size: 16px;
+      }
+
+      .card-title {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+      }
+
+      .beat-counter {
+        bottom: max(16px, env(safe-area-inset-bottom, 16px));
+        right: 16px;
+        font-size: 11px;
+      }
+
+      .back-link {
+        top: 16px;
+        left: 16px;
+        font-size: 12px;
+      }
+
+      .prev-chapter-btn, .next-chapter-btn { padding: 14px 24px; font-size: 14px; }
+      .prev-chapter-btn .btn-title, .next-chapter-btn .btn-title { font-size: 14px; }
+      .chapter-nav-row { flex-direction: column; align-items: stretch; }
+      .prev-chapter-btn, .next-chapter-btn { margin-top: 8px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="beat-counter" id="beatCounter"></div>
+  <a href="../index.html" class="back-link">← G2G</a>
+  <div class="nav-dots"></div>
+  <div class="swipe-hint" id="swipeHint">Swipe up to navigate</div>
+
+  <!-- BEAT 1: TITLE -->
+  <div class="beat beat-title">
+    <div class="beat-inner">
+      <div class="chapter-number">CHAPTER 23</div>
+      <h1>The Restructuring &amp; Special Situations Special</h1>
+      <p class="subtitle">Distressed Debt, Turnarounds, DIP Finance &amp; Creditor Dynamics</p>
+      <div class="download-hero">
+        <a href="G2G_Restructuring_Reference.pdf" download target="_blank" rel="noopener" class="download-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Restructuring Cram Sheet
+        </a>
+        <p class="download-note">PDF guide to distressed dynamics, DIP structures &amp; recovery analysis</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 2: CHAPTER OVERVIEW -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 2 / CHAPTER OVERVIEW</div>
+      <h2 class="card-title">When Capital Structures Break</h2>
+      <div class="card-body">
+        <p>Restructuring sits at the intersection of law, finance, and negotiation. This chapter covers what happens when capital structures break: from early warning signs through formal insolvency, from debtor-in-possession financing through plan confirmation. Written for bankers who need to understand both sides of the table.</p>
+        <ul class="bullet-list">
+          <li><strong>The distress trigger:</strong> Liquidity crisis, EBITDA decline, covenant breach, or external shock</li>
+          <li><strong>The restructuring process:</strong> Out-of-court (workout, exchange offer), in-court (Chapter 11, schemes, administrations)</li>
+          <li><strong>The core dynamic:</strong> Every creditor class tries to minimize its loss; every solution leaves someone unhappy</li>
+          <li><strong>The advisor's role:</strong> Navigate law, model recovery, and negotiate the waterfall</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 3: ZONE OF INSOLVENCY -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 3 / FOUNDATIONS</div>
+      <h2 class="card-title">Zone of Insolvency</h2>
+      <div class="card-body">
+        <p>When does a company become insolvent? When do directors' duties shift? When should advisors get called?</p>
+        <div class="metric-item">
+          <div class="metric-name">Balance Sheet Test</div>
+          <div class="metric-def">Liabilities exceed assets at fair value. Company has negative equity. Easy to calculate, hard to defend in court (fair value is contested).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Cash Flow Test</div>
+          <div class="metric-def">Unable to pay debts as they fall due. The practical insolvency: no cash, can't meet payroll or debt service. Most triggers restructuring.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Zone of Insolvency</div>
+          <div class="metric-def">The grey area where company is nearing insolvency but not technically insolvent yet. Directors' duties shift from shareholders to creditors. In US: "deepening insolvency" concept; in UK: wrongful trading liability begins here.</div>
+        </div>
+        <div class="warning-box">
+          <strong>Red Flag: Timing</strong>
+          <p>Directors who hide distress or continue risky business in the zone of insolvency face personal liability. Once insolvency is probable, duty shifts—the board cannot favour equity holders at creditors' expense.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 4: ABSOLUTE PRIORITY RULE -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 4 / FOUNDATIONS</div>
+      <h2 class="card-title">The Absolute Priority Rule</h2>
+      <div class="card-body">
+        <p>In restructuring, seniority matters absolutely. The waterfall is the law of the land.</p>
+        <ul class="bullet-list">
+          <li><strong>Super-priority (Admin claims, DIP):</strong> Paid first, rarely challenged</li>
+          <li><strong>Senior secured (First lien):</strong> Secured lender recovers from collateral (typically 60–80% recovery)</li>
+          <li><strong>Senior unsecured (Bond, trade):</strong> Unsecured creditors (typically 40–60% recovery)</li>
+          <li><strong>Subordinated:</strong> Junior debt (typically 20–40% recovery)</li>
+          <li><strong>Mezzanine:</strong> Hybrids, preferred equity (typically 0–20% recovery)</li>
+          <li><strong>Common equity:</strong> Gets nothing unless fully above-water (rare)</li>
+        </ul>
+        <div class="metric-item">
+          <div class="metric-name">Fulcrum Security</div>
+          <div class="metric-def">The layer where value runs out. Everything senior is paid in full. Everything junior gets scraps. The fulcrum holder has maximum leverage—they negotiate the plan.</div>
+        </div>
+        <div class="example-box">
+          <strong>Example: Capital Structure Waterfall</strong>
+          <p>Enterprise value: $500M. Senior secured claims: $400M (paid in full). Senior unsecured claims: $200M (only $100M available = 50% recovery). Subordinated claims: $150M (gets $0 = 0% recovery). Equity: worthless. Fulcrum is senior unsecured.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 5: RECOVERY RATE ANALYSIS -->
+  <div class="beat beat-card comparison-wide">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 5 / FOUNDATIONS</div>
+      <h2 class="card-title">Recovery Rate Analysis</h2>
+      <div class="card-body">
+        <p>Historical recovery rates by seniority (US unsecured bankruptcy data, 2000-2024):</p>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Security Class</div>
+            <div class="comparison-value"><strong>Senior Secured</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Typical Recovery</div>
+            <div class="comparison-value">60–80%</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Range</div>
+            <div class="comparison-value">45–100%</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Key Drivers</div>
+            <div class="comparison-value">Collateral value, loan-to-value</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Security Class</div>
+            <div class="comparison-value"><strong>Senior Unsecured</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Typical Recovery</div>
+            <div class="comparison-value">40–60%</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Range</div>
+            <div class="comparison-value">20–80%</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Key Drivers</div>
+            <div class="comparison-value">Enterprise value, leverage, industry</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Security Class</div>
+            <div class="comparison-value"><strong>Subordinated</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Typical Recovery</div>
+            <div class="comparison-value">20–40%</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Range</div>
+            <div class="comparison-value">0–60%</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Key Drivers</div>
+            <div class="comparison-value">Fulcrum position, equity upside</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Security Class</div>
+            <div class="comparison-value"><strong>Equity</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Typical Recovery</div>
+            <div class="comparison-value">0–10%</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Range</div>
+            <div class="comparison-value">0–50%</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Key Drivers</div>
+            <div class="comparison-value">Asset coverage, turnaround success</div>
+          </div>
+        </div>
+        <div class="formula-box">Recovery = (Reorganisation Value × % Allocated) / Claim Amount</div>
+        <div class="metric-item">
+          <div class="metric-name">Industry &amp; Cycle Effects</div>
+          <div class="metric-def">Recoveries spike in commodities downturns (oil, metals) and collapse in retail restructurings. Real estate recoveries high (asset backing). Tech recoveries low (intangible-heavy). Cycle timing: recoveries best for early Chapter 11 filers, worst for late liquidations.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 6: FULCRUM SECURITY IDENTIFICATION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 6 / FOUNDATIONS</div>
+      <h2 class="card-title">Fulcrum Security Identification</h2>
+      <div class="card-body">
+        <p>The fulcrum holder controls the restructuring. How do you find it?</p>
+        <ul class="bullet-list">
+          <li><strong>Step 1:</strong> Estimate going-concern enterprise value (DCF, comparable multiples, recent comps)</li>
+          <li><strong>Step 2:</strong> Calculate super-priority claims (admin, DIP, accrued payroll)</li>
+          <li><strong>Step 3:</strong> Layer in senior secured: what % of EV does it consume?</li>
+          <li><strong>Step 4:</strong> Layer in senior unsecured: what % is left?</li>
+          <li><strong>Step 5:</strong> The layer where value runs out is the fulcrum</li>
+        </ul>
+        <div class="example-box">
+          <strong>Example: Fulcrum Calculation</strong>
+          <p>Enterprise value: $1,000M. Senior secured claims: $600M (100% → 60% of value). Senior unsecured claims: $600M (remaining 40% of value = $400M). Subordinated claims: $300M (value exhausted, 0% recovery expected). Fulcrum: Senior unsecured. Senior unsecured holders have negotiating power.</p>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Fulcrum Holder Leverage</div>
+          <div class="metric-def">The fulcrum holder sits at the "valley of death." They can either support a plan (accepting a distribution on impaired claims) or push for liquidation. The threat of liquidation + the prospect of equity upside = maximum leverage to negotiate terms and board seats.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 7: LIQUIDATION VS GOING-CONCERN -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 7 / FOUNDATIONS</div>
+      <h2 class="card-title">Liquidation vs Going-Concern</h2>
+      <div class="card-body">
+        <p>The core decision in any restructuring: is the business worth more alive or dead?</p>
+        <div class="metric-item">
+          <div class="metric-name">Liquidation Value</div>
+          <div class="metric-def">Forced sale of assets (often 20–50% of book value). Includes auction inefficiency, lost intangibles, payoff of liabilities. Fast (weeks to months) but brutal to recovery rates.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Going-Concern Value</div>
+          <div class="metric-def">The business as a whole, including customer relationships, goodwill, operating platform, and future EBITDA. Typically higher than liquidation, but requires successful turnaround or sale to strategic buyer.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">The Gap</div>
+          <div class="metric-def">Going-concern value minus liquidation value. This gap is the restructuring opportunity. If gap is large (e.g., $300M for $500M business), creditors support restructuring. If gap is small or negative, liquidation wins.</div>
+        </div>
+        <div class="warning-box">
+          <strong>Red Flag: Going-Concern Bias</strong>
+          <p>Management and advisors often overestimate going-concern value. Chapter 11 professionals have inherent bias toward restructuring (higher fees than quick liquidation). Independent valuation and scenario analysis are critical.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 8: 13-WEEK CASH FLOW MODEL -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 8 / FOUNDATIONS</div>
+      <h2 class="card-title">The 13-Week Cash Flow Model</h2>
+      <div class="card-body">
+        <p>The single most important diligence tool in distress. Weekly granularity reveals exactly how long the company can operate.</p>
+        <ul class="bullet-list">
+          <li><strong>Cash receipts:</strong> Collections, royalties, drawdowns on revolver</li>
+          <li><strong>Cash disbursements:</strong> Payroll, trade payables, debt service, capex</li>
+          <li><strong>Net weekly position:</strong> Receipts minus disbursements</li>
+          <li><strong>Cumulative position:</strong> Rolling cash balance week-to-week</li>
+          <li><strong>Minimum cash covenant:</strong> Floor the company must maintain (often $5–20M)</li>
+          <li><strong>Borrowing base availability:</strong> How much more can it borrow on the revolver?</li>
+        </ul>
+        <div class="metric-item">
+          <div class="metric-name">Liquidity Runway</div>
+          <div class="metric-def">The number of weeks until cumulative cash goes negative (or hits minimum covenant). This is the clock. Runs out = no negotiating leverage, accept whatever terms are available.</div>
+        </div>
+        <div class="warning-box">
+          <strong>Red Flag: Manipulated 13-Weeks</strong>
+          <p>Common tricks: stretch payables to creditors, draw down revolver to inflate receipts, defer capex artificially. The 13-week cash flow is the lie detector. If numbers don't align with actual payment history or bank statements, trust the bank statements.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART II LABEL -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div style="text-align: center;">
+        <div class="part-label">PART II — CAPITAL STRUCTURE IN DISTRESS</div>
+        <p style="margin-top: 32px; font-size: 18px; color: var(--text-muted); line-height: 1.8;">The capital structure is the battlefield. Understanding priority, intercreditor dynamics, and enforcement mechanics determines who wins the restructuring negotiation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 9: PRIORITY WATERFALL -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 9 / CAPITAL STRUCTURE</div>
+      <h2 class="card-title">Priority Waterfall</h2>
+      <div class="card-body">
+        <p>In bankruptcy, distribution order is fixed and absolute:</p>
+        <ul class="bullet-list">
+          <li><strong>1. Super-priority (DIP, admin claims):</strong> Court-ordered advances, professional fees. Paid first from first dollar of assets. Rarely contested.</li>
+          <li><strong>2. Secured claims (First lien, second lien):</strong> Paid from collateral up to claim amount. Secured creditor has enforcement rights (foreclosure, 363 sale).</li>
+          <li><strong>3. Unsecured priority claims:</strong> Wages (typically capped), employee benefits, taxes. Paid before general unsecured claims.</li>
+          <li><strong>4. General unsecured (Bonds, trade):</strong> What's left, pro-rata across all unsecured creditors.</li>
+          <li><strong>5. Subordinated (Contractual subordination):</strong> Explicitly junior via deed or indenture. Often gets $0.</li>
+          <li><strong>6. Equity (Preferred, common):</strong> Last in line. Gets value only if all debt is paid in full or company is strongly above-water.</li>
+        </ul>
+        <div class="metric-item">
+          <div class="metric-name">Intercreditor Agreements</div>
+          <div class="metric-def">Contracts between first lien and second lien (or other junior lenders) governing enforcement, standstill periods, and voting. These are the real constraints on lender behavior—not seniority alone.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 10: INTER-CREDITOR AGREEMENTS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 10 / CAPITAL STRUCTURE</div>
+      <h2 class="card-title">Inter-Creditor Agreements</h2>
+      <div class="card-body">
+        <p>First lien &amp; second lien don't just coexist—they negotiate the terms of their coexistence.</p>
+        <div class="metric-item">
+          <div class="metric-name">Standstill Period</div>
+          <div class="metric-def">Junior lender agrees not to enforce for 90–180 days after first lien breach. Purpose: breathing room to negotiate workout or plan. Encourages cooperation instead of race to liquidate.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Release Provisions</div>
+          <div class="metric-def">Conditions under which first lien releases collateral (full payoff, discharge). If first lien releases collateral without paying junior lender, junior gets automatic claim to that collateral.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Voting Thresholds</div>
+          <div class="metric-def">% of each lender group required to approve plan modifications, DIP terms, or 363 sale. Typically 50–66% of value. Prevents one hostile lender from blocking consensual restructuring.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">X-Default Clauses</div>
+          <div class="metric-def">Triggers that allow junior lender to enforce despite standstill. Examples: bankruptcy filing (automatic), failure to comply with milestones, material adverse change. These carve-outs limit standstill power.</div>
+        </div>
+        <div class="example-box">
+          <strong>Example: Standstill Negotiation</strong>
+          <p>Company misses debt covenant on Day 1. First lien can accelerate immediately, but intercreditor agreement imposes 120-day standstill. During standstill, all lenders negotiate plan. Day 120 arrives with no plan agreed = first lien can accelerate and take collateral. This deadline pressure forces consensus.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 11: CROSS-DEFAULT & ACCELERATION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 11 / CAPITAL STRUCTURE</div>
+      <h2 class="card-title">Cross-Default &amp; Acceleration</h2>
+      <div class="card-body">
+        <p>One default can trigger all defaults. Understanding this cascade is critical to restructuring strategy.</p>
+        <div class="metric-item">
+          <div class="metric-name">Cross-Default Clause</div>
+          <div class="metric-def">In facility agreement: default on one facility triggers default on all. Example: miss one coupon payment on first lien = second lien and unsecured debt automatically default. This expands lender power but also creates collective action problem.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Acceleration</div>
+          <div class="metric-def">Lender declares debt immediately due. Senior secured lender can then foreclose on collateral and sell assets (363 sale in Chapter 11 or foreclosure outside bankruptcy). This is the ultimate enforcement weapon.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Standstill as Collective Action Solution</div>
+          <div class="metric-def">Without standstill, each junior lender races to enforce (first one to foreclose gets priority). Standstill forces cooperation: nobody can enforce for X days, so negotiation becomes the only rational strategy.</div>
+        </div>
+        <div class="warning-box">
+          <strong>Why Creditors Sometimes Waive Defaults</strong>
+          <p>A creditor might waive a technical default (or enter standstill) if (1) liquidation would leave them with nothing, but restructuring might return 30%; (2) bankruptcy filing imminent and standstill negotiation is faster; (3) they're locked in and can't exit anyway. Waiver is not generosity—it's rational self-interest.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 12: SUBORDINATION MECHANICS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 12 / CAPITAL STRUCTURE</div>
+      <h2 class="card-title">Subordination Mechanics</h2>
+      <div class="card-body">
+        <p>Seniority can be contractual (negotiated) or structural (inherent in the capital structure).</p>
+        <div class="metric-item">
+          <div class="metric-name">Structural Subordination</div>
+          <div class="metric-def">Subsidiary debt is senior to holdco debt because assets are in the subsidiary. Holdco debt can only recover if subsidiary pays a dividend (which requires paying subsidiary debt first). This creates automatic priority without explicit contracts.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Contractual Subordination</div>
+          <div class="metric-def">Explicit subordination agreement: subordinated lender agrees to defer payment if senior lender is not paid in full. Can be debt-to-equity (if company is insolvent) or debt-to-debt (payment subordination).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Lien Subordination</div>
+          <div class="metric-def">Junior lender's lien is explicitly subordinate to senior lender's lien on the same collateral. Senior lender foreclosures first; junior gets whatever is left. Priming lien: senior creditor's lien jumps ahead (controversial; requires extraordinary circumstances like adequate protection).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Turnover Provisions</div>
+          <div class="metric-def">If subsidiary receives cash (asset sales, dividends), subordinated note holder must turn over payment to senior lender until senior is paid in full. Prevents junior from drawing cash when senior is underwater.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 13: GUARANTEE AND SECURITY STRUCTURES -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 13 / CAPITAL STRUCTURE</div>
+      <h2 class="card-title">Guarantee &amp; Security Structures</h2>
+      <div class="card-body">
+        <p>A debt facility is only as strong as the guarantees and collateral backing it.</p>
+        <div class="metric-item">
+          <div class="metric-name">Upstream Guarantee</div>
+          <div class="metric-def">Subsidiary guarantees parent (holdco) debt. Asset flow goes from subsidiary up to holdco. Used in leveraged deals where debt sits at holdco level.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Downstream Guarantee</div>
+          <div class="metric-def">Parent guarantees subsidiary debt. Rare but used when subsidiary has significant third-party creditors (trade, leases) and parent wants to comfort them.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Cross-Stream Guarantee</div>
+          <div class="metric-def">One subsidiary guarantees debt of another (sister company). Creates exposure if sister company defaults. Risk: negative covenant creep (guarantor's ability to repay declines as sister company deteriorates).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Security Package</div>
+          <div class="metric-def">Share pledges (of subsidiaries), asset charges (equipment, IP), floating charges (all assets, moves around), all-assets debentures (catches everything). Each layer requires separate filing and has priority rules (first-filed, first-in-right-of-priority).</div>
+        </div>
+        <div class="warning-box">
+          <strong>Financial Assistance Doctrine (UK/EU)</strong>
+          <p>A company cannot give financial assistance for acquisition of its own shares (except narrow exceptions). Restructuring advisors must check whether debt/guarantees violate these rules—if so, debt may be unenforceable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 14: CAPITAL STRUCTURE COMPARISON -->
+  <div class="beat beat-card comparison-wide">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 14 / CAPITAL STRUCTURE</div>
+      <h2 class="card-title">Capital Structure Comparison</h2>
+      <div class="card-body">
+        <p>Pre-distress vs post-restructuring—how does the waterfall change?</p>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Layer</div>
+            <div class="comparison-value"><strong>Senior Secured</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Pre-Distress</div>
+            <div class="comparison-value">$600M, 6.0x leverage</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Post-Restructuring</div>
+            <div class="comparison-value">$400M, 4.0x leverage</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Mechanism</div>
+            <div class="comparison-value">Partial paydown + covenant reset</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Layer</div>
+            <div class="comparison-value"><strong>Second Lien</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Pre-Distress</div>
+            <div class="comparison-value">$150M, 1.5x leverage</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Post-Restructuring</div>
+            <div class="comparison-value">$0 (converted to equity)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Mechanism</div>
+            <div class="comparison-value">Debt-to-equity swap + equity upside</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Layer</div>
+            <div class="comparison-value"><strong>Senior Unsecured</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Pre-Distress</div>
+            <div class="comparison-value">$200M bonds</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Post-Restructuring</div>
+            <div class="comparison-value">$100M (50% haircut) + 20% equity</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Mechanism</div>
+            <div class="comparison-value">Cash-for-claims + equity sweetener</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Layer</div>
+            <div class="comparison-value"><strong>Subordinated</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Pre-Distress</div>
+            <div class="comparison-value">$100M notes</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Post-Restructuring</div>
+            <div class="comparison-value">$0 (writeoff)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Mechanism</div>
+            <div class="comparison-value">No recovery; in-the-money on equity</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Layer</div>
+            <div class="comparison-value"><strong>Equity</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Pre-Distress</div>
+            <div class="comparison-value">Sponsor (100%)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Post-Restructuring</div>
+            <div class="comparison-value">30% sponsor / 50% former unsecured / 20% other</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Mechanism</div>
+            <div class="comparison-value">Dilution for creditor recovery</div>
+          </div>
+        </div>
+        <p style="margin-top: 24px; color: var(--text-muted); font-size: 15px; line-height: 1.7;">Typical outcome: leverage cut from 7.5x to 4x, interest coverage improved from 1.0x to 2.5x EBITDA, maturity extended 3–5 years. Sponsor diluted significantly but retains control or meaningful upside.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART III LABEL -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div style="text-align: center;">
+        <div class="part-label">PART III — RESTRUCTURING TOOLKIT</div>
+        <p style="margin-top: 32px; font-size: 18px; color: var(--text-muted); line-height: 1.8;">The tools available depend on jurisdiction, capital structure, and creditor consensus. Each has strengths and weaknesses.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 15: OUT-OF-COURT WORKOUTS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 15 / RESTRUCTURING TOOLKIT</div>
+      <h2 class="card-title">Out-of-Court Workouts</h2>
+      <div class="card-body">
+        <p>Fast, confidential, and cheap—but requires near-unanimous creditor consent. Why bother with courts if lenders agree?</p>
+        <div class="metric-item">
+          <div class="metric-name">Amend &amp; Extend (A&amp;E)</div>
+          <div class="metric-def">Extend maturity date (e.g., from 2026 to 2029), possibly tighten covenants, adjust pricing. Avoids default mechanics; creditors get paid eventually. Easiest to execute if cash flow will improve.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Waiver</div>
+          <div class="metric-def">Lender agrees to temporarily overlook covenant breach. Usually tied to milestones (achieve X EBITDA by Q3, reduce leverage to Y by Q4). Waiver can be followed by amend &amp; extend if milestones met.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Consent Solicitation</div>
+          <div class="metric-def">Bondholder vote to amend indenture terms (reset covenants, extend maturity, reduce coupon). Requires majority or supermajority consent. High-yield bonds often have this flexibility; investment-grade bonds are more rigid.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Exchange Offer</div>
+          <div class="metric-def">Creditors swap existing debt for new debt with different terms (lower coupon, extended maturity, secured by collateral). Incentive: new debt might be more valuable (e.g., priming lien) or equity kicker. Exchanging bonds avoids legal challenges.</div>
+        </div>
+        <div class="warning-box">
+          <strong>The Hold-Out Problem</strong>
+          <p>If 95% of creditors agree to A&amp;E but 5% refuses, that 5% can still enforce (accelerate, foreclose). Holdouts hope the majority blinks and pays them in full. Courts sometimes force A&amp;E anyway (cram-down), but out-of-court workouts are vulnerable to hold-outs unless there are intercreditor agreements or supermajority voting locks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 16: STANDSTILL AGREEMENTS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 16 / RESTRUCTURING TOOLKIT</div>
+      <h2 class="card-title">Standstill Agreements</h2>
+      <div class="card-body">
+        <p>The gateway to every out-of-court restructuring. Creditors agree not to enforce in exchange for negotiation rights.</p>
+        <ul class="bullet-list">
+          <li><strong>Duration:</strong> 60–180 days, renewable if progress is shown</li>
+          <li><strong>Conditions:</strong> Creditors maintain minimum cash covenant, don't draw revolver irresponsibly, provide weekly cash reports</li>
+          <li><strong>Information undertakings:</strong> Company shares financial data, cash flow models, valuation reports</li>
+          <li><strong>Milestones:</strong> Asset sale, strategic buyer meetings, plan filing deadline</li>
+          <li><strong>Termination triggers:</strong> Material breach, bankruptcy filing elsewhere, change of control</li>
+        </ul>
+        <div class="metric-item">
+          <div class="metric-name">Lock-Up Agreements</div>
+          <div class="metric-def">Creditors pre-commit to support a specific plan. Prevents last-minute defection. Usually tied to completion of milestones and delivery of plan draft by agreed date. Lock-ups are the creditor-side equivalent of exclusivity in corporate M&amp;A.</div>
+        </div>
+        <div class="example-box">
+          <strong>Typical Standstill Timeline</strong>
+          <p>Day 1: Creditor covenant breach. Day 2: 120-day standstill signed by lenders, ad hoc committee formed. Weeks 2-6: Management and advisors develop plan, negotiate with fulcrum holder. Weeks 7-12: Plan documented and circulated. Week 13+: Creditor votes, bankruptcy filing if out-of-court fails.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 17: CHAPTER 11 (US) -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 17 / RESTRUCTURING TOOLKIT</div>
+      <h2 class="card-title">Chapter 11 (US)</h2>
+      <div class="card-body">
+        <p>The gold standard for corporate restructuring. Automatic stay stops all enforcement; plan can be crammed down on dissenting creditors.</p>
+        <ul class="bullet-list">
+          <li><strong>Automatic stay:</strong> Day 1 of filing, all lawsuits, foreclosures, and enforcement cease (with narrow exceptions). Breathing room to operate and restructure.</li>
+          <li><strong>Debtor-in-possession (DIP) financing:</strong> Company borrows money while in bankruptcy, with priming liens. DIP holders get paid before pre-petition claims.</li>
+          <li><strong>363 sale:</strong> Company can sell assets (or the entire business) outside the normal auction process, with court approval. Speed and certainty.</li>
+          <li><strong>Creditor committee (UCC):</strong> Unsecured creditors elect committee to negotiate on their behalf with management and secured creditors.</li>
+          <li><strong>Exclusivity period:</strong> Company has 120 days to file a plan (extendable). Prevents all creditors from filing competing plans simultaneously.</li>
+          <li><strong>Cramdown:</strong> Court can confirm a plan that dissenting creditors oppose if the plan is fair and equitable under absolute priority rule.</li>
+        </ul>
+        <div class="metric-item">
+          <div class="metric-name">Typical Chapter 11 Timeline</div>
+          <div class="metric-def">Filing to plan confirmation: 12–18 months (standard). Pre-packaged Chapter 11 (pre-negotiated plan): 3–6 months. Chapter 7 liquidation: 2–4 years if contested, faster if assets are liquid.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 18: SCHEME OF ARRANGEMENT (UK) -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 18 / RESTRUCTURING TOOLKIT</div>
+      <h2 class="card-title">Scheme of Arrangement (UK)</h2>
+      <div class="card-body">
+        <p>The UK's answer to Chapter 11: court-supervised compromise between company and creditors, with binding cramdown.</p>
+        <div class="metric-item">
+          <div class="metric-name">Voting Requirements</div>
+          <div class="metric-def">Scheme requires 75% by value AND majority by number in each class of creditors. Once approved, scheme is binding on all (including 25% holdouts). This cramdown power is much stronger than out-of-court workouts.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Cross-Class Cramdown (Part 26A)</div>
+          <div class="metric-def">Introduced in UK 2020. Court can now impose scheme across classes (e.g., force equity holders to approve plan) if at least one impaired class approves and court deems it fair. Previously impossible; now more flexible than Chapter 11 in some respects.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Advantages over Administration</div>
+          <div class="metric-def">Company remains in control (debtor-in-possession style), avoids administration costs and stigma, and can complete restructuring faster. No automatic stay equivalent, but court can grant temporary injunctions.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Non-UK Companies</div>
+          <div class="metric-def">Non-UK companies can use UK schemes if they have sufficient connection to UK (substantial UK operations, UK creditors, assets). Cross-border structures increasingly use schemes to catch UK-held debt and avoid separate insolvency proceedings.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 19: StaRUG (GERMANY) & OTHER EUROPEAN FRAMEWORKS -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 19 / RESTRUCTURING TOOLKIT</div>
+      <h2 class="card-title">StaRUG (Germany) &amp; Other European Frameworks</h2>
+      <div class="card-body">
+        <p>Europe is converging on US-style restructuring flexibility: preventive frameworks that avoid formal insolvency stigma.</p>
+        <div class="metric-item">
+          <div class="metric-name">German Stabilisation &amp; Restructuring Framework (StaRUG, 2021)</div>
+          <div class="metric-def">Preventive restructuring without formal insolvency filing. Company can conduct negotiations under court protection (temporarily) and impose agreed restructuring on dissenters (if majority class approves). Avoids insolvency stigma; preserves operating licenses.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">EU Restructuring Directive (2019)</div>
+          <div class="metric-def">Harmonises insolvency frameworks across EU members. Mandates early-warning systems, gives debtors negotiation rights, and allows cross-class cramdown. Goal: consistent restructuring toolkit across Europe (instead of running 27 parallel proceedings).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Dutch WHOA (2021)</div>
+          <div class="metric-def">Allows restructuring plan confirmation without formal insolvency (homolog-equivalent). Spain's homologación, France's conciliation—all trending toward preventive frameworks.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">The Trend</div>
+          <div class="metric-def">European jurisdictions moving toward US-style flexibility: debtors negotiate plans before formal insolvency, government supervision but not control, cramdown powers on dissidents. This makes Europe more attractive for cross-border restructurings.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 20: PRE-PACK ADMINISTRATION (UK) -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 20 / RESTRUCTURING TOOLKIT</div>
+      <h2 class="card-title">Pre-Pack Administration (UK)</h2>
+      <div class="card-body">
+        <p>Controversial but effective: business is sold on day one of administration, preserving going-concern value and avoiding months of uncertainty.</p>
+        <ul class="bullet-list">
+          <li><strong>Mechanics:</strong> Company negotiates a sale pre-insolvency (in secret). Enters administration on day one. Immediately completes 363-style sale to pre-agreed buyer. Avoids administration limbo.</li>
+          <li><strong>Speed advantage:</strong> Business continuity preserved; customer confidence maintained; employee morale maintained (new owner announced immediately).</li>
+          <li><strong>Downside:</strong> Unsecured creditors feel blindsided (sale negotiated before they even knew company was in trouble). Concern that secured creditors + management engineer low-ball sale to benefit themselves.</li>
+          <li><strong>SIP 16 disclosure:</strong> Pre-pack code now requires administrator to disclose sale terms and process to creditors post-completion. Transparency requirement, but limited remedies if pre-pack was unfair.</li>
+          <li><strong>Connected party reforms (2021):</strong> If seller and buyer are related parties, sale price must be independently valued and approved by liquidation committee. Limits insider abuse.</li>
+        </ul>
+        <div class="example-box">
+          <strong>Pre-Pack Scenario</strong>
+          <p>Company in distress, Friday EOD. Secured lender (private equity owner) negotiates sale to trade buyer (competitor). Sunday evening: administration appointment filed. Monday morning: new administrator appointed, sale completed to trade buyer by 9am. Tuesday: business operates under new ownership, trade payables paid, employees retained. Unsecured creditors notified post-completion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 21: DIP FINANCING -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 21 / RESTRUCTURING TOOLKIT</div>
+      <h2 class="card-title">DIP Financing</h2>
+      <div class="card-body">
+        <p>The lifeblood of Chapter 11. New cash to keep the company alive while restructuring happens. The lender takes extraordinary security and covenant protection.</p>
+        <div class="metric-item">
+          <div class="metric-name">Priming Liens</div>
+          <div class="metric-def">DIP lender's liens jump ahead of pre-petition secured creditors on the same collateral. Requires court approval and "adequate protection" for primed creditors (either replacement liens on other assets or cash payments). Controversial but necessary for distressed companies (no unencumbered assets to pledge).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Roll-Up DIP</div>
+          <div class="metric-def">DIP converts pre-petition debt claims into the DIP facility (debtor owes $100M pre-petition, borrows $50M DIP, which converts the $100M into DIP status). Controversial: pre-petition lenders get paid priority. Cramdown required if pre-petition secured lender doesn't consent.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">DIP Budget &amp; Milestones</div>
+          <div class="metric-def">DIP lender controls how cash is deployed. Strict budget oversight, weekly variance reporting, and milestone compliance (achieve asset sale by X date, file plan by Y date). If company misses milestones, DIP lender can accelerate and take over.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Professional Fee Carve-Outs</div>
+          <div class="metric-def">DIP budget includes allowance for restructuring advisors, counsel, and accountants (typically 2–5% of bankruptcy estate). Court caps professional fees and requires competitive bidding. Incentivizes lean advisory teams.</div>
+        </div>
+        <div class="warning-box">
+          <strong>DIP as Leverage</strong>
+          <p>If company needs $50M DIP to survive 6 months, DIP lender has extraordinary leverage. Lender can demand equity upside, board seats, and plan control. Threat of DIP denial forces plan acceptance. This is why DIP terms are negotiated simultaneously with the plan itself.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART IV LABEL -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div style="text-align: center;">
+        <div class="part-label">PART IV — DISTRESSED DEBT &amp; TRADING</div>
+        <p style="margin-top: 32px; font-size: 18px; color: var(--text-muted); line-height: 1.8;">When companies break, their debt trades at discounts. Smart traders buy broken debt cheap and control the restructuring. This is the distressed desk playbook.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 22: DISTRESSED DEBT MARKET -->
+  <div class="beat beat-card comparison-wide">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 22 / DISTRESSED DEBT</div>
+      <h2 class="card-title">Distressed Debt Market</h2>
+      <div class="card-body">
+        <p>Bonds and loans price on a spectrum. Par trading vs distressed depends on credit quality and liquidity.</p>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Category</div>
+            <div class="comparison-value"><strong>Par Trading</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Price Range</div>
+            <div class="comparison-value">90–100 cents</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Typical Hold Period</div>
+            <div class="comparison-value">Buy-and-hold to maturity</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Market Type</div>
+            <div class="comparison-value">Investment-grade, liquid</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Category</div>
+            <div class="comparison-value"><strong>Distressed</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Price Range</div>
+            <div class="comparison-value">20–60 cents</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Typical Hold Period</div>
+            <div class="comparison-value">6–24 months (restructuring)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Market Type</div>
+            <div class="comparison-value">Specialist buyers, illiquid</div>
+          </div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-col">
+            <div class="comparison-header">Category</div>
+            <div class="comparison-value"><strong>Defaulted</strong></div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Price Range</div>
+            <div class="comparison-value">5–30 cents</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Typical Hold Period</div>
+            <div class="comparison-value">12–36 months (post-default)</div>
+          </div>
+          <div class="comparison-col">
+            <div class="comparison-header">Market Type</div>
+            <div class="comparison-value">Workout value, liquidation risk</div>
+          </div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Key Market Participants</div>
+          <div class="metric-def">Distressed hedge funds (Oaktree, Apollo, Cerberus, Baupost), CLO managers (hedge their equity tranches by shorting equity or buying distressed debt), bank portfolio sales (forced sellers), insurance companies (value investors). Each has different time horizon and recovery expectations.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Bid-Ask Spreads</div>
+          <div class="metric-def">Par bonds: 0.5–2 points spread. Distressed: 5–20 points. Defaulted: 10–50 points. Wide spreads reflect liquidity risk: if you want to sell, you accept a steep discount. This is the trader's edge.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Settlement</div>
+          <div class="metric-def">Loans settle T+7 (vs T+2 for bonds). Slow settlement means positions stay open longer; margin and counterparty risk increase. This is why loan trading is more specialist-driven (fewer participants).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 23: LOAN-TO-OWN STRATEGY -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 23 / DISTRESSED DEBT</div>
+      <h2 class="card-title">Loan-to-Own Strategy</h2>
+      <div class="card-body">
+        <p>Buy fulcrum security at a discount, control the restructuring, convert debt to equity, take ownership at a fraction of going-concern value.</p>
+        <ul class="bullet-list">
+          <li><strong>Step 1:</strong> Identify the fulcrum (where value runs out in the capital structure)</li>
+          <li><strong>Step 2:</strong> Buy fulcrum security at 30–50 cents (distressed price)</li>
+          <li><strong>Step 3:</strong> Use position to control restructuring (seat on creditor committee, voting block)</li>
+          <li><strong>Step 4:</strong> Push plan that converts debt-to-equity and gives equity to fulcrum holders</li>
+          <li><strong>Step 5:</strong> Emerge from restructuring with controlling equity stake</li>
+          <li><strong>Step 6:</strong> Operate, improve, and eventually exit (3–7 years)</li>
+        </ul>
+        <div class="metric-item">
+          <div class="metric-name">Economics Example</div>
+          <div class="metric-def">Distressed fund buys $100M fulcrum debt at $40M (40 cents). Plan emerges with company value $300M. Fund converts debt to equity at $100M face = $120M equity stake (40% ownership). Exit 5 years later at 3.5x EBITDA = $490M enterprise value, fund's equity worth $196M = 4.9x return on $40M invested.</div>
+        </div>
+        <div class="warning-box">
+          <strong>Loan-to-Own Risk</strong>
+          <p>If enterprise value comes in lower than expected (say $200M instead of $300M), even fulcrum holders take a haircut. The fulcrum buyer assumes downside operational risk. This is why distressed funds perform deep fundamental diligence before buying—the numbers have to be very broken (deeply undervalued) to offer margin of safety.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 24: CREDIT BIDDING -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 24 / DISTRESSED DEBT</div>
+      <h2 class="card-title">Credit Bidding</h2>
+      <div class="card-body">
+        <p>Secured creditor bids their debt (at face value) to acquire assets in a 363 sale. No cash required—debt becomes equity in the new owner.</p>
+        <div class="metric-item">
+          <div class="metric-name">Mechanics</div>
+          <div class="metric-def">Secured lender has $100M first lien claim on company. In 363 sale, lender credit bids $100M (claims $100M in cash) to acquire the assets. Becomes owner of new company with $100M of debt erased. Lender effectively converts debt to equity (and owns the newco).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Advantages</div>
+          <div class="metric-def">Lender doesn't need to arrange new financing post-close; debt is extinguished automatically. Lender becomes operator, can improve business, and sells newco later (if turnaround succeeds) or liquidates it (if turnaround fails). Creates clarity: debt goes away, one clean owner emerges.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Tactical Use</div>
+          <div class="metric-def">Credit bid can set a floor price for an auction. If market buyers won't exceed the credit bid, lender's bid wins. This prevents below-recovery-value sales and incentivizes competitive bidding. Controversy: when credit bid price exceeds market value, it can override an actual cash bid at lower price (per RadLAX decision, limited remedy available).</div>
+        </div>
+        <div class="warning-box">
+          <strong>RadLAX Ruling (2012)</strong>
+          <p>Court restricted lender's unilateral right to credit bid in Chapter 7 liquidations. Now lenders must compete with cash bidders if higher value available. Limits lender's ability to take over company at below-market valuation. Still controversial; not clearly settled in all courts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 25: DISTRESSED VALUATION -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 25 / DISTRESSED DEBT</div>
+      <h2 class="card-title">Distressed Valuation</h2>
+      <div class="card-body">
+        <p>Valuing a broken company is an art, not a science. Recovery analysis drives the numbers.</p>
+        <ul class="bullet-list">
+          <li><strong>Enterprise value waterfall:</strong> Estimate going-concern EV, layer in senior claims, see what's left for fulcrum. Works backward from outcomes.</li>
+          <li><strong>Comparable restructurings:</strong> What did similar companies emerge at post-Chapter 11? Multiple of EBITDA, EV/Revenue, EV/Book value?</li>
+          <li><strong>Plan-of-reorganisation scenarios:</strong> Base case (achievable), upside case (best-case turnaround), downside case (deterioration continues). Recovery ranges from each.</li>
+          <li><strong>Contingent liabilities:</strong> Pension deficits, environmental remediation, litigation reserves. These reduce net value available to creditors.</li>
+        </ul>
+        <div class="metric-item">
+          <div class="metric-name">Valuation Range, Not Point Estimate</div>
+          <div class="metric-def">Distressed valuations always produce a range (e.g., $200–300M EV). Wider range = higher uncertainty = higher risk for buyers. Distressed traders demand discount for the range. This is why consensus on valuation is critical—wider range means lower recovery expectations and steeper haircuts.</div>
+        </div>
+        <div class="example-box">
+          <strong>Distressed Valuation Example</strong>
+          <p>Company in distress. Base case EV: $500M (DCF at 6x EBITDA). Senior secured claims: $400M. Senior unsecured: $200M. Downside EV: $300M (senior secured gets $300M, unsecured gets $0). Upside EV: $700M (senior gets $400M, unsecured gets $300M). Valuation range means senior unsecured recovery spans 0–150%. Investors bid accordingly (steep discount to par if downside likely).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 26: KEY PLAYERS IN RESTRUCTURING -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 26 / DISTRESSED DEBT</div>
+      <h2 class="card-title">Key Players in Restructuring</h2>
+      <div class="card-body">
+        <p>Every restructuring involves specialized advisors and investors. Understanding who they are (and their incentives) is critical.</p>
+        <div class="metric-item">
+          <div class="metric-name">Restructuring Advisors</div>
+          <div class="metric-def">Houlihan Lokey, PJT Partners, Lazard, Rothschild, FTI Consulting. Provide financial modeling, distressed valuation, creditor committee advisory, plan negotiation. Fees: hourly (engagement letter) or success-based (contingent on plan confirmation). Conflict: more fees if process is longer or messier.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Financial Sponsors &amp; Distressed Funds</div>
+          <div class="metric-def">Apollo, Oaktree, Cerberus, Baupost, Carlyle, Advent. Buy distressed debt or provide acquisition capital in restructuring. Bring operational expertise and turnaround capability. Often take control seats on board post-emergence.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Creditor Committees</div>
+          <div class="metric-def">UCC (Unsecured Creditors Committee) in Chapter 11, ad hoc groups in out-of-court workouts. Represent specific creditor classes in negotiations. Hire own advisors (restructuring counsel, financial advisors). Goal: negotiate best recovery for their constituency.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Turnaround Managers</div>
+          <div class="metric-def">AlixPartners, FTI Consulting, Restructuring advisors. Interim managers or CFOs who take over day-to-day operations during Chapter 11. Focus on liquidity preservation, EBITDA improvement, and asset sales. Fees: $200K–$500K+ monthly. Expensive but often necessary.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Legal Advisors</div>
+          <div class="metric-def">Weil Gotshal, Kirkland &amp; Ellis, Latham &amp; Watkins, Freshfields (UK), Paul Hastings. Debtor's counsel, creditor's counsel, special committee counsel. White-shoe firms dominate distressed (high stakes, complex negotiations). Fees: hourly, can exceed $1M+ for complex Chapter 11.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART V LABEL -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div style="text-align: center;">
+        <div class="part-label">PART V — DILIGENCE RED FLAGS</div>
+        <p style="margin-top: 32px; font-size: 18px; color: var(--text-muted); line-height: 1.8;">Distressed investing and restructuring advisory are detective sports. Know the red flags before they blow up in your face.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 27: FRAUDULENT TRANSFER & PREFERENCE RISK -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 27 / RED FLAGS</div>
+      <h2 class="card-title">Fraudulent Transfer &amp; Preference Risk</h2>
+      <div class="card-body">
+        <p>Insolvency courts can claw back transactions made in the distress window. Every payment, every dividend, every asset sale is vulnerable.</p>
+        <div class="metric-item">
+          <div class="metric-name">Preference Period</div>
+          <div class="metric-def">US: 90 days before bankruptcy for ordinary creditors, 1 year for insiders. If company pays Creditor A but not Creditor B in the preference period, Creditor A's payment can be clawed back (creditors are equal in insolvency). International: varies (UK 2 years for insolvency act preferences, Germany 10 years for fraudulent transfers).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Fraudulent Transfer</div>
+          <div class="metric-def">Transactions at undervalue or with intent to defraud creditors. Examples: asset sale to affiliate at 50 cents on the dollar, dividend recap when company was insolvent, LBO of company (high debt, low value to equity). Bankruptcy trustee can unwind these transfers and recover proceeds.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">LBO Debt Risk</div>
+          <div class="metric-def">Leveraged recaps (borrow to pay dividend), dividend recaps (lever balance sheet to fund distributions), sponsor-side recaps (take cash out, increase debt). All vulnerable to clawback if company becomes insolvent within 2–4 years post-transaction. Seniority of LBO debt doesn't protect against clawback—clawed-back funds go back into estate (pro-rata to all creditors).</div>
+        </div>
+        <div class="warning-box">
+          <strong>Clawback Risk for Distressed Buyers</strong>
+          <p>If you buy distressed debt and the company files bankruptcy, old management might have made fraudulent transfers years earlier. New court-appointed trustee investigates, claws back transfers, and uses proceeds to improve recovery for unsecured creditors. Secured lender's position unaffected, but unsecured (your position) might improve or decline depending on trustee's success. Always check transaction history.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 28: HIDDEN LIABILITIES -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 28 / RED FLAGS</div>
+      <h2 class="card-title">Hidden Liabilities</h2>
+      <div class="card-body">
+        <p>Off-balance-sheet obligations that emerge in restructuring and eviscerate recovery. Every distressed valuation depends on accurate liability mapping.</p>
+        <div class="metric-item">
+          <div class="metric-name">Pension Deficits</div>
+          <div class="metric-def">UK: PPF (Pension Protection Fund) becomes plan sponsor; company usually pays 50–75% of pension deficit over 10 years. US: PBGC (Pension Benefit Guaranty Corporation) takes over; company liable for premium but usually discharged of underfunding liability in bankruptcy. Either way: massive cash drain in restructuring.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Environmental Obligations</div>
+          <div class="metric-def">Cleanup liability (Phase I soil contamination, groundwater remediation, site restoration). Not dischargeable in bankruptcy if there's collateral securing the obligation. Cost: $5M–$500M+ depending on industry (manufacturing, chemicals, oil refining especially risky).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Multi-Employer Pension Withdrawal Liability</div>
+          <div class="metric-def">Company participates in union pension plan. On company insolvency or exit, company liable for pro-rata share of plan's underfunding. Can be $10M–$100M+ for large employers. Effectively unsecured creditor claim (PBGC claims priority but company's share is junior).</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Contingent Litigation Claims</div>
+          <div class="metric-def">Pending lawsuits, regulatory investigations, product liability class actions. Many disclosed but reserves are often understated. Example: automotive supplier with pending recall litigation might face $50M+ liability that's not on balance sheet (buried in footnote, estimated at $5M).</div>
+        </div>
+        <div class="example-box">
+          <strong>Hidden Liability Impact on Recovery</strong>
+          <p>Company valued at $500M EBITDA. Distressed investor calculates 4x EBITDA = $2B enterprise value. On deeper digging: $200M pension deficit, $150M environmental cleanup, $100M litigation liability, $50M multi-employer pension withdrawal. Adjusted liability: $500M. True enterprise value: $1.5B (not $2B). Recovery estimates drop 25%. Fulcrum security haircut widens from 30% to 45%.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 29: MANAGEMENT CREDIBILITY & LIQUIDITY -->
+  <div class="beat beat-card">
+    <div class="beat-inner">
+      <div class="card-label">BEAT 29 / RED FLAGS</div>
+      <h2 class="card-title">Management Credibility &amp; Liquidity</h2>
+      <div class="card-body">
+        <p>In distress, management has massive incentive to lie. The 13-week cash flow is your lie detector.</p>
+        <div class="metric-item">
+          <div class="metric-name">Common Manipulation Tactics</div>
+          <div class="metric-def">Stretch payables (pay suppliers in 90 days instead of 30), delay payroll (accrue but don't pay until month-end), draw down revolver (inflate "cash receipts"), sell receivables at discount (boost cash in month 1, lose recurring revenue). All show temporary liquidity improvement but mask underlying deterioration.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">13-Week Cash Flow as Truth Serum</div>
+          <div class="metric-def">Compare 13-week projections to actual bank statements (weekly). If company says it collected $10M in week 3 but bank shows $7M, something is wrong. If payables stretch to 60 days but cash flow still shows weekly deficit, company is cannibalizing operations. Weekly granularity prevents hiding.</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">Liquidity Runway as Negotiating Power</div>
+          <div class="metric-def">Company with 12 weeks of runway: flexible negotiator, can hold out for better terms. Company with 2 weeks of runway: desperate, accepts whatever lenders offer. This is why DIP negotiation happens simultaneously with plan negotiation—DIP terms determine who controls the timeline.</div>
+        </div>
+        <div class="warning-box">
+          <strong>The Countdown Clock</strong>
+          <p>Restructuring advisors always start with the liquidity runway. If company runs out of cash in 4 weeks, plan must be filed in week 1 (to secure DIP approval by week 2 and draw DIP by week 3). Runway is not flexible; it's the ultimate negotiating deadline. Once you know the runway, you can predict which creditor gets squeezed hardest (the last creditor to agree to standstill or plan terms).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINALE BEAT -->
+  <div class="beat beat-scene">
+    <div class="beat-inner">
+      <div class="scene-location">RESTRUCTURING &amp; SPECIAL SITUATIONS SPECIAL COMPLETE</div>
+      <div class="scene-text">
+        <p>You've navigated the full restructuring landscape: from early warning signs and zone-of-insolvency triggers, through the capital structure waterfall and inter-creditor dynamics, to the full toolkit of workouts, Chapter 11, schemes of arrangement, and DIP financing. You understand distressed debt trading, loan-to-own strategies, and the recovery analysis that drives every restructuring negotiation.</p>
+        <p>Restructuring is adversarial by nature. Every dollar recovered by one creditor class is a dollar lost by another. The fulcrum security holder has the leverage. The company's liquidity runway sets the clock. The legal framework determines the rules. Success comes from understanding all three simultaneously — and being prepared to act decisively when the window opens.</p>
+        <p><strong>Remember:</strong> In restructuring, the numbers are necessary but not sufficient. Understanding the legal framework, the creditor dynamics, and the human incentives is what separates a good restructuring advisor from a spreadsheet jockey. The best outcomes are negotiated, not litigated.</p>
+        <div style="margin-top: 24px; text-align: center;">
+          <a href="G2G_Restructuring_Reference.pdf" download target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #6b2fa0, #d946ef); color: #fff; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 15px; box-shadow: 0 4px 15px rgba(107,47,160,0.4);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Restructuring Cram Sheet
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER NAV ROW (finale beat) -->
+  <div class="beat beat-scene">
+    <div class="beat-inner">
+      <div class="chapter-nav-row">
+        <a href="ch22.html" class="prev-chapter-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+          <span class="btn-label"><span class="btn-next">Previous Chapter</span><span class="btn-title">The Business Services &amp; Outsourcing Special</span></span>
+        </a>
+        <a href="ch24.html" class="next-chapter-btn">
+          <span class="btn-label"><span class="btn-next">Next Chapter</span><span class="btn-title">The M&amp;A Advisory Special</span></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentBeat = 0;
+    let startY = 0;
+    let isAnimating = false;
+    const beats = document.querySelectorAll('.beat');
+    const totalBeats = beats.length;
+
+    function positionBeats() {
+      beats.forEach((beat, i) => {
+        if (i < currentBeat) {
+          beat.style.transform = 'translateY(-100vh)';
+          beat.style.opacity = '0';
+          beat.style.pointerEvents = 'none';
+          beat.style.visibility = 'hidden';
+        } else if (i === currentBeat) {
+          beat.style.transform = 'translateY(0)';
+          beat.style.opacity = '1';
+          beat.style.pointerEvents = 'auto';
+          beat.style.visibility = 'visible';
+        } else {
+          beat.style.transform = 'translateY(100vh)';
+          beat.style.opacity = '0';
+          beat.style.pointerEvents = 'none';
+          beat.style.visibility = 'hidden';
+        }
+      });
+    }
+
+    function updateCounter() {
+      const counter = document.getElementById('beatCounter');
+      if (counter) counter.textContent = `${currentBeat + 1} / ${totalBeats}`;
+    }
+
+    function updateProgress() {
+      // Progress bar removed (nav dots replaced it)
+    }
+
+    function goTo(index) {
+      if (isAnimating || index < 0 || index >= totalBeats) return;
+      isAnimating = true;
+      const direction = index > currentBeat ? -1 : 1;
+      beats[currentBeat].style.transform = `translateY(${direction * 100}vh)`;
+      beats[currentBeat].style.opacity = '0';
+      beats[currentBeat].style.pointerEvents = 'none';
+      beats[currentBeat].style.visibility = 'hidden';
+      beats[index].style.transform = 'translateY(0)';
+      beats[index].style.opacity = '1';
+      beats[index].style.pointerEvents = 'auto';
+      beats[index].style.visibility = 'visible';
+      currentBeat = index;
+      updateCounter();
+      updateProgress();
+      saveProgress();
+      document.querySelectorAll('.nav-dots .dot').forEach((d, di) => d.classList.toggle('active', di === currentBeat));
+      const hint = document.getElementById('swipeHint');
+      if (hint) {
+        hint.style.opacity = '0';
+        setTimeout(() => hint.remove(), 500);
+        try { localStorage.setItem('g2g-swipe-seen', '1'); } catch(e) {}
+      }
+      setTimeout(() => { isAnimating = false; }, 350);
+    }
+
+    document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+    document.addEventListener('touchend', e => {
+      const beat = beats[currentBeat];
+      const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+      const atTop = beat.scrollTop <= 5;
+      const diff = startY - e.changedTouches[0].clientY;
+      if (diff > 50 && atBottom) goTo(currentBeat + 1);
+      if (diff < -50 && atTop) goTo(currentBeat - 1);
+    }, { passive: true });
+
+    let wheelAccum = 0;
+    let wheelTimer = null;
+    document.addEventListener('wheel', e => {
+      const beat = beats[currentBeat];
+      const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+      const atTop = beat.scrollTop <= 5;
+      wheelAccum += e.deltaY;
+      clearTimeout(wheelTimer);
+      wheelTimer = setTimeout(() => { wheelAccum = 0; }, 200);
+      if (wheelAccum > 50 && atBottom) { wheelAccum = 0; goTo(currentBeat + 1); }
+      if (wheelAccum < -50 && atTop) { wheelAccum = 0; goTo(currentBeat - 1); }
+    }, { passive: true });
+
+    document.addEventListener('keydown', e => {
+      const beat = beats[currentBeat];
+      const atBottom = beat.scrollTop + beat.clientHeight >= beat.scrollHeight - 5;
+      const atTop = beat.scrollTop <= 5;
+      if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key)) {
+        if (atBottom) { e.preventDefault(); goTo(currentBeat + 1); }
+      } else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) {
+        if (atTop) { e.preventDefault(); goTo(currentBeat - 1); }
+      } else if (e.key === ' ') {
+        e.preventDefault();
+        if (atBottom) goTo(currentBeat + 1);
+        else beat.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+      } else if (e.key === 'Home') {
+        e.preventDefault(); goTo(0);
+      } else if (e.key === 'End') {
+        e.preventDefault(); goTo(totalBeats - 1);
+      }
+    });
+
+    const swipeHint = document.getElementById('swipeHint');
+    if (swipeHint) {
+      try { if (localStorage.getItem('g2g-swipe-seen')) swipeHint.remove(); } catch(e) {}
+    }
+
+    const navContainer = document.querySelector('.nav-dots');
+    for (let i = 0; i < totalBeats; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goTo(i);
+      navContainer.appendChild(dot);
+    }
+
+    positionBeats();
+
+    // Create nav dots
+    (function() {
+      var navEl = document.querySelector('.nav-dots');
+      if (!navEl) {
+        navEl = document.createElement('div');
+        navEl.className = 'nav-dots';
+        navEl.id = 'navDots';
+        document.body.appendChild(navEl);
+      }
+      var beats = document.querySelectorAll('.beat');
+      navEl.innerHTML = '';
+      for (var i = 0; i < beats.length; i++) {
+        var dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.dataset.index = i;
+        dot.addEventListener('click', function() {
+          var idx = parseInt(this.dataset.index);
+          if (typeof goTo === 'function') goTo(idx);
+        });
+        navEl.appendChild(dot);
+      }
+    })();
+
+    updateCounter();
+    updateProgress();
+
+    const CHAPTER_NUM = 23;
+    function saveProgress() {
+      try { localStorage.setItem('g2g-progress-ch' + CHAPTER_NUM, currentBeat); } catch(e) {}
+    }
+
+    (function() {
+      try {
+        const saved = parseInt(localStorage.getItem('g2g-progress-ch' + CHAPTER_NUM));
+        if (saved && saved > 0 && saved < totalBeats) {
+          const toast = document.createElement('div');
+          toast.className = 'resume-toast';
+          toast.innerHTML = `<span>Resume from beat ${saved + 1}?</span><button onclick="goTo(${saved}); this.parentNode.remove();">Resume</button><button onclick="this.parentNode.remove();">Start Over</button>`;
+          document.body.appendChild(toast);
+          setTimeout(() => { if (toast.parentNode) toast.remove(); }, 8000);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</body>
+</html>
