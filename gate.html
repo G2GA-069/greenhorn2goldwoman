@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6b2fa0">
+  <title>G2G Advisory — Access</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a0c;
+      background-image: radial-gradient(circle, rgba(107, 47, 160, 0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      color: #e8e4df;
+      font-family: 'Inter', -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .gate {
+      text-align: center;
+      max-width: 440px;
+      width: 90%;
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .gate-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #7a55b0;
+      margin-bottom: 20px;
+    }
+
+    .gate-title {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #e8e4df 0%, #c49aee 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gate-subtitle {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 18px;
+      color: #a8a4b0;
+      font-style: italic;
+      margin-bottom: 40px;
+    }
+
+    .gate-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .gate-input {
+      width: 100%;
+      max-width: 340px;
+      padding: 14px 20px;
+      background: #131318;
+      border: 1px solid #2a2a35;
+      border-radius: 8px;
+      color: #e8e4df;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .gate-input::placeholder {
+      color: #6a6670;
+      letter-spacing: 0.5px;
+    }
+
+    .gate-input:focus {
+      border-color: #7a55b0;
+      box-shadow: 0 0 20px rgba(107, 47, 160, 0.2);
+    }
+
+    .gate-input.error {
+      border-color: #ff3b30;
+      box-shadow: 0 0 20px rgba(255, 59, 48, 0.15);
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      50% { transform: translateX(8px); }
+      75% { transform: translateX(-4px); }
+    }
+
+    .gate-btn {
+      width: 100%;
+      max-width: 340px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #6b2fa0 0%, #d946ef 100%);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    .gate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(107, 47, 160, 0.4);
+    }
+
+    .gate-btn:active {
+      transform: translateY(0);
+    }
+
+    .gate-error {
+      font-size: 13px;
+      color: #ff3b30;
+      height: 20px;
+      margin-top: 4px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gate-error.visible {
+      opacity: 1;
+    }
+
+    .gate-footer {
+      margin-top: 48px;
+      font-size: 12px;
+      color: #4a4650;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="gate">
+    <div class="gate-label">Early Access</div>
+    <h1 class="gate-title">From Greenhorn to Gold(wo)man</h1>
+    <p class="gate-subtitle">Corporate Finance. Through Story.</p>
+
+    <form class="gate-form" onsubmit="return handleSubmit(event)">
+      <input
+        type="password"
+        class="gate-input"
+        id="pw"
+        placeholder="Enter access code"
+        autocomplete="off"
+        autofocus
+      />
+      <button type="submit" class="gate-btn">Enter</button>
+      <div class="gate-error" id="err">Incorrect access code</div>
+    </form>
+
+    <div class="gate-footer">G2G Advisory</div>
+  </div>
+
+  <script>
+    // SHA-256 hash of the password — the plaintext is never in the source
+    const HASH = '50d49220f34c0713fa9930e4883de0c28ca999549ba57fe284994ae1011dcd49';
+
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest('SHA-256',
+        new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf))
+        .map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    // Check if already authenticated
+    if (document.cookie.includes('g2g_auth=1')) {
+      window.location.replace('index.html');
+    }
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const pw = document.getElementById('pw');
+      const err = document.getElementById('err');
+      const hash = await sha256(pw.value);
+
+      if (hash === HASH) {
+        // Set cookie — expires in 30 days
+        const d = new Date();
+        d.setTime(d.getTime() + 30 * 24 * 60 * 60 * 1000);
+        document.cookie = 'g2g_auth=1;expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+        window.location.replace('index.html');
+      } else {
+        pw.classList.add('error');
+        err.classList.add('visible');
+        setTimeout(() => {
+          pw.classList.remove('error');
+          err.classList.remove('visible');
+        }, 2000);
+        pw.value = '';
+        pw.focus();
+      }
+      return false;
+    }
+
+    // Enter key support
+    document.getElementById('pw').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') handleSubmit(e);
+    });
+  </script>
+</body>
+</html>

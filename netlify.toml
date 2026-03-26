@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+# Redirect root to the password gate
+[[redirects]]
+  from = "/"
+  to = "/gate.html"
+  status = 200
