@@ -912,9 +912,58 @@ body {
   .chapter-nav-row { flex-direction: column; align-items: stretch; }
   .prev-chapter-btn, .next-chapter-btn { margin-top: 8px; justify-content: center; }
 }
+
+/* ===== JOURNEY PROGRESS BAR ===== */
+.journey-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 9999;
+  background: rgba(42, 42, 53, 0.6);
+  pointer-events: none;
+}
+.journey-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--brand-purple, #6b2fa0), var(--accent, #b07ce8), var(--brand-magenta, #d946ef));
+  border-radius: 0 2px 2px 0;
+  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 8px rgba(176, 124, 232, 0.4);
+}
+.journey-label {
+  position: fixed;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim, #9a95a0);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10000;
+  white-space: nowrap;
+}
+.journey-bar:hover + .journey-label,
+.journey-label.show {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .journey-bar { height: 2px; }
+  .journey-label { font-size: 9px; top: 5px; }
+}
 </style>
 </head>
 <body>
+<!-- Journey Progress Bar -->
+<div class="journey-bar"><div class="journey-fill" id="journeyFill"></div></div>
+<div class="journey-label" id="journeyLabel"></div>
+
 
 <a href="../index.html" class="back-button">← Back</a>
 <div class="beat-counter" id="beatCounter"></div>
@@ -1791,6 +1840,52 @@ document.addEventListener('keydown', (e) => {
     window.scrollBy({ top: -window.innerHeight * 0.8, behavior: 'smooth' });
   }
 });
+
+
+// ===== JOURNEY PROGRESS BAR =====
+const JOURNEY_CHAPTER = 10;
+const JOURNEY_BEATS_BEFORE = 272;
+const JOURNEY_BEATS_THIS = 42;
+const JOURNEY_TOTAL = 355;
+
+function updateJourneyBar() {
+  const fill = document.getElementById('journeyFill');
+  const label = document.getElementById('journeyLabel');
+  if (!fill || !label) return;
+
+  const beatsCompleted = JOURNEY_BEATS_BEFORE + currentBeat;
+  const pct = Math.min((beatsCompleted / JOURNEY_TOTAL) * 100, 100);
+  fill.style.width = pct.toFixed(1) + '%';
+  label.textContent = 'Chapter ' + JOURNEY_CHAPTER + ' of 12 — ' + Math.round(pct) + '% complete';
+}
+
+// Show label briefly on chapter load, then hide
+setTimeout(() => {
+  const label = document.getElementById('journeyLabel');
+  if (label) {
+    label.classList.add('show');
+    setTimeout(() => label.classList.remove('show'), 2500);
+  }
+}, 800);
+
+// Hook into existing updateProgress
+const _origUpdateProgress = updateProgress;
+updateProgress = function() {
+  _origUpdateProgress();
+  updateJourneyBar();
+};
+
+// Also update on positionBeats (initial load)
+const _origPositionBeats = typeof positionBeats === 'function' ? positionBeats : null;
+if (_origPositionBeats) {
+  positionBeats = function() {
+    _origPositionBeats();
+    updateJourneyBar();
+  };
+}
+
+// Initial state
+updateJourneyBar();
 
 </script>
 </body>
